@@ -24,6 +24,7 @@ gem 'less-rails'
 gem 'twitter-bootstrap-rails', '2.2.8'
 gem 'puma'
 gem 'foreman'
+gem 'rails_config'
 
 group :development do
   gem 'pry-rails'
