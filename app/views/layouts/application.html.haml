@@ -12,37 +12,14 @@
       .container
         .navbar-header
           = link_to Settings.service.name, root_path, class: 'navbar-brand'
-
-          %button.navbar-toggle{"data-target" => "#navbar-main", "data-toggle" => "collapse", :type => "button"}
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
         #navbar-main.navbar-collapse.collapse
           %ul.nav.navbar-nav
             %li
-              %a{:href => "http://news.bootswatch.com"} Blog
-            %li.dropdown
-              %a#download.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-                Download
-                %span.caret
-              %ul.dropdown-menu{"aria-labelledby" => "download"}
-                %li
-                  %a{:href => "./bootstrap.min.css"} bootstrap.min.css
-                %li
-                  %a{:href => "./bootstrap.css"} bootstrap.css
-                %li.divider
-                %li
-                  %a{:href => "./variables.less"} variables.less
-                %li
-                  %a{:href => "./bootswatch.less"} bootswatch.less
+              %a{ href: "http://exsample.com" } Exsample
           %ul.nav.navbar-nav.navbar-right
             %li
-
               = link_to t('users.login'), '/auth/facebook'
     .container
       #banner.page-header
         .row
       = yield
-    %script{:src => "https://code.jquery.com/jquery-1.10.2.min.js"}
-    %script{:src => "../bower_components/bootstrap/dist/js/bootstrap.min.js"}
-    %script{:src => "../assets/js/bootswatch.js"}
