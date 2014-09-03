@@ -30,6 +30,7 @@ gem 'rails4_acts_as_paranoid',  '~> 0.1.4'
 gem 'paperclip'
 gem 'aws-sdk'
 gem "acts-as-taggable-on"
+gem 'kaminari'
 
 group :development do
   gem 'pry-rails'
