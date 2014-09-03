@@ -1,9 +1,10 @@
 %h1= t('users.edit.type_your_nick_name')
 .row
   .span6.offset3
-    = form_for(@current_user) do |f|
+    = form_for @current_user, html: { multipart: true } do |f|
       -# ToDo(sachin21) Create error message method # render 'shared/error_messages'
       = f.label :nick_name
       = f.text_field :nick_name
+      = f.file_field :avatar
       = f.submit t('users.edit.submit'), class: "btn btn-large btn-primary"
     %a{:href => "http://gravatar.com/emails"} change
