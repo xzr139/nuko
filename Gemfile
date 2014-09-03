@@ -26,6 +26,8 @@ gem 'puma'
 gem 'foreman'
 gem 'rails_config'
 gem 'rails4_acts_as_paranoid',  '~> 0.1.4'
+gem 'paperclip'
+gem 'aws-sdk'
 
 group :development do
   gem 'pry-rails'
