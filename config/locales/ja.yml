@@ -1,8 +1,11 @@
 ja:
+  common:
+    show_profile: 'プロフィールを見る'
   users:
     edit:
       type_your_nick_name: "ニックネームを入力してください"
       submit: "Save changes"
+      edit_profile: 'プロフィールを編集する'
     update:
       complate_update_nick_name: "ニックネームの保存が完了しました"
     login: "ログイン"

@@ -1,0 +1,6 @@
+%h1= t('users.edit.type_your_nick_name')
+.row
+  .span6.offset3
+    = link_to t('users.edit.edit_profile'), edit_user_path
+    = current_user.full_name
+    = profile_image(current_user)

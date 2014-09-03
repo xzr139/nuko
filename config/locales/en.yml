@@ -1,8 +1,11 @@
 en:
+  common:
+    show_profile: 'Show your profile'
   users:
     edit:
       type_your_nick_name: "Edit your nick name"
       submit: "Save changes"
+      edit_profile: 'Edit your profile'
     update:
       complate_update_nick_name: "Done update nick name"
     login: "Login"
