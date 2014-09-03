@@ -1,4 +1,11 @@
 class User < ActiveRecord::Base
+  has_attached_file :avatar,
+    styles: { medium: "300x300>", thumb: "100x100>" },
+    default_url: "/images/:style/missing.png"
+
+  validates_attachment_content_type :avatar,
+    content_type: /\Aimage\/.*\Z/
+
   def self.set_data_from_omnifb_info(fb_info)
     where(facebook_id: fb_info['uid']).first_or_create(
       facebook_id:  fb_info['uid'],
