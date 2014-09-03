@@ -22,16 +22,13 @@ gem 'jpmobile'
 gem 'execjs'
 gem 'less-rails'
 gem 'twitter-bootswatch-rails-helpers'
+gem 'twitter-bootswatch-rails',  '~> 3.2.0.0'
 gem 'puma'
 gem 'foreman'
 gem 'rails_config'
 gem 'rails4_acts_as_paranoid',  '~> 0.1.4'
 gem 'paperclip'
 gem 'aws-sdk'
-
-group :assets do
-  gem 'twitter-bootswatch-rails',  '~> 3.2.0.0'
-end
 
 group :development do
   gem 'pry-rails'
