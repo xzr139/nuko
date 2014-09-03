@@ -5,6 +5,7 @@
       %ul
         - @feed.errors.full_messages.each do |msg|
           %li= msg
-
   .actions
+    = f.text_field :title
+    = f.text_area :content
     = f.submit 'Save'
