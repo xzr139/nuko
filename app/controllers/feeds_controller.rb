@@ -2,21 +2,18 @@ class FeedsController < ApplicationController
   before_action :set_feed, only: [:show, :edit, :update, :destroy]
 
   def index
+    @feed = Feed.new
     @feeds = Feed.all
   end
 
   def show
   end
 
-  def new
-    @feed = Feed.new
-  end
-
   def edit
   end
 
   def create
-    @feed = Feed.new(feed_params)
+    @feed = current_user.feeds.build(feed_params)
 
     respond_to do |format|
       if @feed.save
@@ -56,6 +53,6 @@ class FeedsController < ApplicationController
   end
 
   def feed_params
-    params[:feed]
+    params.require(:feed).permit(:title, :content)
   end
 end
