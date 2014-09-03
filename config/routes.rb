@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root to: "home#index"
+  root to: "feeds#index"
 
   resources :feeds, except: [:new]
   resources :users
