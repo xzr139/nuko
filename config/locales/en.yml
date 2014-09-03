@@ -1,3 +1,8 @@
 en:
   users:
+    edit:
+      type_your_nick_name: "Edit your nick name"
+      submit: "Save changes"
+    update:
+      complate_update_nick_name: "Done update nick name"
     login: "Login"
