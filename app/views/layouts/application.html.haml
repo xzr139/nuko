@@ -17,6 +17,10 @@
             %li
               %a{ href: "http://exsample.com" } Exsample
           %ul.nav.navbar-nav.navbar-right
+            - if current_user
+              %li
+                = t('common.show_profile')
+                = image_tag(current_user.avatar.url(:thumb),  alt: 'icon', size: '40x40') if @current_user
             %li
               = link_to t('users.login'), '/auth/facebook'
     .container
