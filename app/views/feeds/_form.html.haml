@@ -5,7 +5,10 @@
       %ul
         - @feed.errors.full_messages.each do |msg|
           %li= msg
-  .actions
-    = f.text_field :title
-    = f.text_area :content
-    = f.submit 'Save'
+  .post-block
+    .title
+      = f.text_field :title, placeholder: 'title'
+    .post-form
+      = f.text_area :content
+    .submit
+      = f.submit 'Save', id: 'submit', class: 'btn btn-default'

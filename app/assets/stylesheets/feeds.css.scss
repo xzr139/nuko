@@ -1,3 +1,45 @@
 // Place all the styles related to the feeds controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.form{
+  margin: 0 auto;
+  width: 700px;
+  margin-bottom: 30px;
+}
+
+.post-block{
+  margin: 0 auto;
+  width: 700px;
+  margin-bottom: 20px;
+  border: 1px #ccc solid;
+  .post-detail{
+    width: 400px;
+    .feed-profile-image{
+      width: 100px;
+      float: left;
+    }
+    .title-and-time{
+      width: 300px;
+      float: right;
+      .title{
+        font-size: 20px;
+      }
+    }
+  }
+  .post-content{
+    width: 400px;
+    font-size: 15px;
+  }
+  .post-form{
+    width: 100%;
+    #feed_content{
+      width: 100%;
+    }
+  }
+  .submit{
+    text-align: right;
+    #submit{
+      margin: 6px 10px 10px;
+    }
+  }
+}
