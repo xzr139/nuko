@@ -15,9 +15,6 @@
         .navbar-header
           = link_to Settings.service.name, root_path, class: "navbar-brand"
         #navbar-main.navbar-collapse.collapse
-          %ul.nav.navbar-nav
-            %li
-              %a{ href: "http://exsample.com" } Exsample
           %ul.nav.navbar-nav.navbar-right
             - if current_user
               %li
