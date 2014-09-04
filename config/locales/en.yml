@@ -1,13 +1,22 @@
 en:
+  common:
+    number_of_friends: 'Number of friends'
+    belonging_to: 'belonging to %{company}'
+    belong_to: 'belong to %{company}'
+    all_posts: 'All posts'
+    signed_in: 'Signed in'
+    signed_out: 'Signed out'
   users:
     index:
       see_all_this_post: "See all this post"
     edit:
       type_your_nick_name: "Edit your nick name"
       submit: "Save changes"
+      edit_profile: 'Edit your profile'
+      placeholder: 'Ex. My name is Jack,  and I am currently studying abroad in Japan. I like listening musics and reading books. Nice to meet you!)'
+      not_found: "It user is not found"
     update:
       complate_update_nick_name: "Done update nick name"
-    login: "Login"
   date:
     abbr_day_names:
     - Sun
@@ -211,3 +220,8 @@ en:
       long: ! '%B %d, %Y %H:%M'
       short: ! '%d %b %H:%M'
     pm: pm
+=======
+    sign_in: "Sign In"
+    sign_out: "Sign Out"
+    user_name: "Nick name"
+>>>>>>> 9965f412d81143c8bcee5bafea0d0d68dc8e593c

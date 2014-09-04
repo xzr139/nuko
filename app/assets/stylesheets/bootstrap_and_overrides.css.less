@@ -1,3 +1,248 @@
+// Simplex
+// Bootswatch
+// base.less
+// allows access to core variables and mixins inside bootswatch.css.less
+
+// @import "twitter/bootstrap/variables";
+@import "simplex/variables";
+
+// @import "twitter/bootstrap/mixins";
+@import "simplex/mixins";
+@import "simplex/base";
+
+// Simplex 3.2.0
+// Bootswatch
+// -----------------------------------------------------
+
+@import url("//fonts.googleapis.com/css?family=Open+Sans:400,700");
+
+.btn-shadow(@color) {
+  #gradient > .vertical-three-colors(lighten(@color, 3%), @color, 6%, darken(@color, 3%));
+  filter: none;
+  border: 1px solid darken(@color, 10%);
+}
+
+// Navbar =====================================================================
+
+.navbar {
+
+  &-inverse {
+
+    .badge {
+      background-color: #fff;
+      color: @brand-primary;
+    }
+  }
+}
+
+// Buttons ====================================================================
+
+.btn {
+  font-family: @headings-font-family;
+}
+
+.btn-default,
+.btn-default:hover {
+  .btn-shadow(@btn-default-bg);
+}
+
+.btn-primary,
+.btn-primary:hover {
+  .btn-shadow(@btn-primary-bg);
+}
+
+.btn-success,
+.btn-success:hover {
+  .btn-shadow(@btn-success-bg);
+}
+
+.btn-info,
+.btn-info:hover {
+  .btn-shadow(@btn-info-bg);
+}
+
+.btn-warning,
+.btn-warning:hover {
+  .btn-shadow(@btn-warning-bg);
+}
+
+.btn-danger,
+.btn-danger:hover {
+  .btn-shadow(@btn-danger-bg);
+}
+
+// Typography =================================================================
+
+body {
+  font-weight: 200;
+}
+
+// Tables =====================================================================
+
+th {
+  color: @headings-color;
+}
+
+// Forms ======================================================================
+
+legend {
+  color: @headings-color;
+}
+
+label {
+  font-weight: normal;
+}
+
+.has-warning {
+  .help-block,
+  .control-label {
+    color: @brand-danger;
+  }
+
+  .form-control,
+  .form-control:focus {
+    border-color: @brand-danger;
+  }
+}
+
+.has-error {
+  .help-block,
+  .control-label {
+    color: @brand-primary;
+  }
+
+  .form-control,
+  .form-control:focus {
+    border-color: @brand-primary;
+  }
+}
+
+.has-success {
+  .help-block,
+  .control-label {
+    color: @brand-success;
+  }
+
+  .form-control,
+  .form-control:focus {
+    border-color: @brand-success;
+  }
+}
+
+// Navs =======================================================================
+
+.pager {
+  a {
+    color: @headings-color;
+  }
+
+  a:hover,
+  .active > a, {
+    border-color: @brand-primary;
+    color: #fff;
+  }
+
+  .disabled > a {
+    border-color: @pager-border;
+  }
+}
+
+// Indicators =================================================================
+
+// Progress bars ==============================================================
+
+// Containers =================================================================// Simplex
+// Bootswatch
+// loader.css.less
+// Customize the modules loaded here
+
+// @import "twitter/bootstrap/variables";
+@import "simplex/variables";
+
+// @import "twitter/bootstrap/mixins";
+@import "simplex/mixins";
+
+@import "twitter/bootstrap/normalize";
+@import "twitter/bootstrap/print";
+@import "twitter/bootstrap/glyphicons";
+@import "twitter/bootstrap/scaffolding";
+@import "twitter/bootstrap/type";
+@import "twitter/bootstrap/code";
+@import "twitter/bootstrap/grid";
+@import "twitter/bootstrap/tables";
+@import "twitter/bootstrap/forms";
+@import "twitter/bootstrap/buttons";
+@import "twitter/bootstrap/component-animations";
+@import "twitter/bootstrap/dropdowns";
+@import "twitter/bootstrap/button-groups";
+@import "twitter/bootstrap/input-groups";
+@import "twitter/bootstrap/navs";
+@import "twitter/bootstrap/navbar";
+@import "twitter/bootstrap/breadcrumbs";
+@import "twitter/bootstrap/pagination";
+@import "twitter/bootstrap/pager";
+@import "twitter/bootstrap/labels";
+@import "twitter/bootstrap/badges";
+@import "twitter/bootstrap/jumbotron";
+@import "twitter/bootstrap/thumbnails";
+@import "twitter/bootstrap/alerts";
+@import "twitter/bootstrap/progress-bars";
+@import "twitter/bootstrap/media";
+@import "twitter/bootstrap/list-group";
+@import "twitter/bootstrap/panels";
+@import "twitter/bootstrap/responsive-embed";
+@import "twitter/bootstrap/wells";
+@import "twitter/bootstrap/close";
+@import "twitter/bootstrap/modals";
+@import "twitter/bootstrap/tooltip";
+@import "twitter/bootstrap/popovers";
+@import "twitter/bootstrap/carousel";
+@import "twitter/bootstrap/utilities";
+@import "twitter/bootstrap/responsive-utilities";
+
+
+// @import "twitter/bootstrap/theme";// Simplex
+// Bootswatch
+
+// Mixins
+// --------------------------------------------------
+
+// Utilities
+@import "twitter/bootstrap/mixins/hide-text.less";
+@import "twitter/bootstrap/mixins/opacity.less";
+@import "twitter/bootstrap/mixins/image.less";
+@import "twitter/bootstrap/mixins/labels.less";
+@import "twitter/bootstrap/mixins/reset-filter.less";
+@import "twitter/bootstrap/mixins/resize.less";
+@import "twitter/bootstrap/mixins/responsive-visibility.less";
+@import "twitter/bootstrap/mixins/size.less";
+@import "twitter/bootstrap/mixins/tab-focus.less";
+@import "twitter/bootstrap/mixins/text-emphasis.less";
+@import "twitter/bootstrap/mixins/text-overflow.less";
+@import "twitter/bootstrap/mixins/vendor-prefixes.less";
+
+// Components
+@import "twitter/bootstrap/mixins/alerts.less";
+@import "twitter/bootstrap/mixins/buttons.less";
+@import "twitter/bootstrap/mixins/panels.less";
+@import "twitter/bootstrap/mixins/pagination.less";
+@import "twitter/bootstrap/mixins/list-group.less";
+@import "twitter/bootstrap/mixins/nav-divider.less";
+@import "twitter/bootstrap/mixins/forms.less";
+@import "twitter/bootstrap/mixins/progress-bar.less";
+@import "twitter/bootstrap/mixins/table-row.less";
+
+// Skins
+@import "twitter/bootstrap/mixins/background-variant.less";
+@import "twitter/bootstrap/mixins/border-radius.less";
+@import "twitter/bootstrap/mixins/gradients.less";
+
+// Layout
+@import "twitter/bootstrap/mixins/clearfix.less";
+@import "twitter/bootstrap/mixins/center-block.less";
+@import "twitter/bootstrap/mixins/nav-vertical-align.less";
+@import "twitter/bootstrap/mixins/grid-framework.less";
+@import "twitter/bootstrap/mixins/grid.less";
 // Simplex 3.2.0
 // Variables
 // --------------------------------------------------
@@ -844,3 +1089,9 @@
 @hr-border:                   @gray-lighter;
 
 
+/* Simplex
+ * Bootswatch
+ *= require_self
+ *= require simplex/loader
+ *= require simplex/bootswatch
+*/
