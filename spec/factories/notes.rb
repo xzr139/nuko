@@ -6,4 +6,9 @@ FactoryGirl.define do
     content "アメリカに留学している大森です。英語を勉強しています。趣味は映画鑑賞とブログを読むことです。よろしくお願いします。"
     user_id create(:user).id
   end
+
+  factory :many_notes, parent: :note, class: Note do
+    user_id = create(:user).id
+    12.times { create(:note, user_id: user_id) }
+  end
 end
