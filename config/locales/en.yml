@@ -1,6 +1,4 @@
 en:
-  common:
-    show_profile: 'Show your profile'
   users:
     edit:
       type_your_nick_name: "Edit your nick name"

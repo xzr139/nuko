@@ -1,3 +1,21 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.user-profile{
+  margin: 0 auto;
+  width: 700px;
+  .edit-button{
+
+  }
+  .name{
+    margin-right: 40px;
+  }
+  .bio{
+    margin-top: 15px;
+    margin-right: 40px;
+    float: left;
+  }
+  .profile-image{
+    float: left;
+  }
+}

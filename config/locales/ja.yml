@@ -1,6 +1,4 @@
 ja:
-  common:
-    show_profile: 'プロフィールを見る'
   users:
     edit:
       type_your_nick_name: "ニックネームを入力してください"

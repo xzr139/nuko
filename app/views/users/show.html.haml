@@ -1,6 +1,9 @@
-%h1= t('users.edit.type_your_nick_name')
-.row
-  .span6.offset3
+.user-profile
+  .edit-button
     = link_to t('users.edit.edit_profile'), edit_user_path
+  .name
     = current_user.full_name
-    = profile_image(current_user)
+  .bio
+    = auto_link(simple_format(current_user.bio))
+  .profile-image
+    = profile_image(current_user, '140x140')
