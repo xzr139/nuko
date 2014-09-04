@@ -10,6 +10,7 @@ ja:
       submit: "Save changes"
       edit_profile: 'プロフィールを編集する'
       placeholder: '(例 アメリカに留学している大森です。英語を勉強しています。趣味は映画鑑賞とブログを読むことです。よろしくお願いします。'
+      not_found: "ユーザーが見つかりません"
     update:
       complate_update_nick_name: "ニックネームの保存が完了しました"
     sign_in: "ログイン"
