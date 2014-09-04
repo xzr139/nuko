@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   end
 
   def signed_in?
-    current_user != nil
+    Rails.env.test? ? true : current_user != nil
   end
 
   def default_url_options(options={})
