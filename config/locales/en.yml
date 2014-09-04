@@ -8,5 +8,5 @@ en:
       edit_profile: 'Edit your profile'
     update:
       complate_update_nick_name: "Done update nick name"
-    login: "Login"
-    logout: "logout"
+    sign_in: "Sign In"
+    sign_out: "Sign Out"
