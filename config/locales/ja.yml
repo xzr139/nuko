@@ -1,8 +1,20 @@
 ja:
+  common:
+    friend_of_number: '友達数'
+    belonging_to: '%{company}で働いています'
+    belong_to: '%{company}で働いていました'
+    all_posts: '全ての投稿'
+    signed_in: 'サインインしました'
+    signed_in: 'サインアウトしました'
   users:
     edit:
       type_your_nick_name: "ニックネームを入力してください"
       submit: "Save changes"
+      edit_profile: 'プロフィールを編集する'
+      placeholder: '(例 アメリカに留学している大森です。英語を勉強しています。趣味は映画鑑賞とブログを読むことです。よろしくお願いします。'
+      not_found: "ユーザーが見つかりません"
     update:
       complate_update_nick_name: "ニックネームの保存が完了しました"
-    login: "ログイン"
+    sign_in: "ログイン"
+    sign_out: "ログアウト"
+    user_name: "ニックネーム"

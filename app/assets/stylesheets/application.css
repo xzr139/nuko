@@ -11,7 +11,5 @@
  * file per style scope.
  *
  *
- *= require_self
- *= require simplex/loader
- *= require simplex/bootswatch
+ *= require_tree .
  */

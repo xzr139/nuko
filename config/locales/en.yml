@@ -1,8 +1,20 @@
 en:
+  common:
+    number_of_friends: 'Number of friends'
+    belonging_to: 'belonging to %{company}'
+    belong_to: 'belong to %{company}'
+    all_posts: 'All posts'
+    signed_in: 'Signed in'
+    signed_out: 'Signed out'
   users:
     edit:
       type_your_nick_name: "Edit your nick name"
       submit: "Save changes"
+      edit_profile: 'Edit your profile'
+      placeholder: 'Ex. My name is Jack,  and I am currently studying abroad in Japan. I like listening musics and reading books. Nice to meet you!)'
+      not_found: "It user is not found"
     update:
       complate_update_nick_name: "Done update nick name"
-    login: "Login"
+    sign_in: "Sign In"
+    sign_out: "Sign Out"
+    user_name: "Nick name"
