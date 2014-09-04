@@ -31,6 +31,7 @@ gem 'paperclip'
 gem 'aws-sdk'
 gem "acts-as-taggable-on"
 gem 'kaminari'
+gem 'rails_autolink'
 
 group :development do
   gem 'pry-rails'
