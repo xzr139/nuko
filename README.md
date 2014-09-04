@@ -5,7 +5,7 @@
 You have to use Ruby 2.0 or higher using `rvm` or `rbenv`.
 
 ```
-ruby 2.0.0p481 (2014-05-08 revision 45883) [x86_64-darwin13.2.0]
+ruby 2.1.1p76 (2014-02-24 revision 45161) [x86_64-darwin13.0]
 Rails 4.1.1
 ```
 
