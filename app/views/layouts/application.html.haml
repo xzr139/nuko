@@ -7,13 +7,13 @@
     = csrf_meta_tags
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
-    = stylesheet_link_tag 'bootstrap_and_overrides', media: 'all'
-    = stylesheet_link_tag 'application'
+    = stylesheet_link_tag "bootstrap_and_overrides", media: "all"
+    = stylesheet_link_tag "application"
   %body
     .navbar.navbar-default.navbar-fixed-top
       .container
         .navbar-header
-          = link_to Settings.service.name, root_path, class: 'navbar-brand'
+          = link_to Settings.service.name, root_path, class: "navbar-brand"
         #navbar-main.navbar-collapse.collapse
           %ul.nav.navbar-nav
             %li
@@ -23,11 +23,11 @@
               %li
                 = link_to user_path(current_user) do
                   = current_user.nick_name if signed_in?
-                  = image_tag(current_user.avatar.url, class: 'profile', alt: 'icon', size: '30x30') if signed_in?
+                  = image_tag(current_user.avatar.url, class: "profile", alt: "icon", size: "30x30") if signed_in?
             %li
-              = link_to t('users.sign_in'), '/auth/facebook' unless signed_in?
+              = link_to t("users.sign_in"), "/auth/facebook" unless signed_in?
             %li
-              = link_to t('users.sign_out'), auth_sign_out_path, method: :delete if signed_in?
+              = link_to t("users.sign_out"), auth_sign_out_path, method: :delete if signed_in?
     .container
       %br
       %br

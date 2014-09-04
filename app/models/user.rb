@@ -8,12 +8,12 @@ class User < ActiveRecord::Base
     content_type: /\Aimage\/.*\Z/
 
   def self.set_data_from_omnifb_info(fb_info)
-    where(facebook_id: fb_info['uid']).first_or_create do |user|
-      user.facebook_id =  fb_info['uid']
-      user.email       =  fb_info['info']['email']
-      user.full_name   =  fb_info['extra']["raw_info"]['name']
-      user.token       =  fb_info['credentials']['token']
-      user.company     =  fb_info['extra']['raw_info']['work'].first['employer']['name'] if fb_info['extra']['raw_info']['work']
+    where(facebook_id: fb_info["uid"]).first_or_create do |user|
+      user.facebook_id =  fb_info["uid"]
+      user.email       =  fb_info["info"]["email"]
+      user.full_name   =  fb_info["extra"]["raw_info"]["name"]
+      user.token       =  fb_info["credentials"]["token"]
+      user.company     =  fb_info["extra"]["raw_info"]["work"].first["employer"]["name"] if fb_info["extra"]["raw_info"]["work"]
     end
   end
 end
