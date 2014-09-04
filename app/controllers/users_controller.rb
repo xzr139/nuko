@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_action :current_user, except: [:callback]
   before_action :user_params, only: [:update]
 
   def update
