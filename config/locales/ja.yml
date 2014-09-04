@@ -12,7 +12,7 @@ ja:
     edit:
       type_your_nick_name: "ニックネームを入力してください"
       submit: "Save changes"
-      edit_profile: 'プロフィールを編集する'
+      edit_profile: 'プロフィールを編集'
       placeholder: '(例 アメリカに留学している大森です。英語を勉強しています。趣味は映画鑑賞とブログを読むことです。よろしくお願いします。'
       not_found: "ユーザーが見つかりません"
     update:
