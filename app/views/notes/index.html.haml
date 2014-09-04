@@ -1,5 +1,6 @@
-.form
-  = render "form"
+- if logged_in?
+  .form
+    = render "form"
 
 - if @notes
   - @notes.each do |note|
