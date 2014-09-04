@@ -15,3 +15,8 @@
  *= require simplex/loader
  *= require simplex/bootswatch
  */
+
+a{
+  color: #292523;
+  word-break: normal;
+}
