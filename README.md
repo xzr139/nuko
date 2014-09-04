@@ -6,7 +6,7 @@ You have to use Ruby 2.0 or higher using `rvm` or `rbenv`.
 
 ```
 ruby 2.1.1p76 (2014-02-24 revision 45161) [x86_64-darwin13.0]
-Rails 4.1.1
+Rails 4.1.4
 ```
 
 ## 事前準備 : How to start nuko
