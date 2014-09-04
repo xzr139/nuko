@@ -3,6 +3,7 @@ ja:
     friend_of_number: '友達数'
     belonging_to: '%{company}で働いています'
     belong_to: '%{company}で働いていました'
+    all_posts: '全ての投稿'
   users:
     edit:
       type_your_nick_name: "ニックネームを入力してください"
