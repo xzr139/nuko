@@ -1,5 +1,6 @@
 .form
   = render "form"
+
 - @feeds.each do |feed|
   .post-block
     .post-detail.clearfix
@@ -12,3 +13,6 @@
           = time_ago_in_words(feed.created_at)
     .post-content
       = feed.content
+
+#navigation
+  = paginate @feeds

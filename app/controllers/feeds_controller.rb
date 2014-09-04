@@ -3,7 +3,7 @@ class FeedsController < ApplicationController
 
   def index
     @feed = Feed.new
-    @feeds = Feed.all
+    @feeds = Feed.page(params[:page]).per(10).order(id: :desc)
   end
 
   def show
