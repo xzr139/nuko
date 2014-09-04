@@ -1,6 +1,5 @@
 ja:
   common:
-    friend_of_number: '友達数'
     belonging_to: '%{company}で働いています'
     belong_to: '%{company}で働いていました'
     all_posts: '全ての投稿'
