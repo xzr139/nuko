@@ -19,6 +19,10 @@ ja:
     sign_in: "ログイン"
     sign_out: "ログアウト"
     user_name: "ニックネーム"
+  notes:
+    index:
+      title: "タイトル"
+      content: "内容"
   datetime:
     distance_in_words:
       half_a_minute: "30秒前後"
