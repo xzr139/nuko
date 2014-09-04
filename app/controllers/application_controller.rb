@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   def current_user
     if cookies[:token]
-      @current_user = user.where(token: cookies[:token]).first
+      @current_user = User.where(token: cookies[:token]).first
     else
       redirect_to root_path
     end
