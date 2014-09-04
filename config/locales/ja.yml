@@ -17,6 +17,9 @@ ja:
       not_found: "ユーザーが見つかりません"
     update:
       complate_update_nick_name: "ニックネームの保存が完了しました"
+    sign_in: "ログイン"
+    sign_out: "ログアウト"
+    user_name: "ニックネーム"
   datetime:
     distance_in_words:
       half_a_minute: "30秒前後"
@@ -222,8 +225,4 @@ ja:
       long: ! '%Y年%m月%d日(%a) %H時%M分%S秒 %z'
       short: ! '%y/%m/%d %H:%M'
     pm: 午後
-=======
-    sign_in: "ログイン"
-    sign_out: "ログアウト"
-    user_name: "ニックネーム"
->>>>>>> 9965f412d81143c8bcee5bafea0d0d68dc8e593c
+

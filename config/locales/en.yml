@@ -17,6 +17,9 @@ en:
       not_found: "It user is not found"
     update:
       complate_update_nick_name: "Done update nick name"
+    sign_in: "Sign In"
+    sign_out: "Sign Out"
+    user_name: "Nick name"
   date:
     abbr_day_names:
     - Sun
@@ -220,8 +223,3 @@ en:
       long: ! '%B %d, %Y %H:%M'
       short: ! '%d %b %H:%M'
     pm: pm
-=======
-    sign_in: "Sign In"
-    sign_out: "Sign Out"
-    user_name: "Nick name"
->>>>>>> 9965f412d81143c8bcee5bafea0d0d68dc8e593c
