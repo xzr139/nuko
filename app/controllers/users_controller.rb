@@ -9,7 +9,11 @@ class UsersController < ApplicationController
   def callback
     user = User.set_data_from_omnifb_info(request.env['omniauth.auth'])
     cookies[:token] = user.token
-    redirect_to edit_user_path(user.id), notice: t('common.signed_in')
+    if user.nick_name.present? && user.bio.present?
+      redirect_to root_path, notice: t('common.signed_in')
+    else
+      redirect_to edit_user_path(user.id), notice: t('common.signed_in')
+    end
   end
 
   def sign_out
