@@ -12,10 +12,6 @@ class ApplicationController < ActionController::Base
     current_user != nil
   end
 
-  def logged_in?
-    current_user != nil
-  end
-
   def default_url_options(options={})
     { :locale => I18n.locale }
   end

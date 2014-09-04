@@ -2,7 +2,7 @@ class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
 
   def index
-    if logged_in?
+    if signed_in?
       @note = Note.new
       @notes = Note.page(params[:page]).per(10).order(id: :desc)
     else
