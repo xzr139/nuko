@@ -34,6 +34,9 @@ gem "kaminari"
 gem "rails_autolink"
 
 group :development do
+  gem "rspec-rails"
+  gem "factory_girl_rails"
+  gem "database_cleaner", github: "bmabey/database_cleaner"
   gem "pry-rails"
   gem "better_errors"
   gem "binding_of_caller"
@@ -44,12 +47,9 @@ end
 group :test do
   gem "capybara-angular"
   gem "capybara"
-  gem "database_cleaner", github: "bmabey/database_cleaner"
   gem "launchy"
   gem "poltergeist"
-  gem "factory_girl_rails"
   gem "selenium-webdriver"
-  gem "rspec-rails"
   gem "json_spec"
   gem "simplecov"
 end
