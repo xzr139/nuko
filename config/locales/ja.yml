@@ -1,6 +1,8 @@
 ja:
   common:
     friend_of_number: '友達数'
+    belonging_to: '%{company}で働いています'
+    belong_to: '%{company}で働いていました'
   users:
     edit:
       type_your_nick_name: "ニックネームを入力してください"

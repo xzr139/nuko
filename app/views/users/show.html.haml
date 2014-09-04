@@ -2,8 +2,7 @@
   .profile-image
     = profile_image(current_user, '100x100')
   .profile-company
-    = '所属企業'
-    = 'Lang-8'
+    = t('common.belonging_to', company: current_user.company)
   .profile-bio
     = auto_link(simple_format(current_user.bio), html: { target: '_blank' })
 .navbar.navbar-default
