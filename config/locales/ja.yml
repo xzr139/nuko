@@ -5,7 +5,7 @@ ja:
     belong_to: '%{company}で働いていました'
     all_posts: '全ての投稿'
     signed_in: 'サインインしました'
-    signed_in: 'サインアウトしました'
+    signed_out: 'サインアウトしました'
   users:
     index:
       see_all_this_post: "続きを読む"
