@@ -1,4 +1,4 @@
-# マーケター版gist
+# マーケター版qiita
 
 ### Version
 
