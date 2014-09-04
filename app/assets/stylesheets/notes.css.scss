@@ -1,4 +1,4 @@
-// Place all the styles related to the feeds controller here.
+// Place all the styles related to the notes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .form{
@@ -14,7 +14,7 @@
   border: 1px #ccc solid;
   .post-detail{
     width: 400px;
-    .feed-profile-image{
+    .note-profile-image{
       width: 70px;
       float: left;
     }
@@ -35,7 +35,7 @@
   }
   .post-form{
     width: 100%;
-    #feed_content{
+    #note_content{
       width: 100%;
     }
   }

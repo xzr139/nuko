@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  root to: "feeds#index"
+  root to: "notes#index"
 
-  resources :feeds, except: [:new]
+  resources :notes, except: [:new]
   resources :users
 
   get '/auth/:provider/callback' => 'users#callback'

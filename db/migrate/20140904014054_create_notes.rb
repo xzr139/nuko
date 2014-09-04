@@ -3,7 +3,6 @@ class CreateNotes < ActiveRecord::Migration
     create_table :notes do |t|
       t.string     :title
       t.text       :content
-      t.integer    :feed_id
       t.integer    :user_id
 
       t.timestamps

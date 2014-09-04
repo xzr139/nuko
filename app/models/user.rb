@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  has_many :feeds
   has_many :notes
 
   def self.set_data_from_omnifb_info(fb_info)

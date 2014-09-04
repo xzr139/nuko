@@ -1,15 +1,15 @@
 .post-block
   .post-detail.clearfix
-    .feed-profile-image.pull-left
+    .note-profile-image.pull-left
       = image_tag 'https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpa1/v/t1.0-1/c31.31.391.391/1157476_450075755090354_257513011_n.jpg?oh=203779904cfdbda3fbd1ab32506015ee&oe=547294D9&__gda__=1417793524_599ab9647e3bc7ecda32e2e8f0f2841a', size: '47x47'
     .post-information
       .title
-        = @feed.title
+        = @note.title
       .time-ago-and-edit
-        = time_ago_in_words(@feed.created_at)
-        = link_to 'Edit', edit_feed_path(@feed)
+        = time_ago_in_words(@note.created_at)
+        = link_to 'Edit', edit_note_path(@note)
   .post-content
-    = link_to feed_path(@feed) do
-      = @feed.content
+    = link_to note_path(@note) do
+      = @note.content
 
-= link_to 'Back', feeds_path
+= link_to 'Back', notes_path
