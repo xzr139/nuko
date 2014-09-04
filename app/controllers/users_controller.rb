@@ -17,6 +17,8 @@ class UsersController < ApplicationController
     redirect_to root_url, notice:  "Log out"
   end
 
+  private
+
   def user_params
     params.require(:user).permit(:nick_name, :bio, :avatar)
   end
