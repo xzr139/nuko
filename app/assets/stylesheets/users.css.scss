@@ -3,20 +3,19 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .user-profile{
   margin: 0 auto;
-  width: 700px;
-  height: 300px;
-  .edit-button{
-  }
-  .name{
-    float: left;
-    margin-right: 15px;
-  }
-  .bio{
-    margin-top: 15px;
-    margin-right: 40px;
-    float: left;
-  }
+  height: 100px;
+
   .profile-image{
+    float: left;
+  }
+
+  .profile-company{
+    margin-left: 40px;
+    float: left;
+  }
+
+  .profile-bio{
+    margin-left: 40px;
     float: left;
   }
 }

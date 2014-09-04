@@ -1,4 +1,6 @@
 ja:
+  common:
+    friend_of_number: '友達数'
   users:
     edit:
       type_your_nick_name: "ニックネームを入力してください"

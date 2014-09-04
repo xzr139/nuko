@@ -1,4 +1,6 @@
 en:
+  common:
+    number_of_friends: 'Number of friends'
   users:
     edit:
       type_your_nick_name: "Edit your nick name"

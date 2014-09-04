@@ -1,9 +1,18 @@
 .user-profile
   .profile-image
     = profile_image(current_user, '100x100')
-  .name
-    = current_user.full_name
-  .edit-button
-    = link_to t('users.edit.edit_profile'), edit_user_path
-  .bio
+  .profile-company
+    = '所属企業'
+    = 'Lang-8'
+  .profile-bio
     = auto_link(simple_format(current_user.bio), html: { target: '_blank' })
+.navbar.navbar-default
+  .navbar-collapse.collapse.navbar-inverse-collapse
+    %ul.nav.navbar-nav
+      %li
+        %a= current_user.full_name
+      %li
+        %a= t('common.number_of_friends')
+    %ul.nav.navbar-nav.navbar-right
+      %li
+        = link_to t('users.edit.edit_profile'), edit_user_path
