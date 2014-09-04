@@ -13,7 +13,8 @@
           = time_ago_in_words(feed.created_at)
           = link_to 'Edit', edit_feed_path(feed)
     .post-content
-      = feed.content
+      = link_to feed_path(feed) do
+        = feed.content
 
 #navigation
   = paginate @feeds
