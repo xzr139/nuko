@@ -1,14 +1,12 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :note do
-    title "title"
-    content "アメリカに留学している大森です。英語を勉強しています。趣味は映画鑑賞とブログを読むことです。よろしくお願いします。"
-    user_id create(:user).id
-  end
+  sequence(:title) { |n| "title#{n}" }
+  sequence(:content) { |n| "content#{n}" }
 
-  factory :many_notes, parent: :note, class: Note do
-    user_id = create(:user).id
-    12.times { create(:note, user_id: user_id) }
+  factory :note do
+    title
+    content
+    user_id 1
   end
 end
