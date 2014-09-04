@@ -13,6 +13,11 @@ class UsersController < ApplicationController
     redirect_to edit_user_path(user.id)
   end
 
+  def sign_out
+    cookies[:token] = nil
+    redirect_to root_url, notice:  "Log out"
+  end
+
   def user_params
     params.require(:user).permit(:nick_name, :avatar)
   end

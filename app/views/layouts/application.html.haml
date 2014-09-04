@@ -19,10 +19,13 @@
           %ul.nav.navbar-nav.navbar-right
             - if current_user
               %li
-                = t('common.show_profile')
-                = image_tag(current_user.avatar.url(:thumb),  alt: 'icon', size: '40x40') if @current_user
+                = link_to user_path(current_user) do
+                  = current_user.nick_name if logged_in?
+                  = image_tag(current_user.avatar.url, class: 'profile', alt: 'icon', size: '30x30') if logged_in?
             %li
-              = link_to t('users.login'), '/auth/facebook'
+              = link_to t('users.login'), '/auth/facebook' unless logged_in?
+            %li
+              = link_to t('users.logout'), auth_sign_out_path, method: :delete if logged_in?
     .container
       #banner.page-header
         .row-fluid

@@ -9,3 +9,4 @@ ja:
     update:
       complate_update_nick_name: "ニックネームの保存が完了しました"
     login: "ログイン"
+    logout: "ログアウト"

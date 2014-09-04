@@ -9,3 +9,4 @@ en:
     update:
       complate_update_nick_name: "Done update nick name"
     login: "Login"
+    logout: "logout"
