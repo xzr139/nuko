@@ -15,14 +15,18 @@
   .post-detail{
     width: 400px;
     .feed-profile-image{
-      width: 100px;
+      width: 70px;
       float: left;
     }
-    .title-and-time{
-      width: 300px;
-      float: right;
+    .post-information{
+      height: 46px;
+      float: left;
       .title{
         font-size: 20px;
+        width: 50px;
+      }
+      .time-ago-and-edit{
+        font-size: 14px;
       }
     }
   }
