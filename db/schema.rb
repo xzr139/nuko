@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140903121120) do
+ActiveRecord::Schema.define(version: 20140904033557) do
 
   create_table "users", force: true do |t|
     t.string   "facebook_id"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20140903121120) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.text     "bio"
   end
 
 end
