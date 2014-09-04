@@ -6,3 +6,15 @@ ja:
     update:
       complate_update_nick_name: "ニックネームの保存が完了しました"
     login: "ログイン"
+  datetime:
+    distance_in_words:
+      half_a_minute: "30秒前後"
+      less_than_x_seconds:
+        one:   "1秒"
+        other: "%{count}秒"
+      x_seconds:
+        one:   "1秒"
+        other: "%{count}秒"
+      less_than_x_minutes:
+        one:   "1分"
+        other: "%{count}分"
