@@ -3,8 +3,8 @@ class UsersController < ApplicationController
   before_action :user_params, only: [:update]
 
   def update
-    @current_user.update(user_params)
-    redirect_to root_path, notice: t('users.update.complate_update_nick_name')
+    current_user.update(user_params)
+    redirect_to user_path(current_user), notice: t('users.update.complate_update_nick_name')
   end
 
   def callback
