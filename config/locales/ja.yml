@@ -4,6 +4,8 @@ ja:
     belonging_to: '%{company}で働いています'
     belong_to: '%{company}で働いていました'
     all_posts: '全ての投稿'
+    signed_in: 'サインインしました'
+    signed_in: 'サインアウトしました'
   users:
     edit:
       type_your_nick_name: "ニックネームを入力してください"
