@@ -2,8 +2,12 @@ class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
 
   def index
-    @note = Note.new
-    @notes = Note.page(params[:page]).per(10).order(id: :desc)
+    if logged_in?
+      @note = Note.new
+      @notes = Note.page(params[:page]).per(10).order(id: :desc)
+    else
+      # Todo: render
+    end
   end
 
   def show
