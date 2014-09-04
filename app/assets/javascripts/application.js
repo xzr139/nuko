@@ -15,3 +15,4 @@
 //= require turbolinks
 //= require simplex/loader
 //= require simplex/bootswatch
+//= require_tree .
