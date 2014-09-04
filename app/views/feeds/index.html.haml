@@ -13,8 +13,10 @@
           = time_ago_in_words(feed.created_at)
           = link_to 'Edit', edit_feed_path(feed)
     .post-content
+      = truncate feed.content, length: 100, omission: '・・・'
       = link_to feed_path(feed) do
-        = feed.content
-
+        - if feed.content.length > 100
+          .see-all-text
+            = t('users.index.see_all_this_post')
 #navigation
   = paginate @feeds

@@ -1,5 +1,7 @@
 en:
   users:
+    index:
+      see_all_this_post: "See all this post"
     edit:
       type_your_nick_name: "Edit your nick name"
       submit: "Save changes"

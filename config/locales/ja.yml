@@ -1,5 +1,7 @@
 ja:
   users:
+    index:
+      see_all_this_post: "続きを読む"
     edit:
       type_your_nick_name: "ニックネームを入力してください"
       submit: "Save changes"
