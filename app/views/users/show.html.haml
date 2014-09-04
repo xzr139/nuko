@@ -1,9 +1,9 @@
 .user-profile
-  .edit-button
-    = link_to t('users.edit.edit_profile'), edit_user_path
-  .name
-    = current_user.full_name
-  .bio
-    = auto_link(simple_format(current_user.bio), html: { target: '_blank' })
   .profile-image
     = profile_image(current_user, '100x100')
+  .name
+    = current_user.full_name
+  .edit-button
+    = link_to t('users.edit.edit_profile'), edit_user_path
+  .bio
+    = auto_link(simple_format(current_user.bio), html: { target: '_blank' })

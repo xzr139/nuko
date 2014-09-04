@@ -4,11 +4,12 @@
 .user-profile{
   margin: 0 auto;
   width: 700px;
+  height: 300px;
   .edit-button{
-
   }
   .name{
-    margin-right: 40px;
+    float: left;
+    margin-right: 15px;
   }
   .bio{
     margin-top: 15px;
