@@ -1,10 +1,12 @@
 %h1= t('users.edit.type_your_nick_name')
-.row
-  .span6.offset3
-    = form_for current_user, html: { multipart: true } do |f|
-      -# ToDo(sachin21) Create error message method # render 'shared/error_messages'
-      = f.label :nick_name
+= form_for current_user, html: { multipart: true } do |f|
+  -# ToDo(sachin21) Create error message method # render 'shared/error_messages'
+  .form
+    .nick_name
+      = t('users.user_name')
       = f.text_field :nick_name
-      = f.text_area :bio
+    = f.text_area :bio, placeholder: t('users.edit.placeholder')
+    .avatar
       = f.file_field :avatar
+    .submit
       = f.submit t('users.edit.submit'), class: "btn btn-large btn-primary"
