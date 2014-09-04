@@ -29,8 +29,8 @@
             %li
               = link_to t('users.sign_out'), auth_sign_out_path, method: :delete if signed_in?
     .container
-      #banner.page-header
-        .row-fluid
-          = bootstrap_flash
-
+      %br
+      %br
+      %br
+      = bootstrap_flash
       = yield
