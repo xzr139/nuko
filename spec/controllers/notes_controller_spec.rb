@@ -18,7 +18,7 @@ describe NotesController, type: :request do
       get "/notes/" + Note.first.id.to_s
     end
 
-    it "should be return is 10" do
+    it "should be return is selected id" do
       expect(assigns[:note]).to eq(Note.first)
     end
   end
