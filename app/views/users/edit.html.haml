@@ -14,6 +14,10 @@
             .col-lg-10
               = f.text_area :bio, placeholder: t("users.edit.placeholder"), class: 'form-control'
           .form-group
+            = f.label "file", class: 'col-lg-2 control-label'
+            .col-lg-10
+              = f.file_field :avatar
+          .form-group
             .col-lg-10.col-lg-offset-2
               %br
               = f.submit t("users.edit.submit"), class: "btn btn-primary"
