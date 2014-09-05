@@ -13,6 +13,14 @@
 
 ActiveRecord::Schema.define(version: 20140904033557) do
 
+  create_table "notes", force: true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "facebook_id"
     t.string   "email"

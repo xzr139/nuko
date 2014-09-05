@@ -1,12 +1,23 @@
-%h1= t('users.edit.type_your_nick_name')
-= form_for current_user, html: { multipart: true } do |f|
-  -# ToDo(sachin21) Create error message method # render 'shared/error_messages'
-  .form
-    .nick_name
-      = t('users.user_name')
-      = f.text_field :nick_name
-    = f.text_area :bio, placeholder: t('users.edit.placeholder')
-    .avatar
-      = f.file_field :avatar
-    .submit
-      = f.submit t('users.edit.submit'), class: "btn btn-large btn-primary"
+%h2= t("users.edit.edit_profile")
+.row
+  .col-lg-8
+    .well.bs-component
+      = form_for current_user, class: "form-horizontal", html: { multipart: true } do |f|
+        %fieldset
+          %br
+          .form-group
+            = f.label t("users.user_name"), class: 'col-lg-2 control-label'
+            .col-lg-10
+              = f.text_field :nick_name, class: "form-control"
+          .form-group
+            = f.label "自己紹介", class: 'col-lg-2 control-label'
+            .col-lg-10
+              = f.text_area :bio, placeholder: t("users.edit.placeholder"), class: 'form-control'
+          .form-group
+            = f.label "file", class: 'col-lg-2 control-label'
+            .col-lg-10
+              = f.file_field :avatar
+          .form-group
+            .col-lg-10.col-lg-offset-2
+              %br
+              = f.submit t("users.edit.submit"), class: "btn btn-primary"

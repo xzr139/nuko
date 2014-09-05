@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  root to: "home#index"
 
-  resources :home, only: [:index]
+  root to: "notes#index"
+
+  resources :notes, except: [:new]
   resources :users do
     member do
       get 'all_posts'

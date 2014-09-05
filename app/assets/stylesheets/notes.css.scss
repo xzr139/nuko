@@ -1,0 +1,61 @@
+// Place all the styles related to the notes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.radius-of-image{
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  border-radius: 40px;
+}
+.form{
+  margin: 0 auto;
+  width: 700px;
+  margin-bottom: 30px;
+}
+
+.post-block{
+  margin: 0 auto;
+  width: 700px;
+  margin-bottom: 20px;
+  border: 1px #ccc solid;
+  .post-detail{
+    width: 400px;
+    .post-information{
+      height: 46px;
+      float: left;
+      .title{
+        font-size: 20px;
+      }
+      .time-ago-and-edit{
+          font-size: 14px;
+    }
+  }
+}
+.note-profile-image{
+  margin: 10px;
+  float: left;
+}
+.post-content{
+  font-size: 15px;
+}
+  .post-form{
+    width: 100%;
+    #note_content{
+      width: 100%;
+    }
+  }
+  .submit{
+    text-align: right;
+    #submit{
+      margin: 6px 10px 10px;
+    }
+  }
+}
+
+#navigation{
+  margin: 0 auto;
+  width: 700px;
+}
+.toggeles{
+  float: right;
+}

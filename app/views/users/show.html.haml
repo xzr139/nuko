@@ -1,19 +1,20 @@
 .user-profile
   .profile-image
-    = profile_image(current_user, '100x100')
+    = profile_image(@user, "100x100")
   .profile-company
-    = t('common.belonging_to', company: current_user.company)
-  .profile-bio
-    = auto_link(simple_format(current_user.bio), html: { target: '_blank' })
+    = t("common.belonging_to", company: @user.company)
+.well
+  .profile-bio= auto_link(simple_format(@user.bio), html: { target: "_blank" })
+
 .navbar.navbar-default
   .navbar-collapse.collapse.navbar-inverse-collapse
     %ul.nav.navbar-nav
       %li
-        %a= current_user.full_name
+        %a= @user.full_name
       %li
-        %a= t('common.number_of_friends')
+        %a= t("common.number_of_friends")
       %li
-        %a= t('common.all_posts')
+        %a= t("common.all_posts")
     %ul.nav.navbar-nav.navbar-right
       %li
-        = link_to t('users.edit.edit_profile'), edit_user_path
+        = link_to t("users.edit.edit_profile"), edit_user_path if current_user?(params[:id])
