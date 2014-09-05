@@ -32,6 +32,9 @@ gem "aws-sdk"
 gem "acts-as-taggable-on"
 gem "kaminari"
 gem "rails_autolink"
+gem "annotate"
+gem "xray-rails"
+gem "rails-timeago",  "~> 2.0"
 
 group :development do
   gem "rspec-rails"
