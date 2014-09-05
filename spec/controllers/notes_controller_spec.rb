@@ -1,10 +1,12 @@
 require "spec_helper"
 
 describe NotesController, type: :request do
+  let(:notes_path) { "/notes" }
+
   context "index" do
     before do
       12.times { create(:note) }
-      get "/notes"
+      get notes_path
     end
 
     it "should be return is 10" do
@@ -15,7 +17,7 @@ describe NotesController, type: :request do
   context "show" do
     before do
       12.times { create(:note) }
-      get "/notes/" + Note.first.id.to_s
+      get notes_path + "/" + Note.first.id.to_s
     end
 
     it "should be return is selected id" do
