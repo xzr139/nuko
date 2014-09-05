@@ -17,4 +17,4 @@
         %a= t("common.all_posts")
     %ul.nav.navbar-nav.navbar-right
       %li
-        = link_to t("users.edit.edit_profile"), edit_user_path
+        = link_to t("users.edit.edit_profile"), edit_user_path if current_user?(params[:id])
