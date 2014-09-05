@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
   before_action :user_params, only: [:update]
+  before_action :set_user, only: [:show]
+
+  def show
+  end
 
   def update
     current_user.update(user_params)
@@ -33,5 +37,13 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:nick_name, :bio, :avatar)
+  end
+
+  def set_user
+    if User.exists?(id: params[:id])
+      @user = User.find(params[:id])
+    else
+      redirect_to root_path, notice: t('users.not_found')
+    end
   end
 end

@@ -1,15 +1,15 @@
 .user-profile
   .profile-image
-    = profile_image(current_user, "100x100")
+    = profile_image(@user, "100x100")
   .profile-company
-    = t("common.belonging_to", company: current_user.company)
+    = t("common.belonging_to", company: @user.company)
   .profile-bio
     = auto_link(simple_format(current_user.bio), html: { target: "_blank" })
 .navbar.navbar-default
   .navbar-collapse.collapse.navbar-inverse-collapse
     %ul.nav.navbar-nav
       %li
-        %a= current_user.full_name
+        %a= @user.full_name
       %li
         %a= t("common.number_of_friends")
       %li

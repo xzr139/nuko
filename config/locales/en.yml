@@ -19,6 +19,7 @@ en:
     sign_in: "Sign In"
     sign_out: "Sign Out"
     user_name: "Nick name"
+    not_found: "ユーザーが見つかりません"
   notes:
     index:
       title: "Title"

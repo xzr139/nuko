@@ -19,6 +19,7 @@ ja:
     sign_in: "ログイン"
     sign_out: "ログアウト"
     user_name: "ニックネーム"
+    not_found: "ユーザーが見つかりません"
   notes:
     index:
       title: "タイトル"
