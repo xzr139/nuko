@@ -20,6 +20,7 @@ en:
     sign_out: "Sign Out"
     user_name: "Nick name"
     not_found: "ユーザーが見つかりません"
+    create_by: "created by %{user}"
   notes:
     index:
       title: "Title"

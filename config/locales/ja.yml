@@ -20,6 +20,7 @@ ja:
     sign_out: "ログアウト"
     user_name: "ニックネーム"
     not_found: "ユーザーが見つかりません"
+    created_by: "%{user}が作成"
   notes:
     index:
       title: "タイトル"
