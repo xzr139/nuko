@@ -6,16 +6,22 @@ require "capybara/rails"
 require "capybara/rspec"
 require "capybara/poltergeist"
 require "factory_girl"
+require "omniauth"
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 Dir[Rails.root.join("spec/factories/**/*.rb")].each {|f| require f}
 
 ActiveRecord::Migration.maintain_test_schema!
 
+include Capybara::DSL
 Capybara.javascript_driver = :poltergeist
 Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(app, js_errors: false, timeout: 60)
 end
+
+OmniAuth.config.test_mode = true
+OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({provider: 'facebook', uid: '733146856734194'})
+OmniAuth.config.add_mock(:facebook, YAML.load_file(Rails.root.join('spec', 'data', 'user_mock.yml')))
 
 RSpec.configure do |config|
   config.use_transactional_fixtures = true
