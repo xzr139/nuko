@@ -2,8 +2,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :set_locale
-  helper_method :current_user, :signed_in?
-  helper_method :current_user?, :signed_in?
+  helper_method :current_user
+  helper_method :signed_in?
+  helper_method :current_user?
+  helper_method :is_this_my_note?
 
   def current_user
     cookies[:token] ? User.where(token: cookies[:token]).first : nil
@@ -11,6 +13,10 @@ class ApplicationController < ActionController::Base
 
   def current_user?(id)
     current_user == User.find_by(id: id)
+  end
+
+  def is_this_my_note?(id)
+    Note.find_by(id: id).user == current_user
   end
 
   def signed_in?
