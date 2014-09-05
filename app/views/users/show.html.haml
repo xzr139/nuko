@@ -3,8 +3,9 @@
     = profile_image(@user, "100x100")
   .profile-company
     = t("common.belonging_to", company: @user.company)
-  .profile-bio
-    = auto_link(simple_format(current_user.bio), html: { target: "_blank" })
+.well
+  .profile-bio= auto_link(simple_format(current_user.bio), html: { target: "_blank" })
+
 .navbar.navbar-default
   .navbar-collapse.collapse.navbar-inverse-collapse
     %ul.nav.navbar-nav
