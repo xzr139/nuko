@@ -3,9 +3,14 @@ class ApplicationController < ActionController::Base
 
   before_action :set_locale
   helper_method :current_user, :signed_in?
+  helper_method :current_user?, :signed_in?
 
   def current_user
     cookies[:token] ? User.where(token: cookies[:token]).first : nil
+  end
+
+  def current_user?(id)
+    current_user == User.find_by(id: id)
   end
 
   def signed_in?
