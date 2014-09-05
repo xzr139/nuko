@@ -22,6 +22,7 @@ describe NotesController, type: :controller do
       expect(assigns[:note]).to eq(Note.first)
     end
   end
+
   describe "with valid params" do
     before do
       @user = create(:user)
