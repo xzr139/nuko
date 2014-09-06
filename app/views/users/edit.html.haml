@@ -16,8 +16,14 @@
           .form-group
             = f.label "file", class: 'col-lg-2 control-label'
             .col-lg-10
-              = f.file_field :avatar
+              = f.file_field :avatar, class: "form-control", style: "display:none"
+              .input-append
+                %input#avatar-input.input-large{ type: "text"}
+                %a.btn{ onclick: "$('input[id=user_avatar]').click();" } Browse
+          .form-group
+            = f.label "language", class: 'col-lg-2 control-label'
+            .col-lg-10
+              = f.select :language, User::INTERFACE_LANGUAGE, {}, { class: 'form-control' }
           .form-group
             .col-lg-10.col-lg-offset-2
-              %br
               = f.submit t("users.edit.submit"), class: "btn btn-primary"

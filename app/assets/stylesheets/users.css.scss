@@ -21,14 +21,33 @@
   padding-right: 150px;
 }
 
+#user_nick_name{
+  margin-bottom: 10px;
+}
+
 #user_bio{
   height: 50px;
   width: 450px;
   padding-top: 5px;
+  margin-bottom: 10px;
   padding-left: 5px;
   font-size: 20px;
 }
+
 #user_nick_name{
   width: 450px;
 }
 
+#user_avatar{
+  width: 450px;
+  margin-bottom: 10px;
+}
+
+#user_language{
+  width: 450px;
+  margin-bottom: 10px;
+}
+
+#avatar-input{
+  width: 380px;
+}

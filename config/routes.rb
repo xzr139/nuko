@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
 
-  root to: "notes#index"
+  root to: 'notes#index'
+  get '/:locale' => 'notes#index'
 
-  resources :notes, except: [:new]
-  resources :users do
-    member do
-      get 'all_posts'
+  scope "/:locale" do
+    resources :books
+    resources :notes, except: [:new]
+    resources :users do
+      member do
+        get 'all_posts'
+      end
     end
   end
 

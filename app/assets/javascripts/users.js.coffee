@@ -4,3 +4,5 @@
 
 $ ->
   $("textarea").autosize()
+  $("input[id=user_avatar]").change ->
+    $("#avatar-input").val this.value.split('\\').pop()

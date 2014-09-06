@@ -21,7 +21,11 @@ class ApplicationController < ActionController::Base
   end
 
   def default_url_options(options={})
-    { :locale => I18n.locale }
+    if current_user && current_user.language
+      { :locale => current_user.language}
+    else
+      { :locale => I18n.locale }
+    end
   end
 
   # リンクの多言語化に対応する
