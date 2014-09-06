@@ -33,4 +33,8 @@ RSpec.configure do |config|
   config.before(:all) do
     FactoryGirl.reload
   end
+
+  config.before(:each) do
+    I18n.locale = :en
+  end
 end
