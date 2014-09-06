@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show]
 
   def show
+    @notes = @user.notes ? @user.notes.page(params[:page]).per(10).order(id: :desc) : []
   end
 
   def update

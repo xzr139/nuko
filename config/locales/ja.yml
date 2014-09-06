@@ -5,9 +5,12 @@ ja:
     all_posts: '全ての投稿'
     signed_in: 'サインインしました'
     signed_out: 'サインアウトしました'
+    edit: '編集'
+    delete: '削除'
   users:
     index:
       see_all_this_post: "続きを読む"
+      see_this_post: "この投稿を読む"
     edit:
       type_your_nick_name: "ニックネームを入力してください"
       submit: "Save changes"
