@@ -18,11 +18,11 @@ en:
       placeholder: 'Ex. My name is Jack,  and I am currently studying abroad in Japan. I like listening musics and reading books. Nice to meet you!)'
       not_found: "It user is not found"
     update:
-      complate_update_nick_name: "Done update nick name"
+      complate_update_nick_name: "Done updating nick name"
     sign_in: "Sign In"
     sign_out: "Sign Out"
     user_name: "Nick name"
-    not_found: "User is not found"
+    not_found: "User not found"
     create_by: "created by %{user}"
     change_interface: "change your interface"
   notes:
