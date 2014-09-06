@@ -1,4 +1,9 @@
 class User < ActiveRecord::Base
+  INTERFACE_LANGUAGE = [
+   ['日本語', 'ja'],
+   ['英語', 'en']
+  ]
+
   has_many :notes
   has_attached_file :avatar,
     styles: { medium: "300x300>", thumb: "20x20>" },
