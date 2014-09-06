@@ -28,7 +28,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # リンクの多言語化に対応する
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
   end
