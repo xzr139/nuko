@@ -24,8 +24,7 @@
       .post-content
         = truncate auto_link(simple_format(note.content)), length: 100, omission: "・・・"
         = link_to note_path(note) do
-          - if note.content.to_s.length > 100
-            .see-all-text
-              = t("users.index.see_all_this_post")
+          .see-all-text
+            = t("users.index.read_this_post")
   #navigation
     = paginate @notes
