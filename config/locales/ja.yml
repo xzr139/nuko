@@ -21,6 +21,7 @@ ja:
     user_name: "ニックネーム"
     not_found: "ユーザーが見つかりません"
     created_by: "%{user}が作成"
+    change_interface: "表示言語を変える"
   notes:
     index:
       title: "タイトル"
