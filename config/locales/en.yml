@@ -5,6 +5,8 @@ en:
     all_posts: 'All posts'
     signed_in: 'Signed in'
     signed_out: 'Signed out'
+    edit: 'Edit'
+    delete: 'Delete'
   users:
     index:
       see_all_this_post: "See all this post"
