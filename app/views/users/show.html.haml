@@ -13,6 +13,11 @@
         %a= @user.full_name
       %li
         %a= t("common.all_posts")
+      %li
+        %a= t("users.tags")
+      - @ranking.each do |name, count|
+        %li
+          = link_to name, tag_notes_path(name: name)
     %ul.nav.navbar-nav.navbar-right
       %li
         - if current_user?(params[:id])

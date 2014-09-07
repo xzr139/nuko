@@ -25,6 +25,7 @@ en:
     not_found: "User not found"
     create_by: "created by %{full_name}"
     change_interface: "change your interface"
+    tags: "tags often use | "
   notes:
     index:
       title: "Title"

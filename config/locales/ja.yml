@@ -25,6 +25,7 @@ ja:
     not_found: "ユーザーが見つかりません"
     created_by: "%{full_name}が作成"
     change_interface: "表示言語を変える"
+    tags: "よく使ってるタグ | "
   notes:
     index:
       title: "タイトル"

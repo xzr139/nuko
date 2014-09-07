@@ -4,6 +4,14 @@ class UsersController < ApplicationController
 
   def show
     @notes = @user.notes ? @user.notes.page(params[:page]).per(10).order(id: :desc) : []
+    tag_list = @notes.map { |note| note.tag_list }
+    words_hash = HashWithIndifferentAccess.new
+    words_uniq = []
+
+    tag_list.each { |words_ary| words_ary.each { |words| words_uniq << words } }
+    words_uniq.uniq.each { |word| words_hash[word] = Note.tagged_with(word).count }
+
+    @ranking = words_hash.sort {|a,  b| b <=> a }[0...3]
   end
 
   def update
