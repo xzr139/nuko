@@ -4,3 +4,58 @@
   -moz-border-radius: 140px;
   border-radius: 140px;
 }
+
+.radius-of-image{
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  border-radius: 40px;
+}
+
+.form{
+  margin: 0 auto;
+  width: 700px;
+  text-align: left;
+}
+
+.post-block{
+  margin: 0 auto;
+  width: 700px;
+  margin-bottom: 20px;
+  border: 1px #ccc solid;
+  .post-detail{
+    width: 400px;
+    .post-information{
+      height: 46px;
+      float: left;
+      .title{
+        font-size: 20px;
+      }
+      .time-ago-and-edit{
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+.note-profile-image{
+  margin: 10px;
+  float: left;
+}
+
+.post-content{
+  margin-left: 10px;
+  font-size: 15px;
+}
+
+.toggeles{
+  float: right;
+}
+
+.see-all-text{
+  margin-bottom: 7px;
+}
+
+.tag-header{
+  margin-left: 215px;
+  margin-bottom: 20px;
+}
