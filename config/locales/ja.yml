@@ -29,6 +29,7 @@ ja:
     index:
       title: "タイトル"
       content: "内容"
+    tag_and_warning: "tag : タグはスペースで区切ってください"
     tag_list: "タグ一覧 | "
   datetime:
     distance_in_words:

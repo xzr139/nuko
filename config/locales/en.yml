@@ -29,6 +29,7 @@ en:
     index:
       title: "Title"
       content: "Content"
+    tag_and_warning: "tag : タグはスペースで区切ってください"
     tag_list: "tag list | "
   date:
     abbr_day_names:
