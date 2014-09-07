@@ -23,7 +23,7 @@ ja:
     sign_out: "ログアウト"
     user_name: "ニックネーム"
     not_found: "ユーザーが見つかりません"
-    created_by: "%{user}が作成"
+    created_by: "%{full_name}が作成"
     change_interface: "表示言語を変える"
   notes:
     index:

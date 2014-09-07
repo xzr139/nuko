@@ -23,7 +23,7 @@ en:
     sign_out: "Sign Out"
     user_name: "Nick name"
     not_found: "User not found"
-    create_by: "created by %{user}"
+    create_by: "created by %{full_name}"
     change_interface: "change your interface"
   notes:
     index:

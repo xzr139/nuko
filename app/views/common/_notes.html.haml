@@ -19,7 +19,7 @@
           = note.title
         .time-ago-and-edit
           = time_ago_in_words(note.created_at)
-          = link_to t('users.created_by', user: note.user.nick_name), user_path(note.user)
+          = link_to t('users.created_by', full_name: note.user.full_name), user_path(note.user)
     .post-content
       = truncate auto_link(simple_format(note.content)), length: 100, omission: "-----"
       = link_to note_path(note) do
