@@ -10,7 +10,7 @@
 .form{
   margin: 0 auto;
   width: 700px;
-  margin-bottom: 30px;
+  text-align: left;
 }
 
 .post-block{
@@ -63,4 +63,36 @@
 
 .see-all-text{
   margin-bottom: 7px;
+}
+
+#note_title{
+  width: 500px;
+  height: 35px;
+  margin-bottom: 10px;
+  margin-left: 70px;
+}
+
+#note_tag_list{
+  height: 35px;
+  width: 500px;
+  margin-bottom: 10px;
+  margin-left: 70px;
+}
+
+#note_content{
+  width: 500px;
+  margin-left: 70px;
+}
+
+#submit{
+  margin-left: 170px;
+}
+
+.well.bs-component{
+  width: 700px;
+}
+
+.col-lg-2.control-label{
+  width: 315px;
+  margin-left: 70px;
 }
