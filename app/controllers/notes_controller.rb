@@ -57,7 +57,6 @@ class NotesController < ApplicationController
   end
 
   def note_params
-    params['note']['tag_list'].gsub!(' ', ',')
     params.require(:note).permit(:title, :content, :tag_list)
   end
 end
