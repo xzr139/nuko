@@ -35,7 +35,7 @@ class UsersController < ApplicationController
   end
 
   def tag
-    @notes = Note.tagged_with(params[:name]).exists?(user_id: params[:id]) ? Note.tagged_with(params[:name]).order(id: :desc).where(user_id: params[:id]).page(params[:page]) : []
+    @notes = Note.tagged_with(params[:name]).exists?(user_id: params[:id]) ? Note.tagged_with(params[:name]).where(user_id: params[:id]).page(params[:page]).order(id: :desc) : []
   end
 
   private
