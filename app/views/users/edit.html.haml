@@ -26,4 +26,4 @@
               = f.select :language, User::INTERFACE_LANGUAGE, {}, { class: 'form-control' }
           .form-group
             .col-lg-10.col-lg-offset-2
-              = f.submit t("users.edit.submit"), class: "btn btn-primary"
+              = f.submit t("users.edit.submit"), class: "btn btn-primary", id: 'submit-user'
