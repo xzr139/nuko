@@ -19,12 +19,13 @@
 
 .post-block{
   margin: 0 auto;
-  width: 700px;
+  width: 550px;
   margin-bottom: 20px;
   border: 1px #ccc solid;
   .post-detail{
     width: 400px;
     .post-information{
+      margin: 10px;
       height: 46px;
       float: left;
       .title{
@@ -38,12 +39,12 @@
 }
 
 .note-profile-image{
-  margin: 10px;
+  margin: 20px;
   float: left;
 }
 
 .post-content{
-  margin-left: 10px;
+  margin-left: 20px;
   font-size: 15px;
 }
 

@@ -1,5 +1,5 @@
 .row
-  .col-lg-9
+  .col-lg-8
     .well.bs-component#notes
       = form_for @note do |f|
         - if @note.errors.any?
@@ -11,18 +11,18 @@
         %fieldset
           %br
           .form-group
-            = f.label t("notes.index.title"), class: 'col-lg-2 control-label'
+            = f.label t("notes.index.title"), class: 'col-lg-2 control-label note'
             .col-lg-10
               = f.text_field :title, class: "form-control"
           .form-group
-            = f.label t("notes.tag_and_warning"), class: 'col-lg-2 control-label'
+            = f.label t("notes.tag_and_warning"), class: 'col-lg-2 control-label note'
             .col-lg-10
               = f.text_field :tag_list, class: "form-control"
           .form-group
-            = f.label t("notes.index.content"), class: 'col-lg-2 control-label'
+            = f.label t("notes.index.content"), class: 'col-lg-2 control-label note'
             .col-lg-10
               = f.text_area :content, placeholder: t("users.edit.placeholder"), class: 'form-control'
           .form-group
-            .col-lg-10.col-lg-offset-2
+            .col-lg-10.col-lg-offset-2#note
               %br
               = f.submit "Save", id: "submit", class: "btn btn-default"

@@ -3,30 +3,27 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #note_title{
-  width: 500px;
+  width: 483px;
   height: 35px;
   margin-bottom: 10px;
-  margin-left: 70px;
 }
 
 #note_tag_list{
+  width: 483px;
   height: 35px;
-  width: 500px;
   margin-bottom: 10px;
-  margin-left: 70px;
 }
 
 #note_content{
-  width: 500px;
-  margin-left: 70px;
+  width: 483px;
 }
 
 #submit{
-  margin-left: 170px;
 }
 
 .well.bs-component#notes{
-  width: 700px;
+  width: 550px;
+  margin-left: 75px;
 }
 
 #navigation{
@@ -34,7 +31,6 @@
   width: 700px;
 }
 
-.col-lg-2.control-label{
+.col-lg-2.control-label.note{
   width: 315px;
-  margin-left: 70px;
 }
