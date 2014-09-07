@@ -2,65 +2,36 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.radius-of-image{
-  -webkit-border-radius: 40px;
-  -moz-border-radius: 40px;
-  border-radius: 40px;
-}
-.form{
-  margin: 0 auto;
-  width: 700px;
-  margin-bottom: 30px;
+#note_title{
+  width: 483px;
+  height: 35px;
+  margin-bottom: 10px;
 }
 
-.post-block{
-  margin: 0 auto;
-  width: 700px;
-  margin-bottom: 20px;
-  border: 1px #ccc solid;
-  .post-detail{
-    width: 400px;
-    .post-information{
-      height: 46px;
-      float: left;
-      .title{
-        font-size: 20px;
-      }
-      .time-ago-and-edit{
-          font-size: 14px;
-    }
-  }
+#note_tag_list{
+  width: 483px;
+  height: 35px;
+  margin-bottom: 10px;
 }
-.note-profile-image{
-  margin: 10px;
-  float: left;
+
+#note_content{
+  width: 483px;
 }
-.post-content{
-  margin-left: 10px;
-  font-size: 15px;
+
+#submit-note{
+  margin-left: 125px;
 }
-  .post-form{
-    width: 100%;
-    #note_content{
-      width: 100%;
-    }
-  }
-  .submit{
-    text-align: right;
-    #submit{
-      margin: 6px 10px 10px;
-    }
-  }
+
+.well.bs-component#notes{
+  width: 550px;
+  margin-left: 75px;
 }
 
 #navigation{
   margin: 0 auto;
   width: 700px;
 }
-.toggeles{
-  float: right;
-}
 
-.see-all-text{
-  margin-bottom: 7px;
+.col-lg-2.control-label.note{
+  width: 315px;
 }

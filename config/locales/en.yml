@@ -23,12 +23,16 @@ en:
     sign_out: "Sign Out"
     user_name: "Nick name"
     not_found: "User not found"
-    create_by: "created by %{user}"
+    create_by: "created by %{full_name}"
     change_interface: "change your interface"
+    tags: "tags often use | "
   notes:
     index:
       title: "Title"
       content: "Content"
+    tag_and_warning: "tag : タグはスペースで区切ってください"
+    tag_list: "tag list | "
+    tag: "このタグの投稿一覧"
   date:
     abbr_day_names:
     - Sun
