@@ -10,6 +10,10 @@ Rails.application.routes.draw do
       member do
         get 'all_posts'
       end
+
+      collection do
+        get 'tag'
+      end
     end
   end
 

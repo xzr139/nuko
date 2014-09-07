@@ -34,6 +34,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def tag
+    @notes = Note.tagged_with(params[:name]).page(params[:page])
+  end
+
   private
 
   def user_params
