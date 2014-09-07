@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :users do
       member do
         get 'all_posts'
+        get 'tag'
       end
     end
   end
