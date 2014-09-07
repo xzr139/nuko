@@ -7,7 +7,6 @@ class NotesController < ApplicationController
   end
 
   def show
-    @note = Note.find(params[:id])
   end
 
   def edit
@@ -50,7 +49,7 @@ class NotesController < ApplicationController
   private
 
   def set_note
-    @note = Note.find(params[:id])
+    @note = Note.exists?(id: params[:id]) ? Note.find_by(id: params[:id]) : []
   end
 
   def note_params
