@@ -3,8 +3,8 @@
     = profile_image(@user, "100x100")
   .profile-company
     = t("common.belonging_to", company: @user.company)
-.well
-  .profile-bio= auto_link(simple_format(@user.bio), html: { target: "_blank" })
+  .profile-bio
+    = auto_link(simple_format(@user.bio), html: { target: "_blank" })
 
 .navbar.navbar-default
   .navbar-collapse.collapse.navbar-inverse-collapse#user
@@ -32,4 +32,5 @@
                 %li
                   = link_to t("users.change_interface"), edit_user_path
 
+.margin#user
 = render 'common/notes'
