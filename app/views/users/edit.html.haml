@@ -1,7 +1,7 @@
 %h2.edit-profile= t("users.edit.edit_profile")
 .row
   .col-lg-8
-    .well.bs-component
+    .well.bs-component#users
       = form_for current_user, class: "form-horizontal", html: { multipart: true } do |f|
         %fieldset
           %br
