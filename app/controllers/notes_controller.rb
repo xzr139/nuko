@@ -47,7 +47,7 @@ class NotesController < ApplicationController
   end
 
   def tag
-    @notes = Note.tagged_with(params[:name]).page(params[:page])
+    @notes = Note.tagged_with(params[:name]) ? Note.tagged_with(params[:name]).page(params[:page]) : []
   end
 
   private
