@@ -60,6 +60,6 @@ class UsersController < ApplicationController
     tag_list = @notes.map { |note| note.tag_list }
     tag_list.each { |words_ary| words_ary.each { |words| words_uniq << words } }
     words_uniq.uniq.each { |word| words_hash[word] = Note.tagged_with(word).count }
-    @ranking = words_hash.sort {|a,  b| b <=> a }[0...5]
+    @ranking = words_hash.sort {|a,  b| b[1] <=> a[1] }[0...5]
   end
 end
