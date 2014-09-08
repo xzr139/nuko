@@ -47,7 +47,7 @@ class UsersController < ApplicationController
   def stocks
     @notes = []
     if @user.stocks.present?
-      stocks = @user.stocks.select { |stock| stock.note.stocked? }
+      stocks = @user.stocks.order(created_at: :desc).select { |stock| stock.note.stocked?(@user) }
       stocks.each { |stock| @notes << stock.note }
     end
 

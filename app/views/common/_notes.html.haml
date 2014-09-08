@@ -1,4 +1,4 @@
 - @notes.each do |note|
-  = render partial: 'common/note', locals: { note: note }
+  = render partial: 'common/note', locals: { user: @user, note: note }
 #navigation
   = paginate @notes

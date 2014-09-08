@@ -3,7 +3,8 @@ class NotesController < ApplicationController
 
   def index
     @note = Note.new
-    @notes = Note.page(params[:page]).per(10).order(id: :desc)
+    @notes = Note.page(params[:page]).per(10).order(created_at: :desc)
+    @user = current_user
   end
 
   def show
