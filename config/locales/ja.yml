@@ -27,6 +27,7 @@ ja:
     change_interface: "表示言語を変える"
     tags: "よく使ってるタグ | "
     authentication_failed: "認証に失敗しました。再度認証してください"
+    stocked_notes: "ストックした投稿"
   notes:
     index:
       title: "タイトル"

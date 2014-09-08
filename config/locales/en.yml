@@ -27,6 +27,7 @@ en:
     change_interface: "change your interface"
     tags: "tags often use | "
     authentication_failed: "Authentication failed, please try again"
+    stocked_notes: "Stoked notes"
   notes:
     index:
       title: "Title"

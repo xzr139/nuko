@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   before_action :user_params, only: [:update]
-  before_action :set_user, only: [:show, :tag]
-  before_action :set_notes, only: [:show, :tag]
-  before_action :set_ranking, only: [:show, :tag]
+  before_action :set_user, only: [:show, :tag, :stocks]
+  before_action :set_notes, only: [:show, :tag, :stocks]
+  before_action :set_ranking, only: [:show, :tag, :stocks]
 
   def show
   end
@@ -41,6 +41,16 @@ class UsersController < ApplicationController
 
   def tag
     @notes = Note.tagged_with(params[:name]).exists?(user_id: params[:id]) ? Note.tagged_with(params[:name]).where(user_id: params[:id]).page(params[:page]).order(id: :desc) : []
+  end
+
+  def stocks
+    @notes = []
+    if @user.stocks.present?
+      note_ids = @user.stocks.map { |stock| stock.note_id }
+      note_ids.each { |id| @notes << Note.find_by(id: id) }
+      @notes.compact!
+    end
+    @notes = Kaminari.paginate_array(@notes).page(params[:page])
   end
 
   private
