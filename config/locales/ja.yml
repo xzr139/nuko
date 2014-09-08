@@ -36,7 +36,7 @@ ja:
     tag_and_warning: "tag : タグはスペースで区切ってください"
     tag_list: "タグ一覧 | "
     tag: "このタグの投稿一覧"
-    stock_this_note: 'このノートをストックする'
+    stock_this_note: 'ストックする'
   datetime:
     distance_in_words:
       half_a_minute: "30秒前後"
