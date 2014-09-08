@@ -7,7 +7,6 @@ en:
     signed_out: 'Signed out'
     edit: 'Edit'
     delete: 'Delete'
-    stock_this_note: 'Stock this note'
   users:
     index:
       see_all_this_post: "See all this post"
@@ -35,6 +34,7 @@ en:
     tag_and_warning: "tag : タグはスペースで区切ってください"
     tag_list: "tag list | "
     tag: "このタグの投稿一覧"
+    stock_this_note: 'Stock this note'
   date:
     abbr_day_names:
     - Sun

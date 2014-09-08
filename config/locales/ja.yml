@@ -7,7 +7,6 @@ ja:
     signed_out: 'サインアウトしました'
     edit: '編集'
     delete: '削除'
-    stock_this_note: 'このノートをストックする'
   users:
     index:
       see_all_this_post: "続きを読む"
@@ -35,6 +34,7 @@ ja:
     tag_and_warning: "tag : タグはスペースで区切ってください"
     tag_list: "タグ一覧 | "
     tag: "このタグの投稿一覧"
+    stock_this_note: 'このノートをストックする'
   datetime:
     distance_in_words:
       half_a_minute: "30秒前後"
