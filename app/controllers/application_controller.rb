@@ -28,7 +28,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # リンクの多言語化に対応する
   def set_locale
     if current_user && current_user.language
       I18n.locale = current_user.language
