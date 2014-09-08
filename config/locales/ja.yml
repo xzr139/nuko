@@ -7,6 +7,7 @@ ja:
     signed_out: 'サインアウトしました'
     edit: '編集'
     delete: '削除'
+    stock_this_note: 'このノートをストックする'
   users:
     index:
       see_all_this_post: "続きを読む"

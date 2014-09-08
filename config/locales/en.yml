@@ -7,6 +7,7 @@ en:
     signed_out: 'Signed out'
     edit: 'Edit'
     delete: 'Delete'
+    stock_this_note: 'Stock this note'
   users:
     index:
       see_all_this_post: "See all this post"

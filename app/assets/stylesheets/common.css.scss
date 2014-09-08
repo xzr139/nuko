@@ -23,7 +23,10 @@
   margin-bottom: 20px;
   border: 1px #ccc solid;
   .post-detail{
-    width: 400px;
+    width: 515px;
+    .btn.btn-primary.stock-button.stock-bt{
+      float: right;
+    }
     .post-information{
       margin: 10px;
       height: 46px;
@@ -34,7 +37,7 @@
       .time-ago-and-edit{
         font-size: 14px;
       }
-    }
+   }
   }
 }
 
