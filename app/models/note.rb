@@ -5,7 +5,7 @@ class Note < ActiveRecord::Base
   validates :title,  length: { maximum: 43 }
   acts_as_taggable
 
-  def stocked?(user = nil)
+  def stocked_by?(user = nil)
     if user
       !!user.stocks.find_by(note_id: self.id, stocked: true)
     else

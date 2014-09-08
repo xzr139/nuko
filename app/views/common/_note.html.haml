@@ -12,8 +12,8 @@
   .post-detail.clearfix
     .note-profile-image.pull-left
       = image_tag note.user.avatar.url, class: 'radius-of-image', size: "47x47"
-    .btn.btn-primary.stock-button.stock-bt{ data: { note_id: note.id, user_id: note.user.id, stocked: note.stocked?(user).to_s } }
-      - stocked_message = note.stocked?(user) ? t('common.stocked') : t('notes.stock_this_note')
+    .btn.btn-primary.stock-button.stock-bt{ data: { note_id: note.id, user_id: note.user.id, stocked: note.stocked_by?(user).to_s } }
+      - stocked_message = note.stocked_by?(user) ? t('common.stocked') : t('notes.stock_this_note')
       = stocked_message
     .post-information
       .title
