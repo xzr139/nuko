@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   before_action :set_ranking, only: [:show, :tag, :stocks]
 
   def show
+    @notes = @user.notes.present? ? @user.notes.page(params[:page]).per(10).order(id: :desc) : []
   end
 
   def update
