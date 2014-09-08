@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140908051800) do
+ActiveRecord::Schema.define(version: 20140908071325) do
 
   create_table "notes", force: true do |t|
     t.string   "title"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20140908051800) do
   create_table "stocks", force: true do |t|
     t.integer  "note_id"
     t.integer  "user_id"
-    t.boolean  "stoked"
+    t.boolean  "stocked"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
