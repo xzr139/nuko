@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :user_params, only: [:update]
-  before_action :set_user, only: [:show]
+  before_action :set_user, only: [:show, :tag]
+  before_action :set_ranking, only: [:show, :tag]
 
   def show
     @notes = @user.notes.present? ? @user.notes.page(params[:page]).per(10).order(id: :desc) : []
@@ -34,6 +35,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def tag
+    @notes = Note.tagged_with(params[:name]).exists?(user_id: params[:id]) ? Note.tagged_with(params[:name]).where(user_id: params[:id]).page(params[:page]).order(id: :desc) : []
+  end
+
   private
 
   def user_params
@@ -46,5 +51,16 @@ class UsersController < ApplicationController
     else
       redirect_to root_path, notice: t('users.not_found')
     end
+  end
+
+  def set_ranking
+    words_hash = HashWithIndifferentAccess.new
+    words_uniq = []
+
+    @notes = @user.notes ? @user.notes.page(params[:page]).per(10).order(id: :desc) : []
+    tag_list = @notes.map { |note| note.tag_list }
+    tag_list.each { |words_ary| words_ary.each { |words| words_uniq << words } }
+    words_uniq.uniq.each { |word| words_hash[word] = Note.tagged_with(word).count }
+    @ranking = words_hash.sort {|a,  b| b[1] <=> a[1] }[0...5]
   end
 end

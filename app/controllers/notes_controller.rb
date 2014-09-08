@@ -7,7 +7,6 @@ class NotesController < ApplicationController
   end
 
   def show
-    @note = Note.find(params[:id])
   end
 
   def edit
@@ -47,13 +46,18 @@ class NotesController < ApplicationController
     end
   end
 
+  def tag
+    @notes = Note.tagged_with(params[:name]) ? Note.tagged_with(params[:name]).page(params[:page]) : []
+  end
+
   private
 
   def set_note
-    @note = Note.find(params[:id])
+    @note = Note.exists?(id: params[:id]) ? Note.find_by(id: params[:id]) : []
   end
 
   def note_params
-    params.require(:note).permit(:title, :content)
+    params['note']['tag_list'].gsub!(' ', ',')
+    params.require(:note).permit(:title, :content, :tag_list)
   end
 end

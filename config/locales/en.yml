@@ -18,17 +18,21 @@ en:
       placeholder: 'Ex. My name is Jack,  and I am currently studying abroad in Japan. I like listening musics and reading books. Nice to meet you!)'
       not_found: "It user is not found"
     update:
-      complate_update_nick_name: "Done update nick name"
+      complate_update_nick_name: "Done updating nick name"
     sign_in: "Sign In"
     sign_out: "Sign Out"
     user_name: "Nick name"
-    not_found: "User is not found"
-    create_by: "created by %{user}"
+    not_found: "User not found"
+    create_by: "created by %{full_name}"
     change_interface: "change your interface"
+    tags: "tags often use | "
   notes:
     index:
       title: "Title"
       content: "Content"
+    tag_and_warning: "tag : タグはスペースで区切ってください"
+    tag_list: "tag list | "
+    tag: "このタグの投稿一覧"
   date:
     abbr_day_names:
     - Sun

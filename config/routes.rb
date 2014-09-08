@@ -5,10 +5,16 @@ Rails.application.routes.draw do
 
   scope "/:locale" do
     resources :books
-    resources :notes, except: [:new]
+    resources :notes, except: [:new] do
+      collection do
+        get 'tag'
+      end
+    end
+
     resources :users do
       member do
         get 'all_posts'
+        get 'tag'
       end
     end
   end
