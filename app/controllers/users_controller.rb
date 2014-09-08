@@ -69,7 +69,7 @@ class UsersController < ApplicationController
   end
 
   def set_notes
-    @notes = @user.notes ? @user.notes.page(params[:page]).per(10).order(id: :desc) : []
+    @notes = @user.notes.present? ? @user.notes.page(params[:page]).per(10).order(id: :desc) : []
   end
 
   def set_ranking
