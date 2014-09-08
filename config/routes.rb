@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       member do
         get 'all_posts'
         get 'tag'
+        get 'stocks'
       end
     end
   end
