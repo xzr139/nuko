@@ -6,6 +6,6 @@ class Note < ActiveRecord::Base
   acts_as_taggable
 
   def stocked?
-    !!self.user.stocks.find_by(note_id: self.id)
+    !!self.user.stocks.find_by(note_id: self.id, stocked: true)
   end
 end
