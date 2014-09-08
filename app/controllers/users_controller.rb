@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :user_params, only: [:update]
   before_action :set_user, only: [:show, :tag]
+  before_action :set_notes, only: [:show, :tag]
   before_action :set_ranking, only: [:show, :tag]
 
   def show
@@ -56,11 +57,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def set_notes
+    @notes = @user.notes ? @user.notes.page(params[:page]).per(10).order(id: :desc) : []
+  end
+
   def set_ranking
     words_hash = HashWithIndifferentAccess.new
     words_uniq = []
 
-    @notes = @user.notes ? @user.notes.page(params[:page]).per(10).order(id: :desc) : []
     tag_list = @notes.map { |note| note.tag_list }
     tag_list.each { |words_ary| words_ary.each { |words| words_uniq << words } }
     words_uniq.uniq.each { |word| words_hash[word] = Note.tagged_with(word).count }
