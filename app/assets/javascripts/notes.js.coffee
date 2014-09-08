@@ -13,5 +13,5 @@ $ ->
       data:
         note_id: $(this).attr('data-note-id')
         user_id: $(this).attr('data-user-id')
-      complate: (data) ->
-        $(current).text(I18n.t('notes.stock_this_note'))
+      complete: (data) ->
+        $(current).text(I18n.t('common.stocked'))
