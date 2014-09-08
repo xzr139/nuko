@@ -17,6 +17,8 @@ Rails.application.routes.draw do
         get 'stocks'
       end
     end
+
+    resources :stocks, only: [:create, :update]
   end
 
   get '/auth/:provider/callback' => 'users#callback'
