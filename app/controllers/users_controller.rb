@@ -47,10 +47,10 @@ class UsersController < ApplicationController
   def stocks
     @notes = []
     if @user.stocks.present?
-      note_ids = @user.stocks.map { |stock| stock.note_id }
-      note_ids.each { |id| @notes << Note.find_by(id: id) }
-      @notes.compact!
+      stocks = @user.stocks.select { |stock| stock.note.stocked? }
+      stocks.each { |stock| @notes << stock.note }
     end
+
     @notes = Kaminari.paginate_array(@notes).page(params[:page])
   end
 
