@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   get '/:locale' => 'notes#index'
 
   scope "/:locale" do
-    resources :books
     resources :notes, except: [:new] do
       collection do
         get 'tag'
