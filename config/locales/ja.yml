@@ -26,6 +26,7 @@ ja:
     created_by: "%{full_name}が作成"
     change_interface: "表示言語を変える"
     tags: "よく使ってるタグ | "
+    authentication_failed: "認証に失敗しました。再度認証してください"
   notes:
     index:
       title: "タイトル"

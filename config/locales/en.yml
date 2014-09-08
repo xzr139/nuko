@@ -26,6 +26,7 @@ en:
     create_by: "created by %{full_name}"
     change_interface: "change your interface"
     tags: "tags often use | "
+    authentication_failed: "Authentication failed, please try again"
   notes:
     index:
       title: "Title"

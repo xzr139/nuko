@@ -21,6 +21,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def failure
+    redirect_to root_url, notice: t('users.authentication_failed')
+  end
+
   def sign_out
     cookies[:token] = nil
     redirect_to root_url, notice: t("common.signed_out")
