@@ -20,5 +20,6 @@ Rails.application.routes.draw do
   end
 
   get '/auth/:provider/callback' => 'users#callback'
+  get '/auth/failure' => 'users#failure'
   delete '/auth/sign_out' => 'users#sign_out'
 end
