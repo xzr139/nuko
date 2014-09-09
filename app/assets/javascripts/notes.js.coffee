@@ -43,7 +43,7 @@ validationOnInput = ->
         required: true
         maxlength: "5000文字以内にして下さい"
       }
-  }
+    }
 
 $ ->
   locale = $('html').attr('lang')
