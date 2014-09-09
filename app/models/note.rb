@@ -3,6 +3,8 @@ class Note < ActiveRecord::Base
   has_many :stocks
 
   validates :title,  length: { maximum: 40 }
+  validates :content,  length: { maximum: 5000 }
+
   acts_as_taggable
 
   def stocked_by?(user = nil)
