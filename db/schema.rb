@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140909103840) do
+ActiveRecord::Schema.define(version: 20140909112243) do
 
   create_table "notes", force: true do |t|
     t.string   "title"
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20140909103840) do
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "facebook_id"
+    t.string   "facebook_id",         null: false
     t.string   "email"
     t.string   "full_name"
     t.string   "nick_name"
