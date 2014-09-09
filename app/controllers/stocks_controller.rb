@@ -8,11 +8,13 @@ class StocksController < ApplicationController
 
   def update
     if current_user.stocks.exists?(note_id: params[:note_id], stocked: false)
-      stock = current_user.stocks.find_by(note_id: params[:note_id]).update(stocked: true)
+      @stock = current_user.stocks.find_by(note_id: params[:note_id])
+      @stock.update(stocked: true)
     else
-      stock = current_user.stocks.find_by(note_id: params[:note_id]).update(stocked: false)
+      @stock = current_user.stocks.find_by(note_id: params[:note_id])
+      @stock.update(stocked: true)
     end
 
-    redirect_to note_path(stock.note)
+    redirect_to note_path(@stock.note)
   end
 end
