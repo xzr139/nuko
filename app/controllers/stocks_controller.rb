@@ -6,12 +6,8 @@ class StocksController < ApplicationController
   end
 
   def update
-    if current_user.stocks.exists?(note_id: params[:note_id], stocked: false)
-      @stock = current_user.stocks.find_by(note_id: params[:note_id])
-      @stock.update(stocked: true)
-    else
-      @stock = current_user.stocks.find_by(note_id: params[:note_id])
-      @stock.update(stocked: true)
-    end
+    @stock = current_user.stocks.find_by(note_id: params[:note_id])
+    stocked = current_user.stocks.exists?(note_id: params[:note_id], stocked: false)
+    @stock.update(stocked: stocked)
   end
 end
