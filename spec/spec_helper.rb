@@ -35,6 +35,6 @@ RSpec.configure do |config|
   end
 
   config.before(:each) do
-    I18n.locale = :en
+    I18n.locale = :ja
   end
 end
