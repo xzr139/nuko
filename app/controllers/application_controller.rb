@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   helper_method :current_user, :signed_in?, :current_user?, :is_this_my_note?, :locale
 
+  private
+
   def current_user
     cookies[:token] ? User.where(token: cookies[:token]).first : nil
   end
