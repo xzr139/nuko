@@ -3,7 +3,6 @@ class StocksController < ApplicationController
   def create
     @stock = current_user.stocks.build(note_id: params[:note_id], stocked: true)
     @stock.save unless Stock.exists?(note_id: params[:note_id], user_id: params[:user_id])
-    redirect_to note_path(@stock.note)
   end
 
   def update
@@ -14,7 +13,5 @@ class StocksController < ApplicationController
       @stock = current_user.stocks.find_by(note_id: params[:note_id])
       @stock.update(stocked: true)
     end
-
-    redirect_to note_path(@stock.note)
   end
 end
