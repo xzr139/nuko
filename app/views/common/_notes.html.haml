@@ -1,4 +1,5 @@
 - @notes.each do |note|
   = render 'common/note', note: note, user: @user
+
 #navigation
-  = paginate @notes
+  = paginate @notes if @notes.present?
