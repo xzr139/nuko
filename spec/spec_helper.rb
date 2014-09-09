@@ -7,6 +7,7 @@ require "capybara/rspec"
 require "capybara/poltergeist"
 require "factory_girl"
 require "omniauth"
+require "database_cleaner"
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 Dir[Rails.root.join("spec/factories/**/*.rb")].each {|f| require f}
@@ -30,11 +31,21 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include I18nMacros
 
+  config.before(:suite) do
+    DatabaseCleaner.clean_with(:truncation,{:except => %w{except1 except2}})
+    DatabaseCleaner.strategy = :transaction
+  end
+
   config.before(:all) do
     FactoryGirl.reload
   end
 
   config.before(:each) do
-    I18n.locale = :en
+    I18n.locale = :ja
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
   end
 end

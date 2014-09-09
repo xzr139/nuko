@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   ]
 
   has_many :notes
+  has_many :stocks
+
   has_attached_file :avatar,
     styles: { medium: "300x300>", thumb: "20x20>" },
     default_url: "/images/default_image.png"

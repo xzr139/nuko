@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140907021309) do
+ActiveRecord::Schema.define(version: 20140909112243) do
 
   create_table "notes", force: true do |t|
     t.string   "title"
@@ -20,6 +20,17 @@ ActiveRecord::Schema.define(version: 20140907021309) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "stocks", force: true do |t|
+    t.integer  "note_id",                    null: false
+    t.integer  "user_id",                    null: false
+    t.boolean  "stocked",    default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "stocks", ["note_id"], name: "index_stocks_on_note_id", using: :btree
+  add_index "stocks", ["user_id"], name: "index_stocks_on_user_id", using: :btree
 
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"
@@ -42,7 +53,7 @@ ActiveRecord::Schema.define(version: 20140907021309) do
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "facebook_id"
+    t.string   "facebook_id",         null: false
     t.string   "email"
     t.string   "full_name"
     t.string   "nick_name"

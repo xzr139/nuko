@@ -7,6 +7,7 @@ en:
     signed_out: 'Signed out'
     edit: 'Edit'
     delete: 'Delete'
+    stocked: 'Stocked'
   users:
     index:
       see_all_this_post: "See all this post"
@@ -27,6 +28,7 @@ en:
     change_interface: "change your interface"
     tags: "tags often use | "
     authentication_failed: "Authentication failed, please try again"
+    stocked_notes: "Stoked notes"
   notes:
     index:
       title: "Title"
@@ -34,6 +36,7 @@ en:
     tag_and_warning: "tag : タグはスペースで区切ってください"
     tag_list: "tag list | "
     tag: "このタグの投稿一覧"
+    stock_this_note: 'Stock this note'
   date:
     abbr_day_names:
     - Sun

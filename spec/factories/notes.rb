@@ -7,6 +7,6 @@ FactoryGirl.define do
   factory :note do
     title
     content
-    user_id 1
+    association(:user)
   end
 end

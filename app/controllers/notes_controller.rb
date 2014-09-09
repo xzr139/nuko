@@ -1,9 +1,10 @@
 class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:index, :show]
 
   def index
     @note = Note.new
-    @notes = Note.page(params[:page]).per(10).order(id: :desc)
+    @notes = Note.page(params[:page]).per(10).order(created_at: :desc)
   end
 
   def show
@@ -56,8 +57,11 @@ class NotesController < ApplicationController
     @note = Note.exists?(id: params[:id]) ? Note.find_by(id: params[:id]) : []
   end
 
+  def set_user
+    @user = current_user
+  end
+
   def note_params
-    params['note']['tag_list'].gsub!(' ', ',')
     params.require(:note).permit(:title, :content, :tag_list)
   end
 end

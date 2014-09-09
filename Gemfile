@@ -35,6 +35,8 @@ gem "rails_autolink"
 gem "annotate"
 gem "xray-rails"
 gem "rails-timeago",  "~> 2.0"
+gem 'jquery-turbolinks'
+gem "i18n-js"
 
 group :development do
   gem "rspec-rails"

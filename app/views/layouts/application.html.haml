@@ -1,12 +1,14 @@
 !!!
-%html
+%html{ lang: locale}
   %head
     %meta{ charset: "utf-8" }
     %title= Settings.service.name
 
     = csrf_meta_tags
-    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "i18n"
+    = javascript_include_tag "translations"
     = javascript_include_tag "application", "data-turbolinks-track" => true
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = stylesheet_link_tag "bootstrap_and_overrides", media: "all"
     = stylesheet_link_tag "application"
   %body
