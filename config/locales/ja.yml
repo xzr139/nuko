@@ -37,7 +37,7 @@ ja:
     index:
       title: "タイトル"
       content: "内容"
-    tag_and_warning: "tag : タグはスペースで区切ってください"
+    tag_and_warning: "タグ ※タグはスペースで区切ってください"
     tag_list: "タグ一覧 | "
     tag: "このタグの投稿一覧"
     stock_this_note: 'ストックする'
