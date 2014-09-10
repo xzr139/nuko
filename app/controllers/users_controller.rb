@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     user = User.set_data_from_omnifb_info(request.env["omniauth.auth"])
     cookies[:token] = user.token
     if user.nick_name.present? && user.bio.present?
-      redirect_to root_path, notice: t("common.signed_in")
+      redirect_to root_url, notice: t("common.signed_in")
     else
       redirect_to edit_user_path(user.id), notice: t("common.signed_in")
     end
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
     if User.find(params[:id])
       @user = User.find(params[:id])
     else
-      redirect_to root_path, notice: t("users.not_found")
+      redirect_to root_url, notice: t("users.not_found")
     end
   end
 
@@ -64,7 +64,7 @@ class UsersController < ApplicationController
     if User.exists?(id: params[:id])
       @user = User.find(params[:id])
     else
-      redirect_to root_path, notice: t('users.not_found')
+      redirect_to root_url, notice: t('users.not_found')
     end
   end
 

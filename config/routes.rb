@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'notes#index'
   get '/:locale' => 'notes#index'
 
-  scope path: "(:locale)", shallow_path: "(:locale)", locale: /en|ja/ do
+  scope path: "(:locale)", shallow_path: "(:locale)" do
     resources :notes, except: [:new] , shallow: true do
       collection do
         get 'tag'

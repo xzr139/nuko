@@ -15,7 +15,7 @@
     .navbar.navbar-default.navbar-fixed-top
       .container
         .navbar-header
-          = link_to Settings.service.name, root_path, class: "navbar-brand", id: 'service-name'
+          = link_to Settings.service.name, root_url, class: "navbar-brand", id: 'service-name'
         #navbar-main.navbar-collapse.collapse
           %ul.nav.navbar-nav.navbar-right
             - if signed_in?

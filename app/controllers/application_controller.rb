@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :set_locale
-  helper_method :current_user, :signed_in?, :current_user?, :is_this_my_note?, :locale
+  helper_method :current_user, :signed_in?, :current_user?, :is_this_my_note?, :locale,  :root_url
 
   private
 
@@ -44,5 +44,9 @@ class ApplicationController < ActionController::Base
     else
       params[:locale] || I18n.default_locale
     end
+  end
+
+  def root_url
+    "/#{locale}"
   end
 end
