@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   private
 
   def current_user
-    cookies[:token] ? User.where(token: cookies[:token]).first : nil
+    session[:token] ? User.where(token: session[:token]).first : nil
   end
 
   def current_user?(id)
