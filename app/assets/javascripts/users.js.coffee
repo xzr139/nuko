@@ -15,11 +15,11 @@ validationOnInput = ->
     }
     messages: {
       'user[nick_name]': {
-        required: t('validation.required_nick_name')
-        maxlength: t('validation.max_length', limit: 15)
+        required: I18n.t('validation.required_nick_name')
+        maxlength: I18n.t('validation.max_length', limit: 15)
       }
       'user[bio]': {
-        maxlength: t('validation.max_length', limit: 300)
+        maxlength: I18n.t('validation.max_length', limit: 300)
       }
     }
 
