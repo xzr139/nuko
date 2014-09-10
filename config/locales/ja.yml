@@ -22,7 +22,7 @@ ja:
       bio: "自己紹介"
       icon: "プロフィール画像"
     update:
-      complate_update_nick_name: "ニックネームの保存が完了しました"
+      complate_update_profiles: "プロフィールの編集が完了しました"
     sign_in: "ログイン"
     sign_out: "ログアウト"
     nick_name: "ニックネーム"

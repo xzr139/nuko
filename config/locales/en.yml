@@ -22,7 +22,7 @@ en:
       bio: "Self Introduction"
       icon: "Your icon"
     update:
-      complate_update_nick_name: "Done updating nick name"
+      complate_update_profiles: "Done updating nick name"
     sign_in: "Sign In"
     sign_out: "Sign Out"
     nick_name: "Nick name"

@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
   def update
     current_user.update(user_params)
-    redirect_to user_path(current_user), notice: t("users.update.complate_update_nick_name")
+    redirect_to user_path(current_user), notice: t("users.update.complate_update_profiles")
   end
 
   def callback
