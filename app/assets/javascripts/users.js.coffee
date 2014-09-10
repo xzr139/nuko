@@ -10,7 +10,6 @@ validationOnInput = ->
         maxlength: 15
       }
       'user[bio]': {
-        required: true
         maxlength: 300
       }
     }
@@ -20,7 +19,6 @@ validationOnInput = ->
         maxlength: "40文字以内にして下さい"
       }
       'user[bio]': {
-        required: true
         maxlength: "5000文字以内にして下さい"
       }
     }
