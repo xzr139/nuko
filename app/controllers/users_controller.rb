@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
   def callback
     user = User.set_data_from_omnifb_info(request.env["omniauth.auth"])
-    cookies[:token] = user.token
+    session[:token] = user.token
     if user.nick_name.present? && user.bio.present?
       redirect_to root_path, notice: t("common.signed_in")
     else
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   end
 
   def sign_out
-    cookies[:token] = nil
+    session[:token] = nil
     redirect_to root_url, notice: t("common.signed_out")
   end
 
