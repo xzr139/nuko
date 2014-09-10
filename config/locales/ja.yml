@@ -39,6 +39,9 @@ ja:
     stock_this_note: 'ストックする'
   validation:
     required_nick_name: "ニックネームが入力されていません"
+    required_title: "タイトルを入力してください"
+    required_tag_list: "タグを入力してください"
+    required_content: "内容を入力してください"
     max_length: "%{limit}文字以内にして下さい"
   datetime:
     distance_in_words:
