@@ -35,8 +35,9 @@
                         = link_to t("users.change_interface"), edit_user_path(current_user)
                       %li
                         = link_to t("users.sign_out"), auth_sign_out_path, id: 'sign-out', method: :delete
-            %li
-              = link_to t("users.sign_in"), "/auth/facebook" unless signed_in?
+            - unless signed_in?
+              %li
+                = link_to t("users.sign_in"), "/auth/facebook"
     .container
       %br
       %br
