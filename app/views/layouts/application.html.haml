@@ -36,7 +36,7 @@
                         %li
                           = link_to t("users.change_interface"), edit_user_path
               %li
-                = link_to t("users.sign_out"), auth_sign_out_path, method: :delete
+                = link_to t("users.sign_out"), auth_sign_out_path, id: 'sign-out', method: :delete
     .container
       %br
       %br
