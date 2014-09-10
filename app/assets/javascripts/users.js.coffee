@@ -15,11 +15,11 @@ validationOnInput = ->
     }
     messages: {
       'user[nick_name]': {
-        required: '文字が入力されていません'
-        maxlength: "40文字以内にして下さい"
+        required: t('validation.required_nick_name')
+        maxlength: t('validation.max_length', limit: 15)
       }
       'user[bio]': {
-        maxlength: "5000文字以内にして下さい"
+        maxlength: t('validation.max_length', limit: 300)
       }
     }
 

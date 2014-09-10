@@ -37,6 +37,9 @@ ja:
     tag_list: "タグ一覧 | "
     tag: "このタグの投稿一覧"
     stock_this_note: 'ストックする'
+  validation:
+    required_nick_name: "ニックネームが入力されていません"
+    max_length: "%{limit}文字以内にして下さい"
   datetime:
     distance_in_words:
       half_a_minute: "30秒前後"
