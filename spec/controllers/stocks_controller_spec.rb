@@ -11,8 +11,8 @@ describe StocksController, type: :controller do
         patch :update, { note_id: @stock.note_id }
       end
 
-      it 'should be sccess' do
-        expect(response).to redirect_to(@stock.note)
+      it 'should be blank' do
+        expect(response.body).to be_blank
       end
 
       it 'is in agreement with what note to edit chose' do
