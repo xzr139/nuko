@@ -1,29 +1,24 @@
 %h2.edit-profile= t("users.edit.edit_profile")
 .row
-  .col-lg-9
+  .col-lg-10
     .well.bs-component#users
       = form_for current_user, class: "form-horizontal", html: { multipart: true } do |f|
         %fieldset
           %br
           .form-group
-            = f.label t("users.user_name"), class: 'col-lg-2 control-label user'
-            .col-lg-10
-              = f.text_field :nick_name, class: "form-control"
+            = f.label t("users.nick_name"), class: 'col-lg-2 control-label user'
+            = f.text_field :nick_name, class: "form-control"
           .form-group
-            = f.label "自己紹介", class: 'col-lg-2 control-label user'
-            .col-lg-10
-              = f.text_area :bio, placeholder: t("users.edit.placeholder"), class: 'form-control'
+            = f.label t('users.edit.bio'), class: 'col-lg-2 control-label user'
+            = f.text_area :bio, placeholder: t("users.edit.placeholder"), class: 'form-control'
           .form-group
-            = f.label "file", class: 'col-lg-2 control-label user'
-            .col-lg-10
-              = f.file_field :avatar, class: "form-control", style: "display:none"
-              .input-append
-                %input#avatar-input.input-large{ type: "text"}
-                %a.btn{ onclick: "$('input[id=user_avatar]').click();" } Browse
+            = f.label t('users.edit.icon'), class: 'col-lg-2 control-label user'
+            = f.file_field :avatar, class: "form-control", style: "display:none"
+            .input-append
+              %input#avatar-input.input-large{ type: "text"}
+              %a.btn{ onclick: "$('input[id=user_avatar]').click();" } Browse
           .form-group
-            = f.label "language", class: 'col-lg-2 control-label user'
-            .col-lg-10
-              = f.select :language, User::INTERFACE_LANGUAGE, {}, { class: 'form-control' }
+            = f.label t('common.language'), class: 'col-lg-2 control-label user'
+            = f.select :language, User::INTERFACE_LANGUAGE, {}, { class: 'form-control' }
           .form-group
-            .col-lg-10.col-lg-offset-2
-              = f.submit t("users.edit.submit"), class: "btn btn-primary", id: 'submit-user'
+            = f.submit t("users.edit.submit"), class: "btn btn-primary", id: 'submit-user'

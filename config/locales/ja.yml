@@ -8,21 +8,25 @@ ja:
     edit: '編集'
     delete: '削除'
     stocked: 'ストック済み'
+    language: '表示言語'
+    post: '投稿'
   users:
     index:
       see_all_this_post: "続きを読む"
       see_this_post: "この投稿を読む"
     edit:
       type_your_nick_name: "ニックネームを入力してください"
-      submit: "Save changes"
+      submit: "保存"
       edit_profile: 'プロフィールを編集'
       placeholder: '(例 アメリカに留学している大森です。英語を勉強しています。趣味は映画鑑賞とブログを読むことです。よろしくお願いします。'
       not_found: "ユーザーが見つかりません"
+      bio: "自己紹介"
+      icon: "プロフィール画像"
     update:
-      complate_update_nick_name: "ニックネームの保存が完了しました"
+      complate_update_profiles: "プロフィールの編集が完了しました"
     sign_in: "ログイン"
     sign_out: "ログアウト"
-    user_name: "ニックネーム"
+    nick_name: "ニックネーム"
     not_found: "ユーザーが見つかりません"
     created_by: "%{full_name}が作成"
     change_interface: "表示言語を変える"
@@ -33,7 +37,7 @@ ja:
     index:
       title: "タイトル"
       content: "内容"
-    tag_and_warning: "tag : タグはスペースで区切ってください"
+    tag_and_warning: "タグ ※タグはスペースで区切ってください"
     tag_list: "タグ一覧 | "
     tag: "このタグの投稿一覧"
     stock_this_note: 'ストックする'
