@@ -9,6 +9,7 @@ en:
     delete: 'Delete'
     stocked: 'Stocked'
     language: 'Language interface'
+    post: 'Post'
   users:
     index:
       see_all_this_post: "See all this post"

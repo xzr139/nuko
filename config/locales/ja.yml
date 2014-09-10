@@ -9,6 +9,7 @@ ja:
     delete: '削除'
     stocked: 'ストック済み'
     language: '表示言語'
+    post: '投稿'
   users:
     index:
       see_all_this_post: "続きを読む"
