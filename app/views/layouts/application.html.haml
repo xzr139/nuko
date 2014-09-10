@@ -22,7 +22,7 @@
               %li
                 = link_to user_path(current_user) do
                   = current_user.nick_name if signed_in?
-                  = profile_image(current_user, '25x25')
+                  = profile_image(current_user, '35x35')
               %li
                 = link_to t("users.sign_in"), "/auth/facebook" unless signed_in?
                 %li
