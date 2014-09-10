@@ -36,9 +36,9 @@ en:
     index:
       title: "Title"
       content: "Content"
-    tag_and_warning: "tag : タグはスペースで区切ってください"
+    tag_and_warning: "tag : It is need to separate by a space"
     tag_list: "tag list | "
-    tag: "このタグの投稿一覧"
+    tag: "This tag for feed"
     stock_this_note: 'Stock this note'
   validation:
     required_nick_name: "Please enter your nick name."
