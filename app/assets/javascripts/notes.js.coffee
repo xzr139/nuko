@@ -23,7 +23,7 @@ validationOnInput = ->
       }
       'note[tag_list]': {
         required: true
-        maxlength: 5000
+        maxlength: 40
       }
       'note[content]': {
         required: true
