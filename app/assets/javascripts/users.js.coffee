@@ -10,18 +10,16 @@ validationOnInput = ->
         maxlength: 15
       }
       'user[bio]': {
-        required: true
         maxlength: 300
       }
     }
     messages: {
       'user[nick_name]': {
-        required: '文字が入力されていません'
-        maxlength: "40文字以内にして下さい"
+        required: I18n.t('validation.required_nick_name')
+        maxlength: I18n.t('validation.max_length', limit: 15)
       }
       'user[bio]': {
-        required: true
-        maxlength: "5000文字以内にして下さい"
+        maxlength: I18n.t('validation.max_length', limit: 300)
       }
     }
 

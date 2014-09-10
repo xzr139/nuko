@@ -23,7 +23,7 @@ validationOnInput = ->
       }
       'note[tag_list]': {
         required: true
-        maxlength: 5000
+        maxlength: 40
       }
       'note[content]': {
         required: true
@@ -32,16 +32,17 @@ validationOnInput = ->
     }
     messages: {
       'note[title]': {
-        required: '文字が入力されていません'
-        maxlength: "40文字以内にして下さい"
+        required: I18n.t('validation.required_title')
+        maxlength: I18n.t('validation.max_length', limit: 40)
       }
       'note[tag_list]': {
+        required: I18n.t('validation.required_tag_list')
         required: '文字が入力されていません'
-        maxlength: "40文字以内にして下さい"
+        maxlength: I18n.t('validation.max_length', limit: 40)
       }
       'note[content]': {
-        required: true
-        maxlength: "5000文字以内にして下さい"
+        required: I18n.t('validation.required_content')
+        maxlength: I18n.t('validation.max_length', limit: 5000)
       }
     }
 

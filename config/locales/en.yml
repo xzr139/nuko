@@ -37,6 +37,12 @@ en:
     tag_list: "tag list | "
     tag: "このタグの投稿一覧"
     stock_this_note: 'Stock this note'
+  validation:
+    required_nick_name: "Please enter your nick name."
+    required_title: "Please enter note title"
+    required_tag_list: "Please enter tag list"
+    required_content: "Please enter title"
+    max_length: "Please enter no more than %{limit} characters."
   date:
     abbr_day_names:
     - Sun
