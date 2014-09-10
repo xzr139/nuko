@@ -8,6 +8,7 @@ en:
     edit: 'Edit'
     delete: 'Delete'
     stocked: 'Stocked'
+    language: 'Language interface'
   users:
     index:
       see_all_this_post: "See all this post"
@@ -18,11 +19,13 @@ en:
       edit_profile: 'Edit your profile'
       placeholder: 'Ex. My name is Jack,  and I am currently studying abroad in Japan. I like listening musics and reading books. Nice to meet you!)'
       not_found: "It user is not found"
+      bio: "Self Introduction"
+      icon: "Your icon"
     update:
       complate_update_nick_name: "Done updating nick name"
     sign_in: "Sign In"
     sign_out: "Sign Out"
-    user_name: "Nick name"
+    nick_name: "Nick name"
     not_found: "User not found"
     create_by: "created by %{full_name}"
     change_interface: "change your interface"
