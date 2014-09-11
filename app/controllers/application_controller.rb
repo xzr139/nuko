@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   private
 
   def current_user
-    session[:token] ? User.where(token: session[:token]).first : nil
+    User.find_by(token: session[:token])
   end
 
   def current_user?(id)
