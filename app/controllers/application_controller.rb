@@ -43,4 +43,8 @@ class ApplicationController < ActionController::Base
       params[:locale] || I18n.default_locale
     end
   end
+
+  def check_user
+    redirect_to root_path, notice: 'You have to sign in' unless signed_in?
+  end
 end
