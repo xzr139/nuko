@@ -6,11 +6,11 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   helper_method :current_user, :signed_in?, :current_user?, :is_this_my_note?, :locale
 
-  private
-
   def current_user
     User.find_by(token: session[:token])
   end
+
+  private
 
   def current_user?(id)
     current_user == User.find_by(id: id)
