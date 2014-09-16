@@ -1,5 +1,5 @@
 .post-block
-  - if is_this_my_note?(note.id)
+  - if note.is_this_my_note?
     .toggeles
       .btn-group
         %button.btn.btn-default.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}

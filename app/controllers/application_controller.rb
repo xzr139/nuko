@@ -16,10 +16,6 @@ class ApplicationController < ActionController::Base
     current_user == User.find_by(id: id)
   end
 
-  def is_this_my_note?(id)
-    Note.find_by(id: id).user == current_user
-  end
-
   def signed_in?
     current_user != nil
   end
