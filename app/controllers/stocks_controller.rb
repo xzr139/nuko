@@ -7,6 +7,7 @@ class StocksController < ApplicationController
     else
       @stock = current_user.stocks.build(note_id: params[:note_id], stocked: true)
       @stock.save
+      @stock.create_activity :create, owner: current_user
     end
 
     render nothing: true
