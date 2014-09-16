@@ -28,6 +28,7 @@ GEM
       activesupport (= 4.1.4)
       builder (~> 3.1)
       erubis (~> 2.7.0)
+    active_decorator (0.3.4)
     activemodel (4.1.4)
       activesupport (= 4.1.4)
       builder (~> 3.1)
@@ -384,6 +385,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_decorator
   acts-as-taggable-on
   annotate
   awesome_print
