@@ -14,4 +14,8 @@ class Note < ActiveRecord::Base
       false
     end
   end
+
+  def owner
+    user
+  end
 end
