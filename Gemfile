@@ -39,6 +39,7 @@ gem 'jquery-turbolinks'
 gem "i18n-js"
 gem 'public_activity'
 gem 'active_decorator'
+gem 'unread'
 
 group :development do
   gem "rspec-rails"
