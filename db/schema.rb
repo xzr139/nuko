@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140911142206) do
+ActiveRecord::Schema.define(version: 20140917051557) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -37,6 +37,15 @@ ActiveRecord::Schema.define(version: 20140911142206) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "read_marks", force: true do |t|
+    t.integer  "readable_id"
+    t.integer  "user_id",                  null: false
+    t.string   "readable_type", limit: 20, null: false
+    t.datetime "timestamp"
+  end
+
+  add_index "read_marks", ["user_id", "readable_type", "readable_id"], name: "index_read_marks_on_user_id_and_readable_type_and_readable_id", using: :btree
 
   create_table "stocks", force: true do |t|
     t.integer  "note_id",                    null: false
