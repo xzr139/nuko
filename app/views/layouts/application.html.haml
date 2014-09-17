@@ -20,7 +20,7 @@
           %ul.nav.navbar-nav.navbar-right
             - if signed_in?
               %li
-                = link_to PublicActivity::Activity.order(created_at: :desc).where(recipient_id: current_user.id,  owner_type: "User").size, activities_path, class: 'notification-of-number'
+                = link_to PublicActivity::Activity.order(created_at: :desc).where(recipient_id: current_user.id,  owner_type: "User").where.not(owner_id: current_user.id).size, activities_path, class: 'notification-of-number'
               %li
                 = link_to user_path(current_user) do
                   = current_user.nick_name
