@@ -15,7 +15,7 @@ class Note < ActiveRecord::Base
     end
   end
 
-  def owner
+  def recipient
     user
   end
 end
