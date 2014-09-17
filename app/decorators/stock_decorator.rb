@@ -1,0 +1,2 @@
+module StockDecorator
+end
