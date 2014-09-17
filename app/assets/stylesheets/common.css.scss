@@ -17,17 +17,17 @@
   text-align: left;
 }
 
-.post-block{
+.block{
   margin: 0 auto;
   width: 550px;
   margin-bottom: 20px;
   border: 1px #ccc solid;
-  .post-detail{
+  .detail{
     width: 550px;
     .btn.btn-primary.stock-button.stock-bt{
       float: right;
     }
-    .post-information{
+    .information{
       margin: 10px;
       height: 46px;
       float: left;
@@ -46,7 +46,7 @@
   float: left;
 }
 
-.post-content{
+.content{
   margin-left: 20px;
   font-size: 15px;
 }
@@ -62,4 +62,8 @@
 .tag-header{
   margin-left: 215px;
   margin-bottom: 20px;
+}
+
+.notification-of-number{
+  margin-top: 7px;
 }
