@@ -3,7 +3,6 @@ require 'spec_helper'
 describe StocksController, type: :controller do
   describe 'PATCH update' do
     context 'type valid value' do
-
       before do
         @stock = create(:stock, stocked: true)
         @user = @stock.user
