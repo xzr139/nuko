@@ -23,4 +23,15 @@ describe StocksController, type: :controller do
       end
     end
   end
+
+  context 'it should be increment number of activity count' do
+    let!(:note) { create(:note) }
+    before { ApplicationController.any_instance.stub(:current_user).and_return(User.last) }
+
+    it 'successfully create_activity' do
+      expect{
+        patch :update, { note_id: note.id }
+      }.to change(PublicActivity::Activity, :count).by(1)
+    end
+  end
 end
