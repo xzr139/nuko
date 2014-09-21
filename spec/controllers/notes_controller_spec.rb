@@ -21,8 +21,9 @@ describe NotesController, type: :controller do
     it "should be return is selected id" do
       expect(assigns[:note]).to eq(Note.last)
     end
+  end
 
-  describe "POST create"
+  describe "POST create" do
     context "with valid params" do
       before do
         @user = create(:user)
@@ -61,8 +62,9 @@ describe NotesController, type: :controller do
         expect(response).to render_template("index")
       end
     end
+  end
 
-  describe 'PUT updatee'
+  describe 'PUT updatee' do
     let(:request) { put :update, params}
 
     context 'type valid value' do
