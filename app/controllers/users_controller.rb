@@ -24,12 +24,12 @@ class UsersController < ApplicationController
   end
 
   def failure
-    redirect_to root_url, notice: t('users.authentication_failed')
+    redirect_to root_path, notice: t('users.authentication_failed')
   end
 
   def sign_out
     session[:token] = nil
-    redirect_to root_url, notice: t("common.signed_out")
+    redirect_to root_path, notice: t("common.signed_out")
   end
 
   def all_posts

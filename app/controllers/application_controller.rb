@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :set_locale
-  helper_method :current_user, :signed_in?, :current_user?, :is_this_my_note?, :locale
+  helper_method :current_user, :signed_in?, :current_user?, :is_this_my_note?, :locale, :root_path
 
   def current_user
     User.find_by(token: session[:token])
@@ -46,5 +46,9 @@ class ApplicationController < ActionController::Base
 
   def check_user
     redirect_to root_path, notice: 'You have to sign in' unless signed_in?
+  end
+
+  def root_path
+    "/#{locale}"
   end
 end
