@@ -24,7 +24,6 @@ gem "less-rails"
 gem "twitter-bootswatch-rails-helpers"
 gem "twitter-bootswatch-rails",  "~> 3.2.0.0"
 gem "puma"
-gem "foreman"
 gem "rails_config"
 gem "rails4_acts_as_paranoid",  "~> 0.1.4"
 gem "paperclip"
@@ -32,15 +31,17 @@ gem "aws-sdk"
 gem "acts-as-taggable-on"
 gem "kaminari"
 gem "rails_autolink"
-gem "annotate"
-gem "xray-rails"
 gem "rails-timeago",  "~> 2.0"
 gem 'jquery-turbolinks'
 gem "i18n-js"
 gem 'public_activity'
 gem 'active_decorator'
+gem "spring"
 
-group :development do
+group :development, :test do
+  gem "foreman"
+  gem "xray-rails"
+  gem "annotate"
   gem "rspec-rails"
   gem "factory_girl_rails"
   gem "database_cleaner", github: "bmabey/database_cleaner"
@@ -48,7 +49,6 @@ group :development do
   gem "better_errors"
   gem "binding_of_caller"
   gem "spork-rails", github: "sporkrb/spork-rails"
-  gem "spring"
 end
 
 group :test do
