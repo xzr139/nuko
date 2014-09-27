@@ -39,6 +39,7 @@ gem 'jquery-turbolinks'
 gem "i18n-js"
 
 group :development, :test do
+  gem 'did_you_mean'
   gem "rspec-rails"
   gem "factory_girl_rails"
   gem "database_cleaner", github: "bmabey/database_cleaner"
