@@ -42,6 +42,7 @@ group :development, :test do
   gem "foreman"
   gem "xray-rails"
   gem "annotate"
+  gem 'did_you_mean'
   gem "rspec-rails"
   gem "factory_girl_rails"
   gem "database_cleaner", github: "bmabey/database_cleaner"
