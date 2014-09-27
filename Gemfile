@@ -38,7 +38,7 @@ gem "rails-timeago",  "~> 2.0"
 gem 'jquery-turbolinks'
 gem "i18n-js"
 
-group :development do
+group :development, :test do
   gem "rspec-rails"
   gem "factory_girl_rails"
   gem "database_cleaner", github: "bmabey/database_cleaner"
