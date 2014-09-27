@@ -44,7 +44,7 @@ group :development, :test do
   gem "annotate"
   gem 'did_you_mean'
   gem "rspec-rails"
-  gem "factory_girl_rails"
+  gem "factory_girl_rails", require: false
   gem "database_cleaner", github: "bmabey/database_cleaner"
   gem "pry-rails"
   gem "better_errors"
