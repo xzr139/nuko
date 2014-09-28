@@ -1,5 +1,11 @@
 .block.activity{ class: " #{'unread' if activity.unread}", data: { activity_id: activity.id } }
-  = link_to activity.trackable.note.title, activity.trackable.note
-  = t('common.is')
-  = link_to activity.owner.full_name, activity.owner
-  = t('stocks.has_been_stocked')
+  .detail.clearfix
+    .profile-image.pull-left
+      = link_to user_path(activity.trackable.user) do
+        = image_tag activity.trackable.user.avatar.url, class: 'radius-of-image', size: "40x40"
+    .information
+      .notice-message
+        = link_to activity.trackable.note.title, activity.trackable.note
+        = t('common.is')
+        = link_to activity.owner.full_name, activity.owner
+        = t('stocks.has_been_stocked')
