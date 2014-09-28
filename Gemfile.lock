@@ -28,7 +28,6 @@ GEM
       activesupport (= 4.1.4)
       builder (~> 3.1)
       erubis (~> 2.7.0)
-    active_decorator (0.3.4)
     activemodel (4.1.4)
       activesupport (= 4.1.4)
       builder (~> 3.1)
@@ -195,11 +194,6 @@ GEM
       slop (~> 3.4)
     pry-rails (0.3.2)
       pry (>= 0.9.10)
-    public_activity (1.4.2)
-      actionpack (>= 3.0.0)
-      activerecord (>= 3.0)
-      i18n (>= 0.5.0)
-      railties (>= 3.0.0)
     puma (2.9.0)
       rack (>= 1.1, < 2.0)
     rack (1.5.2)
@@ -387,7 +381,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_decorator
   acts-as-taggable-on
   annotate
   awesome_print
@@ -420,7 +413,6 @@ DEPENDENCIES
   paperclip
   poltergeist
   pry-rails
-  public_activity
   puma
   rails (= 4.1.4)
   rails-timeago (~> 2.0)
