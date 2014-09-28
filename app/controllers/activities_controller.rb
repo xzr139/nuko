@@ -2,7 +2,7 @@ class ActivitiesController < ApplicationController
   before_action :check_user
 
   def index
-    @activities = PublicActivity::Activity.order(created_at: :desc).where(recipient_id: current_user.id, owner_type: "User").where.not(owner_id: current_user.id)
+    @activities = PublicActivity::Activity.page(params[:page]).per(10).order(created_at: :desc).where(recipient_id: current_user.id, owner_type: "User").where.not(owner_id: current_user.id)
   end
 
   def update
