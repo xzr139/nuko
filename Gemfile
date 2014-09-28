@@ -37,6 +37,7 @@ gem "xray-rails"
 gem "rails-timeago",  "~> 2.0"
 gem 'jquery-turbolinks'
 gem "i18n-js"
+gem 'public_activity'
 
 group :development, :test do
   gem 'did_you_mean'
