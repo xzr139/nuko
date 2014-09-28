@@ -10,7 +10,7 @@
           %li
             = link_to t('common.delete'), note_path(note), method: :delete
   .detail.clearfix
-    .note-profile-image.pull-left
+    .profile-image.pull-left
       = image_tag note.user.avatar.url, class: 'radius-of-image', size: "47x47"
     - if signed_in?
       .btn.btn-primary.stock-button.stock-bt{ data: { note_id: note.id, user_id: note.user.id, stocked: note.stocked_by?(user).to_s } }
