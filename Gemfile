@@ -38,6 +38,7 @@ gem "rails-timeago",  "~> 2.0"
 gem 'jquery-turbolinks'
 gem "i18n-js"
 gem 'public_activity'
+gem 'active_decorator'
 
 group :development, :test do
   gem 'did_you_mean'
