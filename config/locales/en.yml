@@ -10,6 +10,7 @@ en:
     stocked: 'Stocked'
     language: 'Language interface'
     post: 'Post'
+    is: "is"
   users:
     index:
       see_all_this_post: "See all this post"
@@ -41,6 +42,8 @@ en:
     tag_list: "tag list | "
     tag: "This tag for feed"
     stock_this_note: 'Stock this note'
+  stocks:
+    has_been_stocked: 'has been stocked'
   validation:
     required_nick_name: "Please enter your nick name."
     required_title: "Please enter note title"

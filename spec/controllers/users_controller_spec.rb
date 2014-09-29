@@ -2,8 +2,9 @@ require "spec_helper"
 
 describe UsersController,  type: :controller do
   context "GET show" do
+    let(:user) { create(:user) }
+
     before do
-      user = create(:user)
       get :show, { id: user.id }
     end
 

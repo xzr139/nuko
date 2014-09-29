@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  include PublicActivity::StoreController
+
   protect_from_forgery with: :exception
 
   before_action :set_locale
@@ -44,6 +46,10 @@ class ApplicationController < ActionController::Base
     else
       params[:locale] || I18n.default_locale
     end
+  end
+
+  def check_user
+    redirect_to root_path, notice: 'You have to sign in' unless signed_in?
   end
 
   def root_path

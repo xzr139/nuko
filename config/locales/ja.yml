@@ -10,6 +10,7 @@ ja:
     stocked: 'ストック済み'
     language: '表示言語'
     post: '投稿'
+    is: "を"
   users:
     index:
       see_all_this_post: "続きを読む"
@@ -41,6 +42,8 @@ ja:
     tag_list: "タグ一覧 | "
     tag: "このタグの投稿一覧"
     stock_this_note: 'ストックする'
+  stocks:
+    has_been_stocked: 'がストックしました'
   validation:
     required_nick_name: "ニックネームが入力されていません"
     required_title: "タイトルを入力してください"

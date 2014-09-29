@@ -3,12 +3,11 @@ require 'spec_helper'
 describe StocksController, type: :controller do
   describe 'PATCH update' do
     context 'type valid value' do
+      let!(:stock) { create(:stock) }
 
       before do
-        @stock = create(:stock, stocked: true)
-        @user = @stock.user
-        ApplicationController.any_instance.stub(:current_user).and_return(@user)
-        patch :update, { note_id: @stock.note_id }
+        ApplicationController.any_instance.stub(:current_user).and_return(User.last)
+        patch :update, { note_id: stock.note_id }
       end
 
       it 'should be blank' do
@@ -22,6 +21,17 @@ describe StocksController, type: :controller do
       it 'should be no error' do
         expect(assigns(:stock).errors).to be_empty
       end
+    end
+  end
+
+  context 'it should be increment number of activity count' do
+    let!(:note) { create(:note) }
+    before { ApplicationController.any_instance.stub(:current_user).and_return(User.last) }
+
+    it 'successfully create_activity' do
+      expect{
+        patch :update, { note_id: note.id }
+      }.to change(PublicActivity::Activity, :count).by(1)
     end
   end
 end

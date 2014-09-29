@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: notes
+#
+#  id         :integer          not null, primary key
+#  title      :string(255)
+#  content    :text
+#  user_id    :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class Note < ActiveRecord::Base
   belongs_to :user
   has_many :stocks
@@ -13,5 +25,9 @@ class Note < ActiveRecord::Base
     else
       false
     end
+  end
+
+  def recipient
+    user
   end
 end
