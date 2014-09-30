@@ -8,17 +8,12 @@ gem "sass-rails", "~> 4.0.3"
 gem "uglifier", ">= 1.3.0"
 gem "coffee-rails", "~> 4.0.0"
 gem "jquery-rails"
-gem "turbolinks"
 gem "jbuilder", "~> 2.0"
-gem "sdoc", "~> 0.4.0", group: :doc
 gem "omniauth"
 gem "omniauth-facebook"
 gem "koala"
 gem "haml"
 gem "haml-rails"
-gem "awesome_print"
-gem "therubyracer"
-gem "jpmobile"
 gem "execjs"
 gem "less-rails"
 gem "twitter-bootswatch-rails-helpers"
@@ -32,23 +27,26 @@ gem "aws-sdk"
 gem "acts-as-taggable-on"
 gem "kaminari"
 gem "rails_autolink"
-gem "annotate"
-gem "xray-rails"
 gem "rails-timeago",  "~> 2.0"
-gem 'jquery-turbolinks'
 gem "i18n-js"
-gem 'public_activity'
-gem 'active_decorator'
+gem "public_activity"
+gem "active_decorator"
+
+group :linux do
+  gem "therubyracer"
+end
 
 group :development, :test do
-  gem 'did_you_mean'
+  gem "awesome_print"
+  gem "xray-rails"
+  gem "annotate"
+  gem "did_you_mean"
   gem "rspec-rails"
   gem "factory_girl_rails", require: false
   gem "database_cleaner", github: "bmabey/database_cleaner"
   gem "pry-rails"
   gem "better_errors"
   gem "binding_of_caller"
-  gem "spork-rails", github: "sporkrb/spork-rails"
   gem "spring"
 end
 
@@ -57,7 +55,6 @@ group :test do
   gem "capybara"
   gem "launchy"
   gem "poltergeist"
-  gem "selenium-webdriver"
   gem "json_spec"
   gem "simplecov"
 end
