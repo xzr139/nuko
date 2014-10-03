@@ -2,10 +2,10 @@
 
 ### Version
 
-You have to use Ruby 2.0 or higher using `rvm` or `rbenv`.
+nukoでは以下のversionを使用しています。
 
 ```
-ruby 2.1.1p76 (2014-02-24 revision 45161) [x86_64-darwin13.0]
+ruby 2.1.3p242 (2014-09-19 revision 47630) [x86_64-darwin13.0]
 Rails 4.1.4
 ```
 
@@ -13,50 +13,66 @@ Rails 4.1.4
 
 ### 必須のcommand line toolsのインストール
 
-```
-xcode-select --install
-```
+https://developer.apple.com/downloads/index.action?name=for%20Xcode%20-
 
-### HomeBrewのインストール
+からcommand line toolsをダウンロードし、インストール。
+
+開いてdialogが出てきたら全てOKする
+
+# HomeBrewのインストール
+
+http://brew.sh というパッケージ管理システムをインストールします。
+brewのインストールに使うrubyのバージョンはなんでもいいので以下をコピーしてください
 
 ```
 ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
-which brew
+echo "export PATH=/usr/local/bin:$PATH" >> .bashrc # or .zshrc
+exec $SHELL
+which brew # ちゃんと入ってるか確認
 ```
 
 ### Tools and Libraryのインストール
 
+ruby本体や、railsのgemなどで依存するやつをとりあえず多めにインストールします。
+入れて損はしない
+
 ```
-brew update
+brew update # brew本体のうｐでと
 
 brew install autoconf autojump phantomjs automake cmake gibo git imagemagick imagemagick-ruby186 libevent libiconv libmpc08 libpng libpng12 libtool libxml2 libxslt memcached mongodb mysql openssl python qt readline redis zsh
 
-brew cleanup
+brew cleanup # 掃除
 ```
-ImageMagickのインストールで詰まったら→ [Homebrewのちょっと前のFormulaを使うときにハマった](http://www.iwazer.com/~iwazawa/diary/2013/08/use-old-homebrew-formula.html)
 
 全てインストールするの長いですが、辛抱
 
+ImageMagickのインストールで詰まったら→ [Homebrewのちょっと前のFormulaを使うときにハマった](http://www.iwazer.com/~iwazawa/diary/2013/08/use-old-homebrew-formula.html)
+
 ### インストールしたpackageがキチンとインストールされているかの確認コマンド
 ```
-brew doctor
+brew doctor # 医者
 ```
 
-↑でエラー出たら文章の通りになおしていく、これが全て直すまでこれだけをやる、重要です。
+上記でエラー出たら文章の通りになおしていく、これが全て直してまでこれだけをやる、重要です。
 
-
-### Ruby環境構築、rbenv, rubyインストール
+# Ruby環境構築、rbenv, rubyインストール
 
 ### バージョン切り替えツールrbenvのインストール
-ruby-buildはrbenvのpluginで、rbenvでrubyをインストールするのに必要なもの
+
+ruby-buildはrbenvのpluginで、rbenvでrubyを簡単にインストールするのに必要なものです。
+
 本来rbenvはrubyのバージョンを切り替えるだけのツールです
 
+ruby-buildと組み合わせるとrubyのインストールが簡単に出来るようになります
+
 ```
-brew install rbenv ruby-build
+git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+~/.rbenv/plugins/ruby-build/install.sh
 ```
 
 ### 環境変数
-your shell の .bash_profile or .zshrc
+あなたの使ってるのshell の .bash_profile or .zshrc
 
 ```
 export PATH="$HOME/.rbenv/bin:$PATH"
@@ -64,18 +80,18 @@ export PATH="$HOME/.rbenv/shims:$PATH"
 eval "$(rbenv init -)"
 ```
 
+シェル再読み込み
+
 ```
 exec $SHELL
 ```
-
-シェル再読み込み
 
 ### rubyのインストール
 
 brewでインストールしたreadlineとopensslを使うprefixのoptionを追加します
 
 ```
-$ RUBY_CONFIGURE_OPTS="--enable-shared --with-readline-dir=$(brew --prefix readline) --with-openssl-dir=$(brew --prefix openssl)" rbenv install 2.0.0-p481
+$ RUBY_CONFIGURE_OPTS="--enable-shared --with-readline-dir=$(brew --prefix readline) --with-openssl-dir=$(brew --prefix openssl)" rbenv install 2.1.1
 ```
 
 最後のバージョン指定の所をあなたのプロジェクトで使っているバージョンに置換してください
@@ -104,16 +120,11 @@ $ which bundle
 /Users/sachin21/.rbenv/shims/bundle
 ```
 
-### 発生エラー
-[nokogiri error](https://www.evernote.com/shard/s56/sh/fbea3379-33b0-41d3-adfd-8ca1df93ab8d/167d7a4bc12db04d8f30679ffd14e679)の解消方法、bundleに設定を付与
+# github への公開鍵登録
 
-```
-bundle config build.nokogiri --use-system-libraries
-```
+~/.ssh/configに以下を追記
 
-
-### github への公開鍵登録
-```
+```~/.ssh/config
 Host github.com
   HostName github.com
   User            git
@@ -126,67 +137,72 @@ Host github.com
 ```
 cat .ssh/id_rsa.pub | pbcopy
 ```
-githubに登録 https://github.com/settings/ssh
-これで、pull push が全てパス無しでおｋになります
 
-### nukoを持ってくる
+githubに登録 [github.com/settings/ssh](https://github.com/settings/ssh)
+これで、pullやpush が全てパス無しでおｋになります
+
+# nukoを動かす
+
+## nukoを持ってくる
 
 ```
 git clone git@github.com:sachin21/nuko.git
 cd nuko
 ```
 
-### projectの依存gemのインストール
+## projectの依存gemのインストール
 
 ```
 bundle install --path=./vendor/bundle -j4
 ```
 
-### データベース作成
+vendor/bundle以下にgemをインストール
+`-j4`オプションをつけると早くインストール出来ます
+
+### あるあるのnokogiriエラーの対処方法
 
 ```
-bundle exec rake db:create
-bundle exec rake db:migrate
+bundle config build.nokogiri --use-system-libraries
+```
+
+でおｋ
+
+## データベース作成
+
+```
+./bin/rake db:create
+./bin/rake db:migrate
 ```
 
 localのrakeやrailsのバージョンを使うために、bundle execをつけましょう。
-長いので.zshrcや.bash_profileに
 
-### nuko起動
+## Project起動
 
 ```
 bundle exec foreman start
 ```
 
-`http://localhost:3000`でnukoが起動出来ます
+`http://localhost:3000`でnukoが開けます
 
 とでも追記して使いましょう。
 
 ### How to run the spec
 
 ```
-rspec                  # run all specs too
-rspec spec/controllers # run specs under spec/controllers
+./bin/rspec                  # run all specs too
+./bin/rspec spec/controllers # run specs under spec/controllers
 ```
 
 単一でのテスト実行.
 
 ```
-rspec spec/controllers/questions_controller_spec.rb    # run only this spec
-rspec spec/controllers/questions_controller_spec.rb:88 # run only this spec's 88 line example
+./bin/rspec spec/controllers/questions_controller_spec.rb    # run only this spec
+./bin/rspec spec/controllers/questions_controller_spec.rb:88 # run only this spec's 88 line example
 ```
 
-### I18n
+という感じにしてコマンドを生成しましょう。
 
-プロジェクトに文章を追加する方法
-
-```config/locales/i18n.ja.yml
-top_index:
-  start_with_nuko:
-    - Nukoをはじめる
-```
-
-### How to create Pull Request
+# How to create Pull Request
 
 1. 最新のソースコードを持ってきてからブランチを作る (`master` で `git pull --rebase` してから `git checkout <branch>`)
 2. いろいろと変更を加える
@@ -195,11 +211,14 @@ top_index:
 5. 再びテストを実行してテストがすべて通るのを確認する (`rake spec`)
 6. `Pull Request` を送る :+1:
 
-### Coding Rule
+# coding rules for nuko
 
 変数展開しない（ダブルクォートを必要としない）場合には、シングルクォートを使う。
 
+## coding
+
 bad
+
 ```ruby
 :class => 'content'
 %p=t('site.name')
@@ -207,6 +226,7 @@ names.each {|name| puts name}
 ```
 
 good
+
 ```ruby
 class: 'content'
 %p= t('site.name')
@@ -216,15 +236,7 @@ names.each { |name| puts name }
 Please refer to the following coding rules.
 https://github.com/styleguide/ruby
 
-### Naming Rule
-
-```
-質問する/した人 Questioner
-回答する/した人 Answerer
-最も参考になった回答 Featured answer
-```
-
-### Spec Coding Rule
+## spec
 
 shouldを使わず、expectを使う。
 
@@ -232,12 +244,14 @@ shouldを使わず、expectを使う。
 [Qiita](http://qiita.com/awakia/items/d880250adc8cdbe7a32f)
 
 bad
+
 ```
 foo.should eq(bar)
 foo.should_not eq(bar)
 ```
 
 good
+
 ```
 expect(foo).to eq(bar)
 expect(foo).not_to eq(bar)
