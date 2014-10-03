@@ -19,7 +19,7 @@ https://developer.apple.com/downloads/index.action?name=for%20Xcode%20-
 
 開いてdialogが出てきたら全てOKする
 
-# HomeBrewのインストール
+# Homebrewのインストール
 
 http://brew.sh というパッケージ管理システムをインストールします。
 brewのインストールに使うrubyのバージョンはなんでもいいので以下をコピーしてください
