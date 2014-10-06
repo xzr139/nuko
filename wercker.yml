@@ -33,4 +33,3 @@ build:
             team: sachin21dev
             token: $SLACK_TOKEN
             channel: nuko
-            username: wercker
