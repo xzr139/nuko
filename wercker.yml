@@ -29,9 +29,8 @@ build:
             code: bundle exec rspec spec
 
     after-steps:
-        - sherzberg/slack-notify:
-            subdomain: sachin21dev
+        - wantedly/pretty-slack-notify:
+            team: sachin21dev
             token: $SLACK_TOKEN
-            channel: "#nuko"
+            channel: nuko
             username: wercker
-            icon_url: https://avatars3.githubusercontent.com/u/1695193?s=140
