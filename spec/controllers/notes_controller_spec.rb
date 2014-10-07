@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe NotesController, type: :controller do
-  context "index" do
+  describe "GET index" do
     before do
       12.times { create(:note) }
       get :index
@@ -16,7 +16,7 @@ describe NotesController, type: :controller do
     let(:note) { create(:note) }
 
     before do
-      get :show, { id: note.to_param }
+      get :show, id: note.to_param
     end
 
     it "should be return is selected id" do
@@ -34,13 +34,13 @@ describe NotesController, type: :controller do
       end
 
       it "creates a new note" do
-        expect {
-          post :create, { note: params }
-        }.to change(Note, :count).by(1)
+        expect { post :create, note: params }.to change {
+          Note.count
+        }.from(0).to(1)
       end
 
       it "redirects to the created note" do
-        post :create, { note: params }
+        post :create, note: params
         expect(response).to redirect_to(Note.last)
       end
     end
@@ -55,23 +55,23 @@ describe NotesController, type: :controller do
 
       it "assigns a newly created but unsaved note as @note" do
         Note.any_instance.stub(:save).and_return(false)
-        post :create, { note: params }
+        post :create, note: params
         expect(assigns(:note)).to be_a_new(Note)
       end
 
       it "re-renders the 'new' template" do
         Note.any_instance.stub(:save).and_return(false)
-        post :create, { note: params }
+        post :create, note: params
         expect(response).to render_template("index")
       end
     end
   end
 
   describe 'PUT updatee' do
-    let!(:request) { put :update, params}
+    let!(:request) { put :update, params }
 
     context 'type valid value' do
-      let(:note) { create(:note)}
+      let(:note) { create(:note) }
       let(:params) { { id: note.id, note: attributes_for(:note) } }
 
       before { request }
@@ -90,7 +90,7 @@ describe NotesController, type: :controller do
     end
 
     context 'type unvalid value' do
-      let(:note) { create(:note)}
+      let(:note) { create(:note) }
       let(:title) { 'タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル' }
       let(:params) { { id: note.id, note: attributes_for(:note, title: title) } }
 

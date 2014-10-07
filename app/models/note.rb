@@ -21,7 +21,7 @@ class Note < ActiveRecord::Base
 
   def stocked_by?(user = nil)
     if user
-      !!user.stocks.find_by(note_id: self.id, stocked: true)
+      user.stocks.exists?(note_id: id, stocked: true)
     else
       false
     end

@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :set_locale
-  helper_method :current_user, :signed_in?, :current_user?, :is_this_my_note?, :locale, :root_path
+  helper_method :current_user, :signed_in?, :current_user?, :this_my_note?, :locale, :root_path
 
   private
 
@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
     current_user == User.find_by(id: id)
   end
 
-  def is_this_my_note?(id)
+  def this_my_note?(id)
     Note.find_by(id: id).user == current_user
   end
 
@@ -24,11 +24,11 @@ class ApplicationController < ActionController::Base
     current_user != nil
   end
 
-  def default_url_options(options={})
+  def default_url_options
     if current_user && current_user.language
-      { :locale => current_user.language}
+      { locale: current_user.language }
     else
-      { :locale => I18n.locale }
+      { locale: I18n.locale }
     end
   end
 
