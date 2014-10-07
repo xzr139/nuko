@@ -35,6 +35,7 @@ en:
     tags: "tags often use | "
     authentication_failed: "Authentication failed, please try again"
     stocked_notes: "Stoked notes"
+    have_to_sign_in: "You have to sign in."
   notes:
     index:
       title: "Title"

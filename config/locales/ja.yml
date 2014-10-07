@@ -35,6 +35,7 @@ ja:
     tags: "よく使ってるタグ | "
     authentication_failed: "認証に失敗しました。再度認証してください"
     stocked_notes: "ストックした投稿"
+    have_to_sign_in: "ログインする必要があります"
   notes:
     index:
       title: "タイトル"
