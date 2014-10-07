@@ -21,4 +21,8 @@
             = f.label t('common.language'), class: 'col-lg-2 control-label user'
             = f.select :language, User::INTERFACE_LANGUAGE, {}, { class: 'form-control' }
           .form-group
+            .check_box
+              = f.check_box :show_company, { checked: current_user.show_company }
+              = f.label :show_company, t('users.edit.show_company')
+          .form-group
             = f.submit t("users.edit.submit"), class: "btn btn-primary", id: 'submit-user'
