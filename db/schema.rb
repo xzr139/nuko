@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140928141536) do
+ActiveRecord::Schema.define(version: 20141007082249) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 20140928141536) do
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "facebook_id",         null: false
+    t.string   "facebook_id",                         null: false
     t.string   "email"
     t.string   "full_name"
     t.string   "nick_name"
@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 20140928141536) do
     t.datetime "avatar_updated_at"
     t.text     "bio"
     t.string   "language"
+    t.boolean  "show_company",        default: false
   end
 
 end
