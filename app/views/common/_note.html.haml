@@ -1,5 +1,5 @@
 .block
-  - if signed_in? && note.is_this_my_note?
+  - if signed_in? && note.this_my_note?
     .toggeles
       .btn-group
         %button.btn.btn-default.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
