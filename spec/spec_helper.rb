@@ -10,7 +10,7 @@ require "omniauth"
 require "database_cleaner"
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
-Dir[Rails.root.join("spec/factories/**/*.rb")].each {|f| require f}
+Dir[Rails.root.join("spec/factories/**/*.rb")].each { |f| require f }
 
 ActiveRecord::Migration.maintain_test_schema!
 
@@ -21,7 +21,7 @@ Capybara.register_driver :poltergeist do |app|
 end
 
 OmniAuth.config.test_mode = true
-OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({provider: 'facebook', uid: '733146856734194'})
+OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new(provider: 'facebook', uid: '733146856734194')
 OmniAuth.config.add_mock(:facebook, YAML.load_file(Rails.root.join('spec', 'data', 'user_mock.yml')))
 
 RSpec.configure do |config|
@@ -32,7 +32,7 @@ RSpec.configure do |config|
   config.include I18nMacros
 
   config.before(:suite) do
-    DatabaseCleaner.clean_with(:truncation,{:except => %w{except1 except2}})
+    DatabaseCleaner.clean_with(:truncation, except: %w(except1 except2))
     DatabaseCleaner.strategy = :transaction
   end
 

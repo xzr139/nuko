@@ -21,8 +21,8 @@
 
 class User < ActiveRecord::Base
   INTERFACE_LANGUAGE = [
-   ['日本語', 'ja'],
-   ['英語', 'en']
+    %(日本語 ja),
+    %w(英語 en)
   ]
 
   has_many :notes
@@ -31,20 +31,19 @@ class User < ActiveRecord::Base
   validates :nick_name, length: { maximum: 15 }
   validates :bio, length: { maximum: 300 }
 
-  has_attached_file :avatar,
-    styles: { medium: "300x300>", thumb: "20x20>" },
-    default_url: "/images/default_image.png"
+  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "20x20>" }, default_url: "/images/default_image.png"
 
-  validates_attachment_content_type :avatar,
-    content_type: /\Aimage\/.*\Z/
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
-  def self.set_data_from_omnifb_info(fb_info)
-    where(facebook_id: fb_info["uid"]).first_or_create do |user|
-      user.facebook_id =  fb_info["uid"]
-      user.email       =  fb_info["info"]["email"]
-      user.full_name   =  fb_info["extra"]["raw_info"]["name"]
-      user.token       =  fb_info["credentials"]["token"]
-      user.company     =  fb_info["extra"]["raw_info"]["work"].first["employer"]["name"] if fb_info["extra"]["raw_info"]["work"]
-    end
+  def self.add_user_from_omiauth(fb_info)
+    company = fb_info["extra"]["raw_info"]["work"] ? fb_info["extra"]["raw_info"]["work"][0]["employer"]["name"] : nil
+
+    where(facebook_id: fb_info["uid"]).first_or_create(
+      facebook_id: fb_info["uid"],
+      email:       fb_info["info"]["email"],
+      full_name:   fb_info["extra"]["raw_info"]["name"],
+      token:       fb_info["credentials"]["token"],
+      company:     company
+    )
   end
 end

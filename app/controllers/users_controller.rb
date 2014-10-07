@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   end
 
   def callback
-    user = User.set_data_from_omnifb_info(request.env["omniauth.auth"])
+    user = User.add_user_from_omiauth(request.env["omniauth.auth"])
     session[:token] = user.token
     if user.nick_name.present? && user.bio.present?
       redirect_to root_path, notice: t("common.signed_in")
@@ -41,7 +41,11 @@ class UsersController < ApplicationController
   end
 
   def tag
-    @notes = Note.tagged_with(params[:name]).exists?(user_id: params[:id]) ? Note.tagged_with(params[:name]).where(user_id: params[:id]).page(params[:page]).order(id: :desc) : []
+    if Note.tagged_with(params[:name]).exists?(user_id: params[:id])
+      @notes = Note.tagged_with(params[:name]).where(user_id: params[:id]).page(params[:page]).order(id: :desc)
+    else
+      @notes = []
+    end
   end
 
   def stocks
@@ -76,9 +80,9 @@ class UsersController < ApplicationController
     words_hash = HashWithIndifferentAccess.new
     words_uniq = []
 
-    tag_list = @notes.map { |note| note.tag_list }
+    tag_list = @notes.map(&:tag_list)
     tag_list.each { |words_ary| words_ary.each { |words| words_uniq << words } }
     words_uniq.uniq.each { |word| words_hash[word] = Note.tagged_with(word).count }
-    @ranking = words_hash.sort {|a,  b| b[1] <=> a[1] }[0...5]
+    @ranking = words_hash.sort { |a,  b| b[1] <=> a[1] }[0...5]
   end
 end

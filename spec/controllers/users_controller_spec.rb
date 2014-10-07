@@ -5,7 +5,7 @@ describe UsersController,  type: :controller do
     let(:user) { create(:user) }
 
     before do
-      get :show, { id: user.id }
+      get :show, id: user.id
     end
 
     it "should be return is selected id" do

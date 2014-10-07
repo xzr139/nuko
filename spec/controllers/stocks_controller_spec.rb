@@ -7,7 +7,7 @@ describe StocksController, type: :controller do
 
       before do
         ApplicationController.any_instance.stub(:current_user).and_return(User.last)
-        patch :update, { note_id: stock.note_id }
+        patch :update, note_id: stock.note_id
       end
 
       it 'should be blank' do
@@ -29,9 +29,9 @@ describe StocksController, type: :controller do
     before { ApplicationController.any_instance.stub(:current_user).and_return(User.last) }
 
     it 'successfully create_activity' do
-      expect{
-        patch :update, { note_id: note.id }
-      }.to change(PublicActivity::Activity, :count).by(1)
+      expect { patch :update, note_id: note.id }.to change {
+        Activity.count
+      }.from(0).to(1)
     end
   end
 end
