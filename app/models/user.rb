@@ -21,7 +21,7 @@
 
 class User < ActiveRecord::Base
   INTERFACE_LANGUAGE = [
-    %(日本語 ja),
+    %w(日本語 ja),
     %w(英語 en)
   ]
 

@@ -18,8 +18,8 @@
     margin-top: 52px;
   }
   .profile-bio{
-    float: right;
-    margin-right: 220px;
+    float: left;
+    margin-left: 100px;
     margin-top: 52px;
   }
 }
@@ -90,4 +90,13 @@
   float: left;
   margin-left: 50px;
   width: 200px;
+}
+
+#user_show_company{
+  margin-right: 7px;
+}
+
+.check_box{
+  margin-left: 250px;
+  margin-bottom: 10px;
 }

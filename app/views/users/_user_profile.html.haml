@@ -1,8 +1,9 @@
 .user-profile
   .profile-image
     = profile_image(@user, "100x100")
-  .profile-company
-    = t("common.belonging_to", company: @user.company)
+  - if @user.show_company
+    .profile-company
+      = t("common.belonging_to", company: @user.company)
   .profile-bio
     = auto_link(simple_format(@user.bio), html: { target: "_blank" })
 

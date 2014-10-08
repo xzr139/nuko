@@ -23,6 +23,7 @@ ja:
       not_found: "ユーザーが見つかりません"
       bio: "自己紹介"
       icon: "プロフィール画像"
+      show_company: "会社名をプロフィールに表示する"
     update:
       complate_update_profiles: "プロフィールの編集が完了しました"
     sign_in: "ログイン"
@@ -34,6 +35,7 @@ ja:
     tags: "よく使ってるタグ | "
     authentication_failed: "認証に失敗しました。再度認証してください"
     stocked_notes: "ストックした投稿"
+    have_to_sign_in: "ログインする必要があります"
   notes:
     index:
       title: "タイトル"

@@ -49,7 +49,7 @@ class ApplicationController < ActionController::Base
   end
 
   def check_user
-    redirect_to root_path, notice: 'You have to sign in' unless signed_in?
+    redirect_to root_path, notice: t("users.have_to_sign_in") unless signed_in?
   end
 
   def root_path
