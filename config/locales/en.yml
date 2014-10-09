@@ -40,6 +40,8 @@ en:
     index:
       title: "Title"
       content: "Content"
+    edit:
+      editing: "Editing note"
     tag_and_warning: "tag : It is need to separate by a space"
     tag_list: "tag list | "
     tag: "This tag for feed"
