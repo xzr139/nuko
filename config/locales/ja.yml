@@ -44,6 +44,9 @@ ja:
     tag_list: "タグ一覧 | "
     tag: "このタグの投稿一覧"
     stock_this_note: 'ストックする'
+    created: "ノートが作成されました"
+    updated: "ノートが更新されました"
+    deleted: "ノートが削除されました"
   stocks:
     has_been_stocked: 'がストックしました'
   validation:

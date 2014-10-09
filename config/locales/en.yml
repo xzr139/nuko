@@ -44,6 +44,9 @@ en:
     tag_list: "tag list | "
     tag: "This tag for feed"
     stock_this_note: 'Stock this note'
+    created: "Note was successfully created."
+    updated: "Note was successfully updated."
+    deleted: "Note was successfully destroyed."
   stocks:
     has_been_stocked: 'has been stocked'
   validation:
