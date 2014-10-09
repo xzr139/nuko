@@ -18,6 +18,7 @@ class Note < ActiveRecord::Base
   validates :content,  length: { maximum: 5000 }
 
   acts_as_taggable
+  acts_as_paranoid
 
   def stocked_by?(user = nil)
     if user
