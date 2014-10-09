@@ -1,6 +1,6 @@
-%h1= t("notes.edit.editing")
-
-= render "form"
+.form
+  %h1.edit-header= t("notes.edit.editing")
+  = render "form"
 
 = link_to "Show", @note
 
