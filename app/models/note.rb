@@ -13,6 +13,7 @@
 class Note < ActiveRecord::Base
   belongs_to :user
   has_many :stocks
+  has_many :comments
 
   validates :title,  length: { maximum: 40 }
   validates :content,  length: { maximum: 5000 }
