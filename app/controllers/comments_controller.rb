@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-
   def create
     comment = Note.find(params[:note_id]).comments.build(comment_params)
     comment.user_id = current_user.id
