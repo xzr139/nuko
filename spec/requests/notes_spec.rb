@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe "Notes", type: :request do
-  describe "GET /notes" do
+  describe "GET index" do
     let(:note) { create(:note) }
 
     it "should be success page load" do
