@@ -55,6 +55,7 @@ ja:
     comment: 'コメント'
     created: 'コメントを投稿しました'
     falied: "コメントの投稿が失敗しました"
+    number_of_comment: "%{number_of_comment} 件のコメント"
   validation:
     required_nick_name: "ニックネームが入力されていません"
     required_title: "タイトルを入力してください"

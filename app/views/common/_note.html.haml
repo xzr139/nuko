@@ -31,6 +31,9 @@
     = link_to note_path(note) do
       .see-all-text
         = t("users.index.read_this_post")
+    .number-of-comment
+      - number_of_comment = note.comments.count
+      = simple_pluralize(number_of_comment, t("comments.number_of_comment", number_of_comment: note.comments.count))
   - unless current_page?("/") || current_page?("/ja") || current_page?("/en")
     = render "common/comments", note: note
     = render "common/comment_form", comment: note.comments.build
