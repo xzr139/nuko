@@ -51,6 +51,10 @@ en:
     deleted: "Note was successfully destroyed."
   stocks:
     has_been_stocked: 'has been stocked'
+  comments:
+    comment: 'comment'
+    created: 'Comment was successfully created.'
+    falied: "Comment was failed created."
   validation:
     required_nick_name: "Please enter your nick name."
     required_title: "Please enter note title"

@@ -51,6 +51,10 @@ ja:
     deleted: "ノートが削除されました"
   stocks:
     has_been_stocked: 'がストックしました'
+  comments:
+    comment: 'コメント'
+    created: 'コメントを投稿しました'
+    falied: "コメントの投稿が失敗しました"
   validation:
     required_nick_name: "ニックネームが入力されていません"
     required_title: "タイトルを入力してください"

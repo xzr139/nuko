@@ -8,6 +8,8 @@ Rails.application.routes.draw do
       collection do
         get 'tag'
       end
+
+      resources :comments, only: [:create], shallow: true
     end
 
     resources :users, shallow: true do
