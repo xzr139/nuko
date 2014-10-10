@@ -13,7 +13,7 @@
 #
 
 FactoryGirl.define do
-  factory :note do
+  factory :comment do
     content
     association(:user)
     association(:note)
