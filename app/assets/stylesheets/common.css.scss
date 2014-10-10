@@ -52,8 +52,10 @@
 }
 
 .content{
+  float: left;
   margin-left: 20px;
   font-size: 15px;
+  width: 390px;
 }
 
 .toggeles{
@@ -71,4 +73,8 @@
 
 .notification-of-number{
   margin-top: 7px;
+}
+
+.number-of-comment{
+  margin-bottom: 10px;
 }
