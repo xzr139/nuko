@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141013235556) do
+ActiveRecord::Schema.define(version: 20141014000444) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -32,10 +32,10 @@ ActiveRecord::Schema.define(version: 20141013235556) do
   add_index "activities", ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type", using: :btree
 
   create_table "comments", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "note_id"
-    t.string   "content"
-    t.integer  "like_count"
+    t.integer  "user_id",                null: false
+    t.integer  "note_id",                null: false
+    t.text     "content",                null: false
+    t.integer  "like_count", default: 0
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
