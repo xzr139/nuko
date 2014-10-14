@@ -1,67 +1,67 @@
 en:
   common:
-    belonging_to: 'belonging to %{company}'
-    belong_to: 'belong to %{company}'
-    all_posts: 'All posts'
-    signed_in: 'Signed in'
-    signed_out: 'Signed out'
-    edit: 'Edit'
-    delete: 'Delete'
-    stocked: 'Stocked'
-    language: 'Language interface'
-    post: 'Post'
-    is: "is"
+    belonging_to: belonging to %{company}
+    belong_to: belong to %{company}
+    all_posts: All posts
+    signed_in: Signed in
+    signed_out: Signed out
+    edit: Edit
+    delete: Delete
+    stocked: Stocked
+    language: Language interface
+    post: Post
+    is: is
   users:
     index:
-      read_all_this_post: "See all this post"
-      read_this_post: "Read this post"
+      read_all_this_post: See all this post
+      read_this_post: Read this post
     edit:
-      type_your_nick_name: "Edit your nick name"
-      submit: "Save changes"
-      edit_profile: 'Edit your profile'
-      placeholder: 'Ex. My name is Jack,  and I am currently studying abroad in Japan. I like listening musics and reading books. Nice to meet you!)'
-      not_found: "It user is not found"
-      bio: "Self Introduction"
-      icon: "Your icon"
-      show_company: "Is a company name displayed?"
+      type_your_nick_name: Edit your nick name
+      submit: Save changes
+      edit_profile: Edit your profile
+      placeholder: Ex. My name is Jack,  and I am currently studying abroad in Japan. I like listening musics and reading books. Nice to meet you!)
+      not_found: It user is not found
+      bio: Self Introduction
+      icon: Your icon
+      show_company: Is a company name displayed?
     update:
-      complate_update_profiles: "Done updating nick name"
-    sign_in: "Sign In"
-    sign_out: "Sign Out"
-    nick_name: "Nick name"
-    not_found: "User not found"
-    create_by: "created by %{full_name}"
-    change_interface: "change your interface"
-    tags: "tags often use | "
-    authentication_failed: "Authentication failed, please try again"
-    stocked_notes: "Stoked notes"
-    have_to_sign_in: "You have to sign in."
+      complate_update_profiles: Done updating nick name
+    sign_in: Sign In
+    sign_out: Sign Out
+    nick_name: Nick name
+    not_found: User not found
+    create_by: created by %{full_name}
+    change_interface: change your interface
+    tags: tags often use |
+    authentication_failed: Authentication failed, please try again
+    stocked_notes: Stoked notes
+    have_to_sign_in: You have to sign in.
   notes:
     index:
-      title: "Title"
-      content: "Content"
+      title: Title
+      content: Content
     edit:
-      editing: "Editing note"
-    tag_and_warning: "tag : It is need to separate by a space"
-    tag_list: "tag list | "
-    tag: "This tag for feed"
-    stock_this_note: 'Stock this note'
-    created: "Note was successfully created."
-    updated: "Note was successfully updated."
-    deleted: "Note was successfully destroyed."
+      editing: Editing note
+    tag_and_warning: tag : It is need to separate by a space
+    tag_list: tag list |
+    tag: This tag for feed
+    stock_this_note: Stock this note
+    created: Note was successfully created.
+    updated: Note was successfully updated.
+    deleted: Note was successfully destroyed.
   stocks:
-    has_been_stocked: 'has been stocked'
+    has_been_stocked: has been stocked
   comments:
-    comment: 'comment'
-    created: 'Comment was successfully created.'
-    falied: "Comment was failed created."
-    number_of_comment: "%{number_of_comment} comment"
+    comment: comment
+    created: Comment was successfully created.
+    falied: Comment was failed created.
+    number_of_comment: %{number_of_comment} comment
   validation:
-    required_nick_name: "Please enter your nick name."
-    required_title: "Please enter note title"
-    required_tag_list: "Please enter tag list"
-    required_content: "Please enter title"
-    max_length: "Please enter no more than %{limit} characters."
+    required_nick_name: Please enter your nick name.
+    required_title: Please enter note title
+    required_tag_list: Please enter tag list
+    required_content: Please enter title
+    max_length: Please enter no more than %{limit} characters.
   date:
     abbr_day_names:
     - Sun
