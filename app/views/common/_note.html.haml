@@ -35,6 +35,6 @@
     = link_to note_path(note) do
       .see-all-text
         = t("users.index.read_this_post")
-  - unless current_page?("/") || current_page?("/ja") || current_page?("/en")
+  - if note.only_page?
     = render "common/comments", note: note
     = render "common/comment_form", comment: note.comments.build
