@@ -8,8 +8,6 @@ Rails.application.routes.draw do
       collection do
         get 'tag'
       end
-
-      resources :comments, only: [:create], shallow: true
     end
 
     resources :users, shallow: true do
@@ -22,6 +20,7 @@ Rails.application.routes.draw do
 
     resource :stocks, only: [:update], shallow: true
     resources :activities, only: [:index, :update], shallow: true
+    resources :comments, only: [:create], shallow: true
   end
 
   get '/auth/:provider/callback' => 'users#callback'

@@ -1,4 +1,7 @@
-= form_for [comment.note, comment] do |f|
+= form_for comment do |f|
   .clearfix
     = f.text_area :content, placeholder: t("comments.comment"), class: 'form-control'
+    = f.hidden_field :user_id, value: current_user.id
+    = f.hidden_field :note_id, value: comment.note.id
+
     = f.submit t('common.post'), class: "btn btn-primary", id: "submit-comment"

@@ -1,7 +1,6 @@
 class CommentsController < ApplicationController
   def create
-    comment = Note.find(params[:note_id]).comments.build(comment_params)
-    comment.user_id = current_user.id
+    comment = Comment.new(comment_params)
 
     if comment.save
       redirect_to note_path(comment.note), notice: t("comments.created")
