@@ -42,7 +42,7 @@ en:
       content: Content
     edit:
       editing: Editing note
-    tag_and_warning: tag : It is need to separate by a space
+    tag_and_warning: "tag : It is need to separate by a space"
     tag_list: tag list |
     tag: This tag for feed
     stock_this_note: Stock this note
@@ -55,7 +55,7 @@ en:
     comment: comment
     created: Comment was successfully created.
     falied: Comment was failed created.
-    number_of_comment: %{number_of_comment} comment
+    number_of_comment: "%{number_of_comment} comment"
   validation:
     required_nick_name: Please enter your nick name.
     required_title: Please enter note title
