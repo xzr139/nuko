@@ -4,7 +4,6 @@ class CreateComments < ActiveRecord::Migration
       t.integer    :user_id,     null: false
       t.integer    :note_id,     null: false
       t.string     :content,     null: false
-      t.integer    :like_count,  null: false, default: 0
       t.timestamps
 
       t.index :user_id
