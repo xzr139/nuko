@@ -32,14 +32,16 @@ ActiveRecord::Schema.define(version: 20141010045943) do
   add_index "activities", ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type", using: :btree
 
   create_table "comments", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "note_id"
-    t.string   "content"
-    t.integer  "like_count"
-    t.datetime "deleted_at"
+    t.integer  "user_id",                null: false
+    t.integer  "note_id",                null: false
+    t.string   "content",                null: false
+    t.integer  "like_count", default: 0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "comments", ["note_id"], name: "index_comments_on_note_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "notes", force: true do |t|
     t.string   "title"
