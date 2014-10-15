@@ -3,11 +3,9 @@
 # Table name: comments
 #
 #  id         :integer          not null, primary key
-#  user_id    :integer
-#  note_id    :integer
-#  content    :string(255)
-#  like_count :integer
-#  deleted_at :datetime
+#  user_id    :integer          not null
+#  note_id    :integer          not null
+#  content    :string(255)      not null
 #  created_at :datetime
 #  updated_at :datetime
 #
