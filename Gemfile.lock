@@ -37,6 +37,8 @@ GEM
     acts-as-taggable-on (3.4.1)
       activerecord (>= 3.2, < 5)
     addressable (2.3.6)
+    angular-rails-engine (1.2.13.0)
+      railties (>= 3.2)
     annotate (2.6.5)
       activerecord (>= 2.3.0)
       rake (>= 0.8.7)
@@ -374,6 +376,7 @@ PLATFORMS
 DEPENDENCIES
   active_decorator
   acts-as-taggable-on
+  angular-rails-engine
   annotate
   awesome_print
   aws-sdk
