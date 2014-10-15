@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
     resource :stocks, only: [:update], shallow: true
     resources :activities, only: [:index, :update], shallow: true
+    resources :comments, only: [:create], shallow: true
   end
 
   get '/auth/:provider/callback' => 'users#callback'

@@ -8,11 +8,13 @@
 #  user_id    :integer
 #  created_at :datetime
 #  updated_at :datetime
+#  deleted_at :datetime
 #
 
 class Note < ActiveRecord::Base
   belongs_to :user
   has_many :stocks
+  has_many :comments
 
   validates :title,  length: { maximum: 40 }
   validates :content,  length: { maximum: 5000 }

@@ -17,6 +17,7 @@
 #  avatar_updated_at   :datetime
 #  bio                 :text
 #  language            :string(255)
+#  show_company        :boolean          default(FALSE)
 #
 
 class User < ActiveRecord::Base
@@ -27,6 +28,7 @@ class User < ActiveRecord::Base
 
   has_many :notes
   has_many :stocks
+  has_many :comments
 
   validates :nick_name, length: { maximum: 15 }
   validates :bio, length: { maximum: 300 }

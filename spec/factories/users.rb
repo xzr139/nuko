@@ -17,6 +17,7 @@
 #  avatar_updated_at   :datetime
 #  bio                 :text
 #  language            :string(255)
+#  show_company        :boolean          default(FALSE)
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl

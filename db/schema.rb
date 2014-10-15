@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141009110458) do
+ActiveRecord::Schema.define(version: 20141010045943) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -30,6 +30,18 @@ ActiveRecord::Schema.define(version: 20141009110458) do
   add_index "activities", ["owner_id", "owner_type"], name: "index_activities_on_owner_id_and_owner_type", using: :btree
   add_index "activities", ["recipient_id", "recipient_type"], name: "index_activities_on_recipient_id_and_recipient_type", using: :btree
   add_index "activities", ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type", using: :btree
+
+  create_table "comments", force: true do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "note_id",    null: false
+    t.string   "content",    null: false
+    t.datetime "deleted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["note_id"], name: "index_comments_on_note_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "notes", force: true do |t|
     t.string   "title"
