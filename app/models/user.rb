@@ -28,6 +28,7 @@ class User < ActiveRecord::Base
 
   has_many :notes
   has_many :stocks
+  has_many :comments
 
   validates :nick_name, length: { maximum: 15 }
   validates :bio, length: { maximum: 300 }
