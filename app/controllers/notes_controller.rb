@@ -54,7 +54,7 @@ class NotesController < ApplicationController
   private
 
   def set_note
-    @note = Note.exists?(id: params[:id]) ? Note.find_by(id: params[:id]) : []
+    @note = Note.find(params[:id])
   end
 
   def set_user
