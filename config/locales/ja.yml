@@ -54,6 +54,8 @@ ja:
   comments:
     comment: 'コメント'
     created: 'コメントを投稿しました'
+    updated: コメントを更新しました
+    deleted: コメントを削除しました
     falied: "コメントの投稿が失敗しました"
     number_of_comment: "%{number_of_comment} 件のコメント"
   validation:

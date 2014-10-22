@@ -4,6 +4,6 @@ module NoteDecorator
   end
 
   def only_page?
-    params['controller'] == 'notes' && params['id'].present?
+    params['controller'] == 'notes' || params['controller'] == 'comments' && params['id'].present?
   end
 end
