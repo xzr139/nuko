@@ -1,2 +1,7 @@
-- note.comments.each do |comment|
-  = render 'common/comment', comment: comment
+- note.comments.each do |cmt|
+  = render 'common/comment', comment: cmt
+
+- if params['controller'] == 'comments' && params['action'] == 'edit'
+  = render "common/comment_form", comment: comment
+- else
+  = render "common/comment_form", comment: note.comments.build

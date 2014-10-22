@@ -13,8 +13,8 @@
     .profile-image.pull-left
       = image_tag note.user.avatar.url, class: 'radius-of-image', size: "47x47"
     - if signed_in?
-      .btn.btn-primary.stock-button.stock-bt{ data: { note_id: note.id, user_id: note.user.id, stocked: note.stocked_by?(user).to_s } }
-        - stocked_message = note.stocked_by?(user) ? t('common.stocked') : t('notes.stock_this_note')
+      .btn.btn-primary.stock-button.stock-bt{ data: { note_id: note.id, user_id: note.user.id, stocked: note.stocked_by?(current_user).to_s } }
+        - stocked_message = note.stocked_by?(current_user) ? t('common.stocked') : t('notes.stock_this_note')
         = stocked_message
     .information
       .title
@@ -36,5 +36,4 @@
       .see-all-text
         = t("users.index.read_this_post")
   - if note.only_page?
-    = render "common/comments", note: note
-    = render "common/comment_form", comment: note.comments.build
+    = render "common/comments", note: note, comment: comment

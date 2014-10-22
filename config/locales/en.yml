@@ -54,6 +54,8 @@ en:
   comments:
     comment: comment
     created: Comment was successfully created.
+    updated: Comment was successfully updated.
+    deleted: Comment was successfully destroyed.
     falied: Comment was failed created.
     number_of_comment: "%{number_of_comment} comment"
   validation:

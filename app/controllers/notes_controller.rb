@@ -61,6 +61,10 @@ class NotesController < ApplicationController
     @user = current_user
   end
 
+  def set_comment
+    @comment = Comment.new
+  end
+
   def note_params
     params.require(:note).permit(:title, :content, :tag_list)
   end
