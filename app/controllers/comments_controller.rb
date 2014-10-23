@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_note, only: [:edit]
   before_action :set_comment, only: [:edit, :update, :destroy]
+  before_action :check_user, only: [:edit, :update, :destroy]
 
   def edit
   end
@@ -37,5 +38,9 @@ class CommentsController < ApplicationController
 
   def set_note
     @note = Note.find(params[:id])
+  end
+
+  def check_user
+    redirect_to note_path(@comment.note), notice: t('coments.no_permission') unless signed_in? && @comment.user == current_user
   end
 end
