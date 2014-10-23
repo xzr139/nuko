@@ -11,5 +11,15 @@
 
 .comment-line{
   border: 1px #ccc solid;
-  padding: 5px;
+  padding: 2px;
+}
+
+#comment-toggle{
+  float: right;
+}
+
+.comment-content{
+  float: left;
+  margin-top: 7px;
+  margin-left: 10px;
 }
