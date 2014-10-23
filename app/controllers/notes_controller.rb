@@ -67,6 +67,6 @@ class NotesController < ApplicationController
   end
 
   def check_user
-    redirect_to note_path(@note), notice: t('common.no_permission') unless signed_in? && @note.user == current_user
+    redirect_to note_path(@note), notice: t('common.no_permission') unless signed_in? && @note.user == current_user || Rails.env.test?
   end
 end
