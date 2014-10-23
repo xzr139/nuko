@@ -9,4 +9,4 @@
         %li
           = link_to t('common.delete'), comment_path(comment), method: :delete
   .comment-content
-    = comment.content
+    = simple_format(auto_link(comment.content))
