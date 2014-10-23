@@ -11,6 +11,7 @@ en:
     language: Language interface
     post: Post
     is: is
+    no_permission: You are not owner
   users:
     index:
       read_all_this_post: See all this post
@@ -58,7 +59,6 @@ en:
     deleted: Comment was successfully destroyed.
     falied: Comment was failed created.
     number_of_comment: "%{number_of_comment} comment"
-    no_permission: You are not owner
   validation:
     required_nick_name: Please enter your nick name.
     required_title: Please enter note title
