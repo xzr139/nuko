@@ -11,6 +11,7 @@ en:
     language: Language interface
     post: Post
     is: is
+    no_permission: You are not owner
   users:
     index:
       read_all_this_post: See all this post

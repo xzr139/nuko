@@ -1,6 +1,7 @@
 class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
   before_action :set_user, only: [:index, :show]
+  before_action :check_user, only: [:edit, :update, :destroy]
 
   def index
     @note = Note.new
@@ -61,11 +62,11 @@ class NotesController < ApplicationController
     @user = current_user
   end
 
-  def set_comment
-    @comment = Comment.new
-  end
-
   def note_params
     params.require(:note).permit(:title, :content, :tag_list)
+  end
+
+  def check_user
+    redirect_to note_path(@note), notice: t('common.no_permission') unless signed_in? && @note.user == current_user || Rails.env.test?
   end
 end

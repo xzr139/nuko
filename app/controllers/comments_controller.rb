@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_note, only: [:edit]
   before_action :set_comment, only: [:edit, :update, :destroy]
+  before_action :check_user, only: [:edit]
 
   def edit
   end
@@ -23,6 +24,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment.destroy
+    redirect_to note_path(@comment.note)
   end
 
   private
@@ -32,10 +34,14 @@ class CommentsController < ApplicationController
   end
 
   def set_comment
-    @comment = Comment.find(params[:id])
+    @comment = Comment.find_by(id: params[:id])
   end
 
   def set_note
-    @note = Note.find(params[:id])
+    @note = Note.find_by(id: params[:id])
+  end
+
+  def check_user
+    redirect_to note_path(@comment.note), notice: t('common.no_permission') unless signed_in? && @comment.user == current_user
   end
 end

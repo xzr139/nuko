@@ -11,6 +11,7 @@ ja:
     language: '表示言語'
     post: '投稿'
     is: "を"
+    no_permission: 編集する権限がありません
   users:
     index:
       read_all_this_post: "続きを読む"

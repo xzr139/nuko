@@ -32,8 +32,9 @@
     .number-of-comment
       - number_of_comment = note.comments.count
       = simple_pluralize(number_of_comment, t("comments.number_of_comment", number_of_comment: note.comments.count))
-    = link_to note_path(note) do
-      .see-all-text
-        = t("users.index.read_this_post")
+    - unless note.only_page?
+      = link_to note_path(note) do
+        .see-all-text
+          = t("users.index.read_this_post")
   - if note.only_page?
     = render "common/comments", note: note, comment: comment

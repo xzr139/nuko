@@ -12,8 +12,7 @@ AllCops:
 
 # Limit lines to 120 characters.
 LineLength:
-  Enabled: true
-  Max: 120
+  Enabled: false
 
 # Avoid methods longer than 50 lines of code
 MethodLength:
