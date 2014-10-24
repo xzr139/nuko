@@ -127,6 +127,9 @@ GEM
     kaminari (0.16.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    kaminari-i18n (0.2.0)
+      kaminari
+      rails
     koala (1.10.1)
       addressable
       faraday
@@ -397,6 +400,7 @@ DEPENDENCIES
   jquery-rails
   json_spec
   kaminari
+  kaminari-i18n
   koala
   launchy
   less-rails
