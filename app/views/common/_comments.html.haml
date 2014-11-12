@@ -1,7 +1,7 @@
 - note.comments.each do |cmt|
   = render 'common/comment', comment: cmt
-
-- if params['controller'] == 'comments' && params['action'] == 'edit'
-  = render "common/comment_form", comment: comment
-- else
-  = render "common/comment_form", comment: note.comments.build
+- if signed_in?
+  - if current_page?(controller: "comments",  action: 'edit')
+    = render "common/comment_form", comment: comment
+  - else
+    = render "common/comment_form", comment: note.comments.build
