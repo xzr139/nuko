@@ -6,6 +6,7 @@ class FollowersController < ApplicationController
     else
       @follow = current_user.followers.build(target_user_id: params[:user_id], followed: true)
       @follow.save
+      @follow.create_activity :create, owner: current_user, recipient: User.find(@follow.target_user_id)
     end
 
     render nothing: true

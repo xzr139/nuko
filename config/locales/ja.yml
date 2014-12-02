@@ -61,6 +61,7 @@ ja:
     number_of_comment: "%{number_of_comment} 件のコメント"
   followers:
     button: フォロー
+    follow_you: "%{name}さんにフォローされました"
   validation:
     required_nick_name: "ニックネームが入力されていません"
     required_title: "タイトルを入力してください"
