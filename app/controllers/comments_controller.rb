@@ -42,6 +42,6 @@ class CommentsController < ApplicationController
   end
 
   def check_user
-    redirect_to note_path(@comment.note), notice: t('common.no_permission') unless signed_in? && @comment.user == current_user
+    redirect_to note_path(@comment.note), notice: t('common.no_permission') unless authenticated_user?(@comment.user)
   end
 end
