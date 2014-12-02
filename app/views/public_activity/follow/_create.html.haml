@@ -1,4 +1,4 @@
-- user = User.find(activity.trackable.target_user_id)
+- user = activity.trackable.user
 
 .block.activity{ class: " #{'unread' if activity.unread}", data: { activity_id: activity.id } }
   .detail.clearfix
