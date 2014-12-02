@@ -8,8 +8,17 @@ class ActivitiesController < ApplicationController
   end
 
   def update
-    Activity.find(params[:id]).update(unread: false) if Activity.exists?(id: params[:id])
-
-    render nothing: true
+    @activity = Activity.find(params[:id])
+    if Activity.exists?(id: params[:id])
+      respond_to do |format|
+        if @activity.update(unread: false)
+          format.html { render nothing: true }
+          format.json { render :show, status: :ok, location: @note }
+        else
+          format.html { render nothing: true }
+          format.json { render json: @note.errors, status: :unprocessable_entity }
+        end
+      end
+    end
   end
 end
