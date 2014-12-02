@@ -14,6 +14,7 @@
 class Comment < ActiveRecord::Base
   belongs_to :note
   belongs_to :user
+  has_many :likes
 
   acts_as_paranoid
 end

@@ -33,6 +33,7 @@ gem "public_activity"
 gem "active_decorator"
 gem "angular-rails-engine"
 gem "kaminari-i18n"
+gem "font-awesome-rails"
 
 group :linux do
   gem "therubyracer"
