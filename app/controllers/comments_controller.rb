@@ -7,24 +7,38 @@ class CommentsController < ApplicationController
   end
 
   def update
-    @comment.update(comment_params)
-
-    redirect_to note_path(@comment.note), notice: t("comments.updated")
+    respond_to do |format|
+      if @comment.update(comment_params)
+        format.html { redirect_to note_path(@comment.note), notice: t("comments.updated") }
+        format.json { render :show, status: :ok, location: @comment }
+      else
+        format.html { render :index }
+        format.json { render json: @comment.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def create
     comment = Comment.new(comment_params)
 
-    if comment.save
-      redirect_to note_path(comment.note), notice: t("comments.created")
-    else
-      redirect_to note_path(comment.note), notice: t("comments.failed")
+    respond_to do |format|
+      if comment.save
+        format.html { redirect_to note_path(comment.note),  notice: t("comments.created") }
+        format.json { render :show, status: :created, location: comment }
+      else
+        format.html { redirect_to note_path(comment.note),  notice: t("comments.failed") }
+        format.json { render json: comment.errors, status: :unprocessable_entity }
+      end
     end
   end
 
   def destroy
     @comment.destroy
-    redirect_to note_path(@comment.note)
+
+    respond_to do |format|
+      format.html { redirect_to note_path(@comment.note), notice: t("comments.deleted") }
+      format.json { head :no_content }
+    end
   end
 
   private
@@ -42,6 +56,6 @@ class CommentsController < ApplicationController
   end
 
   def check_user
-    redirect_to note_path(@comment.note), notice: t('common.no_permission') unless signed_in? && @comment.user == current_user
+    redirect_to note_path(@comment.note), notice: t('common.no_permission') unless authenticated_user?(@comment.user)
   end
 end

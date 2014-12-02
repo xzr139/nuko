@@ -52,6 +52,10 @@ class ApplicationController < ActionController::Base
     redirect_to root_path, notice: t("users.have_to_sign_in") unless signed_in?
   end
 
+  def authenticated_user?(user)
+    signed_in? && user == current_user
+  end
+
   def root_path
     "/#{locale}"
   end
