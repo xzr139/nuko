@@ -1,4 +1,4 @@
-.comment-line.clearfix
+.comment-line.clearfix{ ng_controller: "CommentsCtrl" }
   - if signed_in? && comment.this_my_note?
     .toggeles#comment-toggle
       .btn-group
@@ -11,4 +11,7 @@
             = link_to t('common.delete'), comment_path(comment), method: :delete
   .comment-content
     = simple_format(auto_link(comment.content))
-  = fa_icon "thumbs-up"
+    - liked_flag = if comment.likes.exists?(user_id: current_user.id)
+      - comment.likes.find_by(user_id: current_user.id).liked
+  = link_to "javascript:void(0)", ng_click: "send#{liked_flag ? 'Un' : ''}Like(#{comment.id})", class: "#{"liked-bt" if liked_flag}" do
+    = fa_icon "thumbs-up"
