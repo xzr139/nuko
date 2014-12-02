@@ -8,9 +8,7 @@ class ActivitiesController < ApplicationController
   end
 
   def update
-    if Activity.exists?(id: params[:id])
-      Activity.find(params[:id]).update(unread: false)
-    end
+    Activity.find(params[:id]).update(unread: false) if Activity.exists?(id: params[:id])
 
     render nothing: true
   end
