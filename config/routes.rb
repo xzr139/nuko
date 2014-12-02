@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     end
 
     resources :users, shallow: true do
+      resource :followers, only: [:update], shallow: true
       member do
         get 'all_posts'
         get 'tag'
