@@ -59,6 +59,8 @@ ja:
     deleted: コメントを削除しました
     falied: "コメントの投稿が失敗しました"
     number_of_comment: "%{number_of_comment} 件のコメント"
+  followers:
+    button: フォロー
   validation:
     required_nick_name: "ニックネームが入力されていません"
     required_title: "タイトルを入力してください"

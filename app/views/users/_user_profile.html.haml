@@ -6,6 +6,8 @@
       = t("common.belonging_to", company: @user.company)
   .profile-bio
     = auto_link(simple_format(@user.bio), html: { target: "_blank" })
+  .follow-bt
+    = link_to t("followers.button")
 
 .navbar.navbar-default
   .navbar-collapse.collapse.navbar-inverse-collapse#user

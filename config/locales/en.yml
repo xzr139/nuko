@@ -59,6 +59,8 @@ en:
     deleted: Comment was successfully destroyed.
     falied: Comment was failed created.
     number_of_comment: "%{number_of_comment} comment"
+  followers:
+    button: Follow
   validation:
     required_nick_name: Please enter your nick name.
     required_title: Please enter note title
