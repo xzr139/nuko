@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20141202172431) do
     t.integer  "target_user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "follwed"
+    t.boolean  "followed"
   end
 
   create_table "likes", force: true do |t|
