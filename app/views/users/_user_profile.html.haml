@@ -6,11 +6,12 @@
       = t("common.belonging_to", company: @user.company)
   .profile-bio
     = auto_link(simple_format(@user.bio), html: { target: "_blank" })
-  .follow-bt{ ng_controller: "FollowersCtrl" }
-    - folloed_flag = if current_user.followers.exists?(user_id: current_user.id)
-      - current_user.followers.find_by(user_id: current_user.id).followed
-    = link_to "javascript:void(0)", ng_click: "#{folloed_flag ? 'un' : ''}follow(#{@user.id})", id: "follow-bt", class: "#{".follow-bt" if folloed_flag}" do
-      = t("followers.button")
+  - unless @user == current_user
+    .follow-bt{ ng_controller: "FollowersCtrl" }
+      - folloed_flag = if current_user.followers.exists?(user_id: current_user.id)
+        - current_user.followers.find_by(user_id: current_user.id).followed
+      = link_to "javascript:void(0)", ng_click: "#{folloed_flag ? 'un' : ''}follow(#{@user.id})", id: "follow-bt", class: "#{".follow-bt" if folloed_flag}" do
+        = t("followers.button")
 
 .navbar.navbar-default
   .navbar-collapse.collapse.navbar-inverse-collapse#user
