@@ -1,15 +1,19 @@
 app.controller 'FollowersCtrl', ['$scope', ($scope) ->
-  $scope.follow = (id) ->
+  $scope.follow = (userId) ->
     $.ajax
-      url: "/users/" + id + "/followers"
+      url: "/followers"
       type: "PATCH"
+      data:
+        user_id: userId
       complete: (data) ->
-        $("#follow-bt").addClass("liked-bt")
+        $("#follow-bt").addClass("follow-bt")
 
-  $scope.unfollow = (id) ->
+  $scope.unfollow = (userId) ->
     $.ajax
-      url: "/users/" + id + "/followers"
+      url: "/followers"
       type: "PATCH"
+      data:
+        user_id: userId
       complete: (data) ->
-        $("#follow-bt").removeClass("liked-bt")
+        $("#follow-bt").removeClass("follow-bt")
 ]
