@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :users, shallow: true do
+    resources :users, only: [:show, :edit, :update], shallow: true do
       member do
         get 'all_posts'
         get 'tag'
