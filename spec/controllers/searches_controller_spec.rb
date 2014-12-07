@@ -3,7 +3,7 @@ require 'spec_helper'
 describe SearchesController, type: :controller do
   context "GET index" do
     before do
-      12.times { create(:note) }
+      create_list(:note, 12)
       create(:note, content: 'hogeeee')
       get :index, content: 'hoge'
     end
