@@ -62,6 +62,8 @@ en:
   followers:
     button: Follow
     follow_you: "You were followed by %{name}"
+  searches:
+    search: search
   validation:
     required_nick_name: Please enter your nick name.
     required_title: Please enter note title
