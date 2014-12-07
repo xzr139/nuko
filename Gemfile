@@ -34,6 +34,7 @@ gem "active_decorator"
 gem "angular-rails-engine"
 gem "kaminari-i18n"
 gem "font-awesome-rails"
+gem "ransack"
 
 group :linux do
   gem "therubyracer"
