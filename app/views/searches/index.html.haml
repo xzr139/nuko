@@ -1,5 +1,1 @@
-- @notes.each do |note|
-  = render 'common/note', note: note, comment: @comment
-
-#navigation
-  = paginate @notes if @notes.present?
+= render 'common/notes', notes: @notes, comment: nil
