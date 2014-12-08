@@ -1,6 +1,6 @@
 .side-bar.clearfix
   .social-bts
-    = image_tag 'social_bts.png', size: '250x100', class: 'soical-buttons'
+    = image_tag 'social_bts.png', size: '250x40', class: 'soical-buttons'
   .mini-block
     - unless @note.user == current_user
       .follow-bt#follow-bt-note-only{ ng_controller: "FollowersCtrl" }
