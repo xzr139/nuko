@@ -64,6 +64,7 @@ en:
     follow_you: "You were followed by %{name}"
   searches:
     search: search
+    result_message: "Search result for %{word}"
   validation:
     required_nick_name: Please enter your nick name.
     required_title: Please enter note title

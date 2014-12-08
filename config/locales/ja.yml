@@ -64,6 +64,7 @@ ja:
     follow_you: "%{name}さんにフォローされました"
   searches:
     search: 検索
+    result_message: "%{word}の検索結果"
   validation:
     required_nick_name: "ニックネームが入力されていません"
     required_title: "タイトルを入力してください"
