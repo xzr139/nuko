@@ -34,3 +34,7 @@ Documentation:
 # Assignment Branch Condition size for create is too high.
 AbcSize:
   Enabled: false
+
+# Configuration parameters: EnforcedStyle, SupportedStyles.
+Style/MultilineOperationIndentation:
+  Enabled: false
