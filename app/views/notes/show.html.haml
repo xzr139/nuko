@@ -1,7 +1,6 @@
 .side-bar.clearfix
   .social-bts
     = image_tag 'social_bts.png', size: '250x100', class: 'soical-buttons'
-
   .mini-block
     - unless @note.user == current_user
       .follow-bt#follow-bt-note-only{ ng_controller: "FollowersCtrl" }
@@ -13,6 +12,9 @@
       = image_tag @note.user.avatar.url, class: 'radius-of-image', size: "47x47"
     .user-name
       = @note.user.full_name
+    - if @note.user.show_company
+      .company-name
+        = t('common.belonging_to', company: @note.user.company)
     .popularity-notes
       %h6= t('notes.popularity_notes')
       - @note.user.notes.first(3).each do |note|
