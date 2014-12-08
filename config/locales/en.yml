@@ -50,6 +50,7 @@ en:
     created: Note was successfully created.
     updated: Note was successfully updated.
     deleted: Note was successfully destroyed.
+    popularity_notes: Popularity notes
   stocks:
     has_been_stocked: has been stocked
   comments:

@@ -1,4 +1,23 @@
-= image_tag 'social_bts.png', size: '300x100', class: 'soical-buttons'
+.side-bar.clearfix
+  .social-bts
+    = image_tag 'social_bts.png', size: '250x100', class: 'soical-buttons'
+
+  .mini-block
+    - unless @note.user == current_user
+      .follow-bt#follow-bt-note-only{ ng_controller: "FollowersCtrl" }
+        - folloed_flag = if current_user.followers.exists?(user_id: current_user.id)
+          - current_user.followers.find_by(user_id: current_user.id).followed
+        = link_to "javascript:void(0)", ng_click: "#{folloed_flag ? 'un' : ''}follow(#{@note.user.id})", id: "follow-bt", class: "#{".follow-bt" if folloed_flag}" do
+          = t("followers.button")
+    .mini-user-image
+      = image_tag @note.user.avatar.url, class: 'radius-of-image', size: "47x47"
+    .user-name
+      = @note.user.full_name
+    .popularity-notes
+      %h6= t('notes.popularity_notes')
+      - @note.user.notes.first(3).each do |note|
+        = link_to "・" + note.title, note_path(note)
+        %br
 
 .block#note-only
   - if signed_in? && @note.this_my_note?

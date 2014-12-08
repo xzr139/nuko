@@ -50,6 +50,7 @@ ja:
     created: "ノートが作成されました"
     updated: "ノートが更新されました"
     deleted: "ノートが削除されました"
+    popularity_notes: "人気の投稿"
   stocks:
     has_been_stocked: 'がストックしました'
   comments:
