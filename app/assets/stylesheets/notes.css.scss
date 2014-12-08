@@ -43,3 +43,27 @@
 .min-box{
   margin-left: 15px;
 }
+
+.block#note-only{
+  margin: 0 auto;
+  width: 1145px;
+  border: 1px #ccc solid;
+
+  .btn.btn-primary.stock-button.stock-bt{
+    float: right;
+  }
+
+  .title{
+    margin-top: -10px;
+  }
+
+  .content{
+    float: left;
+    font-size: 15px;
+    width: 390px;
+  }
+}
+
+.comment{
+  float: left;
+}
