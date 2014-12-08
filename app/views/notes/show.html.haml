@@ -9,7 +9,8 @@
         = link_to "javascript:void(0)", ng_click: "#{folloed_flag ? 'un' : ''}follow(#{@note.user.id})", id: "follow-bt", class: "#{".follow-bt" if folloed_flag}" do
           = t("followers.button")
     .mini-user-image
-      = image_tag @note.user.avatar.url, class: 'radius-of-image', size: "47x47"
+      = link_to user_path(@note.user) do
+        = image_tag @note.user.avatar.url, class: 'radius-of-image', size: "47x47"
     .user-name
       = @note.user.full_name
     - if @note.user.show_company
@@ -37,7 +38,8 @@
       = stocked_message
   .detail.clearfix
     .profile-image.pull-left
-      = image_tag @note.user.avatar.url, class: 'radius-of-image', size: "47x47"
+      = link_to user_path(@note.user) do
+        = image_tag @note.user.avatar.url, class: 'radius-of-image', size: "47x47"
     .information
       .title
         %h3= @note.title
