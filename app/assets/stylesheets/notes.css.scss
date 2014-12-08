@@ -40,6 +40,37 @@
   margin-left: 70px;
 }
 
-.min-box{
-  margin-left: 15px;
+.number-of-comment{
+  margin-top: 10px;
+  margin-left: 30px;
+}
+
+.block#note-only{
+  margin: 0 auto;
+  width: 1145px;
+  border: 1px #ccc solid;
+
+  .btn.btn-primary.stock-button.stock-bt{
+    float: right;
+  }
+
+  .title{
+    margin-top: -10px;
+  }
+
+  .number-of-comment{
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+
+  .content{
+    margin-top: 15px;
+    float: leftdd;
+    font-size: 15px;
+    width: 390px;
+  }
+}
+
+.comment{
+  float: left;
 }
