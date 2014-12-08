@@ -23,7 +23,10 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if comment.save
-        format.html { redirect_to note_path(comment.note),  notice: t("comments.created") }
+        format.html {
+          redirect_to note_path(comment.note),  notice: t("comments.created")
+          comment.create_activity :create, owner: current_user, recipient: Note.find(comment_params['note_id']).recipient unless Note.find(comment_params['note_id']).recipient == current_user
+        }
         format.json { render :show, status: :created, location: comment }
       else
         format.html { redirect_to note_path(comment.note),  notice: t("comments.failed") }
