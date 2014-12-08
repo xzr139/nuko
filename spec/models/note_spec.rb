@@ -1,0 +1,15 @@
+require 'spec_helper'
+
+describe Note, type: :model do
+  let(:note) { create(:note) }
+  let(:user) { User.last }
+
+  it "should be return false, because none stock" do
+    expect(note.stocked_by?(user)).to eq(false)
+  end
+
+  it "should be return true, because exist stock" do
+    note.user.stocks.build(note_id: note.id, stocked: true).save
+    expect(note.stocked_by?(user)).to eq(true)
+  end
+end
