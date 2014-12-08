@@ -40,8 +40,9 @@
   margin-left: 70px;
 }
 
-.min-box{
-  margin-left: 15px;
+.number-of-comment{
+  margin-top: 10px;
+  margin-left: 30px;
 }
 
 .block#note-only{
@@ -57,8 +58,14 @@
     margin-top: -10px;
   }
 
+  .number-of-comment{
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+
   .content{
-    float: left;
+    margin-top: 15px;
+    float: leftdd;
     font-size: 15px;
     width: 390px;
   }
