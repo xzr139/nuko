@@ -11,7 +11,6 @@ gem "jquery-rails"
 gem "jbuilder", "~> 2.0"
 gem "omniauth"
 gem "omniauth-facebook"
-gem "koala"
 gem "haml"
 gem "haml-rails"
 gem "execjs"
@@ -42,7 +41,6 @@ end
 
 group :development, :test do
   gem "awesome_print"
-  gem "xray-rails"
   gem "annotate"
   gem "did_you_mean"
   gem "rspec-rails"
