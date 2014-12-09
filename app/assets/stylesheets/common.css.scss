@@ -77,3 +77,25 @@
 .number-of-comment{
   margin-bottom: 10px;
 }
+
+.navbar.navbar-default.navbar-fixed-top{
+  position: relative !important;
+}
+
+.alert.fade.in{
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  margin-bottom: 0;
+  text-align: center;
+  z-index: 99999px !important;
+  color: #fff;
+}
+
+.alert-success{
+  background-color: #07ad4a !important;
+}
+
+.alert-failed{
+  background-color: #eb3939 !important;
+}
