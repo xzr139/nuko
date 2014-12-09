@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :set_note, only: [:edit]
   before_action :set_comment, only: [:edit, :update, :destroy, :like, :unlike]
+  before_action :set_note, only: [:edit]
   before_action :check_user, only: [:edit]
 
   def edit
@@ -84,7 +84,7 @@ class CommentsController < ApplicationController
   end
 
   def set_note
-    @note = Note.find_by(id: params[:id])
+    @note = Note.find_by(id: @comment.note.id)
   end
 
   def check_user
