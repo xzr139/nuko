@@ -12,6 +12,7 @@
     = stylesheet_link_tag "bootstrap_and_overrides", media: "all"
     = stylesheet_link_tag "application"
   %body
+    = bootstrap_flash
     .navbar.navbar-default.navbar-fixed-top
       .container
         .navbar-header
@@ -47,7 +48,6 @@
       %br
       %br
       %br
-      = bootstrap_flash
       = yield
   = render 'layouts/footer'
 
