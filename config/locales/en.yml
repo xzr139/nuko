@@ -60,6 +60,7 @@ en:
     deleted: Comment was successfully destroyed.
     falied: Comment was failed created.
     number_of_comment: "%{number_of_comment} comment"
+    commented_you: "Commented you from %{name}"
   followers:
     button: Follow
     follow_you: "You were followed by %{name}"

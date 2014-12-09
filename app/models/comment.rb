@@ -12,6 +12,8 @@
 #
 
 class Comment < ActiveRecord::Base
+  include PublicActivity::Model
+
   belongs_to :note
   belongs_to :user
   has_many :likes

@@ -60,6 +60,7 @@ ja:
     deleted: コメントを削除しました
     falied: "コメントの投稿が失敗しました"
     number_of_comment: "%{number_of_comment} 件のコメント"
+    commented_you: "%{name}からコメントがつきました"
   followers:
     button: フォロー
     follow_you: "%{name}さんにフォローされました"
