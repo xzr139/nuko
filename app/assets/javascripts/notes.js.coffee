@@ -11,7 +11,7 @@ createStock = (current) ->
       if notStocked
         $(current).text(I18n.t('common.stocked'))
       else
-        $(current).text(I18n.t('notes.stock_this_note'))
+        $(current).parent().parent().hide('blind', '', 800)
 
 
 validationOnInput = ->
