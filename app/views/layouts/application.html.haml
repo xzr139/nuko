@@ -44,10 +44,6 @@
           = form_tag searches_path, class: 'navbar-form navbar-left', id: 'search-form', method: :get do
             = text_field_tag :content, params[:content], class: 'form-control col-lg-8', placeholder: t("searches.search")
     .container
-      %br
-      %br
-      %br
-      %br
       = yield
   = render 'layouts/footer'
 
