@@ -31,5 +31,5 @@ build:
     after-steps:
         - wantedly/pretty-slack-notify:
             webhook_url: $SLACK_WEBHOOK_URL
-            channel: nuko_wercker
+            channel: nuko
             username: nuko
