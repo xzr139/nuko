@@ -15,4 +15,15 @@ describe CommentsController, type: :controller do
       }.from(0).to(1)
     end
   end
+
+  context 'should be increment number of activity count' do
+    let(:comment) { create(:comment) }
+    before { ApplicationController.any_instance.stub(:current_user).and_return(User.last) }
+
+    it 'should be success create_activity' do
+      expect { post :create, comment: comment.attributes }.to change {
+        Activity.count
+      }.from(0).to(1)
+    end
+  end
 end
