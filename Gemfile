@@ -52,6 +52,7 @@ group :development, :test do
   gem "spring"
   gem "rubocop",  require: false
   gem "pry-byebug"
+  gem "letter_opener"
 end
 
 group :test do
