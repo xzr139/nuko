@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     resource :stocks, only: [:update], shallow: true
     resource :followers, only: [:update], shallow: true
     resources :searches, only: [:index], shallow: true
+    resources :profiles, only: [:update, :edit], shallow: true
     resources :activities, only: [:index, :update], shallow: true
     resources :comments, only: [:edit, :update, :destroy, :create], shallow: true do
       member do
