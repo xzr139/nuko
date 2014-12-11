@@ -35,4 +35,7 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
   config.assets.raise_runtime_errors = false
+
+  # letter_opener
+  config.action_mailer.delivery_method = :letter_opener
 end
