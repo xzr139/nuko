@@ -1,1 +1,1 @@
-`setTimeout(function(){$(".alert.fade.in").hide('blind', '', 800)}, 2500)`
+`setTimeout(function(){$(".alert.fade.in").hide('highlight', '', 800)}, 2500)`
