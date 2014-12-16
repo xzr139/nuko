@@ -1,0 +1,7 @@
+= form_for current_user, class: "form-horizontal", html: { multipart: true } do |f|
+  %fieldset
+    %br
+    .form-group
+      = f.label t("users.new_email_address"), class: 'col-lg-2 control-label user'
+      = f.text_field :email, class: "form-control"
+    = f.submit t("users.edit.submit"), class: "btn btn-primary", id: 'submit-user'
