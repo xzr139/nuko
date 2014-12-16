@@ -7,7 +7,7 @@ describe "Users", type: :request do
 
     before do
       ApplicationController.any_instance.stub(:current_user).and_return(user)
-      visit edit_user_path(user)
+      visit edit_profile_path(user)
       fill_in "user_nick_name",              with: "sachin21edited"
       fill_in "user_bio",                    with: "edited bio"
       select User::INTERFACE_LANGUAGE[0][0], from: "user_language"
