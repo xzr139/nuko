@@ -25,6 +25,11 @@ ja:
       bio: "自己紹介"
       icon: "プロフィール画像"
       show_company: "会社名をプロフィールに表示する"
+      change_language_interface: 表示言語を変更する
+      change_email_notification_settings: メールの通知設定を変更する
+      change_email_address: メールアドレスを変更する
+      change_password: パスワードを変更する
+      settings: 設定
     update:
       complate_update_profiles: "プロフィールの編集が完了しました"
     sign_in: "ログイン"

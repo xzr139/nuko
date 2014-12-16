@@ -25,6 +25,11 @@ en:
       bio: Self Introduction
       icon: Your icon
       show_company: Is a company name displayed?
+      change_language_interface: Change language interface
+      change_email_notification_settings: Change email notification settings
+      change_password: Change password
+      change_email_address: Change email address
+      settings: Settings
     update:
       complate_update_profiles: Done updating nick name
     sign_in: Sign In
