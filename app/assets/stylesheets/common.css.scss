@@ -78,17 +78,15 @@
   margin-bottom: 10px;
 }
 
-.navbar.navbar-default.navbar-fixed-top{
-  position: relative !important;
-}
-
 .alert.fade.in{
+  position: absolute;
   top: 0px;
   left: 0px;
   width: 100%;
-  margin-bottom: 0;
+  line-height: 25px;
+  height: 57px;
   text-align: center;
-  z-index: 99999px !important;
+  z-index: 99999;
   color: #fff;
 }
 
@@ -98,4 +96,13 @@
 
 .alert-failed{
   background-color: #eb3939 !important;
+}
+
+body{
+  position: relative;
+  padding-top: 80px;
+}
+
+.navbar.navbar-default.navbar-fixed-top{
+  z-index: 1;
 }
