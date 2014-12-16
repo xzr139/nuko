@@ -6,7 +6,7 @@
 - when "change_password"
   = render "change_password"
 - else
-  %h2.users-settings= t("users.settings")
+  %h2.users-settings= t("users.edit.settings")
   .block
     = link_to edit_profile_path(current_user) do
       %h2.edit-profile= t("users.edit.edit_profile")
