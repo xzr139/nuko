@@ -19,12 +19,17 @@ ja:
     edit:
       type_your_nick_name: "ニックネームを入力してください"
       submit: "保存"
-      edit_profile: 'プロフィールを編集'
+      profile: 'プロフィールを編集'
       placeholder: '(例 アメリカに留学している大森です。英語を勉強しています。趣味は映画鑑賞とブログを読むことです。よろしくお願いします。'
       not_found: "ユーザーが見つかりません"
       bio: "自己紹介"
       icon: "プロフィール画像"
       show_company: "会社名をプロフィールに表示する"
+      change_language_interface: 表示言語を変更する
+      change_email_notification_settings: メールの通知設定を変更する
+      change_email_address: メールアドレスを変更する
+      change_password: パスワードを変更する
+      settings: 設定
     update:
       complate_update_profiles: "プロフィールの編集が完了しました"
     sign_in: "ログイン"
@@ -37,6 +42,7 @@ ja:
     authentication_failed: "認証に失敗しました。再度認証してください"
     stocked_notes: "ストックした投稿"
     have_to_sign_in: "ログインする必要があります"
+    new_email_address: 新しいメールアドレス
   notes:
     index:
       title: "タイトル"

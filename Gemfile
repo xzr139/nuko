@@ -51,7 +51,7 @@ group :development, :test do
   gem "binding_of_caller"
   gem "spring"
   gem "rubocop",  require: false
-  gem "pry-byebug"
+  gem "letter_opener"
 end
 
 group :test do

@@ -1,0 +1,5 @@
+= form_for current_user, class: "form-horizontal", html: { multipart: true } do |f|
+  %fieldset
+    .form-group
+      = f.label t('common.language'), class: 'col-lg-2 control-label user'
+      = f.select :language, User::INTERFACE_LANGUAGE, {}, { class: 'form-control' }
