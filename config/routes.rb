@@ -4,13 +4,15 @@ Rails.application.routes.draw do
   get '/:locale' => 'notes#index'
 
   scope path: "(:locale)", shallow_path: "(:locale)" do
-    resources :notes, except: [:new] , shallow: true do
-      collection do
-        get 'tag'
-      end
-    end
 
-    resources :users, only: [:show, :edit, :update], shallow: true do
+
+    resource :stocks, only: [:update], shallow: true
+    resource :followers, only: [:update], shallow: true
+    resources :searches, only: [:index], shallow: true
+    resources :users, only: [:edit, :update], shallow: true
+    resources :activities, only: [:index, :update], shallow: true
+
+    resources :profiles, only: [:show, :update, :edit], shallow: true do
       member do
         get 'all_posts'
         get 'tag'
@@ -18,15 +20,16 @@ Rails.application.routes.draw do
       end
     end
 
-    resource :stocks, only: [:update], shallow: true
-    resource :followers, only: [:update], shallow: true
-    resources :searches, only: [:index], shallow: true
-    resources :profiles, only: [:update, :edit], shallow: true
-    resources :activities, only: [:index, :update], shallow: true
     resources :comments, only: [:edit, :update, :destroy, :create], shallow: true do
       member do
         patch 'like'
         patch 'unlike'
+      end
+    end
+
+    resources :notes, except: [:new] , shallow: true do
+      collection do
+        get 'tag'
       end
     end
   end

@@ -23,7 +23,7 @@
               %li
                 = link_to PublicActivity::Activity.order(created_at: :desc).where(recipient_id: current_user.id,  owner_type: "User").where.not(owner_id: current_user.id, unread: false).size, activities_path, class: 'notification-of-number'
               %li
-                = link_to user_path(current_user) do
+                = link_to profile_path(current_user) do
                   = current_user.nick_name
                   = profile_image(current_user, '35x35')
               %li

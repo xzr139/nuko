@@ -1,24 +1,22 @@
-- case params["type"]
-- when "change_language_interface"
-  = render "change_language_interface"
-- when "change_email_address"
-  = render "change_email_address"
-- when "change_password"
-  = render "change_password"
-- else
-  %h2.users-settings= t("users.edit.settings")
-  .block
-    = link_to edit_profile_path(current_user) do
-      %h2.edit-profile= t("users.edit.edit_profile")
-  .block
-    = link_to edit_user_path(current_user, type: 'change_language_interface') do
-      %h2.edit-profile= t("users.edit.change_language_interface")
-  .block
-    = link_to edit_user_path(current_user, type: 'change_email_address') do
-      %h2.edit-profile= t("users.edit.change_email_address")
-  .block
-    = link_to edit_user_path(current_user, type: 'change_password') do
-      %h2.edit-profile= t("users.edit.change_password")
-  -# .block
-  -#   = link_to type_user_path(current_user), type: '' do
-  -#     %h2.edit-profile= t("users.edit.change_email_notification_settings")
+.bs-docs-section
+  .row
+    .col-lg-12
+      .page-header
+        %h2= t("users.edit.settings")
+  .row
+    .col-lg-3{ style: "border-right: 1px solid #ccc;"}
+      = link_to edit_profile_path(current_user) do
+        %h4.tab= t("users.edit.profile")
+      - User::SETTING_TYPE.each do |type|
+        = link_to edit_user_path(current_user, type: type) do
+          %h4.tab{ class: "#{'selected-tab' if params['type'] == type}"}= t("users.edit.#{type}")
+    -#   = link_to type_user_path(current_user), type: '' do
+    -#     %h2= t("users.edit.change_email_notification_settings")
+    .col-lg-5
+      - case params["type"]
+      - when "change_language_interface"
+        = render "change_language_interface"
+      - when "change_email_address"
+        = render "change_email_address"
+      - when "change_password"
+        = render "change_password"

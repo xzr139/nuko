@@ -1,5 +1,7 @@
-= form_for current_user, class: "form-horizontal", html: { multipart: true } do |f|
-  %fieldset
-    .form-group
-      = f.label t('common.language'), class: 'col-lg-2 control-label user'
-      = f.select :language, User::INTERFACE_LANGUAGE, {}, { class: 'form-control' }
+.well.bs-component
+  = form_for current_user, html: { multipart: true } do |f|
+    %fieldset
+      .form-group
+        = f.label t('common.language'), class: 'col-lg-4 control-label'
+        .col-lg-10
+          = f.select :language, User::INTERFACE_LANGUAGE, {}, { class: 'form-control' }
