@@ -37,12 +37,6 @@
   width: 410px;
 }
 
-#user_email{
-  margin-left: 150px;
-  margin-bottom: 10px;
-  width: 410px;
-}
-
 #user_bio{
   margin-left: 150px;
   height: 50px;
@@ -56,12 +50,6 @@
 #user_avatar{
   margin-left: 150px;
   width: 100px;
-  margin-bottom: 10px;
-}
-
-#user_language{
-  margin-left: 150px;
-  width: 410px;
   margin-bottom: 10px;
 }
 
@@ -116,4 +104,16 @@
 
 .users-settings{
   margin-left: 296px;
+}
+
+.selected-tab{
+  background-color: #d9230f;
+  color: #e6e6e6;
+}
+
+.tab{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  border-radius: 10px;
 }
