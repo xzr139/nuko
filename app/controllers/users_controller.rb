@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     if user.nick_name.present? && user.bio.present?
       redirect_to root_path, notice: t("common.signed_in")
     else
-      redirect_to edit_user_path(user.id), notice: t("common.signed_in")
+      redirect_to edit_profile_path(user), notice: t("common.signed_in")
     end
   end
 
