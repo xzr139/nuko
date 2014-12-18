@@ -1,15 +1,15 @@
 require "spec_helper"
 
 describe UsersController,  type: :controller do
-  context "GET show" do
+  context "GET edit" do
     let(:user) { create(:user) }
 
     before do
-      get :show, id: user.id
+      get :edit, id: user.id
     end
 
-    it "should be return is selected id" do
-      expect(assigns[:user]).to eq(User.last)
+    it "should be success" do
+      expect(response.status).to eq(200)
     end
   end
 end

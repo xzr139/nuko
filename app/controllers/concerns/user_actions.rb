@@ -1,6 +1,15 @@
 module UserActions
   extend ActiveSupport::Concern
 
+  def show
+    @notes = @user.notes.present? ? @user.notes.page(params[:page]).per(10).order(id: :desc) : []
+  end
+
+  def update
+    current_user.update(user_params)
+    redirect_to profile_path(current_user), notice: t("users.update.complate_update_profiles")
+  end
+
   def all_posts
     if User.find(params[:id])
       @user = User.find(params[:id])

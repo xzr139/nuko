@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "Users", type: :request do
+describe "Profiles", type: :request do
   context "GET edit" do
     let(:user) { create(:user) }
     let(:edited_user) { User.last }

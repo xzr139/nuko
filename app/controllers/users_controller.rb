@@ -6,11 +6,6 @@ class UsersController < ApplicationController
   before_action :set_notes, only: [:show, :tag, :stocks]
   before_action :set_ranking, only: [:show, :tag, :stocks]
 
-  def update
-    current_user.update(user_params)
-    redirect_to user_path(current_user), notice: t("users.update.complate_update_profiles")
-  end
-
   def callback
     user = User.add_user_from_omiauth(request.env["omniauth.auth"])
     session[:token] = user.token
