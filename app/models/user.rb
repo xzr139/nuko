@@ -26,11 +26,7 @@ class User < ActiveRecord::Base
     %w(英語 en)
   ]
 
-  SETTING_TYPE = [
-    "change_language_interface",
-    "change_email_address",
-    "change_password"
-  ]
+  SETTING_TYPE = %w(change_language_interface change_email_address change_password)
 
   has_many :notes
   has_many :stocks
