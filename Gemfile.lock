@@ -428,7 +428,6 @@ DEPENDENCIES
   factory_girl_rails
   font-awesome-rails
   foreman
-  haml
   haml-rails
   i18n-js
   jbuilder (~> 2.0)
