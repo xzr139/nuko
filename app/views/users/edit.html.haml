@@ -10,7 +10,7 @@
       - User::SETTING_TYPE.each do |type|
         = link_to edit_user_path(current_user, type: type) do
           %h4.tab{ class: "#{'selected-tab' if params['type'] == type}"}= t("users.edit.#{type}")
-    -#   = link_to type_user_path(current_user), type: '' do
+    -#   = link_to type_profile_path(current_user), type: '' do
     -#     %h2= t("users.edit.change_email_notification_settings")
     .col-lg-5
       - case params["type"]

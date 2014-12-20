@@ -1,7 +1,7 @@
 .block.activity{ class: " #{'unread' if activity.unread}", data: { activity_id: activity.id } }
   .detail.clearfix
     .profile-image.pull-left
-      = link_to user_path(activity.trackable.user) do
+      = link_to profile_path(activity.trackable.user) do
         = image_tag activity.trackable.user.avatar.url, class: 'radius-of-image', size: "40x40"
     = link_to activity.trackable.note do
       .information
