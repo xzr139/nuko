@@ -36,7 +36,7 @@ en:
     sign_out: Sign Out
     nick_name: Nick name
     not_found: User not found
-    create_by: created by %{full_name}
+    created_by: "Created by %{full_name}"
     change_interface: change your interface
     tags: tags often use |
     authentication_failed: Authentication failed, please try again
