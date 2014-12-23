@@ -11,10 +11,10 @@ createStock = (current) ->
       if notStocked
         $(current).text(I18n.t('common.stocked'))
       else
-        if location.pathname == "/" + I18n.locale
-          $(current).text(I18n.t('notes.stock_this_note'))
-        else
+        if location.pathname.match(/stocks/i)
           $(current).parent().parent().hide('blind', '', 800)
+        else
+          $(current).text(I18n.t('notes.stock_this_note'))
 
 
 validationOnInput = ->
