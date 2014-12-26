@@ -12,6 +12,7 @@ ja:
     post: '投稿'
     is: "を"
     no_permission: 編集する権限がありません
+    update: 更新
   users:
     index:
       read_all_this_post: "続きを読む"

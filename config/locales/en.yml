@@ -12,6 +12,7 @@ en:
     post: Post
     is: is
     no_permission: You are not owner
+    update: Update
   users:
     index:
       read_all_this_post: See all this post
