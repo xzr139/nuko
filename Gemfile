@@ -59,6 +59,6 @@ group :test do
   gem "launchy"
   gem "poltergeist"
   gem "json_spec"
-  gem "simplecov"
+  gem "simplecov", require: false
 end
 
