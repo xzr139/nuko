@@ -54,7 +54,7 @@
         - number_of_comment = note.comments.count
         = simple_pluralize(number_of_comment, t("comments.number_of_comment", number_of_comment: note.comments.count))
     .content
-      = simple_format(truncate auto_link(note.content), length: 100, omission: "-----")
+      = simple_format(auto_link(note.content))
 %p
   = "---広告---"
 - note.comments.each do |comment|
