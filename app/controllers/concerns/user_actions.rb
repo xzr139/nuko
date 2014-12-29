@@ -11,11 +11,7 @@ module UserActions
   end
 
   def all_posts
-    if User.find(params[:id])
-      @user = User.find(params[:id])
-    else
-      redirect_to root_path, notice: t("users.not_found")
-    end
+    @user = User.find(params[:id])
   end
 
   def tag
