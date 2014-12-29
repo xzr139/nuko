@@ -40,13 +40,9 @@ class ApplicationController < ActionController::Base
 
   def set_locale
     if User::INTERFACE_LANGUAGE.map(&:last).include?(params['locale']) || params["locale"].blank?
-      if current_user && current_user.language
-        I18n.locale = current_user.language
-      else
-        I18n.locale = params[:locale] || I18n.default_locale
-      end
+      I18n.locale = (current_user && current_user.language) ?  current_user.language : params["locale"]
     else
-      raise ActiveRecord::RecordNotFound
+      fail ActiveRecord::RecordNotFound
     end
   end
 
@@ -71,7 +67,7 @@ class ApplicationController < ActionController::Base
   end
 
   def routing_error
-    raise ActionController::RoutingError.new(params[:path])
+    fail ActionController::RoutingError.new(params['path'])
   end
 
   def render_404(e = nil)
