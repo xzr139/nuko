@@ -6,6 +6,12 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   helper_method :current_user, :signed_in?, :current_user?, :this_my_note?, :locale, :root_path
 
+  unless Rails.env.development?
+    rescue_from Exception,                        with: :render_500
+    rescue_from ActiveRecord::RecordNotFound,     with: :render_404
+    rescue_from ActionController::RoutingError,   with: :render_404
+  end
+
   private
 
   def current_user
@@ -33,10 +39,14 @@ class ApplicationController < ActionController::Base
   end
 
   def set_locale
-    if current_user && current_user.language
-      I18n.locale = current_user.language
+    if User::INTERFACE_LANGUAGE.map(&:last).include?(params['locale']) || params["locale"].blank?
+      if current_user && current_user.language
+        I18n.locale = current_user.language
+      else
+        I18n.locale = params[:locale] || I18n.default_locale
+      end
     else
-      I18n.locale = params[:locale] || I18n.default_locale
+      raise ActiveRecord::RecordNotFound
     end
   end
 
@@ -58,5 +68,32 @@ class ApplicationController < ActionController::Base
 
   def root_path
     "/#{locale}"
+  end
+
+  def routing_error
+    raise ActionController::RoutingError.new(params[:path])
+  end
+
+  def render_404(e = nil)
+    logger.info "Rendering 404 with exception: #{e.message}" if e
+
+    if request.xhr?
+      render json: { error: '404 error' }, status: 404
+    else
+      format = params[:format] == :json ? :json : :html
+      render template: 'errors/error_404', formats: format, status: 404, layout: 'application', content_type: 'text/html'
+    end
+  end
+
+  def render_500(e = nil)
+    logger.info "Rendering 500 with exception: #{e.message}" if e
+    Airbrake.notify(e) if e
+
+    if request.xhr?
+      render json: { error: '500 error' }, status: 500
+    else
+      format = params[:format] == :json ? :json : :html
+      render template: 'errors/error_500', formats: format, status: 500, layout: 'application', content_type: 'text/html'
+    end
   end
 end

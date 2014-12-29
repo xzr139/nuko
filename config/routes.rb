@@ -37,4 +37,7 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback' => 'users#callback'
   get '/auth/failure' => 'users#failure'
   delete '/auth/sign_out' => 'users#sign_out'
+
+  get  '*not_found' => 'application#routing_error'
+  post '*not_found' => 'application#routing_error'
 end
