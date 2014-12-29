@@ -30,7 +30,7 @@ validationOnInput = ->
       }
       'note[content]': {
         required: true
-        maxlength: 5000
+        maxlength: 10000
       }
     }
     messages: {
