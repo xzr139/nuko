@@ -17,7 +17,7 @@ class Note < ActiveRecord::Base
   has_many :comments
 
   validates :title,  length: { maximum: 40 }
-  validates :content,  length: { maximum: 5000 }
+  validates :content,  length: { maximum: 10000 }
 
   acts_as_taggable
   acts_as_paranoid
