@@ -38,3 +38,6 @@ AbcSize:
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 Style/MultilineOperationIndentation:
   Enabled: false
+
+AlignHash:
+  EnforcedColonStyle: key
