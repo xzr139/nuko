@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   helper_method :current_user, :signed_in?, :current_user?, :this_my_note?, :locale, :root_path
 
-  unless Rails.env.development?
+  unless Rails.env.development? && Rails.env.test?
     rescue_from Exception,                        with: :render_500
     rescue_from ActiveRecord::RecordNotFound,     with: :render_404
     rescue_from ActionController::RoutingError,   with: :render_404
@@ -83,7 +83,6 @@ class ApplicationController < ActionController::Base
 
   def render_500(e = nil)
     logger.info "Rendering 500 with exception: #{e.message}" if e
-    Airbrake.notify(e) if e
 
     if request.xhr?
       render json: { error: '500 error' }, status: 500
