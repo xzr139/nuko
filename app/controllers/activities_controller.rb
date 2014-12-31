@@ -9,6 +9,7 @@ class ActivitiesController < ApplicationController
 
   def update
     @activity = Activity.find(params[:id])
+    PublicActivity::Common.activity_count = 0
 
     respond_to do |format|
       if @activity.update(unread: false)
