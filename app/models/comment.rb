@@ -18,5 +18,7 @@ class Comment < ActiveRecord::Base
   belongs_to :user
   has_many :likes
 
+  validates :content, presence: true
+
   acts_as_paranoid
 end
