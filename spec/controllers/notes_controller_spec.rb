@@ -33,13 +33,13 @@ describe NotesController, type: :controller do
         ApplicationController.any_instance.stub(:current_user).and_return(user)
       end
 
-      it "creates a new note" do
+      it "create a new note" do
         expect { post :create, note: params }.to change {
           Note.count
         }.from(0).to(1)
       end
 
-      it "redirects to the created note" do
+      it "redirect to the created note" do
         post :create, note: params
         expect(response).to redirect_to(Note.last)
       end
@@ -59,7 +59,7 @@ describe NotesController, type: :controller do
         expect(assigns(:note)).to be_a_new(Note)
       end
 
-      it "re-renders the 'new' template" do
+      it "re-render the 'new' template" do
         Note.any_instance.stub(:save).and_return(false)
         post :create, note: params
         expect(response).to render_template("index")
