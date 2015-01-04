@@ -27,27 +27,25 @@ describe NotesController, type: :controller do
   describe "POST create" do
     context "with valid params" do
       let(:user) { create(:user) }
-      let(:params) { { note: attributes_for(:note) } }
 
       before do
         ApplicationController.any_instance.stub(:current_user).and_return(user)
       end
 
       it "create a new note" do
-        expect { post :create, note: params }.to change {
+        expect { post :create, note: attributes_for(:note) }.to change {
           Note.count
         }.from(0).to(1)
       end
 
       it "redirect to the created note" do
-        post :create, note: params
+        post :create, note: attributes_for(:note)
         expect(response).to redirect_to(Note.last)
       end
     end
 
     context "with invalid params" do
       let(:user) { create(:user) }
-      let(:params) { { note: attributes_for(:note) } }
 
       before do
         ApplicationController.any_instance.stub(:current_user).and_return(user)
@@ -55,13 +53,13 @@ describe NotesController, type: :controller do
 
       it "assigns a newly created but unsaved note as @note" do
         Note.any_instance.stub(:save).and_return(false)
-        post :create, note: params
+        post :create, note: attributes_for(:note)
         expect(assigns(:note)).to be_a_new(Note)
       end
 
       it "re-render the 'new' template" do
         Note.any_instance.stub(:save).and_return(false)
-        post :create, note: params
+        post :create, note: attributes_for(:note)
         expect(response).to render_template("index")
       end
     end
