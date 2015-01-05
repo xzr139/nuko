@@ -25,12 +25,16 @@ describe FollowersController, type: :controller do
   end
 
   context 'it should be increment number of activity count' do
-    let!(:note) { create(:note) }
-    before { ApplicationController.any_instance.stub(:current_user).and_return(User.last) }
 
-    it 'successfully create_activity' do
+    before do
+      create_list(:user, 2)
+      ApplicationController.any_instance.stub(:current_user).and_return(User.first)
+      PublicActivity::Common.activity_count = 0
+    end
+
+    it 'should be success create_activity' do
       expect { patch :update, user_id: User.last.id }.to change {
-        Activity.count
+        PublicActivity::Common.activity_count
       }.from(0).to(1)
     end
   end

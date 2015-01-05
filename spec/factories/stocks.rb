@@ -16,5 +16,6 @@ FactoryGirl.define do
   factory :stock do
     association :note
     association :user
+    stocked false
   end
 end

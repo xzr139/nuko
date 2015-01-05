@@ -35,6 +35,10 @@ class User < ActiveRecord::Base
 
   validates :nick_name, length: { maximum: 15 }
   validates :bio, length: { maximum: 300 }
+  validates :facebook_id, presence: true
+  validates :email, presence: true
+  validates :full_name, presence: true
+  validates :token, presence: true
 
   has_attached_file :avatar, styles: { medium: "300x300>", thumb: "20x20>" }, default_url: "/images/default_image.png"
 

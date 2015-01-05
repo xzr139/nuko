@@ -13,7 +13,7 @@
 
 FactoryGirl.define do
   factory :comment do
-    content
+    sequence(:content) { |n| "content#{n}" }
     association(:user)
     association(:note)
   end
