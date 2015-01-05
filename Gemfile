@@ -52,6 +52,7 @@ group :development, :test do
   gem "spring"
   gem "spring-commands-rspec"
   gem "guard-rspec", require: false
+  gem 'terminal-notifier-guard'
   gem "parallel_tests"
   gem "rubocop",  require: false
   gem "letter_opener"
