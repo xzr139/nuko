@@ -13,28 +13,28 @@
 
 ActiveRecord::Schema.define(version: 20141202172431) do
 
-  create_table "activities", force: true do |t|
-    t.integer  "trackable_id"
-    t.string   "trackable_type"
-    t.integer  "owner_id"
-    t.string   "owner_type"
-    t.string   "key"
-    t.text     "parameters"
-    t.integer  "recipient_id"
-    t.string   "recipient_type"
+  create_table "activities", force: :cascade do |t|
+    t.integer  "trackable_id",   limit: 4
+    t.string   "trackable_type", limit: 255
+    t.integer  "owner_id",       limit: 4
+    t.string   "owner_type",     limit: 255
+    t.string   "key",            limit: 255
+    t.text     "parameters",     limit: 65535
+    t.integer  "recipient_id",   limit: 4
+    t.string   "recipient_type", limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "unread",         default: true
+    t.boolean  "unread",         limit: 1,     default: true
   end
 
   add_index "activities", ["owner_id", "owner_type"], name: "index_activities_on_owner_id_and_owner_type", using: :btree
   add_index "activities", ["recipient_id", "recipient_type"], name: "index_activities_on_recipient_id_and_recipient_type", using: :btree
   add_index "activities", ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type", using: :btree
 
-  create_table "comments", force: true do |t|
-    t.integer  "user_id",    null: false
-    t.integer  "note_id",    null: false
-    t.string   "content",    null: false
+  create_table "comments", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4,   null: false
+    t.integer  "note_id",    limit: 4,   null: false
+    t.string   "content",    limit: 255, null: false
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -43,36 +43,36 @@ ActiveRecord::Schema.define(version: 20141202172431) do
   add_index "comments", ["note_id"], name: "index_comments_on_note_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
-  create_table "followers", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "target_user_id"
+  create_table "followers", force: :cascade do |t|
+    t.integer  "user_id",        limit: 4
+    t.integer  "target_user_id", limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "followed"
+    t.boolean  "followed",       limit: 1
   end
 
-  create_table "likes", force: true do |t|
-    t.integer  "note_id",                    null: false
-    t.integer  "comment_id",                 null: false
-    t.integer  "user_id",                    null: false
-    t.boolean  "liked",      default: false
+  create_table "likes", force: :cascade do |t|
+    t.integer  "note_id",    limit: 4,                 null: false
+    t.integer  "comment_id", limit: 4,                 null: false
+    t.integer  "user_id",    limit: 4,                 null: false
+    t.boolean  "liked",      limit: 1, default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "notes", force: true do |t|
-    t.string   "title"
-    t.text     "content"
-    t.integer  "user_id"
+  create_table "notes", force: :cascade do |t|
+    t.string   "title",      limit: 255
+    t.text     "content",    limit: 65535
+    t.integer  "user_id",    limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "deleted_at"
   end
 
-  create_table "stocks", force: true do |t|
-    t.integer  "note_id",                    null: false
-    t.integer  "user_id",                    null: false
-    t.boolean  "stocked",    default: false
+  create_table "stocks", force: :cascade do |t|
+    t.integer  "note_id",    limit: 4,                 null: false
+    t.integer  "user_id",    limit: 4,                 null: false
+    t.boolean  "stocked",    limit: 1, default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -80,12 +80,12 @@ ActiveRecord::Schema.define(version: 20141202172431) do
   add_index "stocks", ["note_id"], name: "index_stocks_on_note_id", using: :btree
   add_index "stocks", ["user_id"], name: "index_stocks_on_user_id", using: :btree
 
-  create_table "taggings", force: true do |t|
-    t.integer  "tag_id"
-    t.integer  "taggable_id"
-    t.string   "taggable_type"
-    t.integer  "tagger_id"
-    t.string   "tagger_type"
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "tag_id",        limit: 4
+    t.integer  "taggable_id",   limit: 4
+    t.string   "taggable_type", limit: 255
+    t.integer  "tagger_id",     limit: 4
+    t.string   "tagger_type",   limit: 255
     t.string   "context",       limit: 128
     t.datetime "created_at"
   end
@@ -93,29 +93,29 @@ ActiveRecord::Schema.define(version: 20141202172431) do
   add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
   add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
 
-  create_table "tags", force: true do |t|
-    t.string  "name"
-    t.integer "taggings_count", default: 0
+  create_table "tags", force: :cascade do |t|
+    t.string  "name",           limit: 255
+    t.integer "taggings_count", limit: 4,   default: 0
   end
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
-  create_table "users", force: true do |t|
-    t.string   "facebook_id",                         null: false
-    t.string   "email"
-    t.string   "full_name"
-    t.string   "nick_name"
-    t.string   "token"
+  create_table "users", force: :cascade do |t|
+    t.string   "facebook_id",         limit: 255,                   null: false
+    t.string   "email",               limit: 255
+    t.string   "full_name",           limit: 255
+    t.string   "nick_name",           limit: 255
+    t.string   "token",               limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "company"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
+    t.string   "company",             limit: 255
+    t.string   "avatar_file_name",    limit: 255
+    t.string   "avatar_content_type", limit: 255
+    t.integer  "avatar_file_size",    limit: 4
     t.datetime "avatar_updated_at"
-    t.text     "bio"
-    t.string   "language"
-    t.boolean  "show_company",        default: false
+    t.text     "bio",                 limit: 65535
+    t.string   "language",            limit: 255
+    t.boolean  "show_company",        limit: 1,     default: false
   end
 
 end
