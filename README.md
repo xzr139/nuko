@@ -39,7 +39,7 @@ ruby本体や、railsのgemなどで依存するやつをとりあえず多め�
 ```
 brew update # brew本体のうｐでと
 
-brew install autoconf autojump phantomjs automake cmake gibo git imagemagick imagemagick-ruby186 libevent libiconv libmpc08 libpng libpng12 libtool libxml2 libxslt memcached mongodb mysql openssl python qt readline redis zsh
+brew install autoconf autojump phantomjs automake cmake gibo git imagemagick imagemagick-ruby186 libevent libiconv libmpc08 libpng libpng12 libtool libxml2 libxslt memcached mongodb mysql openssl python qt readline redis terminal-notifier zsh
 
 brew cleanup # 掃除
 ```
