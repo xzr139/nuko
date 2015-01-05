@@ -174,8 +174,6 @@ bundle config build.nokogiri --use-system-libraries
 ./bin/rake db:migrate
 ```
 
-localのrakeやrailsのバージョンを使うために、bundle execをつけましょう。
-
 ## Project起動
 
 ```
@@ -189,15 +187,15 @@ bundle exec foreman start
 ### How to run the spec
 
 ```
-./bin/rspec                  # run all specs too
-./bin/rspec spec/controllers # run specs under spec/controllers
+bin/rake parallel:spec                      # run all specs too
+bundle exec parallel_rspec spec/controllers # run specs under spec/controllers
 ```
 
 単一でのテスト実行.
 
 ```
-./bin/rspec spec/controllers/questions_controller_spec.rb    # run only this spec
-./bin/rspec spec/controllers/questions_controller_spec.rb:88 # run only this spec's 88 line example
+parallel_rspec spec/controllers/questions_controller_spec.rb    # run only this spec
+parallel_rspec spec/controllers/questions_controller_spec.rb:88 # run only this spec's 88 line example
 ```
 
 という感じにしてコマンドを生成しましょう。
