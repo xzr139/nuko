@@ -22,11 +22,11 @@ build:
 
         - script:
             name: Set up db
-            code: RAILS_ENV=test bundle exec rake db:schema:load
+            code: RAILS_ENV=test bundle exec rake db:migrate && RAILS_ENV=test bundle exec rake parallel:create && RAILS_ENV=test bundle exec rake parallel:prepare
 
         - script:
             name: Run RSpec
-            code: bundle exec rspec
+            code: bin/rake parallel:spec
 
     after-steps:
         - wantedly/pretty-slack-notify:
