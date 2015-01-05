@@ -16,8 +16,8 @@ class Note < ActiveRecord::Base
   has_many :stocks
   has_many :comments
 
-  validates :title,  length: { maximum: 40 }
-  validates :content,  length: { maximum: 10000 }
+  validates :title, presence: true, length: { maximum: 40 }
+  validates :content, presence: true, length: { maximum: 10000 }
 
   acts_as_taggable
   acts_as_paranoid
