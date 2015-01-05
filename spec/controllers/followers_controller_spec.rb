@@ -25,7 +25,6 @@ describe FollowersController, type: :controller do
   end
 
   context 'it should be increment number of activity count' do
-
     before do
       create_list(:user, 2)
       ApplicationController.any_instance.stub(:current_user).and_return(User.first)
