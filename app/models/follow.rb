@@ -13,4 +13,7 @@
 class Follow < ActiveRecord::Base
   include PublicActivity::Model
   belongs_to :user
+
+  validates :user_id, presence: true
+  validates :target_user_id, presence: true
 end

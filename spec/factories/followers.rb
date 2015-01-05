@@ -13,5 +13,6 @@
 FactoryGirl.define do
   factory :follow, class: 'Follow' do
     association :user
+    target_user_id { create(:user).id }
   end
 end

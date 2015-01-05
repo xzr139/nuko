@@ -13,4 +13,9 @@
 
 class Like < ActiveRecord::Base
   belongs_to :comment
+
+  validates :note_id, presence: true
+  validates :comment_id, presence: true
+  validates :user_id, presence: true
+  validates :liked, presence: true
 end
