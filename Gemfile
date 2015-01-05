@@ -51,6 +51,7 @@ group :development, :test do
   gem "binding_of_caller"
   gem "spring"
   gem "spring-commands-rspec"
+  gem 'guard-rspec'
   gem "rubocop",  require: false
   gem "letter_opener"
 end
