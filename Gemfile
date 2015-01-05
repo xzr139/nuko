@@ -50,6 +50,7 @@ group :development, :test do
   gem "better_errors"
   gem "binding_of_caller"
   gem "spring"
+  gem "spring-commands-rspec"
   gem "rubocop",  require: false
   gem "letter_opener"
 end
