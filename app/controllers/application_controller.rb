@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :set_locale
-  helper_method :current_user, :signed_in?, :current_user?, :this_my_note?, :locale, :root_path
+  helper_method :current_user?, :this_my_note?, :locale, :root_path
 
   unless Rails.env.development? && Rails.env.test?
     rescue_from Exception,                        with: :render_500
@@ -14,20 +14,12 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def current_user
-    session[:token] ? User.where(token: session[:token]).first : nil
-  end
-
   def current_user?(id)
     current_user == User.find_by(id: id)
   end
 
   def this_my_note?(id)
     Note.find_by(id: id).user == current_user
-  end
-
-  def signed_in?
-    current_user != nil
   end
 
   def default_url_options
