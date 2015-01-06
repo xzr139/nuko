@@ -1,5 +1,5 @@
 .block
-  - if signed_in? && note.this_my_note?
+  - if user_signed_in? && note.this_my_note?
     .toggeles
       .btn-group
         %button.btn.btn-default.dropdown-toggle{ "data-toggle" => "dropdown", type: "button" }
@@ -13,7 +13,7 @@
     .profile-image.pull-left
       = link_to profile_path(note.user) do
         = image_tag note.user.avatar.url, class: 'radius-of-image', size: "47x47"
-    - if signed_in?
+    - if user_signed_in?
       .btn.btn-primary.stock-button.stock-bt{ data: { note_id: note.id, user_id: note.user.id, stocked: note.stocked_by?(current_user).to_s } }
         - stocked_message = note.stocked_by?(current_user) ? t('common.stocked') : t('notes.stock_this_note')
         = stocked_message

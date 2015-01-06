@@ -47,11 +47,11 @@ class ApplicationController < ActionController::Base
   end
 
   def check_user
-    redirect_to root_path, notice: t("users.have_to_sign_in") unless signed_in?
+    redirect_to root_path, notice: t("users.have_to_sign_in") unless user_signed_in?
   end
 
   def authenticated_user?(user)
-    signed_in? && user == current_user
+    user_signed_in? && user == current_user
   end
 
   def root_path
