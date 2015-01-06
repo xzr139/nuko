@@ -34,6 +34,7 @@ gem "kaminari-i18n"
 gem "font-awesome-rails"
 gem "ransack"
 gem "redcarpet"
+gem "devise"
 
 group :linux do
   gem "therubyracer"
