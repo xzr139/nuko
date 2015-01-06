@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
   root to: 'notes#index'
   get '/:locale' => 'notes#index'
@@ -32,10 +32,6 @@ Rails.application.routes.draw do
       end
     end
   end
-
-  get '/auth/:provider/callback' => 'users#callback'
-  get '/auth/failure' => 'users#failure'
-  delete '/auth/sign_out' => 'users#sign_out'
 
   get '*not_found' => 'application#routing_error'
   post '*not_found' => 'application#routing_error'

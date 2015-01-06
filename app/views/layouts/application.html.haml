@@ -36,10 +36,10 @@
                       %li
                         = link_to t("users.edit.settings"), edit_user_path(current_user)
                       %li
-                        = link_to t("users.sign_out"), auth_sign_out_path, id: 'sign-out', method: :delete
+                        = link_to t("users.sign_out"), destroy_user_session_path, method: :delete, id: 'sign-out'
             - unless user_signed_in?
               %li
-                = link_to t("users.sign_in"), "/auth/facebook", class: 'login-button'
+                = link_to t("users.sign_in"), user_omniauth_authorize_path(:facebook), class: 'login-button'
           = form_tag searches_path, class: 'navbar-form navbar-left', id: 'search-form', method: :get do
             = text_field_tag :content, params[:content], class: 'form-control col-lg-8', placeholder: t("searches.search")
     .container#main-feed
