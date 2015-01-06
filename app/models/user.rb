@@ -28,19 +28,15 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   def self.find_for_facebook_oauth(fb_info)
-    user = User.where(provider: auth.provider,  uid: auth.uid).first
+    company = fb_info["extra"]["raw_info"]["work"] ? fb_info["extra"]["raw_info"]["work"][0]["employer"]["name"] : nil
 
-    unless user
-      company = fb_info["extra"]["raw_info"]["work"] ? fb_info["extra"]["raw_info"]["work"][0]["employer"]["name"] : nil
-
-      where(facebook_id: fb_info["uid"]).first_or_create(
-        facebook_id: fb_info["uid"],
-        email:       fb_info["info"]["email"],
-        full_name:   fb_info["extra"]["raw_info"]["name"],
-        token:       fb_info["credentials"]["token"],
-        company:     company
-      )
-    end
+    where(facebook_id: fb_info["uid"]).first_or_create(
+      facebook_id: fb_info["uid"],
+      email:       fb_info["info"]["email"],
+      full_name:   fb_info["extra"]["raw_info"]["name"],
+      token:       fb_info["credentials"]["token"],
+      company:     company
+    )
 
     user
   end
