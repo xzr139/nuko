@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
+  devise_for :users
 
   root to: 'notes#index'
   get '/:locale' => 'notes#index'
 
   scope path: "(:locale)", shallow_path: "(:locale)" do
-
-
     resource :stocks, only: [:update], shallow: true
     resource :followers, only: [:update], shallow: true
     resources :searches, only: [:index], shallow: true
@@ -27,7 +26,7 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :notes, except: [:new] , shallow: true do
+    resources :notes, except: [:new], shallow: true do
       collection do
         get 'tag'
       end
@@ -38,6 +37,6 @@ Rails.application.routes.draw do
   get '/auth/failure' => 'users#failure'
   delete '/auth/sign_out' => 'users#sign_out'
 
-  get  '*not_found' => 'application#routing_error'
+  get '*not_found' => 'application#routing_error'
   post '*not_found' => 'application#routing_error'
 end
