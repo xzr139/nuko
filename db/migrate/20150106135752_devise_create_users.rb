@@ -31,10 +31,14 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # t.datetime :locked_at
 
       # Custom columns
-      t.string :facebook_id
+      t.string :facebook_id, null: false
       t.string :full_name
       t.string :nick_name
       t.string :token
+      t.string :company
+      t.text :bio
+      t.string :language
+      t.boolean :show_company, default: false
 
       t.timestamps
     end
