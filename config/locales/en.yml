@@ -34,6 +34,7 @@ en:
     update:
       complate_update_profiles: Done updating nick name
     sign_in: Sign In
+    sign_up: Signed up
     sign_out: Sign Out
     nick_name: Nick name
     not_found: User not found
