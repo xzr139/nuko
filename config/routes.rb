@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   devise_for :users, skip: [:session, :password, :registration, :confirmation], controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   scope path: "(:locale)", shallow_path: "(:locale)" do
-    devise_for :users, skip: :omniauth_callbacks, controllers: { passwords: 'passwords', registrations: 'registrations' }
+    devise_for :users, skip: :omniauth_callbacks
 
     resource :stocks, only: [:update], shallow: true
     resource :followers, only: [:update], shallow: true
