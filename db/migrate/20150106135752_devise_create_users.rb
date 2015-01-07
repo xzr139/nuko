@@ -31,7 +31,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # t.datetime :locked_at
 
       # Custom columns
-      t.string :facebook_id, null: false
+      t.string :facebook_id
       t.string :full_name
       t.string :nick_name
       t.string :token

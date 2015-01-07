@@ -111,7 +111,7 @@ ActiveRecord::Schema.define(version: 20150106141457) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip",     limit: 255
     t.string   "last_sign_in_ip",        limit: 255
-    t.string   "facebook_id",            limit: 255,                   null: false
+    t.string   "facebook_id",            limit: 255
     t.string   "full_name",              limit: 255
     t.string   "nick_name",              limit: 255
     t.string   "token",                  limit: 255
