@@ -6,7 +6,6 @@ describe FollowersController, type: :controller do
       let!(:follow) { create(:follow) }
 
       before do
-        ApplicationController.any_instance.stub(:current_user).and_return(User.last)
         patch :update, user_id: User.last.id
       end
 
@@ -27,7 +26,6 @@ describe FollowersController, type: :controller do
   context 'it should be increment number of activity count' do
     before do
       create_list(:user, 2)
-      ApplicationController.any_instance.stub(:current_user).and_return(User.first)
       PublicActivity::Common.activity_count = 0
     end
 

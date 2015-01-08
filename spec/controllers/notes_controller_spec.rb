@@ -28,10 +28,6 @@ describe NotesController, type: :controller do
     context "with valid params" do
       let(:user) { create(:user) }
 
-      before do
-        ApplicationController.any_instance.stub(:current_user).and_return(user)
-      end
-
       it "create a new note" do
         expect { post :create, note: attributes_for(:note) }.to change {
           Note.count
@@ -46,10 +42,6 @@ describe NotesController, type: :controller do
 
     context "with invalid params" do
       let(:user) { create(:user) }
-
-      before do
-        ApplicationController.any_instance.stub(:current_user).and_return(user)
-      end
 
       it "assigns a newly created but unsaved note as @note" do
         Note.any_instance.stub(:save).and_return(false)

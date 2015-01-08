@@ -6,7 +6,6 @@ describe StocksController, type: :controller do
       let!(:stock) { create(:stock) }
 
       before do
-        ApplicationController.any_instance.stub(:current_user).and_return(User.last)
         patch :update, note_id: stock.note_id
       end
 
@@ -29,7 +28,6 @@ describe StocksController, type: :controller do
     let(:note) { create(:note) }
 
     before do
-      ApplicationController.any_instance.stub(:current_user).and_return(user)
       PublicActivity::Common.activity_count = 0
     end
 
