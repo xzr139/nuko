@@ -5,9 +5,9 @@ describe StocksController, type: :controller do
     context 'type valid value' do
       let!(:stock) { create(:stock) }
 
-      before do
-        patch :update, note_id: stock.note_id
-      end
+      before { patch :update, note_id: stock.note_id }
+
+      after { PublicActivity::Common.activity_count = 0 }
 
       it 'should be blank' do
         expect(response.body).to be_blank

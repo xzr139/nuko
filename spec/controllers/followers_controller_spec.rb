@@ -3,11 +3,12 @@ require 'spec_helper'
 describe FollowersController, type: :controller do
   describe 'PATCH update' do
     context 'type valid value' do
+      let(:user) { create(:user) }
       let!(:follow) { create(:follow) }
 
-      before do
-        patch :update, user_id: User.last.id
-      end
+      before { patch :update, user_id: user.id }
+
+      after { PublicActivity::Common.activity_count = 0 }
 
       it 'should be blank' do
         expect(response.body).to be_blank
