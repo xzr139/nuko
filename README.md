@@ -1,5 +1,7 @@
 # マーケター版qiita(※アルファ版のため非公開
 
+[![wercker status](https://app.wercker.com/status/4fb1528f45cd02cd430afc0cfad69e82/m "wercker status")](https://app.wercker.com/project/bykey/4fb1528f45cd02cd430afc0cfad69e82)
+
 ### Version
 
 nukoでは以下のversionを使用しています。
