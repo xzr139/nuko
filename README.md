@@ -6,7 +6,7 @@ nukoでは以下のversionを使用しています。
 
 ```
 ruby 2.1.3p242 (2014-09-19 revision 47630) [x86_64-darwin13.0]
-Rails 4.1.4
+Rails 4.2.0
 ```
 
 ## 事前準備 : How to start nuko
