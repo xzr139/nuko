@@ -5,10 +5,9 @@ describe StocksController, type: :controller do
     context 'type valid value' do
       let!(:stock) { create(:stock) }
 
-      before do
-        ApplicationController.any_instance.stub(:current_user).and_return(User.last)
-        patch :update, note_id: stock.note_id
-      end
+      before { patch :update, note_id: stock.note_id }
+
+      after { PublicActivity::Common.activity_count = 0 }
 
       it 'should be blank' do
         expect(response.body).to be_blank
@@ -29,7 +28,6 @@ describe StocksController, type: :controller do
     let(:note) { create(:note) }
 
     before do
-      ApplicationController.any_instance.stub(:current_user).and_return(user)
       PublicActivity::Common.activity_count = 0
     end
 

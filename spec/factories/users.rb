@@ -31,6 +31,7 @@ FactoryGirl.define do
     sequence(:token) { |n| "token#{n}" }
     sequence(:company) { |n| "company#{n}" }
     sequence(:bio) { |n| "jikoshoukai#{n}" }
-    language :en
+    sequence(:password) { |n| "password#{n}" }
+    language :ja
   end
 end

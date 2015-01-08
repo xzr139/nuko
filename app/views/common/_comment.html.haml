@@ -1,5 +1,5 @@
 .comment-line.clearfix{ ng_controller: "CommentsCtrl" }
-  - if signed_in? && comment.this_my_note?
+  - if user_signed_in? && comment.this_my_note?
     .toggeles#comment-toggle
       .btn-group
         %button.btn.btn-default.dropdown-toggle{"data-toggle" => "dropdown", type: "button"}

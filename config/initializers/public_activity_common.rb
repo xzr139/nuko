@@ -13,6 +13,7 @@ module PublicActivity::Common
   end
 
   def create_activity_with_activity_count(*args)
+    @@activity_count ||= 0
     @@activity_count = @@activity_count.to_i
     @@activity_count += 1
 

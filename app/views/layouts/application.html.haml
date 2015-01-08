@@ -18,7 +18,7 @@
           = link_to Settings.service.name, root_path, class: "navbar-brand", id: 'service-name'
         #navbar-main.navbar-collapse.collapse
           %ul.nav.navbar-nav.navbar-right
-            - if signed_in?
+            - if user_signed_in?
               %li
                 = link_to PublicActivity::Common.activity_count, activities_path, class: 'notification-of-number'
               %li
@@ -36,10 +36,13 @@
                       %li
                         = link_to t("users.edit.settings"), edit_user_path(current_user)
                       %li
-                        = link_to t("users.sign_out"), auth_sign_out_path, id: 'sign-out', method: :delete
-            - unless signed_in?
+                        = link_to t("users.sign_out"), destroy_user_session_path, method: :delete, id: 'sign-out'
+            - unless user_signed_in?
               %li
-                = link_to t("users.sign_in"), "/auth/facebook", class: 'login-button'
+                = link_to t("users.sign_in"), new_user_session_path, class: 'login-button'
+              %li
+                = link_to t("users.sign_up"), new_user_registration_path, class: 'login-button'
+
           = form_tag searches_path, class: 'navbar-form navbar-left', id: 'search-form', method: :get do
             = text_field_tag :content, params[:content], class: 'form-control col-lg-8', placeholder: t("searches.search")
     .container#main-feed

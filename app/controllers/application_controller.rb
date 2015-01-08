@@ -4,9 +4,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :set_locale
-  helper_method :current_user, :signed_in?, :current_user?, :this_my_note?, :locale, :root_path
+  helper_method :current_user?, :this_my_note?, :locale, :root_path
 
-  unless Rails.env.development? && Rails.env.test?
+  unless Rails.env.development? || Rails.env.test?
     rescue_from Exception,                        with: :render_500
     rescue_from ActiveRecord::RecordNotFound,     with: :render_404
     rescue_from ActionController::RoutingError,   with: :render_404
@@ -14,20 +14,12 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def current_user
-    session[:token] ? User.where(token: session[:token]).first : nil
-  end
-
   def current_user?(id)
     current_user == User.find_by(id: id)
   end
 
   def this_my_note?(id)
     Note.find_by(id: id).user == current_user
-  end
-
-  def signed_in?
-    current_user != nil
   end
 
   def default_url_options
@@ -55,11 +47,11 @@ class ApplicationController < ActionController::Base
   end
 
   def check_user
-    redirect_to root_path, notice: t("users.have_to_sign_in") unless signed_in?
+    redirect_to root_path, notice: t("users.have_to_sign_in") unless user_signed_in?
   end
 
   def authenticated_user?(user)
-    signed_in? && user == current_user
+    user_signed_in? && user == current_user
   end
 
   def root_path

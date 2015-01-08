@@ -6,7 +6,6 @@ describe CommentsController, type: :controller do
     let(:ids_hash) { { user_id: note.user.id,   note_id: note.id } }
 
     before do
-      ApplicationController.any_instance.stub(:current_user).and_return(note.user)
     end
 
     it "should be success create" do
@@ -21,7 +20,6 @@ describe CommentsController, type: :controller do
     let(:comment) { create(:comment) }
 
     before do
-      ApplicationController.any_instance.stub(:current_user).and_return(user)
       PublicActivity::Common.activity_count = 0
     end
 

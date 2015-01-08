@@ -1,26 +1,9 @@
-# == Schema Information
-#
-# Table name: users
-#
-#  id                  :integer          not null, primary key
-#  facebook_id         :string(255)      not null
-#  email               :string(255)
-#  full_name           :string(255)
-#  nick_name           :string(255)
-#  token               :string(255)
-#  created_at          :datetime
-#  updated_at          :datetime
-#  company             :string(255)
-#  avatar_file_name    :string(255)
-#  avatar_content_type :string(255)
-#  avatar_file_size    :integer
-#  avatar_updated_at   :datetime
-#  bio                 :text
-#  language            :string(255)
-#  show_company        :boolean          default(FALSE)
-#
-
 class User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
+
   INTERFACE_LANGUAGE = [
     %w(日本語 ja),
     %w(英語 en)
@@ -35,16 +18,13 @@ class User < ActiveRecord::Base
 
   validates :nick_name, length: { maximum: 15 }
   validates :bio, length: { maximum: 300 }
-  validates :facebook_id, presence: true
   validates :email, presence: true
-  validates :full_name, presence: true
-  validates :token, presence: true
 
   has_attached_file :avatar, styles: { medium: "300x300>", thumb: "20x20>" }, default_url: "/images/default_image.png"
 
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
-  def self.add_user_from_omiauth(fb_info)
+  def self.from_omniauth(fb_info)
     company = fb_info["extra"]["raw_info"]["work"] ? fb_info["extra"]["raw_info"]["work"][0]["employer"]["name"] : nil
 
     where(facebook_id: fb_info["uid"]).first_or_create(

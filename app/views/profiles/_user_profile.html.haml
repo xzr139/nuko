@@ -6,7 +6,7 @@
       = t("common.belonging_to", company: @user.company)
   .profile-bio
     = auto_link(simple_format(@user.bio), html: { target: "_blank" })
-  - unless !signed_in? || @user == current_user
+  - unless !user_signed_in? || @user == current_user
     .follow-bt{ ng_controller: "FollowersCtrl" }
       - folloed_flag = if current_user.followers.exists?(user_id: current_user.id)
         - current_user.followers.find_by(user_id: current_user.id).followed

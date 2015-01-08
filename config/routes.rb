@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-
   root to: 'notes#index'
   get '/:locale' => 'notes#index'
 
-  scope path: "(:locale)", shallow_path: "(:locale)" do
+  devise_for :users, skip: [:session, :password, :registration, :confirmation], controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
+  scope path: "(:locale)", shallow_path: "(:locale)" do
+    devise_for :users, skip: :omniauth_callbacks, controllers: { registrations: 'users/registrations' }
 
     resource :stocks, only: [:update], shallow: true
     resource :followers, only: [:update], shallow: true
@@ -27,17 +28,13 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :notes, except: [:new] , shallow: true do
+    resources :notes, except: [:new], shallow: true do
       collection do
         get 'tag'
       end
     end
   end
 
-  get '/auth/:provider/callback' => 'users#callback'
-  get '/auth/failure' => 'users#failure'
-  delete '/auth/sign_out' => 'users#sign_out'
-
-  get  '*not_found' => 'application#routing_error'
+  get '*not_found' => 'application#routing_error'
   post '*not_found' => 'application#routing_error'
 end

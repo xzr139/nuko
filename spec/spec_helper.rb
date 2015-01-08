@@ -20,10 +20,6 @@ Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(app, js_errors: false, timeout: 60)
 end
 
-OmniAuth.config.test_mode = true
-OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new(provider: 'facebook', uid: '733146856734194')
-OmniAuth.config.add_mock(:facebook, YAML.load_file(Rails.root.join('spec', 'data', 'user_mock.yml')))
-
 RSpec.configure do |config|
   config.use_transactional_fixtures = true
   config.infer_base_class_for_anonymous_controllers = false
@@ -41,6 +37,7 @@ RSpec.configure do |config|
 
   config.before(:each) do
     DatabaseCleaner.strategy = :transaction
+    ApplicationController.any_instance.stub(:current_user).and_return(create(:user))
   end
 
   config.before(:each, js: true) do

@@ -3,12 +3,12 @@ require 'spec_helper'
 describe FollowersController, type: :controller do
   describe 'PATCH update' do
     context 'type valid value' do
+      let(:user) { create(:user) }
       let!(:follow) { create(:follow) }
 
-      before do
-        ApplicationController.any_instance.stub(:current_user).and_return(User.last)
-        patch :update, user_id: User.last.id
-      end
+      before { patch :update, user_id: user.id }
+
+      after { PublicActivity::Common.activity_count = 0 }
 
       it 'should be blank' do
         expect(response.body).to be_blank
@@ -27,7 +27,6 @@ describe FollowersController, type: :controller do
   context 'it should be increment number of activity count' do
     before do
       create_list(:user, 2)
-      ApplicationController.any_instance.stub(:current_user).and_return(User.first)
       PublicActivity::Common.activity_count = 0
     end
 

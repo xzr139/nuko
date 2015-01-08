@@ -44,3 +44,6 @@ AlignHash:
 
 RaiseArgs:
   EnforcedStyle: compact
+
+ClassAndModuleChildren:
+  EnforcedStyle: compact

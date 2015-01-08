@@ -34,6 +34,7 @@ ja:
     update:
       complate_update_profiles: "プロフィールの編集が完了しました"
     sign_in: "ログイン"
+    sign_up: "新規登録"
     sign_out: "ログアウト"
     nick_name: "ニックネーム"
     not_found: "ユーザーが見つかりません"
