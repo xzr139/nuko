@@ -173,7 +173,9 @@ bundle config build.nokogiri --use-system-libraries
 
 ```
 ./bin/rake db:create
+./bin/rake parallel:create
 ./bin/rake db:migrate
+./bin/rake parallel:prepare
 ```
 
 ## Project起動
