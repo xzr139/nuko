@@ -47,9 +47,9 @@
         = t('notes.tag_list')
         - note.tag_list.split.first.each do |name|
           = link_to name, tag_notes_path(name: name)
-      .time-ago-and-edit
-        = time_ago_in_words(note.created_at)
-        = link_to t('users.created_by', full_name: note.user_full_name), profile_path(note.user)
+      %abbr.timeago{ title: note.created_at.getutc.iso8601 }
+        = note.created_at.to_s
+      = link_to t('users.created_by', full_name: note.user_full_name), profile_path(note.user)
       .number-of-comment
         - number_of_comment = note.comments.count
         = simple_pluralize(number_of_comment, t("comments.number_of_comment", number_of_comment: note.comments.count))
