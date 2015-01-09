@@ -57,6 +57,7 @@ group :development, :test do
   gem "parallel_tests"
   gem "rubocop",  require: false
   gem "letter_opener"
+  gem "rails_best_practices"
 end
 
 group :test do
