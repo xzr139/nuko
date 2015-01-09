@@ -12,10 +12,10 @@
       = link_to profile_path(note.user) do
         = image_tag note.user.avatar.url, class: 'radius-of-image', size: "47x47"
     .user-name
-      = note.user.full_name
-    - if note.user.show_company
+      = note.user_full_name
+    - if note.user_show_company
       .company-name
-        = t('common.belonging_to', company: note.user.company)
+        = t('common.belonging_to', company: note.user_company)
     .popularity-notes
       %h6= t('notes.recently_notes')
       - note.user.notes.order(created_at: :desc).first(3).each do |note|
@@ -49,7 +49,7 @@
           = link_to name, tag_notes_path(name: name)
       .time-ago-and-edit
         = time_ago_in_words(note.created_at)
-        = link_to t('users.created_by', full_name: note.user.full_name), profile_path(note.user)
+        = link_to t('users.created_by', full_name: note.user_full_name), profile_path(note.user)
       .number-of-comment
         - number_of_comment = note.comments.count
         = simple_pluralize(number_of_comment, t("comments.number_of_comment", number_of_comment: note.comments.count))
