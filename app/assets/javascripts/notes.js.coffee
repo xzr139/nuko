@@ -51,9 +51,11 @@ validationOnInput = ->
 
 $ ->
   locale = $('html').attr('lang')
-  I18n.defaultLocale = locale;
-  I18n.locale = locale;
-  I18n.fallbacks = true;
+  I18n.defaultLocale = locale
+  I18n.locale = locale
+  I18n.fallbacks = true
+
+  $("abbr.timeago").timeago()
 
   validationOnInput()
 

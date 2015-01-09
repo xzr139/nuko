@@ -84,6 +84,8 @@ GEM
     cliver (0.3.2)
     cocaine (0.5.5)
       climate_control (>= 0.0.3, < 1.0)
+    code_analyzer (0.4.5)
+      sexp_processor
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -92,6 +94,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
+    colored (1.2)
     commonjs (0.2.7)
     debug_inspector (0.0.2)
     devise (3.4.1)
@@ -285,6 +288,16 @@ GEM
       rails-observers
     rails_autolink (1.1.6)
       rails (> 3.1)
+    rails_best_practices (1.15.4)
+      activesupport
+      awesome_print
+      code_analyzer (>= 0.4.3)
+      colored
+      erubis
+      i18n
+      json
+      require_all
+      ruby-progressbar
     rails_config (0.4.2)
       activesupport (>= 3.0)
     railties (4.2.0)
@@ -305,6 +318,7 @@ GEM
       ffi (>= 0.5.0)
     redcarpet (3.2.2)
     ref (1.0.5)
+    require_all (1.3.2)
     responders (2.0.2)
       railties (>= 4.2.0.alpha, < 5)
     rspec (3.1.0)
@@ -435,6 +449,7 @@ DEPENDENCIES
   rails-timeago (~> 2.0)
   rails4_acts_as_paranoid (~> 0.1.4)
   rails_autolink
+  rails_best_practices
   rails_config
   ransack
   redcarpet
