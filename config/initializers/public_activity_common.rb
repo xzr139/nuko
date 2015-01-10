@@ -13,12 +13,14 @@ module PublicActivity::Common
   end
 
   def create_activity_with_activity_count(*args)
-    @@activity_count ||= 0
-    @@activity_count = @@activity_count.to_i
-    @@activity_count += 1
-
     return unless self.public_activity_enabled?
     options = prepare_settings(*args)
+
+    unless options[:owner] == options[:recipient]
+      @@activity_count ||= 0
+      @@activity_count = @@activity_count.to_i
+      @@activity_count += 1
+    end
 
     if call_hook_safe(options[:key].split('.').last)
       return PublicActivity::Adapter.create_activity(self, options)
