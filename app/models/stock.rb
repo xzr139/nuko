@@ -5,7 +5,7 @@
 #  id         :integer          not null, primary key
 #  note_id    :integer          not null
 #  user_id    :integer          not null
-#  stocked    :boolean          default(FALSE)
+#  stocked    :boolean          default("0")
 #  created_at :datetime
 #  updated_at :datetime
 #

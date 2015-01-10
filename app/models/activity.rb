@@ -8,12 +8,12 @@
 #  owner_id       :integer
 #  owner_type     :string(255)
 #  key            :string(255)
-#  parameters     :text
+#  parameters     :text(65535)
 #  recipient_id   :integer
 #  recipient_type :string(255)
 #  created_at     :datetime
 #  updated_at     :datetime
-#  unread         :boolean          default(TRUE)
+#  unread         :boolean          default("1")
 #
 
 class Activity < PublicActivity::Activity
