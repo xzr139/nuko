@@ -13,6 +13,7 @@ en:
     is: is
     no_permission: You are not owner
     update: Update
+    or: or
   users:
     index:
       read_all_this_post: See all this post
@@ -45,6 +46,12 @@ en:
     stocked_notes: Stoked notes
     have_to_sign_in: You have to sign in.
     new_email_address: New mail address
+    merge_account: Merge Account
+    welcome_message: "Welcome %{name}, you almost done"
+    sign_in_with: "Sign in with %{provider}"
+    email: Email
+    password: Password
+    confirm: Password confirmation
   notes:
     index:
       title: Title
