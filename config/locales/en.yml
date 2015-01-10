@@ -49,6 +49,9 @@ en:
     merge_account: Merge Account
     welcome_message: "Welcome %{name}, you almost done"
     sign_in_with: "Sign in with %{provider}"
+    email: Email
+    password: Password
+    confirm: Password confirmation
   notes:
     index:
       title: Title

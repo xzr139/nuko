@@ -49,6 +49,9 @@ ja:
     merge_account: アカウントを統合
     welcome_message: "ようこそ！ アカウントを結合しますか？"
     sign_in_with: "%{provider}でログイン"
+    email: 'メールアドレス'
+    password: 'パスワード'
+    confirm: '確認'
   notes:
     index:
       title: "タイトル"
