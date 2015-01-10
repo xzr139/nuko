@@ -40,10 +40,23 @@ group :linux do
   gem "therubyracer"
 end
 
-group :development, :test do
-  gem "awesome_print"
+group :development do
+  gem "rails_best_practices"
   gem "annotate"
   gem "did_you_mean"
+end
+
+group :test do
+  gem "capybara-angular"
+  gem "capybara"
+  gem "launchy"
+  gem "poltergeist"
+  gem "json_spec"
+  gem "simplecov", require: false
+end
+
+group :development, :test do
+  gem "awesome_print"
   gem "rspec-rails"
   gem "factory_girl_rails", require: false
   gem "database_cleaner", github: "bmabey/database_cleaner"
@@ -57,15 +70,4 @@ group :development, :test do
   gem "parallel_tests"
   gem "rubocop",  require: false
   gem "letter_opener"
-  gem "rails_best_practices"
 end
-
-group :test do
-  gem "capybara-angular"
-  gem "capybara"
-  gem "launchy"
-  gem "poltergeist"
-  gem "json_spec"
-  gem "simplecov", require: false
-end
-
