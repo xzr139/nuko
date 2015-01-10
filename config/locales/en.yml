@@ -88,6 +88,7 @@ en:
     required_tag_list: Please enter tag list
     required_content: Please enter title
     max_length: Please enter no more than %{limit} characters.
+    min_length: Please enter at least %{limit} characters.
   date:
     abbr_day_names:
     - Sun

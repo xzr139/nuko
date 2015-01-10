@@ -88,6 +88,7 @@ ja:
     required_tag_list: "タグを入力してください"
     required_content: "内容を入力してください"
     max_length: "%{limit}文字以内にして下さい"
+    min_length: "%{limit}以上にしてください"
   datetime:
     distance_in_words:
       half_a_minute: "30秒前後"
