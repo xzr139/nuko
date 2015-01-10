@@ -83,4 +83,14 @@ class ApplicationController < ActionController::Base
       render template: 'errors/error_500', formats: format, status: 500, layout: 'application', content_type: 'text/html'
     end
   end
+
+  def after_sign_in_path_for(resource)
+    if session["facebook_data"] && current_user.facebook_id.nil?
+      User.merge_facebook_account(current_user, session["facebook_data"], session["facebook_work_data"])
+    end
+
+    session.keys.grep(/^facebook\./).each { |key| session.delete(key) }
+
+    super
+  end
 end

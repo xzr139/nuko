@@ -1,17 +1,26 @@
-%h2 Log in
+- if facebook?
+  %h2= t("users.welcome_message")
+- else
+  %h2= t("users.sign_in")
 = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
+  %p
     = f.label :email
     %br/
-    = f.email_field :email, autofocus: true
-  .field
+    = f.text_field :email
+  %p
     = f.label :password
     %br/
-    = f.password_field :password, autocomplete: "off"
-  - if devise_mapping.rememberable?
-    .field
+    = f.password_field :password
+  - if devise_mapping.rememberable? && !facebook?
+    %p
       = f.check_box :remember_me
       = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+  %p= f.submit facebook? ? t("users.merge_account") : t("users.sign_in")
+
+- if facebook?
+  = t("common.or")
+  = link_to t("users.sign_up"),  new_user_registration_path,  class: 'login-button'
+- else
+  - resource_class.omniauth_providers.each do |provider|
+    = link_to t("users.sign_in_with", provider: provider.to_s.titleize), omniauth_authorize_path(resource_name, provider)
+    %br/

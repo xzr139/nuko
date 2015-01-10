@@ -13,6 +13,7 @@ ja:
     is: "を"
     no_permission: 編集する権限がありません
     update: 更新
+    or: もしくは
   users:
     index:
       read_all_this_post: "続きを読む"
@@ -45,6 +46,9 @@ ja:
     stocked_notes: "ストックした投稿"
     have_to_sign_in: "ログインする必要があります"
     new_email_address: 新しいメールアドレス
+    merge_account: アカウントを統合
+    welcome_message: "ようこそ！ アカウントを結合しますか？"
+    sign_in_with: "%{provider}でログイン"
   notes:
     index:
       title: "タイトル"

@@ -24,14 +24,20 @@ class User < ActiveRecord::Base
 
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
-  def self.from_omniauth(fb_info)
-    company = fb_info["extra"]["raw_info"]["work"] ? fb_info["extra"]["raw_info"]["work"][0]["employer"]["name"] : nil
+  def self.find_for_facebook_oauth(fb_info)
+    data = fb_info['extra']['raw_info']
 
-    where(facebook_id: fb_info["uid"]).first_or_create(
-      facebook_id: fb_info["uid"],
-      email:       fb_info["info"]["email"],
-      full_name:   fb_info["extra"]["raw_info"]["name"],
-      token:       fb_info["credentials"]["token"],
+    User.find_by(facebook_id: data['id']) if data
+  end
+
+  def self.merge_facebook_account(user, data, work)
+    company = work ? work["employer"]["name"] : nil
+
+    user.update(
+      facebook_id: data["uid"],
+      email:       data["info"]["email"],
+      full_name:   data["info"]["name"],
+      token:       data["credentials"]["token"],
       company:     company
     )
   end
