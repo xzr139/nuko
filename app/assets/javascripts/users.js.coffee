@@ -22,7 +22,7 @@ validationOnInput = ->
       'user[password_confirmation]': {
         required: true
         minlength: 8
-        equalTo: "user[password]"
+        equalTo: "#user_password"
       }
     }
 
