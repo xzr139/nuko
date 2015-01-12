@@ -83,11 +83,14 @@ ja:
     search: 検索
     result_message: "%{word}の検索結果"
   validation:
+    required_password: "パスワードを入力してください"
     required_nick_name: "ニックネームが入力されていません"
     required_title: "タイトルを入力してください"
     required_tag_list: "タグを入力してください"
     required_content: "内容を入力してください"
     max_length: "%{limit}文字以内にして下さい"
+    min_length: "%{limit}以上にしてください"
+    equal_to: "パスワードが一致しません"
   datetime:
     distance_in_words:
       half_a_minute: "30秒前後"
