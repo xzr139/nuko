@@ -1,9 +1,11 @@
 module NotesHelper
   def title
+    name = Settings.service.name
+
     if (params['controller'] == 'notes' || params['controller'] == 'comments') && params['id'].present? && @note
-      @note.title ? @note.title : Settings.service.name
+      @note.title ? "#{@note.title} - #{name}" : name
     else
-      Settings.service.name
+      t("common.home", name: name)
     end
   end
 end
