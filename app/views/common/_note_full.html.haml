@@ -43,7 +43,7 @@
     = t("notes.number_of_comments")
   .number-of-stocks
     .counts
-      = note.stocks.size
+      = note.stocks.where(stocked: true).size
     %i.fa.fa-comment-o
     = t("notes.number_of_stocks")
   .detail.clearfix
