@@ -67,6 +67,8 @@ ja:
     updated: "ノートが更新されました"
     deleted: "ノートが削除されました"
     recently_notes: "最近の投稿"
+    number_of_comments: "コメント"
+    number_of_stocks: "ストック"
   stocks:
     has_been_stocked: 'がストックしました'
   comments:

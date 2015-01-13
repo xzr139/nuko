@@ -10,11 +10,13 @@ createStock = (current) ->
     complete: (data) ->
       if notStocked
         $(current).text(I18n.t('common.stocked'))
+        $(".number-of-stocks > .counts").text(parseInt($(".number-of-stocks > .counts").text().replace(/\s+/g,   "")) + 1)
       else
         if location.pathname.match(/stocks/i)
           $(current).parent().parent().hide('blind', '', 800)
         else
           $(current).text(I18n.t('notes.stock_this_note'))
+          $(".number-of-stocks > .counts").text(parseInt($(".number-of-stocks > .counts").text().replace(/\s+/g,   "")) - 1)
 
 
 validationOnInput = ->

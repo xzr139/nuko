@@ -67,6 +67,8 @@ en:
     updated: Note was successfully updated.
     deleted: Note was successfully destroyed.
     recently_notes: Recently notes
+    number_of_comments: "Comment"
+    number_of_stocks: "Stock"
   stocks:
     has_been_stocked: has been stocked
   comments:
