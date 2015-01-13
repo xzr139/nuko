@@ -1,0 +1,17 @@
+ja:
+  activerecord:
+    models:
+      user: 'ユーザー'
+    attributes:
+      user:
+        id: "ID"
+        full_name:  "本名"
+        email:  "Eメール"
+        nick_name: "ユーザー名"
+        password: "パスワード"
+        password_confirmation:  "パスワード確認"
+        company: '会社名'
+        bio: '自己紹介'
+        remember_me:  "次回から自動ログインする"
+        created_at: "登録日時"
+        updated_at: "更新日時"
