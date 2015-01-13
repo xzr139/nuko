@@ -36,6 +36,16 @@
     .btn.btn-primary.stock-button.stock-bt{ data: { note_id: note.id, user_id: note.user.id, stocked: note.stocked_by?(current_user).to_s } }
       - stocked_message = note.stocked_by?(current_user) ? t('common.stocked') : t('notes.stock_this_note')
       = stocked_message
+  .number-of-comments
+    .counts
+      = note.comments.size
+    %i.fa.fa-book
+    = t("notes.number_of_comments")
+  .number-of-stocks
+    .counts
+      = note.stocks.size
+    %i.fa.fa-comment-o
+    = t("notes.number_of_stocks")
   .detail.clearfix
     .profile-image.pull-left
       = link_to profile_path(note.user) do
