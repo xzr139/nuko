@@ -44,6 +44,9 @@ group :development do
   gem "rails_best_practices"
   gem "annotate"
   gem "did_you_mean"
+  gem "pry-rails"
+  gem "pry-doc"
+  gem "pry-stack_explorer"
 end
 
 group :test do
@@ -60,7 +63,6 @@ group :development, :test do
   gem "rspec-rails"
   gem "factory_girl_rails", require: false
   gem "database_cleaner", github: "bmabey/database_cleaner"
-  gem "pry-rails"
   gem "better_errors"
   gem "binding_of_caller"
   gem "spring"
