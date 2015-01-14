@@ -1,0 +1,17 @@
+en:
+  activerecord:
+    models:
+      user: 'User'
+    attributes:
+      user:
+        id: "ID"
+        full_name:  "full name"
+        email:  "Email"
+        nick_name: "User name"
+        password: "Password"
+        password_confirmation:  "Password confirmation"
+        company: 'Company'
+        bio: 'Bio'
+        remember_me:  "Remember me"
+        created_at: "Created at"
+        updated_at: "Updated at"
