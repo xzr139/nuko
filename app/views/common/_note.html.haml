@@ -31,11 +31,14 @@
     = simple_format(truncate auto_link(note.content), length: 100, omission: "-----")
   .min-box.clearfix
     .number-of-comment
-      - number_of_comment = note.comments.count
-      = simple_pluralize(number_of_comment, t("comments.number_of_comment", number_of_comment: note.comments.count))
-    - unless note.only_page?
-      = link_to note_path(note) do
-        .see-all-text
-          = t("users.index.read_this_post")
+      - number_of_comment = note.comments.size
+      = simple_pluralize(number_of_comment, t("comments.number_of_comment", number_of_comment: number_of_comment))
+    .number-of-stock
+      - number_of_stock = note.stocks.where(stocked: true).size
+      = simple_pluralize(number_of_stock, t("stocks.number_of_stock", number_of_stocks: number_of_stock))
+  - unless note.only_page?
+    = link_to note_path(note) do
+      .see-all-text
+        = t("users.index.read_this_post")
   - if note.only_page?
     = render "common/comments", note: note, comment: comment

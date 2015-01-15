@@ -54,7 +54,8 @@
   float: left;
   margin-left: 20px;
   font-size: 15px;
-  width: 390px;
+  width: 370px;
+  margin-right: 20px;
 }
 
 .toggeles{
@@ -62,7 +63,8 @@
 }
 
 .see-all-text{
-  margin-bottom: 7px;
+  margin-bottom: 10px;
+  margin-left: 20px;
 }
 
 .tag-header{
@@ -76,6 +78,13 @@
 
 .number-of-comment{
   margin-bottom: 10px;
+  text-align: right;
+  margin-right: 30px;
+}
+
+.number-of-stock{
+  float: right;
+  margin-right: 30px;
 }
 
 .alert.fade.in{

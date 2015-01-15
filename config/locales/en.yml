@@ -71,6 +71,7 @@ en:
     number_of_stocks: "Stock"
   stocks:
     has_been_stocked: has been stocked
+    number_of_stock: "%{number_of_stocks} stock"
   comments:
     comment: comment
     created: Comment was successfully created.
