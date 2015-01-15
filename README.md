@@ -7,7 +7,7 @@
 nukoでは以下のversionを使用しています。
 
 ```
-ruby 2.1.3p242 (2014-09-19 revision 47630) [x86_64-darwin13.0]
+ruby 2.2.0p0 (2014-12-25 revision 49005) [x86_64-darwin13]
 Rails 4.2.0
 ```
 
