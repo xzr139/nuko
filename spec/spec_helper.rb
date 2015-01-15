@@ -26,6 +26,7 @@ RSpec.configure do |config|
   config.order = "random"
   config.include FactoryGirl::Syntax::Methods
   config.include I18nMacros
+  config.infer_spec_type_from_file_location!
 
   config.before(:all) do
     FactoryGirl.reload
