@@ -47,3 +47,9 @@ RaiseArgs:
 
 ClassAndModuleChildren:
   EnforcedStyle: compact
+
+CyclomaticComplexity:
+  Max: 8
+
+Metrics/PerceivedComplexity:
+  Max: 10
