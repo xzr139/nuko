@@ -8,6 +8,9 @@ require "capybara/poltergeist"
 require "factory_girl"
 require "omniauth"
 require "database_cleaner"
+require 'simplecov'
+
+SimpleCov.start
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 Dir[Rails.root.join("spec/factories/**/*.rb")].each { |f| require f }
