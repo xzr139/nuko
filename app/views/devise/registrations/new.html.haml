@@ -6,6 +6,10 @@
     %br/
     = f.email_field :email, autofocus: true
   .field
+    = f.label t("users.nick_name")
+    %br/
+    = f.text_field :nick_name, autofocus: true
+  .field
     = f.label t("users.password")
     - if @validatable
       %em
