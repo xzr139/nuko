@@ -75,4 +75,15 @@ class User < ActiveRecord::Base
       company:     company
     )
   end
+
+  def self.find_first_by_auth_conditions(warden_conditions)
+    conditions = warden_conditions.dup
+    login = conditions.delete(:login)
+
+    if login
+      where(conditions).where(["username = :value OR lower(email) = lower(:value)", { value: login }]).first
+    else
+      where(conditions).first
+    end
+  end
 end
