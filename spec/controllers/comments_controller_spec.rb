@@ -22,6 +22,29 @@ describe CommentsController, type: :controller do
     end
   end
 
+  context "PUT update" do
+    let!(:request) { put :update, params }
+
+    context 'type valid value' do
+      let(:comment) { create(:comment) }
+      let(:params) { { id: comment.id, comment: attributes_for(:comment) } }
+
+      before { request }
+
+      it 'should be sccess' do
+        expect(response).to redirect_to(Note.last)
+      end
+
+      it 'is in agreement with what note to edit chose' do
+        expect(assigns(:comment)).to eq(comment)
+      end
+
+      it 'should be no error' do
+        expect(assigns(:comment).errors).to be_empty
+      end
+    end
+  end
+
   context 'should be increment number of activity count' do
     let(:user) { create(:user) }
     let(:comment) { create(:comment) }
