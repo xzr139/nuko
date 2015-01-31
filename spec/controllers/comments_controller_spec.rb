@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe CommentsController, type: :controller do
-  describe "POST create" do
+  context "POST create" do
     let(:note) { create(:note) }
     let(:ids_hash) { { user_id: note.user.id,   note_id: note.id } }
 
