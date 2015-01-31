@@ -9,7 +9,10 @@ class ActivitiesController < ApplicationController
 
   def update
     @activity = Activity.find(params[:id])
-    PublicActivity::Common.activity_count = 0
+    Activity.where(recipient_id: current_user.id, unread: true).where.not(id: params["id"]).find_each do |activity|
+      activity.unread = false
+      activity.save
+    end
 
     respond_to do |format|
       if @activity.update(unread: false)
