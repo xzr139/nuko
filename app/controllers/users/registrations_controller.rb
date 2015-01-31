@@ -36,6 +36,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
       u.permit(:nick_name, :email, :password, :password_confirmation)
     end
 
+    devise_parameter_sanitizer.for(:sign_in) do |u|
+      u.permit(:nick_name, :email, :login, :password, :password_confirmation, :current_password)
+    end
+
     devise_parameter_sanitizer.for(:account_update) do |u|
       u.permit(:nick_name, :email, :password, :password_confirmation, :current_password)
     end
