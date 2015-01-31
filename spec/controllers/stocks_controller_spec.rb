@@ -7,8 +7,6 @@ describe StocksController, type: :controller do
 
       before { patch :update, note_id: stock.note_id }
 
-      after { PublicActivity::Common.activity_count = 0 }
-
       it 'should be blank' do
         expect(response.body).to be_blank
       end
@@ -27,13 +25,9 @@ describe StocksController, type: :controller do
     let(:user) { create(:user) }
     let(:note) { create(:note) }
 
-    before do
-      PublicActivity::Common.activity_count = 0
-    end
-
     it 'should be success create_activity' do
       expect { patch :update, note_id: note.id }.to change {
-        PublicActivity::Common.activity_count
+        Activity.count
       }.from(0).to(1)
     end
   end
