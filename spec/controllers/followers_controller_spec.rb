@@ -8,8 +8,6 @@ describe FollowersController, type: :controller do
 
       before { patch :update, user_id: user.id }
 
-      after { PublicActivity::Common.activity_count = 0 }
-
       it 'should be blank' do
         expect(response.body).to be_blank
       end
@@ -25,14 +23,11 @@ describe FollowersController, type: :controller do
   end
 
   context 'it should be increment number of activity count' do
-    before do
-      create_list(:user, 2)
-      PublicActivity::Common.activity_count = 0
-    end
+    before { create_list(:user, 2) }
 
     it 'should be success create_activity' do
       expect { patch :update, user_id: User.last.id }.to change {
-        PublicActivity::Common.activity_count
+        Activity.count
       }.from(0).to(1)
     end
   end

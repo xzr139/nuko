@@ -102,13 +102,9 @@ describe CommentsController, type: :controller do
     let(:user) { create(:user) }
     let(:comment) { create(:comment) }
 
-    before do
-      PublicActivity::Common.activity_count = 0
-    end
-
     it 'should be success create_activity' do
       expect { post :create, comment: comment.attributes }.to change {
-        PublicActivity::Common.activity_count
+        Activity.count
       }.from(0).to(1)
     end
   end
