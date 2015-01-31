@@ -5,8 +5,6 @@
         %h2= t("users.edit.settings")
   .row
     .col-lg-3{ style: "border-right: 1px solid #ccc;"}
-      = link_to edit_profile_path(current_user) do
-        %h4.tab= t("users.edit.profile")
       - User::SETTING_TYPE.each do |type|
         = link_to edit_user_path(current_user, type: type) do
           %h4.tab{ class: "#{'selected-tab' if params['type'] == type}"}= t("users.edit.#{type}")
