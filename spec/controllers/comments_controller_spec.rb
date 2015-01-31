@@ -34,7 +34,7 @@ describe CommentsController, type: :controller do
     end
   end
 
-  context "PUT update" do
+  describe "PUT update" do
     let!(:request) { put :update, params }
 
     context 'type valid value' do
@@ -53,6 +53,24 @@ describe CommentsController, type: :controller do
 
       it 'should be no error' do
         expect(assigns(:comment).errors).to be_empty
+      end
+    end
+
+    context 'type invalid value' do
+      let(:comment) { create(:comment) }
+      let(:params) { { id: comment.id, comment: attributes_for(:comment) } }
+
+      before do
+        Comment.any_instance.stub(:update).and_return(false)
+        request
+      end
+
+      it 'should be success and render edit' do
+        expect(response).to redirect_to(Note.last)
+      end
+
+      it 'is in agreement with what note to edit chose' do
+        expect(assigns(:comment)).to eq(comment)
       end
     end
   end
