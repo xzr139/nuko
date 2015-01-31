@@ -11,14 +11,11 @@
 #  updated_at :datetime
 #
 
-class Comment < ActiveRecord::Base
-  include PublicActivity::Model
-
-  belongs_to :note
-  belongs_to :user
-  has_many :likes
-
-  validates :content, presence: true, length: { maximum: 2000 }
-
-  acts_as_paranoid
+FactoryGirl.define do
+  factory :like do
+    association(:comment)
+    association(:user)
+    association(:note)
+    liked true
+  end
 end

@@ -12,25 +12,25 @@ class CommentsController < ApplicationController
         format.html { redirect_to note_path(@comment.note), notice: t("comments.updated") }
         format.json { render :show, status: :ok, location: @comment }
       else
-        format.html { render :index }
+        format.html { redirect_to note_path(@comment.note) }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
   end
 
   def create
-    comment = Comment.new(comment_params)
+    @comment = Comment.new(comment_params)
 
     respond_to do |format|
-      if comment.save
+      if @comment.save
         format.html do
-          redirect_to note_path(comment.note),  notice: t("comments.created")
-          comment.create_activity :create, owner: current_user, recipient: Note.find(comment_params['note_id']).recipient unless Note.find(comment_params['note_id']).recipient == current_user
+          redirect_to note_path(@comment.note),  notice: t("comments.created")
+          @comment.create_activity :create, owner: current_user, recipient: Note.find(comment_params['note_id']).recipient unless Note.find(comment_params['note_id']).recipient == current_user
         end
-        format.json { render :show, status: :created, location: comment }
+        format.json { render :show, status: :created, location: @comment }
       else
-        format.html { redirect_to note_path(comment.note),  notice: t("comments.failed") }
-        format.json { render json: comment.errors, status: :unprocessable_entity }
+        format.html { redirect_to note_path(@comment.note),  notice: t("comments.failed") }
+        format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
   end
