@@ -10,6 +10,18 @@ describe CommentsController, type: :controller do
         Comment.count
       }.from(0).to(1)
     end
+
+    it "assigns a newly created but unsaved note as @note" do
+      Comment.any_instance.stub(:save).and_return(false)
+      post :create, comment: attributes_for(:note).merge(ids_hash)
+      expect(assigns(:comment)).to be_a_new(Comment)
+    end
+
+    it "re-render the 'new' template" do
+      Comment.any_instance.stub(:save).and_return(false)
+      post :create, comment: attributes_for(:note).merge(ids_hash)
+      expect(response).to redirect_to(Note.last)
+    end
   end
 
   context "DELETE destory" do
