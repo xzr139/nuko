@@ -12,6 +12,16 @@ describe CommentsController, type: :controller do
     end
   end
 
+  context "DELETE destory" do
+    let!(:comment) { create(:comment) }
+
+    it "should be success delete" do
+      expect { delete :destroy, id: comment.id }.to change{
+        Comment.count
+      }.from(1).to(0)
+    end
+  end
+
   context 'should be increment number of activity count' do
     let(:user) { create(:user) }
     let(:comment) { create(:comment) }
