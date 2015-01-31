@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook], authentication_keys: [:login]
 
   INTERFACE_LANGUAGE = [
     %w(日本語 ja),
@@ -51,6 +51,8 @@ class User < ActiveRecord::Base
   validates :nick_name, length: { maximum: 15 }
   validates :bio, length: { maximum: 300 }
   validates :email, presence: true
+
+  attr_accessor :login
 
   has_attached_file :avatar, styles: { medium: "300x300>", thumb: "20x20>" }, default_url: "/images/default_image.png"
 
@@ -72,5 +74,16 @@ class User < ActiveRecord::Base
       token:       data["credentials"]["token"],
       company:     company
     )
+  end
+
+  def self.find_first_by_auth_conditions(warden_conditions)
+    conditions = warden_conditions.dup
+    login = conditions.delete(:login)
+
+    if login
+      where(conditions).where(["nick_name = :value OR lower(email) = lower(:value)", { value: login }]).first
+    else
+      where(conditions).first
+    end
   end
 end

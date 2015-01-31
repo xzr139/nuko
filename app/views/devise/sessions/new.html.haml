@@ -4,9 +4,9 @@
   %h2= t("users.sign_in")
 = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
   %p
-    = f.label :email
+    = f.label :login
     %br/
-    = f.text_field :email
+    = f.text_field :login
   %p
     = f.label :password
     %br/
