@@ -81,7 +81,7 @@ class User < ActiveRecord::Base
     login = conditions.delete(:login)
 
     if login
-      where(conditions).where(["username = :value OR lower(email) = lower(:value)", { value: login }]).first
+      where(conditions).where(["nick_name = :value OR lower(email) = lower(:value)", { value: login }]).first
     else
       where(conditions).first
     end
