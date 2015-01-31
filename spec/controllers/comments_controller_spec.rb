@@ -45,6 +45,29 @@ describe CommentsController, type: :controller do
     end
   end
 
+  context "PATCH like" do
+    let(:comment) { create(:comment) }
+
+    it "should be success create like" do
+      expect { patch :like, id: comment.id }.to change{
+        Like.count
+      }.from(0).to(1)
+    end
+  end
+
+  context "PATCH unlike" do
+    let!(:like) { create(:like) }
+
+    before do
+      ApplicationController.any_instance.stub(:current_user).and_return(like.user)
+      patch :unlike, id: like.comment.id
+    end
+
+    it "should be success unlike" do
+      expect(Like.last.liked).to eq(false)
+    end
+  end
+
   context 'should be increment number of activity count' do
     let(:user) { create(:user) }
     let(:comment) { create(:comment) }
