@@ -17,5 +17,4 @@ class Like < ActiveRecord::Base
   validates :note_id, presence: true
   validates :comment_id, presence: true
   validates :user_id, presence: true
-  validates :liked, presence: true
 end
