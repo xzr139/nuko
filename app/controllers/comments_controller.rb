@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
         format.html { redirect_to note_path(@comment.note), notice: t("comments.updated") }
         format.json { render :show, status: :ok, location: @comment }
       else
-        format.html { render :index }
+        format.html { redirect_to note_path(@comment.note) }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
