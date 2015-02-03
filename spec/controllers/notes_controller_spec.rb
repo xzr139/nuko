@@ -7,7 +7,7 @@ describe NotesController, type: :controller do
       get :index
     end
 
-    it "should be return is 10" do
+    it "should return is 10" do
       expect(assigns[:notes].count).to eq(10)
     end
   end
@@ -19,7 +19,7 @@ describe NotesController, type: :controller do
       get :show, id: note.to_param
     end
 
-    it "should be return is selected id" do
+    it "should return is selected id" do
       expect(assigns[:note]).to eq(Note.last)
     end
   end
@@ -28,13 +28,13 @@ describe NotesController, type: :controller do
     context "with valid params" do
       let(:user) { create(:user) }
 
-      it "create a new note" do
+      it "should create a new note" do
         expect { post :create, note: attributes_for(:note) }.to change {
           Note.count
         }.from(0).to(1)
       end
 
-      it "redirect to the created note" do
+      it "should redirect to the created note" do
         post :create, note: attributes_for(:note)
         expect(response).to redirect_to(Note.last)
       end
@@ -79,7 +79,7 @@ describe NotesController, type: :controller do
       end
     end
 
-    context 'type unvalid value' do
+    context 'type invalid value' do
       let(:note) { create(:note) }
       let(:title) { 'タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル' }
       let(:params) { { id: note.id, note: attributes_for(:note, title: title) } }
@@ -95,7 +95,7 @@ describe NotesController, type: :controller do
         expect(assigns(:note)).to eq(note)
       end
 
-      it 'should be validation erorr' do
+      it 'should validate error' do
         expect(assigns(:note).errors).not_to be_empty
       end
     end
