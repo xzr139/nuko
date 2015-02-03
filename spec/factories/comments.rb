@@ -5,7 +5,7 @@
 #  id         :integer          not null, primary key
 #  user_id    :integer          not null
 #  note_id    :integer          not null
-#  content    :string(255)      not null
+#  content    :text(65535)      not null
 #  deleted_at :datetime
 #  created_at :datetime
 #  updated_at :datetime
