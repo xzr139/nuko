@@ -1,12 +1,12 @@
 # == Schema Information
 #
-# Table name: comments
+# Table name: likes
 #
 #  id         :integer          not null, primary key
-#  user_id    :integer          not null
 #  note_id    :integer          not null
-#  content    :string(255)      not null
-#  deleted_at :datetime
+#  comment_id :integer          not null
+#  user_id    :integer          not null
+#  liked      :boolean          default("0")
 #  created_at :datetime
 #  updated_at :datetime
 #
