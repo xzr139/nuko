@@ -6,11 +6,11 @@ describe ApplicationHelper do
     I18n.locale = "en"
   end
 
-  it "should be return plural" do
+  it "should return plural" do
     expect(helper.simple_pluralize(0, "comment")).to eql("comments")
   end
 
-  it "should be return singular" do
+  it "should return singular" do
     expect(helper.simple_pluralize(1, "comment")).to eql("comment")
   end
 end
