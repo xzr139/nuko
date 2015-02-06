@@ -22,6 +22,6 @@ class ActivitiesController < ApplicationController
         format.html { render nothing: true }
         format.json { render json: @note.errors, status: :unprocessable_entity }
       end
-    end if Activity.exists?(id: params[:id])
+    end
   end
 end
