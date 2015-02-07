@@ -69,6 +69,7 @@ en:
     recently_notes: Recently notes
     number_of_comments: Comment
     number_of_stocks: Stock
+    feed: Feed
   stocks:
     has_been_stocked: Has been stocked
     number_of_stock: "%{number_of_stocks} stock"

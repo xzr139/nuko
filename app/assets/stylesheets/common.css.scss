@@ -20,16 +20,17 @@
 .block{
   margin: 0 auto;
   width: 550px;
-  margin-bottom: 20px;
+  margin-bottom: 9px;
   border: 1px #ccc solid;
   .detail{
     width: 100%;
+    height: 100%;
     .btn.btn-primary.stock-button.stock-bt{
       float: right;
     }
     .information{
-      margin: 10px;
-      height: 70px;
+      margin-top: 16px;
+      height: 30px;
       float: left;
 
       .title{
@@ -119,4 +120,12 @@ body{
 
 .login-button{
   margin-top: 7px;
+}
+
+.numbers{
+  margin-top: 16px;
+}
+
+.note-title-link{
+  color: #777777;
 }
