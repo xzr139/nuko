@@ -100,4 +100,14 @@ describe NotesController, type: :controller do
       end
     end
   end
+
+  describe 'DELETE destroy' do
+    let!(:note) { create(:note) }
+
+    it "should create a new note" do
+      expect { delete :destroy, id: note.id }.to change {
+        Note.count
+      }.from(1).to(0)
+    end
+  end
 end
