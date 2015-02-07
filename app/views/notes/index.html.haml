@@ -2,4 +2,8 @@
   .form
     = render "form"
 
-= render 'common/notes', notes: @notes, comment: nil
+- @notes.each do |note|
+  = render 'common/note', note: note, comment: @comment
+
+#navigation
+  = paginate @notes if @notes.present?
