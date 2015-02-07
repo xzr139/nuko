@@ -2,8 +2,9 @@ require 'spec_helper'
 
 describe FollowersController, type: :controller do
   describe 'PATCH update' do
+    let(:user) { create(:user) }
+
     context 'type valid value' do
-      let(:user) { create(:user) }
       let!(:follow) { create(:follow) }
 
       before { patch :update, user_id: user.id }
@@ -18,6 +19,44 @@ describe FollowersController, type: :controller do
 
       it 'should be no error' do
         expect(assigns(:follow).errors).to be_empty
+      end
+    end
+
+    context 'update test' do
+      it 'should update followed' do
+        expect { patch :update, user_id: user.id }.to change {
+          Follow.count
+        }.from(0).to(1)
+      end
+    end
+
+    context 'is exist follow' do
+      let(:user) { create(:user) }
+
+      before do
+        Follow.any_instance.stub(:exists?).and_return(true)
+        patch :update, user_id: user.id
+      end
+
+      it 'should be not blank' do
+        expect(response.body).to be_blank
+      end
+
+      it 'should be no error' do
+        expect(assigns(:follow).errors).to be_empty
+      end
+    end
+
+    context 'update test' do
+      let!(:follow) { create(:follow, followed: true) }
+
+      before do
+        ApplicationController.any_instance.stub(:current_user).and_return(follow.user)
+        patch :update,  user_id: User.last.id
+      end
+
+      it 'should update followed' do
+        expect(assigns[:follow].followed).to eq(false)
       end
     end
   end
