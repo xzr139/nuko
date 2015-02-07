@@ -17,8 +17,8 @@ ja:
     home: "ホーム - %{name}"
   users:
     index:
-      read_all_this_post: "続きを読む"
-      read_this_post: "この投稿を読む"
+      # read_all_this_post: "続きを読む"
+      continue_reading: "この投稿を読む"
     edit:
       type_your_nick_name: "ニックネームを入力してください"
       submit: "保存"

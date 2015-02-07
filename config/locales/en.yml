@@ -1,34 +1,34 @@
 en:
   common:
-    belonging_to: belonging to %{company}
-    belong_to: belong to %{company}
+    belonging_to: Belonging to %{company}
+    belong_to: Belong to %{company}
     all_posts: All posts
     signed_in: Signed in
     signed_out: Signed out
     edit: Edit
     delete: Delete
     stocked: Stocked
-    language: Language interface
+    language: Language
     post: Post
     is: is
-    no_permission: You are not owner
+    no_permission: You don't have a permission
     update: Update
     or: or
     home: "Home - %{name}"
   users:
     index:
-      read_all_this_post: See all this post
-      read_this_post: Read this post
+      # read_all_this_post: Continue reading
+      continue_reading: Continue reading
     edit:
       type_your_nick_name: Edit your nick name
       submit: Save changes
       profile: Edit your profile
       placeholder: Ex. My name is Jack,  and I am currently studying abroad in Japan. I like listening musics and reading books. Nice to meet you!)
-      not_found: It user is not found
-      bio: Self Introduction
+      not_found: User not found
+      bio: Self introduction
       icon: Your icon
-      show_company: Is a company name displayed?
-      change_language_interface: Change language interface
+      show_company: Display company name
+      change_language_interface: Change language
       change_email_notification_settings: Change email notification settings
       change_password: Change password
       change_email_address: Change email address
@@ -41,11 +41,11 @@ en:
     nick_name: Nick name
     not_found: User not found
     created_by: "Created by %{full_name}"
-    change_interface: change your interface
-    tags: tags often use |
+    change_interface: Change display language
+    tags: Tags often use |
     authentication_failed: Authentication failed, please try again
     stocked_notes: Stoked notes
-    have_to_sign_in: You have to sign in.
+    have_to_sign_in: You have to sign in
     new_email_address: New mail address
     merge_account: Merge Account
     welcome_message: "Welcome %{name}, you almost done"
@@ -67,13 +67,13 @@ en:
     updated: Note was successfully updated.
     deleted: Note was successfully destroyed.
     recently_notes: Recently notes
-    number_of_comments: "Comment"
-    number_of_stocks: "Stock"
+    number_of_comments: Comment
+    number_of_stocks: Stock
   stocks:
-    has_been_stocked: has been stocked
+    has_been_stocked: Has been stocked
     number_of_stock: "%{number_of_stocks} stock"
   comments:
-    comment: comment
+    comment: Comment
     created: Comment was successfully created.
     updated: Comment was successfully updated.
     deleted: Comment was successfully destroyed.
@@ -88,13 +88,13 @@ en:
     result_message: "Search result for %{word}"
   validation:
     required_password: Please enter your password
-    required_nick_name: Please enter your nick name.
+    required_nick_name: Please enter your nick name
     required_title: Please enter note title
     required_tag_list: Please enter tag list
     required_content: Please enter title
-    max_length: Please enter no more than %{limit} characters.
-    min_length: Please enter at least %{limit} characters.
-    equal_to: Please enter the same value again.
+    max_length: Please enter no more than %{limit} characters
+    min_length: Please enter at least %{limit} characters
+    equal_to: Please enter the same value again
   date:
     abbr_day_names:
     - Sun
