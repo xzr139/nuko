@@ -70,6 +70,7 @@ ja:
     number_of_comments: "コメント"
     number_of_stocks: "ストック"
     feed: フィード
+    all_posts: 全ての投稿
   stocks:
     has_been_stocked: 'がストックしました'
     number_of_stock: "%{number_of_stocks} 件のストック"

@@ -5,7 +5,7 @@
         = image_tag note.user.avatar.url, class: 'radius-of-image', size: "45x45"
     .information
       .title
-        = link_to note.title, note_path(note), class: 'note-title-link'
+        = link_to note.title, note_path(note), class: 'gray-link'
       .tags
         - note.tag_list.split.first.each do |name|
           = link_to name, tag_notes_path(name: name)

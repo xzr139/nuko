@@ -51,6 +51,13 @@ validationOnInput = ->
       }
     }
 
+app.controller 'FeedsCtrl', ['$scope', ($scope) ->
+  if Boolean(location.pathname.match(/public/g))
+    $scope.publicSelected = true
+  else
+    $scope.feedSelected = true
+]
+
 $ ->
   locale = $('html').attr('lang')
   I18n.defaultLocale = locale
