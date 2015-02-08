@@ -12,6 +12,17 @@ describe NotesController, type: :controller do
     end
   end
 
+  describe "GET public" do
+    before do
+      12.times { create(:note) }
+      get :public
+    end
+
+    it "should return is 10" do
+      expect(assigns[:notes].count).to eq(10)
+    end
+  end
+
   context "GET show" do
     let(:note) { create(:note) }
 

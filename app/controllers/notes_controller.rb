@@ -52,6 +52,12 @@ class NotesController < ApplicationController
     @notes = Note.tagged_with(params[:name]) ? Note.tagged_with(params[:name]).page(params[:page]) : []
   end
 
+  def public
+    @note = Note.new
+    @notes = Note.page(params[:page]).per(10).order(created_at: :desc)
+    render :index
+  end
+
   private
 
   def set_note

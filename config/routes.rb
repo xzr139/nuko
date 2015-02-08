@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     resources :notes, except: [:new], shallow: true do
       collection do
         get 'tag'
+        get 'public'
       end
     end
   end

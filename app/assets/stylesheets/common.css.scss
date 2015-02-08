@@ -17,19 +17,51 @@
   text-align: left;
 }
 
+.feed-tab{
+  padding-bottom: 40px;
+  margin: 0 auto;
+  width: 550px;
+  position: relative;
+
+  .feed{
+    padding: 2px;
+    font-size: 25px;
+    position: absolute;
+    float: left;
+  }
+  .all-posts{
+    padding: 2px;
+    font-size: 25px;
+    float: left;
+    position: absolute;
+    margin-left: 120px;
+  }
+
+  .selected{
+    border: solid 1px #ccc;
+    border-bottom-color: transparent;
+    border-radius: 3px 3px 0 0;
+    background-color: #fcfcfc;
+    z-index: 2;
+  }
+}
+
 .block{
   margin: 0 auto;
   width: 550px;
-  margin-bottom: 20px;
   border: 1px #ccc solid;
+  border-bottom-style: none;
+  border-right-style: none;
+  border-left-style: none;
   .detail{
     width: 100%;
+    height: 100%;
     .btn.btn-primary.stock-button.stock-bt{
       float: right;
     }
     .information{
-      margin: 10px;
-      height: 70px;
+      margin-top: 16px;
+      height: 30px;
       float: left;
 
       .title{
@@ -119,4 +151,12 @@ body{
 
 .login-button{
   margin-top: 7px;
+}
+
+.numbers{
+  margin-top: 16px;
+}
+
+.gray-link{
+  color: #777777;
 }

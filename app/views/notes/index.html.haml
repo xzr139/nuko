@@ -2,4 +2,14 @@
   .form
     = render "form"
 
-= render 'common/notes', notes: @notes, comment: nil
+.feed-tab{ ng_controller: 'FeedsCtrl' }
+  .feeds.clearfix
+    .feed{ ng_class: '{ selected: feedSelected }' }
+      = link_to t("notes.feed"), root_path, class: 'gray-link'
+    .all-posts{ ng_class: '{ selected: publicSelected }' }
+      = link_to t("notes.all_posts"), public_notes_path, class: 'gray-link'
+- @notes.each do |note|
+  = render 'common/note', note: note, comment: @comment
+
+#navigation
+  = paginate @notes if @notes.present?
