@@ -2,7 +2,6 @@ require "spec_helper"
 
 describe ApplicationHelper do
   before do
-    I18n.default_locale = "en"
     I18n.locale = "en"
   end
 
