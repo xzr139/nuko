@@ -54,14 +54,14 @@ describe NotesController, type: :controller do
     context "with invalid params" do
       let(:user) { create(:user) }
 
+      before { allow_any_instance_of(Note).to receive(:save).and_return(false) }
+
       it "assigns a newly created but unsaved note as @note" do
-        Note.any_instance.stub(:save).and_return(false)
         post :create, note: attributes_for(:note)
         expect(assigns(:note)).to be_a_new(Note)
       end
 
       it "re-render the 'new' template" do
-        Note.any_instance.stub(:save).and_return(false)
         post :create, note: attributes_for(:note)
         expect(response).to render_template("index")
       end

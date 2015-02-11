@@ -6,7 +6,7 @@ describe "Profiles", type: :request do
     let(:edited_user) { User.last }
 
     before do
-      ApplicationController.any_instance.stub(:current_user).and_return(user)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
       visit edit_profile_path(user)
       fill_in "user_nick_name",              with: "sachin21edited"
       fill_in "user_bio",                    with: "edited bio"

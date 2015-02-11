@@ -34,7 +34,7 @@ describe FollowersController, type: :controller do
       let(:user) { create(:user) }
 
       before do
-        Follow.any_instance.stub(:exists?).and_return(true)
+        allow_any_instance_of(Follow).to receive(:exists?).and_return(true)
         patch :update, user_id: user.id
       end
 
@@ -51,7 +51,7 @@ describe FollowersController, type: :controller do
       let!(:follow) { create(:follow, followed: true) }
 
       before do
-        ApplicationController.any_instance.stub(:current_user).and_return(follow.user)
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(follow.user)
         patch :update,  user_id: User.last.id
       end
 

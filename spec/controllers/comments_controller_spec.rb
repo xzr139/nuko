@@ -12,13 +12,13 @@ describe CommentsController, type: :controller do
     end
 
     it "assigns a newly created but unsaved note as @note" do
-      Comment.any_instance.stub(:save).and_return(false)
+      allow_any_instance_of(Comment).to receive(:save).and_return(false)
       post :create, comment: attributes_for(:note).merge(ids_hash)
       expect(assigns(:comment)).to be_a_new(Comment)
     end
 
     it "re-render the 'new' template" do
-      Comment.any_instance.stub(:save).and_return(false)
+      allow_any_instance_of(Comment).to receive(:save).and_return(false)
       post :create, comment: attributes_for(:note).merge(ids_hash)
       expect(response).to redirect_to(Note.last)
     end
@@ -61,7 +61,7 @@ describe CommentsController, type: :controller do
       let(:params) { { id: comment.id, comment: attributes_for(:comment) } }
 
       before do
-        Comment.any_instance.stub(:update).and_return(false)
+        allow_any_instance_of(Comment).to receive(:update).and_return(false)
         request
       end
 
@@ -89,7 +89,7 @@ describe CommentsController, type: :controller do
     let!(:like) { create(:like) }
 
     before do
-      ApplicationController.any_instance.stub(:current_user).and_return(like.user)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(like.user)
       patch :unlike, id: like.comment.id
     end
 

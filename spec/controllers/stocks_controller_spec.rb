@@ -34,7 +34,7 @@ describe StocksController, type: :controller do
       let!(:stock) { create(:stock, stocked: true) }
 
       before do
-        ApplicationController.any_instance.stub(:current_user).and_return(stock.user)
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(stock.user)
         patch :update, note_id: Note.last.id
       end
 
