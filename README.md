@@ -74,7 +74,7 @@ git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-bu
 ```
 
 ### 環境変数
-あなたの使ってるのshell の .bash_profile or .zshrc
+使ってるのshell の .bash_profile or .zshrc
 
 ```
 export PATH="$HOME/.rbenv/bin:$PATH"
@@ -96,7 +96,7 @@ brewでインストールしたreadlineとopensslを使うprefixのoptionを追�
 $ RUBY_CONFIGURE_OPTS="--enable-shared --with-readline-dir=$(brew --prefix readline) --with-openssl-dir=$(brew --prefix openssl)" rbenv install 2.1.1
 ```
 
-最後のバージョン指定の所をあなたのプロジェクトで使っているバージョンに置換してください
+最後のバージョン指定の所をプロジェクトで使っているバージョンに置換してください
 
 ### gemのpathの再読み込み
 
