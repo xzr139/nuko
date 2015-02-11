@@ -17,7 +17,6 @@ Dir[Rails.root.join("spec/factories/**/*.rb")].each { |f| require f }
 
 ActiveRecord::Migration.maintain_test_schema!
 
-include Capybara::DSL
 Capybara.javascript_driver = :poltergeist
 Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(app, js_errors: false, timeout: 60)
@@ -30,6 +29,7 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include I18nMacros
   config.infer_spec_type_from_file_location!
+  config.include Capybara::DSL, type: :request
 
   config.before(:all) do
     FactoryGirl.reload
