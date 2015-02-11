@@ -30,6 +30,7 @@ RSpec.configure do |config|
   config.include I18nMacros
   config.infer_spec_type_from_file_location!
   config.include Capybara::DSL, type: :request
+  config.include Devise::TestHelpers, type: :controller
 
   config.before(:all) do
     FactoryGirl.reload
@@ -41,7 +42,7 @@ RSpec.configure do |config|
 
   config.before(:each) do
     DatabaseCleaner.strategy = :transaction
-    ApplicationController.any_instance.stub(:current_user).and_return(create(:user))
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(create(:user))
   end
 
   config.before(:each, js: true) do
