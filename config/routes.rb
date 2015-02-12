@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :searches, only: [:index], shallow: true
     resources :users, only: [:edit, :update], shallow: true
     resources :activities, only: [:index, :update], shallow: true
+    resources :tags, only: [:index, :show], shallow: true
 
     resources :profiles, only: [:show, :update, :edit], shallow: true do
       member do
