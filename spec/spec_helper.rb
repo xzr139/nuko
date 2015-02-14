@@ -11,7 +11,7 @@ require "database_cleaner"
 
 if ENV['COVERAGE']
   require 'simplecov'
-  SimpleCov.start
+  SimpleCov.start 'rails'
 end
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
