@@ -8,7 +8,7 @@
         = link_to note.title, note_path(note), class: 'gray-link'
       .tags
         - note.tag_list.split.first.each do |name|
-          = link_to name, tag_notes_path(name: name)
+          = link_to name, tag_path(name: name)
     .numbers
       .number-of-comments
         - number_of_comments = note.comments.size

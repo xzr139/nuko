@@ -23,7 +23,7 @@
       .tags
         = t('notes.tag_list')
         - note.tag_list.split.first.each do |name|
-          = link_to name, tag_notes_path(name: name)
+          = link_to name, tag_path(name: name)
       %abbr.timeago{ title: note.created_at.getutc.iso8601 }
         = note.created_at.to_s
       = link_to t('users.created_by', full_name: note.user_full_name), profile_path(note.user)
