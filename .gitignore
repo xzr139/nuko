@@ -54,3 +54,5 @@ config/environments/*.local.yml
 config/s3.yml
 
 Guardfile
+
+rails_best_practices_output.html
