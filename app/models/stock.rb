@@ -9,6 +9,11 @@
 #  created_at :datetime
 #  updated_at :datetime
 #
+# Indexes
+#
+#  index_stocks_on_note_id  (note_id)
+#  index_stocks_on_user_id  (user_id)
+#
 
 class Stock < ActiveRecord::Base
   include PublicActivity::Model

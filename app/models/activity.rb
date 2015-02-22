@@ -15,6 +15,12 @@
 #  updated_at     :datetime
 #  unread         :boolean          default("1")
 #
+# Indexes
+#
+#  index_activities_on_owner_id_and_owner_type          (owner_id,owner_type)
+#  index_activities_on_recipient_id_and_recipient_type  (recipient_id,recipient_type)
+#  index_activities_on_trackable_id_and_trackable_type  (trackable_id,trackable_type)
+#
 
 class Activity < PublicActivity::Activity
 end

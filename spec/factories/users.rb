@@ -28,6 +28,12 @@
 #  avatar_file_size       :integer
 #  avatar_updated_at      :datetime
 #
+# Indexes
+#
+#  index_users_on_email                 (email) UNIQUE
+#  index_users_on_nick_name             (nick_name) UNIQUE
+#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
+#
 
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
