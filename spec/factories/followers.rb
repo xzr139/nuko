@@ -2,13 +2,13 @@
 #
 # Table name: followers
 #
-#  id             :integer          not null, primary key
-#  user_id        :integer
-#  target_user_id :integer
-#  created_at     :datetime
-#  updated_at     :datetime
-#  followed       :boolean
-#  follow_type    :string(255)
+#  id          :integer          not null, primary key
+#  user_id     :integer
+#  target_id   :integer
+#  created_at  :datetime
+#  updated_at  :datetime
+#  followed    :boolean
+#  follow_type :string(255)
 #
 # Indexes
 #

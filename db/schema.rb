@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150212103227) do
+ActiveRecord::Schema.define(version: 20150223112836) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "trackable_id",   limit: 4
@@ -44,12 +44,12 @@ ActiveRecord::Schema.define(version: 20150212103227) do
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "followers", force: :cascade do |t|
-    t.integer  "user_id",        limit: 4
-    t.integer  "target_user_id", limit: 4
+    t.integer  "user_id",     limit: 4
+    t.integer  "target_id",   limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "followed",       limit: 1
-    t.string   "follow_type",    limit: 255
+    t.boolean  "followed",    limit: 1
+    t.string   "follow_type", limit: 255
   end
 
   add_index "followers", ["user_id"], name: "index_followers_on_user_id", using: :btree
