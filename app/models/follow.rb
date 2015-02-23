@@ -22,5 +22,5 @@ class Follow < ActiveRecord::Base
   belongs_to :user
 
   validates :user_id, presence: true
-  validates :target_user_id, presence: true
+  validates :target_id, presence: true
 end
