@@ -8,6 +8,11 @@
 #  created_at     :datetime
 #  updated_at     :datetime
 #  followed       :boolean
+#  follow_type    :string(255)
+#
+# Indexes
+#
+#  index_followers_on_user_id  (user_id)
 #
 
 FactoryGirl.define do

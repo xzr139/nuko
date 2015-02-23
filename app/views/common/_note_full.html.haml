@@ -23,7 +23,7 @@
         %br
 
 .block#note-only
-  - if user_signed_in? && note.this_my_note?
+  - if user_signed_in? && note.my_note?
     .toggeles
       .btn-group
         %button.btn.btn-default.dropdown-toggle{ "data-toggle" => "dropdown", type: "button" }

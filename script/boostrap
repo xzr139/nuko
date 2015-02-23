@@ -53,6 +53,16 @@ else
 fi
 
 #
+# Creating Guard config file
+#
+if [ ! -d ./Guardfile ]; then
+  echo "  + Creating Guardfile"
+  cp Guardfile.sample Guardfile
+else
+  echo "  + Guard config file 'Guardfile' found."
+fi
+
+#
 # Install Gems
 #
 echo "  + Installing gems."

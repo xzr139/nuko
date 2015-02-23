@@ -10,6 +10,10 @@
 #  created_at :datetime
 #  updated_at :datetime
 #
+# Indexes
+#
+#  index_likes_on_note_id_and_comment_id_and_user_id  (note_id,comment_id,user_id)
+#
 
 class Like < ActiveRecord::Base
   belongs_to :comment

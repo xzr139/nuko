@@ -1,5 +1,5 @@
 module NoteDecorator
-  def this_my_note?
+  def my_note?
     user == current_user
   end
 

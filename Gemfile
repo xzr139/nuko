@@ -17,7 +17,6 @@ gem "less-rails"
 gem "twitter-bootswatch-rails-helpers"
 gem "twitter-bootswatch-rails"
 gem "puma"
-gem "foreman"
 gem "rails_config"
 gem "rails4_acts_as_paranoid"
 gem "paperclip"
@@ -46,6 +45,7 @@ group :development do
   gem "did_you_mean"
   gem "pry-rails"
   gem "pry-doc"
+  gem "pry-byebug"
   gem "pry-stack_explorer"
 end
 

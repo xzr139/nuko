@@ -10,6 +10,11 @@
 #  created_at :datetime
 #  updated_at :datetime
 #
+# Indexes
+#
+#  index_comments_on_note_id  (note_id)
+#  index_comments_on_user_id  (user_id)
+#
 
 FactoryGirl.define do
   factory :comment do
