@@ -10,6 +10,10 @@
 #  updated_at :datetime
 #  deleted_at :datetime
 #
+# Indexes
+#
+#  index_notes_on_user_id  (user_id)
+#
 
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
