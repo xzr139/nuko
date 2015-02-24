@@ -8,7 +8,6 @@
 #  created_at     :datetime
 #  updated_at     :datetime
 #  followed       :boolean
-#  follow_type    :string(255)
 #
 # Indexes
 #
