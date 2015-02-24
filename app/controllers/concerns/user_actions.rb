@@ -18,7 +18,7 @@ module UserActions
 
   def tag
     if Note.tagged_with(params[:name]).exists?(user_id: params[:id])
-      @notes = Note.tagged_with(params[:name]).where(user_id: params[:id]).page(params[:page]).order(id: :desc)
+      @notes = Note.tagged_with(params[:name]).where(user_id: params[:id]).page(params[:page]).order(id: :desc).includes(:user)
     else
       @notes = []
     end
@@ -27,8 +27,8 @@ module UserActions
   def stocks
     @notes = []
     if @user.stocks.present?
-      stocks = @user.stocks.order(created_at: :desc).select { |stock| stock.note && stock.note.stocked_by?(@user) }
-      stocks.each { |stock| @notes << stock.note }
+      stocks = @user.stocks.includes(note: :user).order(created_at: :desc).select { |stock| stock.note && stock.note.stocked_by?(@user) }
+      @notes = stocks.map(&:note)
     end
 
     @notes = Kaminari.paginate_array(@notes).page(params[:page])
