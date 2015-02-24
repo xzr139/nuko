@@ -19,7 +19,7 @@
 class Note < ActiveRecord::Base
   belongs_to :user
   has_many :stocks
-  has_many :comments
+  has_many :comments, counter_cache: :comments_count
   has_many :likes
 
   validates :title, presence: true, length: { maximum: 40 }

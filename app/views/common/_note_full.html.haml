@@ -61,7 +61,7 @@
           = link_to name, tag_notes_path(name: name)
       %abbr.timeago{ title: note.created_at.getutc.iso8601 }
         = note.created_at.to_s
-      = link_to t('users.created_by', full_name: note.user_full_name), profile_path(note.user)
+      = link_to t('users.created_by', nick_name: note.user_full_name), profile_path(note.user)
       .number-of-comment
         - number_of_comment = note.comments.count
         = simple_pluralize(number_of_comment, t("comments.number_of_comment", number_of_comment: note.comments.count))
