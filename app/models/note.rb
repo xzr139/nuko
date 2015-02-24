@@ -25,6 +25,7 @@ class Note < ActiveRecord::Base
   validates :content, presence: true, length: { maximum: 10000 }
 
   delegate :full_name, :company, :show_company, to: :user, prefix: true
+  delegate :nick_name, to: :user, prefix: true
 
   acts_as_taggable
   acts_as_paranoid
