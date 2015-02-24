@@ -2,13 +2,14 @@
 #
 # Table name: notes
 #
-#  id         :integer          not null, primary key
-#  title      :string(255)
-#  content    :text(65535)
-#  user_id    :integer
-#  created_at :datetime
-#  updated_at :datetime
-#  deleted_at :datetime
+#  id             :integer          not null, primary key
+#  title          :string(255)
+#  content        :text(65535)
+#  user_id        :integer
+#  created_at     :datetime
+#  updated_at     :datetime
+#  deleted_at     :datetime
+#  comments_count :integer          default("0"), not null
 #
 # Indexes
 #
@@ -18,7 +19,7 @@
 class Note < ActiveRecord::Base
   belongs_to :user
   has_many :stocks
-  has_many :comments
+  has_many :comments, counter_cache: :comments_count
   has_many :likes
 
   validates :title, presence: true, length: { maximum: 40 }
