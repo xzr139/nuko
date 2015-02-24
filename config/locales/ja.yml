@@ -40,7 +40,7 @@ ja:
     sign_out: "ログアウト"
     nick_name: "ニックネーム"
     not_found: "ユーザーが見つかりません"
-    created_by: "%{full_name}が作成"
+    created_by: "%{nick_name}が作成"
     change_interface: "表示言語を変える"
     tags: "よく使ってるタグ | "
     authentication_failed: "認証に失敗しました。再度認証してください"

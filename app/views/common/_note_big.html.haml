@@ -26,7 +26,7 @@
           = link_to name, tag_notes_path(name: name)
       %abbr.timeago{ title: note.created_at.getutc.iso8601 }
         = note.created_at.to_s
-      = link_to t('users.created_by', full_name: note.user_full_name), profile_path(note.user)
+      = link_to t('users.created_by', nick_name: note.user_nick_name), profile_path(note.user)
   .content
     = simple_format(truncate auto_link(note.content), length: 100, omission: "-----")
   .min-box.clearfix
