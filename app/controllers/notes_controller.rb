@@ -5,7 +5,7 @@ class NotesController < ApplicationController
 
   def index
     @note = Note.new
-    @notes = Note.page(params[:page]).per(10).order(created_at: :desc)
+    @notes = Note.page(params[:page]).per(10).order(created_at: :desc).includes(:user)
   end
 
   def show
