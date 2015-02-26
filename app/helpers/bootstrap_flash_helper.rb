@@ -12,7 +12,7 @@ module BootstrapFlashHelper
 
       Array(message).each do |msg|
         text = content_tag(:div, content_tag(:button, raw("&times;"), class: "close", "data-dismiss" => "alert") +
-          msg, class: "alert fade in alert-#{type} #{options[:class]}")
+          msg, class: "alert fade in alert-#{type} #{options[:class]}", ng_click: "hide()")
         flash_messages << text if msg
       end
     end

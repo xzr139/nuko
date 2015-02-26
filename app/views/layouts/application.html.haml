@@ -11,7 +11,8 @@
     = stylesheet_link_tag    "application", media: "all"
     = stylesheet_link_tag "application"
   %body
-    = bootstrap_flash
+    %div{ ng_controller: "bootstrapCtrl" }
+      = bootstrap_flash
     .navbar.navbar-default.navbar-fixed-top
       .container
         .navbar-header
