@@ -12,7 +12,7 @@
 #
 # Indexes
 #
-#  index_followers_on_user_id  (user_id)
+#  index_follow_activities_on_user_id  (user_id)
 #
 
 FactoryGirl.define do
