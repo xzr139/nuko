@@ -40,7 +40,7 @@ en:
     sign_out: Sign Out
     nick_name: Nick name
     not_found: User not found
-    created_by: "Created by %{full_name}"
+    created_by: "Created by %{nick_name}"
     change_interface: Change display language
     tags: Tags often use |
     authentication_failed: Authentication failed, please try again

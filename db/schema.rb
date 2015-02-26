@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150223112836) do
+ActiveRecord::Schema.define(version: 20150224113314) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "trackable_id",   limit: 4
@@ -66,12 +66,13 @@ ActiveRecord::Schema.define(version: 20150223112836) do
   add_index "likes", ["note_id", "comment_id", "user_id"], name: "index_likes_on_note_id_and_comment_id_and_user_id", using: :btree
 
   create_table "notes", force: :cascade do |t|
-    t.string   "title",      limit: 255
-    t.text     "content",    limit: 65535
-    t.integer  "user_id",    limit: 4
+    t.string   "title",          limit: 255
+    t.text     "content",        limit: 65535
+    t.integer  "user_id",        limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "deleted_at"
+    t.integer  "comments_count", limit: 4,     default: 0, null: false
   end
 
   add_index "notes", ["user_id"], name: "index_notes_on_user_id", using: :btree
