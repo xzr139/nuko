@@ -5,7 +5,7 @@ describe FollowersController, type: :controller do
     let(:user) { create(:user) }
 
     context 'type valid value' do
-      let!(:follow) { create(:follow) }
+      let!(:follow_activities) { create(:follow_activities) }
 
       before { patch :update, user_id: user.id }
 
@@ -14,7 +14,7 @@ describe FollowersController, type: :controller do
       end
 
       it 'is in agreement with what note to edit chose' do
-        expect(assigns(:follow)).to eq(Follow.last)
+        expect(assigns(:follow)).to eq(FollowActivity.last)
       end
 
       it 'should be no error' do
@@ -25,7 +25,7 @@ describe FollowersController, type: :controller do
     context 'update test' do
       it 'should update followed' do
         expect { patch :update, user_id: user.id }.to change {
-          Follow.count
+          FollowActivity.count
         }.from(0).to(1)
       end
     end
@@ -34,7 +34,7 @@ describe FollowersController, type: :controller do
       let(:user) { create(:user) }
 
       before do
-        allow_any_instance_of(Follow).to receive(:exists?).and_return(true)
+        allow_any_instance_of(FollowActivity).to receive(:exists?).and_return(true)
         patch :update, user_id: user.id
       end
 
@@ -48,10 +48,10 @@ describe FollowersController, type: :controller do
     end
 
     context 'update test' do
-      let!(:follow) { create(:follow, followed: true) }
+      let!(:follow_activities) { create(:follow_activities, followed: true) }
 
       before do
-        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(follow.user)
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(follow_activities.user)
         patch :update,  user_id: User.last.id
       end
 

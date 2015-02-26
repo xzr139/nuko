@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: followers
+# Table name: follow_activities
 #
 #  id          :integer          not null, primary key
 #  user_id     :integer
@@ -15,7 +15,7 @@
 #  index_followers_on_user_id  (user_id)
 #
 
-class Follow < ActiveRecord::Base
+class FollowActivity < ActiveRecord::Base
   include PublicActivity::Model
   include CreateFollow
 

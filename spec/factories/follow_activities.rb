@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: followers
+# Table name: follow_activities
 #
 #  id          :integer          not null, primary key
 #  user_id     :integer
@@ -16,7 +16,7 @@
 #
 
 FactoryGirl.define do
-  factory :follow, class: 'Follow' do
+  factory :follow_activities, class: 'FollowActivity' do
     association :user
     target_id { create(:user).id }
   end
