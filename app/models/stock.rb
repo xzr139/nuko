@@ -17,7 +17,6 @@
 
 class Stock < ActiveRecord::Base
   include PublicActivity::Model
-  include CreateFollow
 
   belongs_to :user
   belongs_to :note
