@@ -1,13 +1,20 @@
 require 'spec_helper'
 
-describe FollowersController, type: :controller do
-  describe 'PATCH update' do
-    let(:user) { create(:user) }
+describe TagsController, type: :controller do
+  describe "GET index" do
+    it "returns http success" do
+      get :index
+      expect(response).to have_http_status(:success)
+    end
+  end
+
+  describe 'PATCH follow' do
+    let(:tag) { create(:tag) }
 
     context 'type valid value' do
       let!(:follow_activities) { create(:follow_activities) }
 
-      before { patch :update, user_id: user.id }
+      before { patch :follow, id: tag.id, target_id: tag.id }
 
       it 'should be blank' do
         expect(response.body).to be_blank
@@ -22,20 +29,18 @@ describe FollowersController, type: :controller do
       end
     end
 
-    context 'update test' do
-      it 'should update followed' do
-        expect { patch :update, user_id: user.id }.to change {
+    context 'follow test' do
+      it 'should followed' do
+        expect { patch :follow, id: tag.id, target_id: tag.id }.to change {
           FollowActivity.count
         }.from(0).to(1)
       end
     end
 
     context 'is exist follow' do
-      let(:user) { create(:user) }
-
       before do
         allow_any_instance_of(FollowActivity).to receive(:exists?).and_return(true)
-        patch :update, user_id: user.id
+        patch :follow, id: tag.id, target_id: tag.id
       end
 
       it 'should be not blank' do
@@ -47,27 +52,18 @@ describe FollowersController, type: :controller do
       end
     end
 
-    context 'update test' do
-      let!(:follow_activities) { create(:follow_activities, followed: true) }
+    context 'follow test' do
+      let(:tag) { create(:tag) }
+      let(:follow_activities) { create(:follow_activities, target_id: tag.id, followed: true) }
 
       before do
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(follow_activities.user)
-        patch :update,  user_id: User.last.id
+        patch :follow, id: tag.id, target_id: tag.id
       end
 
-      it 'should update followed' do
+      it 'should followed' do
         expect(assigns[:follow].followed).to eq(false)
       end
-    end
-  end
-
-  context 'it should be increment number of activity count' do
-    before { create_list(:user, 2) }
-
-    it 'should be success create_activity' do
-      expect { patch :update, user_id: User.last.id }.to change {
-        Activity.count
-      }.from(0).to(1)
     end
   end
 end

@@ -12,6 +12,13 @@ Rails.application.routes.draw do
     resources :searches, only: [:index], shallow: true
     resources :users, only: [:edit, :update], shallow: true
     resources :activities, only: [:index, :update], shallow: true
+    resources :tags, only: [:index], shallow: true do
+      member do
+        patch 'follow'
+      end
+    end
+
+    get 'tag/:name' => 'tags#show', as: 'tag'
 
     resources :profiles, only: [:show, :update, :edit], shallow: true do
       member do
@@ -30,7 +37,6 @@ Rails.application.routes.draw do
 
     resources :notes, except: [:new], shallow: true do
       collection do
-        get 'tag'
         get 'public'
       end
     end

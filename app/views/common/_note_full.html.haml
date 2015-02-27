@@ -4,8 +4,8 @@
   .mini-block
     - unless !user_signed_in? || note.user == current_user
       .follow-bt#follow-bt-note-only{ ng_controller: "FollowersCtrl" }
-        - folloed_flag = if current_user.followers.exists?(user_id: current_user.id)
-          - current_user.followers.find_by(user_id: current_user.id).followed
+        - folloed_flag = if current_user.follow_activities.exists?(user_id: current_user.id)
+          - current_user.follow_activities.find_by(user_id: current_user.id).followed
         = link_to "javascript:void(0)", ng_click: "#{folloed_flag ? 'un' : ''}follow(#{note.user.id})", id: "follow-bt", class: "#{".follow-bt" if folloed_flag}" do
           = t("followers.button")
     .mini-user-image
@@ -58,7 +58,7 @@
       .tags
         = t('notes.tag_list')
         - note.tag_list.split.first.each do |name|
-          = link_to name, tag_notes_path(name: name)
+          = link_to name, tag_path(name: name)
       %abbr.timeago{ title: note.created_at.getutc.iso8601 }
         = note.created_at.to_s
       = link_to t('users.created_by', nick_name: note.user_full_name), profile_path(note.user)
