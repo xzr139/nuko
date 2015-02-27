@@ -12,7 +12,11 @@ Rails.application.routes.draw do
     resources :searches, only: [:index], shallow: true
     resources :users, only: [:edit, :update], shallow: true
     resources :activities, only: [:index, :update], shallow: true
-    resources :tags, only: [:index], shallow: true
+    resources :tags, only: [:index], shallow: true do
+      member do
+        patch 'follow'
+      end
+    end
 
     get 'tag/:name' => 'tags#show', as: 'tag'
 
