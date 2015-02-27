@@ -15,7 +15,6 @@ class TagsController < ApplicationController
     else
       @follow = current_user.follow_activities.build(target_id: params[:target_id], followed: true)
       @follow.create_follow @tag
-      @follow.create_activity :create, owner: current_user, recipient: User.find(@follow.target_id)
     end
 
     render nothing: true
