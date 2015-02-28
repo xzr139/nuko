@@ -1,1 +1,5 @@
 #footer
+  - unless signed_in?
+    #language-selector
+      = form_tag "/switch", method: :patch do
+        = select_tag 'locale', options_for_select(language_selector, selected: cookies[:locale]), onChange: "this.form.submit()"

@@ -42,6 +42,7 @@ Rails.application.routes.draw do
     end
   end
 
+  patch "/switch" => 'users#switch'
   get '*not_found' => 'application#routing_error'
   post '*not_found' => 'application#routing_error'
 end

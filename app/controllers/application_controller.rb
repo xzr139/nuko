@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :set_locale
+
   helper_method :current_user?, :my_note?, :locale, :root_path
 
   unless Rails.env.development? || Rails.env.test?
@@ -13,6 +14,15 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def set_locale
+    @@languages ||= Language.where(interface_flag: true).pluck(:locale)
+    if @@languages.include?(params['locale']) || params["locale"].blank?
+      I18n.locale = (current_user && current_user.language) ?  current_user.language : params["locale"]
+    else
+      I18n.locale = I18n.default_locale
+    end
+  end
 
   def current_user?(id)
     current_user == User.find_by(id: id)
@@ -27,14 +37,6 @@ class ApplicationController < ActionController::Base
       { locale: current_user.language }
     else
       { locale: I18n.locale }
-    end
-  end
-
-  def set_locale
-    if User::INTERFACE_LANGUAGE.map(&:last).include?(params['locale']) || params["locale"].blank?
-      I18n.locale = (current_user && current_user.language) ?  current_user.language : params["locale"]
-    else
-      fail ActiveRecord::RecordNotFound
     end
   end
 
