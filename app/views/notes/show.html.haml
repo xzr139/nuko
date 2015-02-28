@@ -63,8 +63,7 @@
         = @note.created_at.to_s
       = link_to t('users.created_by', nick_name: @note.user_full_name), profile_path(@note.user)
       .number-of-comment
-        - number_of_comment = @note.comments.size
-        = simple_pluralize(number_of_comment, t("comments.number_of_comment", number_of_comment: @note.comments.size))
+        = simple_pluralize(number_of_comments, t("comments.number_of_comment", number_of_comment: number_of_comments))
     .content
       = markdown(@note.content)
 %p
