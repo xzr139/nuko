@@ -1,10 +1,7 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'csv'
+
+ActiveRecord::Base.connection.execute("TRUNCATE languages")
+
 TAGS = [
   %w( シェアハウス 人間関係 場所 ),
   %w( カラオケ  ジュース うるさい ),
@@ -31,4 +28,10 @@ unless User.exists?(facebook_id: 733146856734192)
   user.bio = 'hogeehoeee'
   user.language = 'ja'
   user.save
+end
+
+_header, *languages = CSV.read(Rails.root.join("db", "data", "languages.csv").to_s)
+
+languages.each do |name, name_jp, locale, interface_flag|
+  Language.create!(name: name, name_jp: name_jp, locale: locale, interface_flag: interface_flag.present?)
 end
