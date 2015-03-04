@@ -38,6 +38,10 @@ build:
             name: Run Rubocop
             code: bundle exec rubocop
 
+        - script:
+            name: Run Readme test
+            code: ./script/rb_version_test.sh
+
     after-steps:
         - wantedly/pretty-slack-notify:
             webhook_url: $SLACK_WEBHOOK_URL
