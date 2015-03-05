@@ -1,5 +1,8 @@
 #footer
   - unless signed_in?
     #language-selector
-      = form_tag "/switch", method: :patch do
-        = select_tag 'locale', options_for_select(language_selector, selected: cookies[:locale]), onChange: "this.form.submit()"
+      = form_tag "/switch", method: :patch, class: 'form-horizontal' do
+        .col-lg-11
+        .col-lg-1
+          .form-group
+            = select_tag 'locale', options_for_select(language_selector, selected: cookies[:locale]), onChange: "this.form.submit()", class: 'form-control'
