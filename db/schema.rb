@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150226151721) do
+ActiveRecord::Schema.define(version: 20150228132300) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "trackable_id",   limit: 4
@@ -53,6 +53,15 @@ ActiveRecord::Schema.define(version: 20150226151721) do
   end
 
   add_index "follow_activities", ["user_id"], name: "index_follow_activities_on_user_id", using: :btree
+
+  create_table "languages", force: :cascade do |t|
+    t.string   "name",           limit: 255
+    t.string   "name_jp",        limit: 255
+    t.string   "locale",         limit: 255
+    t.boolean  "interface_flag", limit: 1,   default: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+  end
 
   create_table "likes", force: :cascade do |t|
     t.integer  "note_id",    limit: 4,                 null: false

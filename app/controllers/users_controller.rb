@@ -5,4 +5,9 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :tag, :stocks]
   before_action :set_notes, only: [:show, :tag, :stocks]
   before_action :set_ranking, only: [:show, :tag, :stocks]
+
+  def switch
+    cookies[:locale] = params[:locale]
+    redirect_to "/" + params[:locale]
+  end
 end
