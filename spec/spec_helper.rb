@@ -25,7 +25,7 @@ Capybara.register_driver :poltergeist do |app|
 end
 
 RSpec.configure do |config|
-  config.use_transactional_fixtures = true
+  config.use_transactional_fixtures = false
   config.infer_base_class_for_anonymous_controllers = false
   config.order = "random"
   config.include FactoryGirl::Syntax::Methods
@@ -39,20 +39,19 @@ RSpec.configure do |config|
   end
 
   config.before(:suite) do
-    DatabaseCleaner.clean_with(:truncation)
-  end
-
-  config.before(:each) do
+    load Rails.root.join('db', 'seeds.rb')
+    DatabaseCleaner.clean_with(:truncation, except: %w(languages))
     DatabaseCleaner.strategy = :transaction
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(create(:user))
   end
 
   config.before(:each, js: true) do
-    DatabaseCleaner.strategy = :truncation
+    load Rails.root.join('db', 'seeds.rb')
+    DatabaseCleaner.clean_with(:truncation, except: %w(languages))
   end
 
   config.before(:each) do
     DatabaseCleaner.start
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(create(:user))
   end
 
   config.after(:each) do
