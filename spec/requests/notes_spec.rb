@@ -14,7 +14,7 @@ describe "Notes", type: :request do
       create_note
     end
 
-    it "should be success create and destroy", js: true do
+    scenario "should be success create and destroy" do
       expect(page).to have_content("hoge")
     end
   end
