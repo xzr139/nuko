@@ -44,11 +44,6 @@ RSpec.configure do |config|
     DatabaseCleaner.strategy = :transaction
   end
 
-  config.before(:each, js: true) do
-    load Rails.root.join('db', 'seeds.rb')
-    DatabaseCleaner.clean_with(:truncation, except: %w(languages))
-  end
-
   config.before(:each) do
     DatabaseCleaner.start
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(create(:user))
