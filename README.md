@@ -23,7 +23,7 @@ https://developer.apple.com/downloads/index.action?name=for%20Xcode%20-
 
 # Homebrewのインストール
 
-http://brew.sh というパッケージ管理システムをインストールします。
+[Homebrew](http://brew.sh)というパッケージ管理システムをインストールします。
 brewのインストールに使うrubyのバージョンはなんでもいいので以下をコピーしてください
 
 ```
@@ -41,7 +41,7 @@ ruby本体や、railsのgemなどで依存するやつをとりあえず多め�
 ```
 brew update # brew本体のうｐでと
 
-brew install autoconf autojump phantomjs automake cmake gibo git imagemagick imagemagick-ruby186 libevent libiconv libmpc08 libpng libpng12 libtool libxml2 libxslt memcached mongodb mysql openssl python qt readline redis terminal-notifier zsh
+brew install autoconf phantomjs automake cmake gibo git imagemagick imagemagick-ruby186 libevent libiconv libmpc08 libpng libpng12 libtool libxml2 libxslt memcached mongodb mysql openssl python qt readline redis terminal-notifier zsh
 
 brew cleanup # 掃除
 ```
@@ -50,7 +50,7 @@ brew cleanup # 掃除
 
 ImageMagickのインストールで詰まったら→ [Homebrewのちょっと前のFormulaを使うときにハマった](http://www.iwazer.com/~iwazawa/diary/2013/08/use-old-homebrew-formula.html)
 
-### インストールしたpackageがキチンとインストールされているかの確認コマンド
+### インストールしたFormulaがキチンとインストールされているかの確認コマンド
 ```
 brew doctor # 医者
 ```
@@ -63,7 +63,7 @@ brew doctor # 医者
 
 ruby-buildはrbenvのpluginで、rbenvでrubyを簡単にインストールするのに必要なものです。
 
-本来rbenvはrubyのバージョンを切り替えるだけのツールです
+本来rbenvはrubyのバージョンを切り替えるのツールです
 
 ruby-buildと組み合わせるとrubyのインストールが簡単に出来るようになります
 
@@ -93,7 +93,7 @@ exec $SHELL
 brewでインストールしたreadlineとopensslを使うprefixのoptionを追加します
 
 ```
-$ RUBY_CONFIGURE_OPTS="--enable-shared --with-readline-dir=$(brew --prefix readline) --with-openssl-dir=$(brew --prefix openssl)" rbenv install 2.1.1
+$ RUBY_CONFIGURE_OPTS="--enable-shared --with-readline-dir=$(brew --prefix readline) --with-openssl-dir=$(brew --prefix openssl)" rbenv install 2.2.0
 ```
 
 最後のバージョン指定の所をプロジェクトで使っているバージョンに置換してください
@@ -104,11 +104,11 @@ $ RUBY_CONFIGURE_OPTS="--enable-shared --with-readline-dir=$(brew --prefix readl
 rbenv rehash
 ```
 
-↑gemなどをインストールして、終わったら必ずこのコマンドを打つ
+gemなどをインストールして、終わったら必ず上記のコマンドを打つ
 
 ### rubyの切り替え
 ```
-rbenv global 2.0.0-p481
+rbenv global 2.2.0
 rbenv rehash
 ```
 
@@ -181,25 +181,23 @@ bundle config build.nokogiri --use-system-libraries
 ## Project起動
 
 ```
-bundle exec foreman start
+./bin/rails s puma
 ```
 
 `http://localhost:3000`でnukoが開けます
 
-とでも追記して使いましょう。
-
 ### How to run the spec
 
 ```
-bin/rake parallel:spec                      # run all specs too
-bundle exec parallel_rspec spec/controllers # run specs under spec/controllers
+bundle exec parallel_test -t rspec spec/ -n 3                      # run all specs too
+bundle exec parallel_test -t rspec spec/controllers  -n 3 # run specs under spec/controllers
 ```
 
 単一でのテスト実行.
 
 ```
-parallel_rspec spec/controllers/questions_controller_spec.rb    # run only this spec
-parallel_rspec spec/controllers/questions_controller_spec.rb:88 # run only this spec's 88 line example
+bundle exec parallel_test -t rspec spec/controllers/notes_controller_spec.rb -n 3    # run only this spec
+bundle exec parallel_test -t rspec spec/controllers/notes_controller_spec.rb:88  -n 3 # run only this spec's 88 line example
 ```
 
 という感じにしてコマンドを生成しましょう。
@@ -213,52 +211,6 @@ parallel_rspec spec/controllers/questions_controller_spec.rb:88 # run only this 
 5. 再びテストを実行してテストがすべて通るのを確認する (`rake spec`)
 6. `Pull Request` を送る :+1:
 
-# coding rules for nuko
-
-変数展開しない（ダブルクォートを必要としない）場合には、シングルクォートを使う。
-
-## coding
-
-bad
-
-```ruby
-:class => 'content'
-%p=t('site.name')
-names.each {|name| puts name}
-```
-
-good
-
-```ruby
-class: 'content'
-%p= t('site.name')
-names.each { |name| puts name }
-```
-
-Please refer to the following coding rules.
-https://github.com/styleguide/ruby
-
-## spec
-
-shouldを使わず、expectを使う。
-
-※ shouldだと不具合が出る事があるメソッドがある
-[Qiita](http://qiita.com/awakia/items/d880250adc8cdbe7a32f)
-
-bad
-
-```
-foo.should eq(bar)
-foo.should_not eq(bar)
-```
-
-good
-
-```
-expect(foo).to eq(bar)
-expect(foo).not_to eq(bar)
-```
-
-- ==の代わりにeq
-- 正規表現関係の=~の代わりにmatch
-- 配列の=~の代わりにmatch_array
+## RSpecの書き方
+基本的に[betterspec](http://betterspecs.org/jp/)の書き方を採用する。
+betterspecを参考にしspecを書きましょう。
