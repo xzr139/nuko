@@ -2,17 +2,13 @@
 #
 # Table name: follow_activities
 #
-#  id          :integer          not null, primary key
-#  user_id     :integer
-#  target_id   :integer
-#  created_at  :datetime
-#  updated_at  :datetime
-#  followed    :boolean
-#  follow_type :string(255)
-#
-# Indexes
-#
-#  index_follow_activities_on_user_id  (user_id)
+#  id             :integer          not null, primary key
+#  user_id        :integer
+#  target_user_id :integer
+#  follow_type    :string(255)
+#  followed       :boolean
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
 #
 
 class FollowActivity < ActiveRecord::Base
