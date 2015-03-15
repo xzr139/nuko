@@ -44,12 +44,12 @@ ActiveRecord::Schema.define(version: 20150315060837) do
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "follow_activities", force: :cascade do |t|
-    t.integer  "user_id",        limit: 4
-    t.integer  "target_user_id", limit: 4
-    t.string   "follow_type",    limit: 255
-    t.boolean  "followed",       limit: 1
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.integer  "user_id",     limit: 4
+    t.integer  "target_id",   limit: 4
+    t.string   "follow_type", limit: 255
+    t.boolean  "followed",    limit: 1
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "followers", force: :cascade do |t|
