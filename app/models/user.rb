@@ -55,6 +55,7 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :likes
   has_many :follow_activities
+  has_many :followers
 
   validates :nick_name, length: { maximum: 15 }
   validates :bio, length: { maximum: 300 }
