@@ -49,10 +49,11 @@ describe FollowersController, type: :controller do
 
     context 'update test' do
       let!(:follow_activities) { create(:follow_activities, followed: true) }
+      let!(:followers) { create(:follow, user: follow_activities.user, target_id: User.last.id) }
 
       before do
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(follow_activities.user)
-        patch :update,  user_id: User.last.id
+        patch :update, user_id: User.last.id
       end
 
       it 'should update followed' do
