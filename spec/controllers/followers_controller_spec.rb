@@ -47,7 +47,7 @@ describe FollowersController, type: :controller do
       end
     end
 
-    context 'update test' do
+    describe 'update test' do
       let!(:follow_activities) { create(:follow_activities, followed: true) }
       let!(:followers) { create(:follow, user: follow_activities.user, target_id: User.last.id) }
 

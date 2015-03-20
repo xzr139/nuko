@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe UsersController,  type: :controller do
-  context "GET edit" do
+  describe "GET edit" do
     let(:user) { create(:user) }
 
     before do
