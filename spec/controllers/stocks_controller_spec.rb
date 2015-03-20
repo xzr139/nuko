@@ -30,7 +30,7 @@ describe StocksController, type: :controller do
       end
     end
 
-    context 'update test' do
+    context 'when stock' do
       let!(:stock) { create(:stock, stocked: true) }
 
       before do

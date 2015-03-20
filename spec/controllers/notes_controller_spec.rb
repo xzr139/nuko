@@ -23,7 +23,7 @@ describe NotesController, type: :controller do
     end
   end
 
-  context "GET show" do
+  describe "GET show" do
     let(:note) { create(:note) }
 
     before do

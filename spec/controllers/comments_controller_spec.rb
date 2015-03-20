@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe CommentsController, type: :controller do
-  context "POST create" do
+  describe "POST create" do
     let(:note) { create(:note) }
     let(:ids_hash) { { user_id: note.user.id,   note_id: note.id } }
 
@@ -24,7 +24,7 @@ describe CommentsController, type: :controller do
     end
   end
 
-  context "DELETE destory" do
+  context "when delete comment" do
     let!(:comment) { create(:comment) }
 
     it "should be success delete" do
@@ -75,7 +75,7 @@ describe CommentsController, type: :controller do
     end
   end
 
-  context "PATCH like" do
+  describe "PATCH like" do
     let(:comment) { create(:comment) }
 
     it "should be success create like" do
@@ -85,7 +85,7 @@ describe CommentsController, type: :controller do
     end
   end
 
-  context "PATCH unlike" do
+  describe "PATCH unlike" do
     let!(:like) { create(:like) }
 
     before do
