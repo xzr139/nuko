@@ -25,14 +25,10 @@ build:
             code: |
                 RAILS_ENV='test'                   bundle exec rake db:create
                 RAILS_ENV='test'                   bundle exec rake db:schema:load
-                RAILS_ENV='test' TEST_ENV_NUMBER=2 bundle exec rake db:create
-                RAILS_ENV='test' TEST_ENV_NUMBER=2 bundle exec rake db:schema:load
-                RAILS_ENV='test' TEST_ENV_NUMBER=3 bundle exec rake db:create
-                RAILS_ENV='test' TEST_ENV_NUMBER=3 bundle exec rake db:schema:load
 
         - script:
             name: Run RSpec
-            code: bundle exec parallel_test -t rspec spec/ -n 3
+            code: bin/rake spec
 
         - script:
             name: Run Rubocop
