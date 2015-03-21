@@ -404,12 +404,12 @@ GEM
     tilt (1.4.1)
     timers (4.0.1)
       hitimes
-    twitter-bootswatch-rails (3.3.2.0)
-      execjs (~> 2.3)
-      less-rails (~> 2.4)
-      railties (>= 3.1, < 5.0)
-    twitter-bootswatch-rails-helpers (3.3.2.0)
-      twitter-bootswatch-rails (~> 3.3, >= 3.3.2)
+    twitter-bootswatch-rails (3.2.0.0)
+      execjs (>= 1.4.0)
+      less-rails (>= 2.3)
+      railties (>= 3.1)
+    twitter-bootswatch-rails-helpers (3.2.0.0)
+      twitter-bootswatch-rails (~> 3.2.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.7.1)
@@ -484,6 +484,6 @@ DEPENDENCIES
   spring-commands-rspec
   terminal-notifier-guard
   therubyracer
-  twitter-bootswatch-rails
+  twitter-bootswatch-rails (~> 3.2.0.0)
   twitter-bootswatch-rails-helpers
   uglifier
