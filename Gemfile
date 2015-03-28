@@ -16,7 +16,6 @@ gem "execjs"
 gem "less-rails"
 gem "twitter-bootswatch-rails-helpers"
 gem "twitter-bootswatch-rails", "~> 3.2.0.0" # 3.3.2.0 ver has a problem
-gem "puma"
 gem "rails_config"
 gem "rails4_acts_as_paranoid"
 gem "paperclip"
@@ -72,4 +71,8 @@ group :development, :test do
   gem "parallel_tests"
   gem "rubocop", require: false
   gem "letter_opener"
+end
+
+group :production do
+  gem "puma"
 end
