@@ -272,8 +272,6 @@ GEM
       activerecord (>= 3.0)
       i18n (>= 0.5.0)
       railties (>= 3.0.0)
-    puma (2.11.1)
-      rack (>= 1.1, < 2.0)
     rack (1.6.0)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -467,7 +465,6 @@ DEPENDENCIES
   pry-rails
   pry-stack_explorer
   public_activity
-  puma
   rails (= 4.2.0)
   rails-timeago
   rails4_acts_as_paranoid
