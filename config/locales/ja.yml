@@ -85,6 +85,7 @@ ja:
   followers:
     button: フォロー
     follow_you: "%{name}さんにフォローされました"
+    following_users: フォロー中のユーザー
   searches:
     search: 検索
     result_message: "%{word}の検索結果"
@@ -302,4 +303,3 @@ ja:
       long: ! '%Y年%m月%d日(%a) %H時%M分%S秒 %z'
       short: ! '%y/%m/%d %H:%M'
     pm: 午後
-

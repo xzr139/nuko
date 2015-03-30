@@ -85,6 +85,7 @@ en:
   followers:
     button: Follow
     follow_you: "You were followed by %{name}"
+    following_users: Following users
   searches:
     search: search
     result_message: "Search result for %{word}"
