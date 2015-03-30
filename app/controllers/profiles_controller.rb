@@ -6,6 +6,7 @@ class ProfilesController < ApplicationController
 
   def show
     @notes = @user.notes.present? ? @user.notes.page(params[:page]).per(10).order(id: :desc) : []
+    @followers = @user.followers
   end
 
   def update

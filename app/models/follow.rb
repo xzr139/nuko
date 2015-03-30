@@ -16,4 +16,8 @@
 
 class Follow < ActiveRecord::Base
   belongs_to :user
+
+  def target_user
+    User.find(target_id)
+  end
 end
