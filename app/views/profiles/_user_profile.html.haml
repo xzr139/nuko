@@ -11,7 +11,7 @@
     %ul
     - @followers.each do |follow|
       %li.followers-images
-        = link_to image_tag(User.find(follow.target_id).avatar.url, size: '30x30', alt: "icon"), profile_path(User.find(follow.target_id))
+        = link_to image_tag(follow.target_user.avatar.url, size: '30x30', alt: "icon"), profile_path(User.find(follow.target_id))
   - if user_signed_in? && @user != current_user
     .follow-bt{ ng_controller: "FollowersCtrl" }
       - folloed_flag = if current_user.follow_activities.exists?(user_id: current_user.id)
