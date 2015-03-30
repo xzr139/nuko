@@ -1,4 +1,6 @@
 translations:
   - file: "public/javascripts/translations.js"
-    only: "*"
-
+    only: [
+      "*.validation.*",
+      "*.notes.stock_this_note",
+    ]
