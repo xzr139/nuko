@@ -74,7 +74,7 @@ bundle install --quiet --jobs=4 --path=./vendor/bundle
 echo ""
 echo "  It's all done. We're ready."
 echo ""
-echo "  Run 'foreman start' to start rails server."
+echo "  Run 'bin/rails s' to start rails server."
 echo "  And you can see Kachime app on 'locahost:3000'"
 echo ""
 
