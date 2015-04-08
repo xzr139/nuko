@@ -65,7 +65,7 @@ class User < ActiveRecord::Base
 
   has_attached_file :avatar, styles: { medium: "300x300>", thumb: "20x20>" }, default_url: "/images/default_image.png"
 
-  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
+  validates_attachment_content_type :avatar, content_type: %r{\Aimage\/.*\Z}
 
   def self.find_for_facebook_oauth(fb_info)
     data = fb_info['extra']['raw_info']
