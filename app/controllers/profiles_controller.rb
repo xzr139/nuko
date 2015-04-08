@@ -3,10 +3,10 @@ class ProfilesController < ApplicationController
   before_action :set_user, only: [:show, :tag, :stocks]
   before_action :set_notes, only: [:show, :tag, :stocks]
   before_action :set_ranking, only: [:show, :tag, :stocks]
+  before_action :set_followers, only: [:show, :tag, :stocks]
 
   def show
     @notes = @user.notes.present? ? @user.notes.page(params[:page]).per(10).order(id: :desc) : []
-    @followers = @user.followers
   end
 
   def update
@@ -64,5 +64,9 @@ class ProfilesController < ApplicationController
     tag_list.each { |words_ary| words_ary.each { |words| words_uniq << words } }
     words_uniq.uniq.each { |word| words_hash[word] = Note.tagged_with(word).count }
     @ranking = words_hash.sort { |a, b| b[1] <=> a[1] }[0...5]
+  end
+
+  def set_followers
+    @followers = @user.followers
   end
 end
