@@ -35,6 +35,8 @@ en:
       settings: Settings
     update:
       complate_update_profiles: Done updating nick name
+    new:
+      new_post: "New note"
     sign_in: Sign In
     sign_up: Signed up
     sign_out: Sign Out

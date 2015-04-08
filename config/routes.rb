@@ -35,7 +35,7 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :notes, except: [:new], shallow: true do
+    resources :notes, shallow: true do
       collection do
         get 'public'
       end

@@ -59,6 +59,8 @@ ja:
       content: "内容"
     edit:
       editing: "ノートを修正"
+    new:
+      new_post: "新規作成"
     tag_and_warning: "タグ ※タグはスペースで区切ってください"
     tag_list: "タグ一覧 | "
     tag: "このタグの投稿一覧"
