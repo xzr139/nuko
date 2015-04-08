@@ -3,4 +3,5 @@ translations:
     only: [
       "*.validation.*",
       "*.notes.stock_this_note",
+      "*.common.stocked"
     ]
