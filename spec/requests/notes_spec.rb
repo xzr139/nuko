@@ -2,11 +2,11 @@ require "spec_helper"
 
 describe "Notes", type: :request do
   def create_note
-    visit root_path
+    visit new_note_path
     fill_in "note_title",        with: "title"
     fill_in "note_content",      with: "# hoge"
     fill_in "note_tag_list",     with: "tag1 tag2"
-    click_button "submit"
+    click_button "submit-note"
   end
 
   describe "POST create" do
