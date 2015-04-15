@@ -72,3 +72,7 @@ group :development, :test do
   gem "rubocop", require: false
   gem "letter_opener"
 end
+
+group :production do
+  gem "puma"
+end
