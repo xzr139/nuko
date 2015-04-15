@@ -33,6 +33,7 @@ gem "font-awesome-rails"
 gem "ransack"
 gem "redcarpet"
 gem "devise"
+gem "puma"
 
 group :linux do
   gem "therubyracer"
@@ -71,8 +72,4 @@ group :development, :test do
   gem "parallel_tests"
   gem "rubocop", require: false
   gem "letter_opener"
-end
-
-group :production do
-  gem "puma"
 end
