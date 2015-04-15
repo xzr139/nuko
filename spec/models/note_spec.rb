@@ -30,8 +30,4 @@ describe Note, type: :model do
     note.user.stocks.build(note_id: note.id, stocked: true).save
     expect(note.stocked_by?(user)).to eq(true)
   end
-
-  it "should return true, because exist stock" do
-    expect(note.stocked_by?).to eq(false)
-  end
 end
