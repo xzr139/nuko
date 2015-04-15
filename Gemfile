@@ -33,6 +33,7 @@ gem "font-awesome-rails"
 gem "ransack"
 gem "redcarpet"
 gem "devise"
+gem "puma"
 
 group :linux do
   gem "therubyracer"
