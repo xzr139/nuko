@@ -58,6 +58,24 @@ app.controller 'FeedsCtrl', ['$scope', ($scope) ->
     $scope.feedSelected = true
 ]
 
+app.controller 'newNoteCtrl', ['$scope', ($scope) ->
+  $scope.tags = new Array
+
+  for i in [0...1]
+    $scope.tags[i] = {}
+    i++
+
+  $scope.addTag = (index) ->
+    $scope.tags[index + 1] = {}
+    return
+
+  $scope.deleteTag = (index) ->
+    $scope.tags.splice index, 1
+    return
+
+  $scope.last = ->
+    $scope.tags.length <= 5
+]
 $ ->
   locale = $('html').attr('lang')
   I18n.defaultLocale = locale

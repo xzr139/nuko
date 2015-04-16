@@ -1,4 +1,4 @@
-.note-form
+.note-form{ ng_controller: "newNoteCtrl" }
   = form_for @note do |f|
     - if @note.errors.any?
       #error_explanation
@@ -11,9 +11,12 @@
       .title-new
         .form-group
           = f.text_field :title, class: "form-control", placeholder: t("notes.index.title")
-      .tag-list-new
-        .form-group
+      %li.tag-list-new{ ng_repeat: "tag in tags" }
+        .tag-text-field
           = f.text_field :tag_list, class: "form-control", placeholder: t("notes.tag_and_warning")
+        .tag-mark
+          %div{ ng_click: "deleteTag($index)", ng_if: "!$last", class: 'fa fa-remove fa-2x' }
+          %div{ ng_click: "addTag($index)", ng_if: "$last", class: 'fa fa-plus fa-2x', ng_show: 'last()' }
       .content-new
         .form-group
           = f.text_area :content, class: 'form-control', placeholder: t("notes.index.content")
