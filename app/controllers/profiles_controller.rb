@@ -7,17 +7,34 @@ class ProfilesController < ApplicationController
 
   def show
     @notes = @user.notes.present? ? @user.notes.page(params[:page]).per(10).order(id: :desc) : []
+
+    respond_to do |format|
+      format.html
+      format.json { render json: { notes: @notes, user: @user, ranking: @ranking } }
+    end
   end
 
   def update
-    current_user.update(user_params)
-    sign_in(current_user,  bypass: true) if user_params["password"]
+    respond_to do |format|
+      if current_user.update(user_params)
+        format.html { redirect_to profile_path(current_user),  notice: t("users.update.complate_update_profiles") }
+        format.json { render :show, status: :ok, location: @note }
+      else
+        format.html { render :edit }
+        format.json { render json: @note.errors, status: :unprocessable_entity }
+      end
 
-    redirect_to profile_path(current_user), notice: t("users.update.complate_update_profiles")
+      sign_in(current_user,  bypass: true) if user_params["password"]
+    end
   end
 
   def all_posts
     @user = User.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.json { render json: { user: @user } }
+    end
   end
 
   def tag
@@ -25,6 +42,11 @@ class ProfilesController < ApplicationController
       @notes = Note.tagged_with(params[:name]).where(user_id: params[:id]).page(params[:page]).order(id: :desc).includes(:user)
     else
       @notes = []
+    end
+
+    respond_to do |format|
+      format.html
+      format.json { render json: { notes: @notes, user: @user, ranking: @ranking } }
     end
   end
 
@@ -36,6 +58,11 @@ class ProfilesController < ApplicationController
     end
 
     @notes = Kaminari.paginate_array(@notes).page(params[:page])
+
+    respond_to do |format|
+      format.html
+      format.json { render json: { notes: @notes, user: @user, ranking: @ranking } }
+    end
   end
 
   private

@@ -9,6 +9,11 @@ class UsersController < ApplicationController
 
   def show
     @notes = @user.notes.present? ? @user.notes.page(params[:page]).per(10).order(id: :desc) : []
+
+    respond_to do |format|
+      format.html
+      format.json { render json: { notes: @notes } }
+    end
   end
 
   def update
