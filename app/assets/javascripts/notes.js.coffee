@@ -1,5 +1,5 @@
 createStock = (current) ->
-  notStocked = $(current).text().replace(/\s+/g,  "") == I18n.t('notes.stock_this_note') && $(current).attr('data-stocked') == 'false'
+  stocked = $(current).text().replace(/\s+/g,  "") == I18n.t('common.stocked') && $(current).attr('data-stocked') == 'true'
 
   $.ajax
     url: "/stocks"
@@ -8,7 +8,7 @@ createStock = (current) ->
       note_id: $(current).attr('data-note-id')
       user_id: $(current).attr('data-user-id')
     complete: (data) ->
-      if notStocked
+      unless stocked
         $(current).text(I18n.t('common.stocked'))
         $(".number-of-stocks > .counts").text(parseInt($(".number-of-stocks > .counts").text().replace(/\s+/g,   "")) + 1)
       else

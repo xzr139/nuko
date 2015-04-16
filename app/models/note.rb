@@ -30,7 +30,7 @@ class Note < ActiveRecord::Base
   acts_as_taggable
   acts_as_paranoid
 
-  def stocked_by?(user = nil)
+  def stocked_by?(user)
     if user
       user.stocks.exists?(note_id: id, stocked: true)
     else
