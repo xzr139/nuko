@@ -6,12 +6,25 @@ class NotesController < ApplicationController
   def index
     @note = Note.new
     @notes = Note.page(params[:page]).per(10).order(created_at: :desc).includes(:user)
+
+    respond_to do |format|
+      format.html
+      format.json { render json: { note: @note, notes: @notes } }
+    end
   end
 
   def show
+    respond_to do |format|
+      format.html
+      format.json { render json: { note: @note, user: @user } }
+    end
   end
 
   def edit
+    respond_to do |format|
+      format.html
+      format.json { render json: { note: @note } }
+    end
   end
 
   def create
@@ -51,7 +64,11 @@ class NotesController < ApplicationController
   def public
     @note = Note.new
     @notes = Note.page(params[:page]).per(10).order(created_at: :desc)
-    render :index
+
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: { note: @note, notes: @notes } }
+    end
   end
 
   private

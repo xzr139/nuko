@@ -14,6 +14,6 @@ class FollowersController < ApplicationController
       @follower.save
     end
 
-    render nothing: true
+    render nothing: true, status: :ok
   end
 end

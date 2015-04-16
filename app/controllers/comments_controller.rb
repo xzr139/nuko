@@ -4,6 +4,10 @@ class CommentsController < ApplicationController
   before_action :check_user, only: [:edit]
 
   def edit
+    respond_to do |format|
+      format.html
+      format.json { render json: { comment: @comment, note: @note } }
+    end
   end
 
   def update

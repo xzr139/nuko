@@ -5,6 +5,11 @@ class ActivitiesController < ApplicationController
     @activities = Activity.page(params[:page]).per(10).order(created_at: :desc)
       .where(recipient_id: current_user.id, owner_type: "User")
       .where.not(owner_id: current_user.id)
+
+    respond_to do |format|
+      format.html
+      format.json { render json: { activities: @activities } }
+    end
   end
 
   def update
@@ -17,10 +22,10 @@ class ActivitiesController < ApplicationController
     respond_to do |format|
       if @activity.update(unread: false)
         format.html { render nothing: true }
-        format.json { render :show, status: :ok, location: @note }
+        format.json { render :show, status: :ok, location: @activity }
       else
         format.html { render nothing: true }
-        format.json { render json: @note.errors, status: :unprocessable_entity }
+        format.json { render json: @activity.errors, status: :unprocessable_entity }
       end
     end
   end
