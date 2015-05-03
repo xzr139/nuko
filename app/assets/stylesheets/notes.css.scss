@@ -132,7 +132,6 @@
   position: relative;
 
   .title-new{
-    position: absolute;
     left: 0;
     top: 0px;
     width: 100%;
@@ -151,9 +150,18 @@
   }
 
   .tag-list-new{
-    position: absolute;
-    left: 0;
-    top: 75px;
+    float: none;
+    margin-right: 70px;
+
+    .tag-text-field{
+      float: left;
+    }
+    .tag-mark{
+      float: left;
+      margin-top: 5px;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
 
     #note_tag_list::-webkit-input-placeholder{
       color: #7d7d7d;
