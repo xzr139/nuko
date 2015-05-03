@@ -141,11 +141,11 @@
     }
 
     #note_title::-webkit-input-placeholder{
-      color: #7d7d7d;
+      color: #b1b1b1;
     }
 
     #note_title:-moz-placeholder{
-      color: #7d7d7d;
+      color: #b1b1b1;
     }
   }
 
@@ -162,14 +162,16 @@
       margin-left: 10px;
       margin-right: 10px;
     }
+    @for $i from 0 through 5 {
+      #note_tag_list_#{$i}::-webkit-input-placeholder{
+        color: #b1b1b1;
+      }
 
-    #note_tag_list::-webkit-input-placeholder{
-      color: #7d7d7d;
+      #note_tag_list_#{$i}:-moz-placeholder{
+        color: #b1b1b1;
+      }
     }
 
-    #note_tag_list:-moz-placeholder{
-      color: #7d7d7d;
-    }
   }
 
   .content-new{
@@ -183,11 +185,11 @@
     }
 
     #note_content::-webkit-input-placeholder{
-      color: #7d7d7d;
+      color: #b1b1b1;
     }
 
     #note_content:-moz-placeholder{
-      color: #7d7d7d;
+      color: #b1b1b1;
     }
   }
 
