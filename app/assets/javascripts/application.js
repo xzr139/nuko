@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require simplex/loader
 //= require simplex/bootswatch
+//= require marked
 //= require angular/angular
 //= require angular/angular-resource
 //= require app
