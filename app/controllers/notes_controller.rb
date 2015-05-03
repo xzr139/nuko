@@ -2,15 +2,19 @@ class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
   before_action :set_user, only: [:index, :show]
   before_action :check_user, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create] unless Rails.env.test?
 
   def index
-    @note = Note.new
     @notes = Note.page(params[:page]).per(10).order(created_at: :desc).includes(:user)
 
     respond_to do |format|
       format.html
       format.json { render json: { note: @note, notes: @notes } }
     end
+  end
+
+  def new
+    @note = Note.new
   end
 
   def show

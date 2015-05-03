@@ -1,28 +1,26 @@
-.row
-  .col-lg-8
-    .well.bs-component#notes
-      = form_for @note do |f|
-        - if @note.errors.any?
-          #error_explanation
-            %h2= "#{pluralize(@note.errors.size, "error")} prohibited this note from being saved:"
-            %ul
-              - @note.errors.full_messages.each do |msg|
-                %li= msg
-        %fieldset
-          %br
-          .form-group
-            = f.label t("notes.index.title"), class: 'col-lg-2 control-label note'
-            .col-lg-10
-              = f.text_field :title, class: "form-control"
-          .form-group
-            = f.label t("notes.tag_and_warning"), class: 'col-lg-2 control-label note'
-            .col-lg-10
-              = f.text_field :tag_list, class: "form-control"
-          .form-group
-            = f.label t("notes.index.content"), class: 'col-lg-2 control-label note'
-            .col-lg-10
-              = f.text_area :content, class: 'form-control'
-          .form-group
-            .col-lg-10.col-lg-offset-2#note
-              %br
-              = f.submit t('common.post'), id: "submit", class: "btn btn-primary"
+.note-form{ ng_controller: "newNoteCtrl" }
+  = form_for @note do |f|
+    - if @note.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@note.errors.size, "error")} prohibited this note from being saved:"
+        %ul
+          - @note.errors.full_messages.each do |msg|
+            %li= msg
+    %fieldset
+      %br
+      .title-new
+        .form-group
+          = f.text_field :title, class: "form-control", placeholder: t("notes.index.title")
+      %li.tag-list-new{ ng_repeat: "tag in tags" }
+        .tag-text-field
+          = text_field_tag :tag_list, nil, id: "note_tag_list_{{$index}}", class: "form-control", placeholder: t("notes.tag_and_warning")
+        .tag-mark
+          %div{ ng_click: "deleteTag($index)", ng_if: "!$last", id: 'delete_button_{{$index}}', class: 'fa fa-remove fa-2x' }
+          %div{ ng_click: "addTag($index)", ng_if: "$last", id: 'add_button_{{$index}}', class: 'fa fa-plus fa-2x', ng_show: 'last()' }
+      = f.hidden_field :tag_list, value: 'hoge'
+      .content-new
+        .form-group
+          = f.text_area :content, class: 'form-control', placeholder: t("notes.index.content")
+      .submit-new
+        .form-group
+          = f.submit t('common.post'), id: "submit-note", class: "btn btn-primary", ng_click: 'mergeTags()'
