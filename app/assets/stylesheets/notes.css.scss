@@ -179,9 +179,11 @@
     left: 0;
     top: 140px;
     height: 440px;
+    width: 100%;
 
     #note_content{
       height: 440px;
+      width: 50%;
     }
 
     #note_content::-webkit-input-placeholder{
@@ -190,6 +192,11 @@
 
     #note_content:-moz-placeholder{
       color: #b1b1b1;
+    }
+
+    #preview{
+      width: 47%;
+      margin-left: 20px;
     }
   }
 

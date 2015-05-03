@@ -80,6 +80,13 @@ app.controller 'newNoteCtrl', ['$scope', ($scope) ->
       tagName += "," + $(this).val()
     $("#note_tag_list").attr("value", tagName.slice(1))
 ]
+
+app.controller 'parsedMarkdownCtrl', ['$scope', ($scope) ->
+  $scope.parseMarkdown = ->
+    $("#preview").html(marked($scope.content))
+    return
+]
+
 $ ->
   locale = $('html').attr('lang')
   I18n.defaultLocale = locale
