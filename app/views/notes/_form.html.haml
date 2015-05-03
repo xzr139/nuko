@@ -13,13 +13,14 @@
           = f.text_field :title, class: "form-control", placeholder: t("notes.index.title")
       %li.tag-list-new{ ng_repeat: "tag in tags" }
         .tag-text-field
-          = f.text_field :tag_list, class: "form-control", placeholder: t("notes.tag_and_warning")
+          = text_field_tag :tag_list, nil, id: "note_tag_list_{{$index}}", class: "form-control", placeholder: t("notes.tag_and_warning")
         .tag-mark
           %div{ ng_click: "deleteTag($index)", ng_if: "!$last", class: 'fa fa-remove fa-2x' }
           %div{ ng_click: "addTag($index)", ng_if: "$last", class: 'fa fa-plus fa-2x', ng_show: 'last()' }
+      = f.hidden_field :tag_list, value: 'hoge'
       .content-new
         .form-group
           = f.text_area :content, class: 'form-control', placeholder: t("notes.index.content")
       .submit-new
         .form-group
-          = f.submit t('common.post'), id: "submit-note", class: "btn btn-primary"
+          = f.submit t('common.post'), id: "submit-note", class: "btn btn-primary", ng_click: 'mergeTags()'
