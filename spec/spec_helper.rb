@@ -20,6 +20,7 @@ Dir[Rails.root.join("spec/factories/**/*.rb")].each { |f| require f }
 ActiveRecord::Migration.maintain_test_schema!
 
 Capybara.javascript_driver = :poltergeist
+Capybara.asset_host = "http://localhost:3000"
 Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(app, js_errors: false, timeout: 60)
 end
