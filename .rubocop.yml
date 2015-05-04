@@ -6,7 +6,6 @@ AllCops:
     - '**/config.ru'
   Exclude:
     - 'vendor/bundle/**/*'
-    - 'db/**'
     - 'db/**/*'
     - 'config/**/*'
     - 'bin/**/*'
