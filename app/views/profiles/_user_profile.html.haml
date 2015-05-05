@@ -7,7 +7,7 @@
   .profile-bio
     = auto_link(simple_format(@user.bio), html: { target: "_blank" })
   .followers
-    %h4= t("followers.following_users")
+    %h4= target_with_pluralize(@followers.size, t("followers.following_users"), 'user')
     %ul
     - @followers.each do |follow|
       %li.followers-images
