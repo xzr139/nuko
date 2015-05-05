@@ -33,8 +33,8 @@ gem "font-awesome-rails"
 gem "ransack"
 gem "redcarpet"
 gem "devise"
-gem "puma"
 gem 'marked-rails'
+# gem "puma"
 
 group :linux do
   gem "therubyracer"
