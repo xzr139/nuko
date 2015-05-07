@@ -14,7 +14,6 @@
   width: 850px;
 
   .comment-detail{
-    margin-bottom: 20px;
     .user-icon{
       margin-top: 10px;
       margin-left: 10px;
@@ -34,13 +33,16 @@
       }
     }
 
-    .comment-like-bt{
-      float: right;
+    li{
+      list-style: none;
+    }
+
+    .action{
+      text-align: right;
     }
   }
 
   .comment-content{
-    margin-top: 60px;
     border: 1px #ccc solid;
     width: 100%;
     height: 100%;
@@ -80,8 +82,4 @@
 
 #comment-toggle{
   float: right;
-}
-
-.liked-bt{
-  background-color: #deb1c9;
 }
