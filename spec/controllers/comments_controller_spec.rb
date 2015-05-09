@@ -94,7 +94,7 @@ describe CommentsController, type: :controller do
     end
 
     it "should be success unlike" do
-      expect(Like.last.liked).to eq(false)
+      expect(Like.unscoped.last.liked).to eq(false)
     end
   end
 
