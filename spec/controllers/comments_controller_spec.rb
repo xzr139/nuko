@@ -37,7 +37,7 @@ describe CommentsController, type: :controller do
   describe "PUT update" do
     let!(:request) { put :update, params }
 
-    context 'type valid value' do
+    context 'with type valid value' do
       let(:comment) { create(:comment) }
       let(:params) { { id: comment.id, comment: attributes_for(:comment) } }
 
@@ -56,7 +56,7 @@ describe CommentsController, type: :controller do
       end
     end
 
-    context 'type invalid value' do
+    context 'with type invalid value' do
       let(:comment) { create(:comment) }
       let(:params) { { id: comment.id, comment: attributes_for(:comment) } }
 
@@ -98,11 +98,11 @@ describe CommentsController, type: :controller do
     end
   end
 
-  context 'should be increment number of activity count' do
+  describe "#create_activity" do
     let(:user) { create(:user) }
     let(:comment) { create(:comment) }
 
-    it 'should be success create_activity' do
+    it 'should be increment number of activity count' do
       expect { post :create, comment: comment.attributes }.to change {
         Activity.count
       }.from(0).to(1)
