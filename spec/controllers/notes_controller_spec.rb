@@ -7,7 +7,7 @@ describe NotesController, type: :controller do
       get :index
     end
 
-    it "should return is 10" do
+    it "returns is 10" do
       expect(assigns[:notes].count).to eq(10)
     end
   end
@@ -18,7 +18,7 @@ describe NotesController, type: :controller do
       get :public
     end
 
-    it "should return is 10" do
+    it "returns is 10" do
       expect(assigns[:notes].count).to eq(10)
     end
   end

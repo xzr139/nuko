@@ -11,7 +11,7 @@ describe TagsController, type: :controller do
   describe 'PATCH follow' do
     let(:tag) { create(:tag) }
 
-    context 'type valid value' do
+    context 'with type valid value' do
       let!(:follow_activities) { create(:follow_activities) }
 
       before { patch :follow, id: tag.id, target_id: tag.id }
@@ -29,7 +29,7 @@ describe TagsController, type: :controller do
       end
     end
 
-    context 'follow test' do
+    context 'with new follower' do
       it 'should followed' do
         expect { patch :follow, id: tag.id, target_id: tag.id }.to change {
           FollowActivity.count
@@ -37,7 +37,7 @@ describe TagsController, type: :controller do
       end
     end
 
-    context 'is exist follow' do
+    context 'when exist follow' do
       before do
         allow_any_instance_of(FollowActivity).to receive(:exists?).and_return(true)
         patch :follow, id: tag.id, target_id: tag.id
@@ -61,7 +61,7 @@ describe TagsController, type: :controller do
         patch :follow, id: tag.id, target_id: tag.id
       end
 
-      it 'should followed' do
+      it 'should be followed' do
         expect(assigns[:follow].followed).to eq(false)
       end
     end
