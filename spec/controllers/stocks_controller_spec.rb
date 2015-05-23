@@ -1,29 +1,29 @@
 require 'spec_helper'
 
 describe StocksController, type: :controller do
-  describe 'PATCH update' do
-    context 'type valid value' do
+  describe 'PATCH #update' do
+    context 'when valid value' do
       let!(:stock) { create(:stock) }
 
       before { patch :update, note_id: stock.note_id }
 
-      it 'should be blank' do
+      it 'returns not empty value' do
         expect(response.body).to be_blank
       end
 
-      it 'is in agreement with what note to edit chose' do
+      it 'return same Stock.last as stock instance' do
         expect(assigns(:stock)).to eq(Stock.last)
       end
 
-      it 'should be no error' do
+      it 'has no error' do
         expect(assigns(:stock).errors).to be_empty
       end
     end
 
-    context 'update test' do
+    context 'when update test' do
       let(:note) { create(:note) }
 
-      it 'should increment stocks' do
+      it 'returns incremented stocks table' do
         expect { patch :update, note_id: note.id }.to change {
           Stock.count
         }.from(0).to(1)
@@ -38,7 +38,7 @@ describe StocksController, type: :controller do
         patch :update, note_id: Note.last.id
       end
 
-      it 'should update followed' do
+      it 'returns false' do
         expect(assigns[:stock].stocked).to eq(false)
       end
     end
