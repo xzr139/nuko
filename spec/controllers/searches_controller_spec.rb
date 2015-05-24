@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe SearchesController, type: :controller do
-  describe "GET index" do
+  describe "GET #index" do
     before do
       create_list(:note, 12)
       create(:note, content: 'hogeeee')
