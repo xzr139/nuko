@@ -390,6 +390,7 @@ GEM
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
     terminal-notifier-guard (1.6.4)
+    test-queue (0.2.13)
     therubyracer (0.12.2)
       libv8 (~> 3.16.14.0)
       ref
@@ -477,6 +478,7 @@ DEPENDENCIES
   spring
   spring-commands-rspec
   terminal-notifier-guard
+  test-queue
   therubyracer
   twitter-bootswatch-rails (~> 3.2.0.0)
   twitter-bootswatch-rails-helpers
