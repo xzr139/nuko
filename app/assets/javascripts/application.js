@@ -15,7 +15,9 @@
 //= require simplex/loader
 //= require simplex/bootswatch
 //= require marked
+//= require app
 //= require angular/angular
 //= require angular/angular-resource
-//= require app
+//= require_directory ./angular
+//= require_tree ./angular
 //= require_tree .

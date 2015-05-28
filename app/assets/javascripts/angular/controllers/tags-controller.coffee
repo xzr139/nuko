@@ -1,3 +1,5 @@
+'use strict'
+
 app.controller 'TagsCtrl', ['$scope', ($scope) ->
   $scope.follow = (targetId) ->
     $.ajax

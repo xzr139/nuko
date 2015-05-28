@@ -1,3 +1,5 @@
+'use strict'
+
 app.controller 'FollowersCtrl', ['$scope', ($scope) ->
   $scope.follow = (userId) ->
     $.ajax

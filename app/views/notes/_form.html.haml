@@ -18,7 +18,7 @@
           %div{ ng_click: "deleteTag($index)", ng_if: "!$last", id: 'delete_button_{{$index}}', class: 'fa fa-remove fa-2x' }
           %div{ ng_click: "addTag($index)", ng_if: "$last", id: 'add_button_{{$index}}', class: 'fa fa-plus fa-2x', ng_show: 'last()' }
       = f.hidden_field :tag_list
-      .content-new{ ng_controller: "parsedMarkdownCtrl" }
+      .content-new
         = f.text_area :content, class: 'left form-control', ng_change: "parseMarkdown()", ng_model: "content", placeholder: t("notes.index.content")
         #preview.right
       .submit-new
