@@ -13,7 +13,7 @@
       %li.followers-images
         = link_to image_tag(follow.target_user.avatar.url, size: '30x30', alt: "icon"), profile_path(User.find(follow.target_id))
   - if user_signed_in? && @user != current_user
-    .follow-bt{ ng_controller: "FollowersCtrl" }
+    .follow-bt{ ng_controller: "FollowersController" }
       - folloed_flag = if current_user.follow_activities.exists?(user_id: current_user.id)
         - current_user.follow_activities.find_by(user_id: current_user.id).try(:followed)
       = link_to "javascript:void(0)", ng_click: "#{folloed_flag ? 'un' : ''}follow(#{@user.id})", id: "follow-bt", class: "#{".follow-bt" if folloed_flag}" do

@@ -1,6 +1,6 @@
 'use strict'
 
-app.controller 'newNoteCtrl', ['$scope', ($scope) ->
+app.controller 'NewNoteController', ['$scope', ($scope) ->
   $scope.tags = new Array
 
   for i in [0...1]

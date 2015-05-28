@@ -1,6 +1,6 @@
 'use strict'
 
-app.controller 'FollowersCtrl', ['$scope', ($scope) ->
+app.controller 'FollowersController', ['$scope', ($scope) ->
   $scope.follow = (userId) ->
     $.ajax
       url: "/followers"

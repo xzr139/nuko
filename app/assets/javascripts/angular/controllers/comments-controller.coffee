@@ -1,6 +1,6 @@
 'use strict'
 
-app.controller 'CommentsCtrl', ['$scope', ($scope) ->
+app.controller 'CommentsController', ['$scope', ($scope) ->
   $scope.sendLike = (id) ->
     $.ajax
       url: "/comments/" + id + "/like"

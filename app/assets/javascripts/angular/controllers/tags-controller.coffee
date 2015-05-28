@@ -1,6 +1,6 @@
 'use strict'
 
-app.controller 'TagsCtrl', ['$scope', ($scope) ->
+app.controller 'TagsController', ['$scope', ($scope) ->
   $scope.follow = (targetId) ->
     $.ajax
       url: "/tags/#{targetId}/follow"

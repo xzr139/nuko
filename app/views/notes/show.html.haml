@@ -3,7 +3,7 @@
     = image_tag 'social_bts.png', size: '250x40', class: 'soical-buttons'
   .mini-block
     - unless !user_signed_in? || @note.user == current_user
-      .follow-bt#follow-bt-note-only{ ng_controller: "FollowersCtrl" }
+      .follow-bt#follow-bt-note-only{ ng_controller: "FollowersController" }
         - folloed_flag = if current_user.follow_activities.exists?(user_id: current_user.id)
           - current_user.follow_activities.find_by(user_id: current_user.id).followed
         = link_to "javascript:void(0)", ng_click: "#{folloed_flag ? 'un' : ''}follow(#{@note.user.id})", id: "follow-bt", class: "#{".follow-bt" if folloed_flag}" do
@@ -69,7 +69,7 @@
 %p
   = "---広告---"
 - @note.comments.each do |comment|
-  .comment-line.clearfix{ ng_controller: "CommentsCtrl" }
+  .comment-line.clearfix{ ng_controller: "CommentsController" }
     - if user_signed_in? && comment.user == current_user
       .toggeles#comment-toggle
         .btn-group
