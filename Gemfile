@@ -33,6 +33,7 @@ gem "ransack"
 gem "redcarpet"
 gem "devise"
 gem 'marked-rails'
+gem "slim-rails"
 # gem "puma"
 
 group :linux do
