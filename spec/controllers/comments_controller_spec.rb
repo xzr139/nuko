@@ -76,25 +76,24 @@ describe CommentsController, type: :controller do
   end
 
   describe "PATCH like" do
-    let(:comment) { create(:comment) }
+    context 'when first like' do
+      let(:comment) { create(:comment) }
 
-    it "should be success create like" do
-      expect { patch :like, id: comment.id }.to change{
-        Like.count
-      }.from(0).to(1)
-    end
-  end
-
-  describe "PATCH unlike" do
-    let!(:like) { create(:like) }
-
-    before do
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(like.user)
-      patch :unlike, id: like.comment.id
+      it "should be success create like" do
+        expect { patch :like, id: comment.id }.to change{
+          Like.count
+        }.from(0).to(1)
+      end
     end
 
-    it "should be success unlike" do
-      expect(Like.last.liked).to eq(false)
+    context 'when existy like' do
+      let!(:like) { create(:like) }
+      before { allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(like.user) }
+
+      it "returns false" do
+        patch :like, id: like.comment.id
+        expect(like.comment.likes.last.liked).to eq(false)
+      end
     end
   end
 
