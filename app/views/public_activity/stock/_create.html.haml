@@ -1,6 +1,6 @@
 - if activity.trackable.note
-  .block.activity{ class: " #{'unread' if activity.unread}", data: { activity_id: activity.id } }
-    .detail.clearfix
+  .block.activity{ ng_controller: 'PublicActivitiesController', class: " #{'unread' if activity.unread}", ng_init: "init(#{activity.id})" }
+    .detail.clearfix{ ng_click: 'update()' }
       .profile-image.pull-left
         = link_to profile_path(activity.trackable.user) do
           = image_tag activity.trackable.user.avatar.url, class: 'radius-of-image', size: "40x40"
