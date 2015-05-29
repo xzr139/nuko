@@ -16,7 +16,7 @@
     .follow-bt{ ng_controller: "FollowersController" }
       - folloed_flag = if current_user.follow_activities.exists?(user_id: current_user.id)
         - current_user.follow_activities.find_by(user_id: current_user.id).try(:followed)
-      = link_to "javascript:void(0)", ng_click: "#{folloed_flag ? 'un' : ''}follow(#{@user.id})", id: "follow-bt", class: "#{".follow-bt" if folloed_flag}" do
+      = link_to "javascript:void(0)", ng_click: "follow(#{@user.id})", id: "follow-bt", class: "#{".follow-bt" if folloed_flag}" do
         = t("followers.button")
 
 .navbar.navbar-default
