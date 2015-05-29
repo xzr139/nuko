@@ -85,7 +85,7 @@
       - if user_signed_in?
         - liked_flag = if comment.likes.exists?(user_id: current_user.id)
           - comment.likes.find_by(user_id: current_user.id).liked
-    = link_to "javascript:void(0)", ng_click: "send#{liked_flag ? 'Un' : ''}Like(#{comment.id})", class: "#{"liked-bt" if liked_flag}" do
+    = link_to "javascript:void(0)", ng_click: "sendLike(#{comment.id})", class: "#{"liked-bt" if liked_flag}" do
       = fa_icon "thumbs-up"
 
 - if user_signed_in?

@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: [:like]
+
   before_action :set_comment, only: [:edit, :update, :destroy, :like, :unlike]
   before_action :set_note, only: [:edit]
   before_action :check_user, only: [:edit]
@@ -49,25 +51,20 @@ class CommentsController < ApplicationController
   end
 
   def like
-    flag = @comment.likes.where(id: params["id"]).first_or_create(
-      user_id: current_user.id,
-      note_id: @comment.note.id,
-      liked: true
-    ).update(liked: true)
+    like = @comment.likes.find_by(user_id: current_user.id, comment_id: params[:id])
 
-    respond_to do |format|
-      if flag
-        format.html { render nothing: true }
-        format.json { render :show, status: :ok, location: @comment }
+    flag =
+      if like.present? && like.liked
+        like.update(liked: false)
+      elsif like.present? && like.liked.blank?
+        like.update(liked: true)
       else
-        format.html { render nothing: true }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
+        @comment.likes.create(
+          user_id: current_user.id,
+          note_id: @comment.note.id,
+          liked: true
+        )
       end
-    end
-  end
-
-  def unlike
-    flag = @comment.likes.find_by(user_id: current_user.id).update(liked: false)
 
     respond_to do |format|
       if flag
