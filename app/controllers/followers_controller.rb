@@ -1,6 +1,4 @@
 class FollowersController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: [:update]
-
   def update
     @follow = current_user.follow_activities.find_by(target_id: params[:user_id])
     @follower = current_user.followers.find_by(target_id: params[:user_id])

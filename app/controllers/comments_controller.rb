@@ -1,6 +1,4 @@
 class CommentsController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: [:like]
-
   before_action :set_comment, only: [:edit, :update, :destroy, :like, :unlike]
   before_action :set_note, only: [:edit]
   before_action :check_user, only: [:edit]

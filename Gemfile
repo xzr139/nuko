@@ -35,6 +35,7 @@ gem "devise"
 gem 'marked-rails'
 gem "slim-rails"
 # gem "puma"
+gem 'angular_rails_csrf'
 
 group :linux do
   gem "therubyracer"
