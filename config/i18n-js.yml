@@ -3,5 +3,6 @@ translations:
     only: [
       "*.validation.*",
       "*.notes.stock_this_note",
-      "*.common.stocked"
+      "*.common.stocked",
+      "*.notes.tag_and_warning"
     ]
