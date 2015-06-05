@@ -1,0 +1,34 @@
+'use strict'
+
+app.directive 'newTags', ->
+  restrict: 'E'
+  replace: true
+  templateUrl: "<%= asset_path 'notes/new-tags.html.slim' %>"
+
+  link: (scope, element, attrs) ->
+    scope.tags = new Array
+    scope.placeholder = I18n.t("notes.tag_and_warning")
+
+    for i in [0...1]
+      scope.tags[i] = {}
+      i++
+
+    scope.addTag = (index) ->
+      scope.tags[index + 1] = {}
+
+    scope.deleteTag = (index) ->
+      scope.tags.splice index, 1
+
+    scope.last = ->
+      scope.tags.length < 5
+
+    scope.mergeTags = ->
+      tagName = new String
+      $("[name='tag_list']").each ->
+        tagName += "," + $(this).val()
+      $("#note_tag_list").attr("value", tagName.slice(1))
+      return
+
+    scope.parseMarkdown = ->
+      $("#preview").html(marked(scope.content))
+      return

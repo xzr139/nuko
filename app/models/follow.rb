@@ -15,7 +15,6 @@
 #
 
 class Follow < ActiveRecord::Base
-  default_scope { where(followed: true) }
   belongs_to :user
 
   def target_user

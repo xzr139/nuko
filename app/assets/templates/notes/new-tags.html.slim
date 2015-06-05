@@ -1,0 +1,6 @@
+li.none.tag-list-new ng-repeat="tag in tags"
+  .tag-text-field
+    input.form-control id='#note_tag_list_{{$index}}' name="tag_list" placeholder="{{placeholder}}" type="text" /
+  .tag-mark
+    div ng-click="deleteTag($index)" ng-if="!$last" id='delete_button_{{$index}}' class='fa fa-remove fa-2x'
+    div ng-click="addTag($index)" ng_if="$last" id='add_button_{{$index}}' class='fa fa-plus fa-2x' ng-show='last()'
