@@ -49,6 +49,7 @@ group :development do
   gem "pry-doc"
   gem "pry-byebug"
   gem "pry-stack_explorer"
+  # gem "bullet" NOTE: If this is use, slowly responses
 end
 
 group :test do
