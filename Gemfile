@@ -64,7 +64,7 @@ end
 group :development, :test do
   gem "awesome_print"
   gem "rspec-rails"
-  gem "factory_girl_rails", require: false
+  gem "factory_girl_rails"
   gem "database_cleaner", github: "bmabey/database_cleaner"
   gem "better_errors"
   gem "binding_of_caller"
