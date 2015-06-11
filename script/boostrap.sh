@@ -61,11 +61,11 @@ fi
 #
 # Creating Guard config file
 #
-if [ ! -d ./Guardfile ]; then
+if [ -d ./Guardfile ]; then
+  echo "  + Guard config file 'Guardfile' found."
+else
   echo "  + Creating Guardfile"
   cp Guardfile.sample Guardfile
-else
-  echo "  + Guard config file 'Guardfile' found."
 fi
 
 #
