@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe LanguagesHelper, type: :helper do
   describe "#language_selector" do

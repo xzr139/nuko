@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe StocksController, type: :controller do
   describe 'PATCH update' do
