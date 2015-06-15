@@ -12,18 +12,18 @@ describe NotesController, type: :controller do
     end
   end
 
-  describe "GET public" do
+  describe "GET #public" do
     before do
       12.times { create(:note) }
       get :public
     end
 
-    it "returns  10" do
+    it "returns 10" do
       expect(assigns[:notes].count).to eq(10)
     end
   end
 
-  describe "GET show" do
+  describe "GET #show" do
     let(:note) { create(:note) }
 
     before do
@@ -35,7 +35,7 @@ describe NotesController, type: :controller do
     end
   end
 
-  describe "POST create" do
+  describe "POST #create" do
     context "when valid params" do
       let(:user) { create(:user) }
 
@@ -68,7 +68,7 @@ describe NotesController, type: :controller do
     end
   end
 
-  describe 'PUT updatee' do
+  describe 'PUT #update' do
     let!(:request) { put :update, params }
 
     context 'when valid value' do
@@ -112,7 +112,7 @@ describe NotesController, type: :controller do
     end
   end
 
-  describe 'DELETE destroy' do
+  describe 'DELETE #destroy' do
     let!(:note) { create(:note) }
 
     it "creates a new note" do
