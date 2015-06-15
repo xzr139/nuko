@@ -97,6 +97,6 @@ class User < ActiveRecord::Base
   end
 
   def contributions
-    Stock.where(target_user_id: id).size
+    Stock.where(user_id: id).size
   end
 end
