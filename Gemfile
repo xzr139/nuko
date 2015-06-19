@@ -76,4 +76,5 @@ group :development, :test do
   gem "parallel_tests"
   gem "rubocop", require: false
   gem "letter_opener"
+  gem "quiet_assets"
 end
