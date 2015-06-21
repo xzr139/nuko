@@ -27,14 +27,15 @@ gem "rails-timeago"
 gem "i18n-js"
 gem "public_activity"
 gem "active_decorator"
-gem "angular-rails-engine"
 gem "kaminari-i18n"
 gem "font-awesome-rails"
 gem "ransack"
 gem "redcarpet"
 gem "devise"
 gem 'marked-rails'
+gem "slim-rails"
 # gem "puma"
+gem 'angular_rails_csrf'
 
 group :linux do
   gem "therubyracer"
@@ -48,6 +49,7 @@ group :development do
   gem "pry-doc"
   gem "pry-byebug"
   gem "pry-stack_explorer"
+  # gem "bullet" NOTE: If this is use, slowly responses
 end
 
 group :test do
@@ -57,12 +59,13 @@ group :test do
   gem "poltergeist"
   gem "json_spec"
   gem "simplecov", require: false
+  gem 'test-queue'
 end
 
 group :development, :test do
   gem "awesome_print"
   gem "rspec-rails"
-  gem "factory_girl_rails", require: false
+  gem "factory_girl_rails"
   gem "database_cleaner", github: "bmabey/database_cleaner"
   gem "better_errors"
   gem "binding_of_caller"
@@ -73,4 +76,5 @@ group :development, :test do
   gem "parallel_tests"
   gem "rubocop", require: false
   gem "letter_opener"
+  gem "quiet_assets"
 end

@@ -1,1 +1,101 @@
-= render "common/note_full"
+.side-bar.clearfix
+  .social-bts
+    = image_tag 'social_bts.png', size: '250x40', class: 'soical-buttons'
+  .mini-block
+    - unless !user_signed_in? || @note.user == current_user
+      .follow-bt#follow-bt-note-only{ ng_controller: "FollowersController" }
+        - folloed_flag = if current_user.follow_activities.exists?(user_id: current_user.id)
+          - current_user.follow_activities.find_by(user_id: current_user.id).followed
+        = link_to "javascript:void(0)", ng_click: "#{folloed_flag ? 'un' : ''}follow(#{@note.user.id})", id: "follow-bt", class: "#{".follow-bt" if folloed_flag}" do
+          = t("followers.button")
+    .mini-user-image
+      = link_to profile_path(@note.user) do
+        = image_tag @note.user.avatar.url, class: 'radius-of-image', size: "47x47"
+    .user-name
+      = @note.user_full_name
+    - if @note.user_show_company
+      .company-name
+        = t('common.belonging_to', company: note.user_company)
+    .popularity-notes
+      %h6= t('notes.recently_notes')
+      - @note.user.notes.order(created_at: :desc).first(3).each do |note|
+        = link_to "・" + note.title, note_path(note)
+        %br
+
+.block#note-only
+  - if user_signed_in? && @note.my_note?
+    .toggeles
+      .btn-group
+        %button.btn.btn-default.dropdown-toggle{ "data-toggle" => "dropdown", type: "button" }
+          %span.caret
+        %ul.dropdown-menu{role: "menu" }
+          %li
+            = link_to t('common.edit'), edit_note_path(@note)
+          %li
+            = link_to t('common.delete'), note_path(@note), method: :delete
+  .btn.btn-primary.stock-button.stock-bt{ data: { note_id: @note.id, user_id: @note.user.id, stocked: @note.stocked_by?(current_user).to_s } }
+    - stocked_message = @note.stocked_by?(current_user) ? t('common.stocked') : t('notes.stock_this_note')
+    = stocked_message
+  .number-of-comments
+    - number_of_comments = @note.comments.size
+    .counts
+      = number_of_comments
+    %i.fa.fa-book
+    = simple_pluralize(number_of_comments, t("notes.number_of_comments"))
+  .number-of-stocks
+    - number_of_stocks = @note.stocks.where(stocked: true).size
+    .counts
+      = number_of_stocks
+    %i.fa.fa-comment-o
+      = simple_pluralize(number_of_stocks, t("notes.number_of_stocks"))
+  .detail.clearfix
+    .profile-image.pull-left
+      = link_to profile_path(@note.user) do
+        = image_tag @note.user.avatar.url, class: 'radius-of-image', size: "47x47"
+    .information
+      .title
+        %h3= @note.title
+      .tags
+        = t('notes.tag_list')
+        - @note.tag_list.split.first.each do |name|
+          = link_to name, tag_path(name: name)
+      %abbr.timeago{ title: @note.created_at.getutc.iso8601 }
+        = @note.created_at.to_s
+      = link_to t('users.created_by', nick_name: @note.user_nick_name), profile_path(@note.user)
+      .number-of-comment
+        = simple_pluralize(number_of_comments, t("comments.number_of_comment", number_of_comment: number_of_comments))
+    .content
+      = markdown(@note.content)
+%p
+  = "---広告---"
+- @note.comments.each do |comment|
+  .comment-line.clearfix{ ng_controller: "CommentsController" }
+    - if user_signed_in? && comment.user == current_user
+      .toggeles#comment-toggle
+        .btn-group
+          %button.btn.btn-default.dropdown-toggle{"data-toggle" => "dropdown", type: "button"}
+            %span.caret
+          %ul.dropdown-menu{ role: "menu" }
+            %li
+              = link_to t('common.edit'), edit_comment_path(comment)
+            %li
+              = link_to t('common.delete'), comment_path(comment), method: :delete
+    .comment-content
+      = simple_format(auto_link(comment.content))
+      - if user_signed_in?
+        - liked_flag = if comment.likes.exists?(user_id: current_user.id)
+          - comment.likes.find_by(user_id: current_user.id).liked
+    = link_to "javascript:void(0)", ng_click: "sendLike(#{comment.id})", class: "#{"liked-bt" if liked_flag}" do
+      = fa_icon "thumbs-up"
+
+- if user_signed_in?
+  - comment = current_page?(controller: "comments", action: 'edit') ? comment : @note.comments.build
+  = form_for comment do |f|
+    .clearfix
+      = f.text_area :content, placeholder: t("comments.comment"), class: 'form-control'
+      = f.hidden_field :user_id, value: current_user.id
+      = f.hidden_field :note_id, value: comment.note.id
+
+      = f.submit t('common.post'), class: "btn btn-primary", id: "submit-comment"
+
+= link_to "Back", notes_path

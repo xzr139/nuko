@@ -16,7 +16,7 @@
 #  index_notes_on_user_id  (user_id)
 #
 
-require 'spec_helper'
+require 'rails_helper'
 
 describe Note, type: :model do
   let(:note) { create(:note) }

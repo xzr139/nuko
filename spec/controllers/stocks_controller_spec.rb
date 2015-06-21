@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe StocksController, type: :controller do
   describe 'PATCH update' do
@@ -20,7 +20,7 @@ describe StocksController, type: :controller do
       end
     end
 
-    context 'update test' do
+    context 'with update test' do
       let(:note) { create(:note) }
 
       it 'should increment stocks' do

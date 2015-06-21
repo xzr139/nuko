@@ -46,8 +46,8 @@ GEM
     acts-as-taggable-on (3.5.0)
       activerecord (>= 3.2, < 5)
     addressable (2.3.8)
-    angular-rails-engine (1.2.13.0)
-      railties (>= 3.2)
+    angular_rails_csrf (1.0.3)
+      rails (>= 3, < 5)
     annotate (2.6.8)
       activerecord (>= 3.2, <= 4.3)
       rake (~> 10.4)
@@ -271,6 +271,8 @@ GEM
       activerecord (>= 3.0)
       i18n (>= 0.5.0)
       railties (>= 3.0.0)
+    quiet_assets (1.1.0)
+      railties (>= 3.1, < 5.0)
     rack (1.6.0)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -379,6 +381,15 @@ GEM
       json (~> 1.8)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.0)
+    slim (3.0.3)
+      temple (~> 0.7.3)
+      tilt (>= 1.3.3, < 2.1)
+    slim-rails (3.0.1)
+      actionmailer (>= 3.1, < 5.0)
+      actionpack (>= 3.1, < 5.0)
+      activesupport (>= 3.1, < 5.0)
+      railties (>= 3.1, < 5.0)
+      slim (~> 3.0)
     slop (3.6.0)
     spring (1.3.4)
     spring-commands-rspec (1.0.4)
@@ -389,7 +400,9 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
+    temple (0.7.5)
     terminal-notifier-guard (1.6.4)
+    test-queue (0.2.13)
     therubyracer (0.12.2)
       libv8 (~> 3.16.14.0)
       ref
@@ -424,7 +437,7 @@ PLATFORMS
 DEPENDENCIES
   active_decorator
   acts-as-taggable-on
-  angular-rails-engine
+  angular_rails_csrf
   annotate
   awesome_print
   aws-sdk
@@ -462,6 +475,7 @@ DEPENDENCIES
   pry-rails
   pry-stack_explorer
   public_activity
+  quiet_assets
   rails (= 4.2.0)
   rails-timeago
   rails4_acts_as_paranoid
@@ -474,9 +488,11 @@ DEPENDENCIES
   rubocop
   sass-rails
   simplecov
+  slim-rails
   spring
   spring-commands-rspec
   terminal-notifier-guard
+  test-queue
   therubyracer
   twitter-bootswatch-rails (~> 3.2.0.0)
   twitter-bootswatch-rails-helpers

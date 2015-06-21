@@ -1,4 +1,4 @@
-app = angular.module('kachime', [])
+app = angular.module('kachime', ['ngResource'])
 
 // --Usage--
 // app/assets/javascripts/sample.js

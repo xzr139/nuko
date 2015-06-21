@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe SearchesController, type: :controller do
   describe "GET index" do
@@ -8,11 +8,11 @@ describe SearchesController, type: :controller do
       get :index, content: 'hoge'
     end
 
-    it 'should return 200' do
+    it 'returns 200' do
       expect(response).to be_success
     end
 
-    it 'should return selected query only note' do
+    it 'returns selected query only note' do
       expect(assigns[:notes].count).to eq(1)
       expect(assigns[:notes].first.content).to eq('hogeeee')
     end

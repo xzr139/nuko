@@ -28,7 +28,7 @@ build:
 
         - script:
             name: Run RSpec
-            code: bin/rake spec
+            code: bin/test-queue spec
 
         - script:
             name: Run Rubocop

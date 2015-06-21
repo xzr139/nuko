@@ -1,4 +1,4 @@
-require "spec_helper"
+require 'rails_helper'
 
 describe "Profiles", type: :request do
   context "GET edit" do

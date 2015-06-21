@@ -1,4 +1,4 @@
-require "spec_helper"
+require 'rails_helper'
 
 describe CommentsController, type: :controller do
   describe "POST create" do
@@ -37,7 +37,7 @@ describe CommentsController, type: :controller do
   describe "PUT update" do
     let!(:request) { put :update, params }
 
-    context 'type valid value' do
+    context 'with type valid value' do
       let(:comment) { create(:comment) }
       let(:params) { { id: comment.id, comment: attributes_for(:comment) } }
 
@@ -56,7 +56,7 @@ describe CommentsController, type: :controller do
       end
     end
 
-    context 'type invalid value' do
+    context 'with type invalid value' do
       let(:comment) { create(:comment) }
       let(:params) { { id: comment.id, comment: attributes_for(:comment) } }
 
@@ -76,33 +76,32 @@ describe CommentsController, type: :controller do
   end
 
   describe "PATCH like" do
-    let(:comment) { create(:comment) }
+    context 'when first like' do
+      let(:comment) { create(:comment) }
 
-    it "should be success create like" do
-      expect { patch :like, id: comment.id }.to change{
-        Like.count
-      }.from(0).to(1)
+      it "should be success create like" do
+        expect { patch :like, id: comment.id }.to change{
+          Like.count
+        }.from(0).to(1)
+      end
+    end
+
+    context 'when existy like' do
+      let!(:like) { create(:like) }
+      before { allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(like.user) }
+
+      it "returns false" do
+        patch :like, id: like.comment.id
+        expect(Like.unscoped.last.liked).to eq(false)
+      end
     end
   end
 
-  describe "PATCH unlike" do
-    let!(:like) { create(:like) }
-
-    before do
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(like.user)
-      patch :unlike, id: like.comment.id
-    end
-
-    it "should be success unlike" do
-      expect(Like.unscoped.last.liked).to eq(false)
-    end
-  end
-
-  context 'should be increment number of activity count' do
+  describe "#create_activity" do
     let(:user) { create(:user) }
     let(:comment) { create(:comment) }
 
-    it 'should be success create_activity' do
+    it 'should be increment number of activity count' do
       expect { post :create, comment: comment.attributes }.to change {
         Activity.count
       }.from(0).to(1)
