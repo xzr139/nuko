@@ -7,25 +7,83 @@
 #submit-comment{
   height: 45px;
 }
+.mini-user-image-on-comment{
+  margin-left: 8px;
+}
 
 .comment-line{
-  border: 1px #ccc solid;
+  margin-top: 10px;
   padding: 2px;
   width: 850px;
+
+  .comment-detail{
+    .user-icon{
+      margin-top: 10px;
+      margin-left: 10px;
+      float: left;
+    }
+
+    .user-detail{
+      float: left;
+      margin-left: 13px;
+
+      .user-nick-name{
+      }
+      .number-of-contributions{
+        margin-top: 10px;
+        margin-right: 10px;
+        float: left;
+      }
+    }
+
+    li{
+      list-style: none;
+    }
+
+    .action{
+      text-align: right;
+    }
+  }
+
+  .comment-content{
+    border: 1px #ccc solid;
+    width: 95%;
+    padding-top: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: relative;
+  }
+
+  .comment-content:before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 23px;
+    margin-left: -10px;
+    width: 0;
+    height: 0;
+    border-bottom: 10px solid #ccc;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+  }
+
+  .comment-content:after {
+    content: "";
+    position: absolute;
+    top: -9px;
+    left: 23px;
+    margin-left: -10px;
+    width: 0;
+    height: 0;
+    border-bottom: 10px solid #fff;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+  }
+
+  .thank-button {
+  }
 }
 
 #comment-toggle{
   float: right;
 }
-
-.comment-content{
-  float: left;
-  margin-top: 7px;
-  margin-left: 10px;
-  margin-bottom: 10px;
-}
-
-.liked-bt{
-  background-color: #deb1c9;
-}
-

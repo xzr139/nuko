@@ -92,7 +92,7 @@ describe CommentsController, type: :controller do
 
       it "returns false" do
         patch :like, id: like.comment.id
-        expect(like.comment.likes.last.liked).to eq(false)
+        expect(Like.unscoped.last.liked).to eq(false)
       end
     end
   end

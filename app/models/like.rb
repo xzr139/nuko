@@ -16,6 +16,8 @@
 #
 
 class Like < ActiveRecord::Base
+  default_scope { where(liked: true) }
+
   belongs_to :comment
   belongs_to :user
   belongs_to :note
