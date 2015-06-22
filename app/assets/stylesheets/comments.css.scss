@@ -7,6 +7,9 @@
 #submit-comment{
   height: 45px;
 }
+.mini-user-image-on-comment{
+  margin-left: 8px;
+}
 
 .comment-line{
   margin-top: 10px;
@@ -44,12 +47,10 @@
 
   .comment-content{
     border: 1px #ccc solid;
-    width: 100%;
-    height: 100%;
-    padding-top: 10px;
+    width: 95%;
+    padding-top: 7px;
     padding-left: 10px;
     padding-right: 10px;
-    padding-bottom: 5px;
     position: relative;
   }
 
@@ -77,6 +78,9 @@
     border-bottom: 10px solid #fff;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
+  }
+
+  .thank-button {
   }
 }
 

@@ -4,5 +4,7 @@ translations:
       "*.validation.*",
       "*.notes.stock_this_note",
       "*.common.stocked",
-      "*.notes.tag_and_warning"
+      "*.notes.tag_and_warning",
+      "*.notes.show.thank",
+      "*.notes.show.thanked"
     ]

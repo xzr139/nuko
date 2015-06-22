@@ -69,6 +69,9 @@
 %p
   = "---広告---"
 - @note.comments.each do |comment|
+  .mini-user-image-on-comment
+    = link_to profile_path(@note.user) do
+      = image_tag @note.user.avatar.url, class: 'radius-of-image', size: "35x35"
   .comment-line.clearfix{ ng_controller: "CommentsController" }
     - if user_signed_in? && comment.user == current_user
       .toggeles#comment-toggle
@@ -82,11 +85,11 @@
               = link_to t('common.delete'), comment_path(comment), method: :delete
     .comment-content
       = simple_format(auto_link(comment.content))
-      - if user_signed_in?
-        - liked_flag = if comment.likes.exists?(user_id: current_user.id)
-          - comment.likes.find_by(user_id: current_user.id).liked
-    = link_to "javascript:void(0)", ng_click: "sendLike(#{comment.id})", class: "#{"liked-bt" if liked_flag}" do
-      = fa_icon "thumbs-up"
+  - if user_signed_in?
+    - liked_flag = comment.likes.exists?(user_id: current_user.id) ? comment.likes.find_by(user_id: current_user.id).liked : nil
+    .thank-button
+      = link_to "javascript:void(0)", ng_click: "sendLike(#{comment.id})", class: "#{"liked-bt" if liked_flag}" do
+        = fa_icon "thumbs-up"
 
 - if user_signed_in?
   - comment = current_page?(controller: "comments", action: 'edit') ? comment : @note.comments.build

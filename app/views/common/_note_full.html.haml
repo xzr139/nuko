@@ -78,7 +78,7 @@
           = comment.user.nick_name
         .number-of-contributions
           - number_of_contributions = comment.user.contributions
-          = number_of_contributions.to_s + " " + simple_pluralize(number_of_contributions, t("notes.show.contributions"))
+          = number_of_contributions.to_s + " " + simple_pluralize(number_of_contributions, t("notes.contributions"))
       .action
         .comment-like-bt
           - if user_signed_in?
