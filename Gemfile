@@ -49,6 +49,7 @@ group :development do
   gem "pry-doc"
   gem "pry-byebug"
   gem "pry-stack_explorer"
+  # gem "bullet" NOTE: If this is use, slowly responses
 end
 
 group :test do
@@ -64,7 +65,7 @@ end
 group :development, :test do
   gem "awesome_print"
   gem "rspec-rails"
-  gem "factory_girl_rails", require: false
+  gem "factory_girl_rails"
   gem "database_cleaner", github: "bmabey/database_cleaner"
   gem "better_errors"
   gem "binding_of_caller"
@@ -75,4 +76,5 @@ group :development, :test do
   gem "parallel_tests"
   gem "rubocop", require: false
   gem "letter_opener"
+  gem "quiet_assets"
 end

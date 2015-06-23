@@ -95,4 +95,8 @@ class User < ActiveRecord::Base
       where(conditions).first
     end
   end
+
+  def contributions
+    Stock.where(user_id: id).size
+  end
 end

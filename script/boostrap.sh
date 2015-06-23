@@ -38,7 +38,13 @@ fi
 
 # Update Homebrew formula
 echo "  + Updating Homebrew..."
-brew update
+
+if brew update; then
+  echo "  + Formulas was successfully updated."
+else
+  echo "  x Formulas was unsuccessfully updated."
+  exit 1
+fi
 
 #
 # Check for MySQL
@@ -55,18 +61,24 @@ fi
 #
 # Creating Guard config file
 #
-if [ ! -d ./Guardfile ]; then
+if [ -d ./Guardfile ]; then
+  echo "  + Guard config file 'Guardfile' found."
+else
   echo "  + Creating Guardfile"
   cp Guardfile.sample Guardfile
-else
-  echo "  + Guard config file 'Guardfile' found."
 fi
 
 #
 # Install Gems
 #
 echo "  + Installing gems."
-bundle install --quiet --jobs=4 --path=./vendor/bundle
+
+if bundle install --quiet --jobs=4 --path=./vendor/bundle; then
+  echo "  + Gems was successfully installed."
+else
+  echo "  x Gems was unsuccessfully installed."
+  exit 1
+fi
 
 #
 # Startup instructions

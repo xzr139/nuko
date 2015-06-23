@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe 'I18n', type: :request do
   context 'exist select language' do

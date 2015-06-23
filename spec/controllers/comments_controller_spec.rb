@@ -1,4 +1,4 @@
-require "spec_helper"
+require 'rails_helper'
 
 describe CommentsController, type: :controller do
   describe "POST #create" do
@@ -27,7 +27,7 @@ describe CommentsController, type: :controller do
   context "when delete comment" do
     let!(:comment) { create(:comment) }
 
-    it "" do
+    it "has been created" do
       expect { delete :destroy, id: comment.id }.to change{
         Comment.count
       }.from(1).to(0)
@@ -93,7 +93,7 @@ describe CommentsController, type: :controller do
 
       it "has been updated like" do
         patch :like, id: like.comment.id
-        expect(Like.last.liked).to eq(false)
+        expect(Like.unscoped.last.liked).to eq(false)
       end
     end
   end
