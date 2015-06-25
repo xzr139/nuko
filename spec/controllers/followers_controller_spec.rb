@@ -1,29 +1,29 @@
 require 'rails_helper'
 
 describe FollowersController, type: :controller do
-  describe 'PATCH update' do
+  describe 'PATCH #update' do
     let(:user) { create(:user) }
 
-    context 'with type valid value' do
+    context 'when type valid value' do
       let!(:follow_activities) { create(:follow_activities) }
 
       before { patch :update, user_id: user.id }
 
-      it 'should be blank' do
+      it 'has no erorr' do
         expect(response.body).to be_blank
       end
 
-      it 'is in agreement with what note to edit chose' do
+      it 'same follow as a FollowActivity last value' do
         expect(assigns(:follow)).to eq(FollowActivity.last)
       end
 
-      it 'should be no error' do
+      it 'has no error' do
         expect(assigns(:follow).errors).to be_empty
       end
     end
 
     describe "#create_activity" do
-      it 'should update followed' do
+      it 'has been incremented FollowActivity' do
         expect { patch :update, user_id: user.id }.to change {
           FollowActivity.count
         }.from(0).to(1)
@@ -38,16 +38,16 @@ describe FollowersController, type: :controller do
         patch :update, user_id: user.id
       end
 
-      it 'should be not blank' do
+      it 'has no erorr' do
         expect(response.body).to be_blank
       end
 
-      it 'should be no error' do
+      it 'has no error' do
         expect(assigns(:follow).errors).to be_empty
       end
     end
 
-    describe 'PATCH update' do
+    describe 'PATCH #update' do
       let!(:follow_activities) { create(:follow_activities, followed: true) }
       let!(:followers) { create(:follow, user: follow_activities.user, target_id: User.last.id) }
 
@@ -56,7 +56,7 @@ describe FollowersController, type: :controller do
         patch :update, user_id: User.last.id
       end
 
-      it 'should update followed' do
+      it 'has been updated @follow' do
         expect(assigns[:follow].followed).to eq(false)
       end
     end

@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 describe CommentsController, type: :controller do
-  describe "POST create" do
+  describe "POST #create" do
     let(:note) { create(:note) }
     let(:ids_hash) { { user_id: note.user.id,   note_id: note.id } }
 
-    it "should be success create" do
+    it "has been incremented Comment" do
       expect { post :create, comment: attributes_for(:comment).merge(ids_hash) }.to change {
         Comment.count
       }.from(0).to(1)
@@ -17,7 +17,7 @@ describe CommentsController, type: :controller do
       expect(assigns(:comment)).to be_a_new(Comment)
     end
 
-    it "re-render the 'new' template" do
+    it "returns redirect to url" do
       allow_any_instance_of(Comment).to receive(:save).and_return(false)
       post :create, comment: attributes_for(:note).merge(ids_hash)
       expect(response).to redirect_to(Note.last)
@@ -27,23 +27,23 @@ describe CommentsController, type: :controller do
   context "when delete comment" do
     let!(:comment) { create(:comment) }
 
-    it "should be success delete" do
+    it "has been created" do
       expect { delete :destroy, id: comment.id }.to change{
         Comment.count
       }.from(1).to(0)
     end
   end
 
-  describe "PUT update" do
+  describe "PUT #update" do
     let!(:request) { put :update, params }
 
-    context 'with type valid value' do
+    context 'when type valid value' do
       let(:comment) { create(:comment) }
       let(:params) { { id: comment.id, comment: attributes_for(:comment) } }
 
       before { request }
 
-      it 'should be sccess' do
+      it 'returns redirect to' do
         expect(response).to redirect_to(Note.last)
       end
 
@@ -51,12 +51,12 @@ describe CommentsController, type: :controller do
         expect(assigns(:comment)).to eq(comment)
       end
 
-      it 'should be no error' do
+      it 'has no erorr' do
         expect(assigns(:comment).errors).to be_empty
       end
     end
 
-    context 'with type invalid value' do
+    context 'when type invalid value' do
       let(:comment) { create(:comment) }
       let(:params) { { id: comment.id, comment: attributes_for(:comment) } }
 
@@ -65,17 +65,18 @@ describe CommentsController, type: :controller do
         request
       end
 
-      it 'should be success and render edit' do
+      it 'returns redirect to url' do
         expect(response).to redirect_to(Note.last)
       end
 
-      it 'is in agreement with what note to edit chose' do
+      it 'returns same comment as a value' do
         expect(assigns(:comment)).to eq(comment)
       end
     end
   end
 
-  describe "PATCH like" do
+  describe "PATCH #like" do
+    let(:comment) { create(:comment) }
     context 'when first like' do
       let(:comment) { create(:comment) }
 
@@ -90,7 +91,7 @@ describe CommentsController, type: :controller do
       let!(:like) { create(:like) }
       before { allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(like.user) }
 
-      it "returns false" do
+      it "has been updated like" do
         patch :like, id: like.comment.id
         expect(Like.unscoped.last.liked).to eq(false)
       end
@@ -101,7 +102,7 @@ describe CommentsController, type: :controller do
     let(:user) { create(:user) }
     let(:comment) { create(:comment) }
 
-    it 'should be increment number of activity count' do
+    it 'has been incremented Activity' do
       expect { post :create, comment: comment.attributes }.to change {
         Activity.count
       }.from(0).to(1)

@@ -22,11 +22,11 @@ describe Note, type: :model do
   let(:note) { create(:note) }
   let(:user) { User.last }
 
-  it "should return false, because none stock" do
+  it "returns false, because none stock" do
     expect(note.stocked_by?(user)).to eq(false)
   end
 
-  it "should return true, because exist stock" do
+  it "returns true, because exist stock" do
     note.user.stocks.build(note_id: note.id, stocked: true).save
     expect(note.stocked_by?(user)).to eq(true)
   end
