@@ -8,7 +8,7 @@
 #  reset_password_token   :string(255)
 #  reset_password_sent_at :datetime
 #  remember_created_at    :datetime
-#  sign_in_count          :integer          default("0"), not null
+#  sign_in_count          :integer          default(0), not null
 #  current_sign_in_at     :datetime
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string(255)
@@ -20,7 +20,7 @@
 #  company                :string(255)
 #  bio                    :text(65535)
 #  language               :string(255)
-#  show_company           :boolean          default("0")
+#  show_company           :boolean          default(FALSE)
 #  created_at             :datetime
 #  updated_at             :datetime
 #  avatar_file_name       :string(255)
