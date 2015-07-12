@@ -9,9 +9,7 @@ build:
               version: 2.2.0
 
         - bundle-install
-
-        - rails-database-yml:
-            service: mysql
+        - rails-database-yml
 
         - script:
             name: echo ruby information
