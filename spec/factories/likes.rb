@@ -6,7 +6,7 @@
 #  note_id    :integer          not null
 #  comment_id :integer          not null
 #  user_id    :integer          not null
-#  liked      :boolean          default("0")
+#  liked      :boolean          default(FALSE)
 #  created_at :datetime
 #  updated_at :datetime
 #

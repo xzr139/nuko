@@ -9,7 +9,7 @@
 #  created_at     :datetime
 #  updated_at     :datetime
 #  deleted_at     :datetime
-#  comments_count :integer          default("0"), not null
+#  comments_count :integer          default(0), not null
 #
 # Indexes
 #
