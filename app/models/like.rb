@@ -1,26 +1,28 @@
 # == Schema Information
 #
-# Table name: stocks
+# Table name: likes
 #
 #  id         :integer          not null, primary key
 #  note_id    :integer          not null
+#  comment_id :integer          not null
 #  user_id    :integer          not null
-#  stocked    :boolean          default(FALSE)
+#  liked      :boolean          default(FALSE)
 #  created_at :datetime
 #  updated_at :datetime
 #
 # Indexes
 #
-#  index_stocks_on_note_id  (note_id)
-#  index_stocks_on_user_id  (user_id)
+#  index_likes_on_note_id_and_comment_id_and_user_id  (note_id,comment_id,user_id)
 #
 
-class Stock < ActiveRecord::Base
-  include PublicActivity::Model
+class Like < ActiveRecord::Base
+  default_scope { where(liked: true) }
 
+  belongs_to :comment
   belongs_to :user
   belongs_to :note
 
   validates :note_id, presence: true
+  validates :comment_id, presence: true
   validates :user_id, presence: true
 end

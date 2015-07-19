@@ -13,7 +13,7 @@
 #  recipient_type :string(255)
 #  created_at     :datetime
 #  updated_at     :datetime
-#  unread         :boolean          default("1")
+#  unread         :boolean          default(TRUE)
 #
 # Indexes
 #
