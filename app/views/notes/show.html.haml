@@ -85,11 +85,6 @@
               = link_to t('common.delete'), comment_path(comment), method: :delete
     .comment-content
       = simple_format(auto_link(comment.content))
-  - if user_signed_in?
-    - liked_flag = comment.likes.exists?(user_id: current_user.id) ? comment.likes.find_by(user_id: current_user.id).liked : nil
-    .thank-button
-      = link_to "javascript:void(0)", ng_click: "sendLike(#{comment.id})", class: "#{"liked-bt" if liked_flag}" do
-        = fa_icon "thumbs-up"
 
 - if user_signed_in?
   - comment = current_page?(controller: "comments", action: 'edit') ? comment : @note.comments.build

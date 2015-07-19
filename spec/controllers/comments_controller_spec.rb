@@ -75,29 +75,6 @@ describe CommentsController, type: :controller do
     end
   end
 
-  describe "PATCH #like" do
-    let(:comment) { create(:comment) }
-    context 'when first like' do
-      let(:comment) { create(:comment) }
-
-      it "should be success create like" do
-        expect { patch :like, id: comment.id }.to change{
-          Like.count
-        }.from(0).to(1)
-      end
-    end
-
-    context 'when existy like' do
-      let!(:like) { create(:like) }
-      before { allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(like.user) }
-
-      it "has been updated like" do
-        patch :like, id: like.comment.id
-        expect(Like.unscoped.last.liked).to eq(false)
-      end
-    end
-  end
-
   describe "#create_activity" do
     let(:user) { create(:user) }
     let(:comment) { create(:comment) }

@@ -28,13 +28,7 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :comments, only: [:edit, :update, :destroy, :create], shallow: true do
-      member do
-        patch 'like'
-        patch 'unlike'
-      end
-    end
-
+    resources :comments, only: [:edit, :update, :destroy, :create], shallow: true
     resources :notes, shallow: true do
       collection do
         get 'public'

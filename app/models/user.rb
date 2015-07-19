@@ -53,7 +53,6 @@ class User < ActiveRecord::Base
   has_many :notes
   has_many :stocks
   has_many :comments
-  has_many :likes
   has_many :follow_activities
   has_many :followers
 
