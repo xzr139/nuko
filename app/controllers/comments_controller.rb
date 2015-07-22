@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:edit, :update, :destroy, :like, :unlike]
+  before_action :set_comment, only: [:edit, :update, :destroy]
   before_action :set_note, only: [:edit]
   before_action :check_user, only: [:edit]
 
@@ -45,33 +45,6 @@ class CommentsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to note_path(@comment.note), notice: t("comments.deleted") }
       format.json { head :no_content }
-    end
-  end
-
-  def like
-    like = @comment.likes.find_by(user_id: current_user.id, comment_id: params[:id])
-
-    flag =
-      if like.present? && like.liked
-        like.update(liked: false)
-      elsif like.present? && like.liked.blank?
-        like.update(liked: true)
-      else
-        @comment.likes.create(
-          user_id: current_user.id,
-          note_id: @comment.note.id,
-          liked: true
-        )
-      end
-
-    respond_to do |format|
-      if flag
-        format.html { render nothing: true }
-        format.json { render :show, status: :ok, location: @comment }
-      else
-        format.html { render nothing: true }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
-      end
     end
   end
 

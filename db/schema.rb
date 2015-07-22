@@ -71,17 +71,6 @@ ActiveRecord::Schema.define(version: 20150315060837) do
     t.datetime "updated_at",                                 null: false
   end
 
-  create_table "likes", force: :cascade do |t|
-    t.integer  "note_id",    limit: 4,                 null: false
-    t.integer  "comment_id", limit: 4,                 null: false
-    t.integer  "user_id",    limit: 4,                 null: false
-    t.boolean  "liked",      limit: 1, default: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "likes", ["note_id", "comment_id", "user_id"], name: "index_likes_on_note_id_and_comment_id_and_user_id", using: :btree
-
   create_table "notes", force: :cascade do |t|
     t.string   "title",          limit: 255
     t.text     "content",        limit: 65535
