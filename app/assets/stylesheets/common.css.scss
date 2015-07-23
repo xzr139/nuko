@@ -75,6 +75,44 @@
       }
    }
   }
+
+  .see-all-text{
+    margin-bottom: 10px;
+    margin-left: 20px;
+  }
+}
+
+.block-small-note{
+  width: 45%;
+  border: 1px #ccc solid;
+  border-bottom-style: none;
+  border-right-style: none;
+  border-left-style: none;
+  .detail{
+    .btn.btn-primary.stock-button.stock-bt{
+      float: right;
+    }
+    .information{
+      margin-top: 16px;
+      height: 30px;
+      float: left;
+
+      .title{
+        font-size: 20px;
+      }
+      .time-ago-and-edit{
+        font-size: 14px;
+      }
+      .notice-message{
+        margin-top: 20px;
+      }
+   }
+  }
+
+  .see-all-text{
+    margin-bottom: 10px;
+    margin-left: 20px;
+  }
 }
 
 .profile-image{
@@ -92,11 +130,6 @@
 
 .toggeles{
   float: right;
-}
-
-.see-all-text{
-  margin-bottom: 10px;
-  margin-left: 20px;
 }
 
 .tag-header{

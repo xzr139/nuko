@@ -1,4 +1,4 @@
-.block
+.block-small-note
   - if user_signed_in? && note.my_note?
     .toggeles
       .btn-group
@@ -27,8 +27,6 @@
       %abbr.timeago{ title: note.created_at.getutc.iso8601 }
         = note.created_at.to_s
       = link_to t('users.created_by', nick_name: note.user_nick_name), profile_path(note.user)
-  .content
-    = simple_format(truncate auto_link(note.content), length: 100, omission: "-----")
   .min-box.clearfix
     .number-of-comment
       - number_of_comment = note.comments.size
@@ -36,9 +34,9 @@
     .number-of-stock
       - number_of_stock = note.stocks.where(stocked: true).size
       = simple_pluralize(number_of_stock, t("stocks.number_of_stock", number_of_stocks: number_of_stock))
-  - unless note.only_page?
-    = link_to note_path(note) do
-      .see-all-text
-        = t("users.index.continue_reading")
+    - unless note.only_page?
+      = link_to note_path(note) do
+        .see-all-text
+          = t("users.index.continue_reading")
   - if note.only_page?
     = render "common/comments", note: note, comment: comment
