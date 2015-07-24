@@ -10,6 +10,7 @@
 #  updated_at     :datetime
 #  deleted_at     :datetime
 #  comments_count :integer          default(0), not null
+#  stock_count    :integer          default(0)
 #
 # Indexes
 #
