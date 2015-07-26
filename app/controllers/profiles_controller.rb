@@ -7,6 +7,7 @@ class ProfilesController < ApplicationController
 
   def show
     @notes = @user.notes.present? ? @user.notes.page(params[:page]).per(10).order(id: :desc) : []
+    @popular_notes = @user.notes.order(stock_count: :desc).limit(5)
 
     respond_to do |format|
       format.html

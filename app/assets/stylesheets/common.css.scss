@@ -81,37 +81,75 @@
     margin-left: 20px;
   }
 }
+.notes-block-profile{
+  width: 420px;
+  display: inline-block;
+  vertical-align: top;
 
-.block-small-note{
-  width: 45%;
-  border: 1px #ccc solid;
-  border-bottom-style: none;
-  border-right-style: none;
-  border-left-style: none;
-  .detail{
-    .btn.btn-primary.stock-button.stock-bt{
-      float: right;
+  .block-small-note{
+    width: 100%;
+    float: left;
+    border: 1px #ccc solid;
+    border-bottom-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    .detail{
+      .btn.btn-primary.stock-button.stock-bt{
+        float: right;
+      }
+      .information{
+        margin-top: 16px;
+        height: 30px;
+        float: left;
+
+        .title{
+          font-size: 20px;
+        }
+        .time-ago-and-edit{
+          font-size: 14px;
+        }
+        .notice-message{
+          margin-top: 20px;
+        }
+      }
     }
-    .information{
-      margin-top: 16px;
-      height: 30px;
-      float: left;
 
-      .title{
-        font-size: 20px;
-      }
-      .time-ago-and-edit{
-        font-size: 14px;
-      }
-      .notice-message{
-        margin-top: 20px;
-      }
-   }
+    .see-all-text{
+      margin-bottom: 10px;
+      margin-left: 20px;
+    }
   }
+}
 
-  .see-all-text{
-    margin-bottom: 10px;
-    margin-left: 20px;
+.popular-notes-profile{
+  margin-top: -20px;
+  display: inline-block;
+  width: 470px;
+  float: right;
+
+  .block-small-note{
+    border: 1px #ccc solid;
+    border-bottom-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    width: 100%;
+    height: 100px;
+
+    .detail{
+      .btn.btn-primary.stock-button.stock-bt{
+        float: right;
+      }
+      .information{
+        margin-top: 5px;
+
+        .title{
+          font-size: 20px;
+        }
+        .time-ago-and-edit{
+          font-size: 14px;
+        }
+      }
+    }
   }
 }
 
