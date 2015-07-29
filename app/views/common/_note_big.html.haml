@@ -14,7 +14,7 @@
       = link_to profile_path(note.user) do
         = image_tag note.user.avatar.url, class: 'radius-of-image', size: "47x47"
     - if user_signed_in?
-      .btn.btn-primary.stock-button.stock-bt{ data: { note_id: note.id, user_id: note.user.id, stocked: note.stocked_by?(current_user).to_s } }
+      .btn.btn-primary.stock-button.stock-bt{ data: { note_id: note.id, user_id: note.user.id } }
         - stocked_message = note.stocked_by?(current_user) ? t('common.stocked') : t('notes.stock_this_note')
         = stocked_message
     .information
