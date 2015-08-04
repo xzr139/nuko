@@ -4,10 +4,10 @@ class ProfilesController < ApplicationController
   before_action :set_notes, only: [:show, :tag, :stocks]
   before_action :set_ranking, only: [:show, :tag, :stocks]
   before_action :set_followers, only: [:show, :tag, :stocks]
+  before_action :set_popular, only: [:show, :tag, :stocks]
 
   def show
     @notes = @user.notes.present? ? @user.notes.page(params[:page]).per(10).order(id: :desc) : []
-    @popular_notes = @user.notes.order(stock_count: :desc).limit(5)
 
     respond_to do |format|
       format.html
@@ -96,5 +96,9 @@ class ProfilesController < ApplicationController
 
   def set_followers
     @followers = @user.followers
+  end
+
+  def set_popular
+    @popular_notes = @user.notes.order(stock_count: :desc).limit(5)
   end
 end
