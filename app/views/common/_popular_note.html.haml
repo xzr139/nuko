@@ -1,0 +1,16 @@
+.block-small-note
+  .detail.clearfix
+    .profile-image.pull-left
+      = link_to profile_path(note.user) do
+        = image_tag note.user.avatar.url, class: 'radius-of-image', size: "47x47"
+    .information
+      = link_to note_path(note) do
+        .title
+          = note.title
+      .tags
+        = t('notes.tag_list')
+        - note.tag_list.split.first.each do |name|
+          = link_to name, tag_path(name: name)
+      %abbr.timeago{ title: note.created_at.getutc.iso8601 }
+        = note.created_at.to_s
+      = link_to t('users.created_by', nick_name: note.user_nick_name), profile_path(note.user)

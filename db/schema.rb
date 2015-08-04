@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150315060837) do
+ActiveRecord::Schema.define(version: 20150724191507) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "trackable_id",   limit: 4
@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 20150315060837) do
     t.datetime "updated_at"
     t.datetime "deleted_at"
     t.integer  "comments_count", limit: 4,     default: 0, null: false
+    t.integer  "stock_count",    limit: 4,     default: 0
   end
 
   add_index "notes", ["user_id"], name: "index_notes_on_user_id", using: :btree

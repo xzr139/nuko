@@ -1,5 +1,3 @@
-- @notes.each do |note|
-  = render 'common/note_big', note: note, comment: @comment
-
-#navigation
-  = paginate @notes if @notes.present?
+.notes-block-profile
+  - @notes.each do |note|
+    = render 'common/note_big', note: note, comment: @comment
