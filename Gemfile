@@ -59,7 +59,7 @@ group :test do
   gem "poltergeist"
   gem "json_spec"
   gem "simplecov", require: false
-  gem 'test-queue'
+  # gem 'test-queue'
 end
 
 group :development, :test do
