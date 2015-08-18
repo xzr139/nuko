@@ -23,4 +23,15 @@ class Stock < ActiveRecord::Base
 
   validates :note_id, presence: true
   validates :user_id, presence: true
+
+  after_create :increment_stock_count
+  after_update :update_stock_count
+
+  def increment_stock_count
+    note.update(stock_count: note.stock_count + 1)
+  end
+
+  def update_stock_count
+    note.update(stock_count: note.stock_count - 1) unless stocked
+  end
 end

@@ -96,6 +96,8 @@ ja:
   searches:
     search: 検索
     result_message: "%{word}の検索結果"
+  profiles:
+    ranking_of_popular: 人気の投稿
   validation:
     required_password: "パスワードを入力してください"
     required_nick_name: "ニックネームが入力されていません"

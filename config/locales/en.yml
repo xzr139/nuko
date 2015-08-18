@@ -96,6 +96,8 @@ en:
   searches:
     search: search
     result_message: "Search result for %{word}"
+  profiles:
+    ranking_of_popular: Ranking of popular
   validation:
     required_password: Please enter your password
     required_nick_name: Please enter your nick name

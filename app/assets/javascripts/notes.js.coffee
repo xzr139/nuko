@@ -1,5 +1,5 @@
 createStock = (current) ->
-  stocked = $(current).text().replace(/\s+/g,  "") == I18n.t('common.stocked') && $(current).attr('data-stocked') == 'true'
+  stocked = $(current).text().replace(/\s+/g,  "") == I18n.t('common.stocked')
 
   $.ajax
     url: "/stocks"

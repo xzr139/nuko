@@ -1,0 +1,4 @@
+.popular-notes-profile
+  %h3= t('profiles.ranking_of_popular')
+  - @popular_notes.each do |note|
+    = render 'common/popular_note', note: note
