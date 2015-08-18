@@ -12,9 +12,6 @@ class MyAppTestRunner < TestQueue::Runner::RSpec
     ActiveRecord::Base.configurations["test"]["database"] << ENV["TEST_ENV_NUMBER"]
     ActiveRecord::Tasks::DatabaseTasks.create_current
     ActiveRecord::Base.establish_connection(:test)
-
-    Rails.application.load_tasks
-    Rake::Task["db:reset"].invoke
   end
 end
 
