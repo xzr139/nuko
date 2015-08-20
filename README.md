@@ -152,14 +152,14 @@ git clone git@github.com:sachin21/nuko.git
 cd nuko
 ```
 
-## projectの依存gemのインストール
+## Projectの依存gemのインストール
 
 ```
-bundle install --path=./vendor/bundle -j4
+bundle install --path=./vendor/bundle -j8
 ```
 
 vendor/bundle以下にgemをインストール
-`-j4`オプションをつけると早くインストール出来ます
+`-j8`オプションをつけると早くインストール出来ます
 
 ### あるあるのnokogiriエラーの対処方法
 
@@ -169,13 +169,11 @@ bundle config build.nokogiri --use-system-libraries
 
 でおｋ
 
-## データベース作成
+## Projectの準備
+一括でプロジェクトの準備してくれるscriptです。
 
 ```
-./bin/rake db:create
-./bin/rake parallel:create
-./bin/rake db:migrate
-./bin/rake parallel:prepare
+./script/bootstrap.sh
 ```
 
 ## Project起動
@@ -189,15 +187,13 @@ bundle config build.nokogiri --use-system-libraries
 ### How to run the spec
 
 ```
-bundle exec parallel_test -t rspec spec/ -n 3                      # run all specs too
-bundle exec parallel_test -t rspec spec/controllers  -n 3 # run specs under spec/controllers
+./bin/test-queue spec
 ```
 
 単一でのテスト実行.
 
 ```
-bundle exec parallel_test -t rspec spec/controllers/notes_controller_spec.rb -n 3    # run only this spec
-bundle exec parallel_test -t rspec spec/controllers/notes_controller_spec.rb:88  -n 3 # run only this spec's 88 line example
+./bin/rspec spec/controllers/notes_controller_spec.rb:88  -n 3 # run only this spec's 88 line example
 ```
 
 という感じにしてコマンドを生成しましょう。
