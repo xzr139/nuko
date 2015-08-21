@@ -7,7 +7,7 @@
 nukoでは以下のversionを使用しています。
 
 ```
-ruby 2.2.0p0 (2014-12-25 revision 49005) [x86_64-darwin13]
+ruby 2.2.2p95 (2015-04-13 revision 50295) [x86_64-darwin14]
 Rails 4.2.0
 ```
 
@@ -93,7 +93,7 @@ exec $SHELL
 brewでインストールしたreadlineとopensslを使うprefixのoptionを追加します
 
 ```
-$ RUBY_CONFIGURE_OPTS="--enable-shared --with-readline-dir=$(brew --prefix readline) --with-openssl-dir=$(brew --prefix openssl)" rbenv install 2.2.0
+$ RUBY_CONFIGURE_OPTS="--enable-shared --with-readline-dir=$(brew --prefix readline) --with-openssl-dir=$(brew --prefix openssl)" rbenv install 2.2.2
 ```
 
 最後のバージョン指定の所をプロジェクトで使っているバージョンに置換してください
@@ -108,7 +108,7 @@ gemなどをインストールして、終わったら必ず上記のコマン�
 
 ### rubyの切り替え
 ```
-rbenv global 2.2.0
+rbenv global 2.2.2
 rbenv rehash
 ```
 
