@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "2.2.0"
+ruby "2.2.2"
 
 gem "rails", "4.2.0"
 gem "mysql2"
@@ -59,7 +59,7 @@ group :test do
   gem "poltergeist"
   gem "json_spec"
   gem "simplecov", require: false
-  # gem 'test-queue'
+  gem 'test-queue'
 end
 
 group :development, :test do
