@@ -1,15 +1,12 @@
 RSpec.configure do |config|
   config.before(:suite) do
-    load Rails.root.join('db', 'seeds.rb')
     DatabaseCleaner.clean_with(:truncation, except: %w(languages))
     DatabaseCleaner.strategy = :transaction
   end
 
-  config.before(:each) do
-    DatabaseCleaner.start
-  end
-
-  config.after(:each) do
-    DatabaseCleaner.clean
+  config.around(:each) do |example|
+    DatabaseCleaner.cleaning do
+      example.run
+    end
   end
 end
