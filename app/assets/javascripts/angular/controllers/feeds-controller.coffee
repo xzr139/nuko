@@ -1,7 +1,7 @@
 'use strict'
 
 app.controller 'FeedsController', ['$scope', ($scope) ->
-  if Boolean(location.pathname.match(/public/g))
+  if /public/.test(location.pathname)
     $scope.publicSelected = true
   else
     $scope.feedSelected = true
