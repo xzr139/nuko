@@ -179,7 +179,7 @@ bundle config build.nokogiri --use-system-libraries
 ## Project起動
 
 ```
-./bin/rails s puma
+./bin/rails s
 ```
 
 `http://localhost:3000`でnukoが開けます
