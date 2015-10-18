@@ -27,7 +27,7 @@ https://developer.apple.com/downloads/index.action?name=for%20Xcode%20-
 brewのインストールに使うrubyのバージョンはなんでもいいので以下をコピーしてください
 
 ```
-ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 echo "export PATH=/usr/local/bin:$PATH" >> .bashrc # or .zshrc
 exec $SHELL
 which brew # ちゃんと入ってるか確認
