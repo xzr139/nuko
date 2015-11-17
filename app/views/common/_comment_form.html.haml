@@ -1,6 +1,6 @@
 = form_for comment do |f|
   .clearfix
-    = f.text_area :content, placeholder: t("comments.comment"), class: 'form-control'
+    = f.text_area :content, placeholder: t("comments.comment"), class: 'form-control', required: true
     = f.hidden_field :user_id, value: current_user.id
     = f.hidden_field :note_id, value: comment.note.id
 

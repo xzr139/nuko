@@ -103,7 +103,7 @@ en:
     required_nick_name: Please enter your nick name
     required_title: Please enter note title
     required_tag_list: Please enter tag list
-    required_content: Please enter title
+    required_content: Please enter content
     max_length: Please enter no more than %{limit} characters
     min_length: Please enter at least %{limit} characters
     equal_to: Please enter the same value again

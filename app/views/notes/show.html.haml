@@ -72,7 +72,7 @@
   .mini-user-image-on-comment
     = link_to profile_path(@note.user) do
       = image_tag @note.user.avatar.url, class: 'radius-of-image', size: "35x35"
-  .comment-line.clearfix{ ng_controller: "CommentsController" }
+  .comment-line.clearfix
     - if user_signed_in? && comment.user == current_user
       .toggeles#comment-toggle
         .btn-group
@@ -88,12 +88,14 @@
 
 - if user_signed_in?
   - comment = current_page?(controller: "comments", action: 'edit') ? comment : @note.comments.build
-  = form_for comment do |f|
+  = form_for comment, html: { name: 'new_comment' } do |f|
     .clearfix
-      = f.text_area :content, placeholder: t("comments.comment"), class: 'form-control'
+      = f.text_area :content, placeholder: t("comments.comment"), class: 'form-control', required: true, ng_model: 'content'
       = f.hidden_field :user_id, value: current_user.id
       = f.hidden_field :note_id, value: comment.note.id
 
-      = f.submit t('common.post'), class: "btn btn-primary", id: "submit-comment"
+      = f.submit t('common.post'), class: "btn btn-primary", id: "submit-comment", ng_disabled: "content === undefined"
+    %span{ ng_show: "new_comment['comment[content]'].$dirty && new_comment['comment[content]'].$invalid", class: "red"}
+      %span{ ng_show: "new_comment['comment[content]'].$error.required" }= t('validation.required_content')
 
 = link_to "Back", notes_path
