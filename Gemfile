@@ -81,6 +81,7 @@ group :development do
   gem "pry-doc"
   gem "pry-byebug"
   gem "pry-stack_explorer"
+  gem "pry-remote"
 end
 
 group :test do
