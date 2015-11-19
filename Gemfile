@@ -79,7 +79,7 @@ group :development do
   # PRY utilities
   gem "pry-rails"
   gem "pry-doc"
-  gem "pry-byebug"
+  gem 'pry-byebug', '1.3.3'
   gem "pry-stack_explorer"
   gem "pry-remote"
 end
