@@ -3,24 +3,30 @@ require 'rails_helper'
 describe CommentsController, type: :controller do
   describe "POST #create" do
     let(:note) { create(:note) }
-    let(:ids_hash) { { user_id: note.user.id,   note_id: note.id } }
+    let(:ids_hash) { { user_id: note.user.id, note_id: note.id } }
 
-    it "has been incremented Comment" do
-      expect { post :create, comment: attributes_for(:comment).merge(ids_hash) }.to change {
-        Comment.count
-      }.from(0).to(1)
+    context "when creation is succeeded" do
+      it "has been incremented Comment" do
+        expect { post :create, comment: attributes_for(:comment).merge(ids_hash) }.to change {
+          Comment.count
+        }.from(0).to(1)
+      end
     end
 
-    it "assigns a newly created but unsaved note as @note" do
-      allow_any_instance_of(Comment).to receive(:save).and_return(false)
-      post :create, comment: attributes_for(:note).merge(ids_hash)
-      expect(assigns(:comment)).to be_a_new(Comment)
-    end
+    context "when creation is failed" do
+      before do
+        post :create, comment: attributes_for(:note)
+          .update(content: 'content' * 300)
+          .merge(ids_hash)
+      end
 
-    it "returns redirect to url" do
-      allow_any_instance_of(Comment).to receive(:save).and_return(false)
-      post :create, comment: attributes_for(:note).merge(ids_hash)
-      expect(response).to redirect_to(Note.last)
+      it "assigns a newly created but unsaved note as @note" do
+        expect(assigns(:comment)).to be_a_new(Comment)
+      end
+
+      it "returns redirect to url" do
+        expect(response).to redirect_to(Note.last)
+      end
     end
   end
 
