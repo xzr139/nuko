@@ -91,8 +91,11 @@ describe NotesController, type: :controller do
 
       before { request }
 
-      it 'returns render_template' do
+      it 'returns status with 200' do
         expect(response.status).to eq(200)
+      end
+
+      it 'returns render_template' do
         expect(response).to render_template('edit')
       end
 
