@@ -25,10 +25,7 @@ describe NotesController, type: :controller do
 
   describe "GET #show" do
     let(:note) { create(:note) }
-
-    before do
-      get :show, id: note.to_param
-    end
+    before { get :show, id: note.to_param }
 
     it "returns selected id" do
       expect(assigns[:note]).to eq(Note.last)
@@ -53,16 +50,13 @@ describe NotesController, type: :controller do
 
     context "when invalid params" do
       let(:user) { create(:user) }
-
-      before { allow_any_instance_of(Note).to receive(:save).and_return(false) }
+      before { post :create, note: attributes_for(:note).except(:title) }
 
       it "returns a new note instance" do
-        post :create, note: attributes_for(:note)
         expect(assigns(:note)).to be_a_new(Note)
       end
 
       it "returns redirect" do
-        post :create, note: attributes_for(:note)
         expect(response).to render_template("index")
       end
     end
@@ -92,13 +86,16 @@ describe NotesController, type: :controller do
 
     context 'when invalid value' do
       let(:note) { create(:note) }
-      let(:title) { 'タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトル' }
+      let(:title) { 'title' * 100 }
       let(:params) { { id: note.id, note: attributes_for(:note, title: title) } }
 
       before { request }
 
-      it 'returns render_template' do
+      it 'returns status with 200' do
         expect(response.status).to eq(200)
+      end
+
+      it 'returns rendered template' do
         expect(response).to render_template('edit')
       end
 

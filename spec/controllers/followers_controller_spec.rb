@@ -30,13 +30,9 @@ describe FollowersController, type: :controller do
       end
     end
 
-    context 'when exist the follower' do
+    context 'when exists the follower' do
       let(:user) { create(:user) }
-
-      before do
-        allow_any_instance_of(FollowActivity).to receive(:exists?).and_return(true)
-        patch :update, user_id: user.id
-      end
+      before { patch :update, user_id: user.id }
 
       it 'has no erorr' do
         expect(response.body).to be_blank

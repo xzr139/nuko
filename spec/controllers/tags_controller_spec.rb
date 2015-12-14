@@ -37,11 +37,8 @@ describe TagsController, type: :controller do
       end
     end
 
-    context 'when exist follow' do
-      before do
-        allow_any_instance_of(FollowActivity).to receive(:exists?).and_return(true)
-        patch :follow, id: tag.id, target_id: tag.id
-      end
+    context 'when exists follow' do
+      before { patch :follow, id: tag.id, target_id: tag.id }
 
       it 'has no error' do
         expect(response.body).to be_blank

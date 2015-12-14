@@ -1,9 +1,7 @@
 require 'rails_helper'
 
 describe ApplicationHelper do
-  before do
-    I18n.locale = "en"
-  end
+  before { I18n.locale = "en" }
 
   it "returns word of plural" do
     expect(helper.simple_pluralize(0, "comment")).to eql("comments")
