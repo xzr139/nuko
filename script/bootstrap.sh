@@ -59,7 +59,7 @@ else
 fi
 
 #
-# Creating Guard config file
+# Copy Guard config file from Guardfile.sample
 #
 if [ -d ./Guardfile ]; then
   echo "  + Guard config file 'Guardfile' found."
