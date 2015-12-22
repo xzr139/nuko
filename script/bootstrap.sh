@@ -17,7 +17,7 @@ echo ""
 #
 # Check for Bundler
 #
-if type bundle > /dev/null 2>&1; then
+if type bundle &> /dev/null; then
   echo "  + Bundler found."
 else
   echo "  x You need to install Bundler:"
@@ -28,7 +28,7 @@ fi
 #
 # Check for Homebrew
 #
-if type brew > /dev/null 2>&1; then
+if type brew &> /dev/null; then
   echo "  + Homebrew found."
 else
   echo "  x You need to install Homebrew:"
@@ -49,7 +49,7 @@ fi
 #
 # Check for MySQL
 #
-if ps aux | grep -v 'grep' | grep 'mysql' > /dev/null 2>&1 && type mysql > /dev/null 2>&1; then
+if ps aux | grep -v 'grep' | grep 'mysql' &> /dev/null && type mysql &> /dev/null; then
   echo "  + MySQL found."
 else
   echo "  x Maybe you didn't install MySQL or set path for it."
