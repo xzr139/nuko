@@ -52,7 +52,7 @@ gem "aws-sdk"
 gem "ransack"
 
 # Markdown
-gem "redcarpet"
+gem "qiita-markdown", github: "sachin21/qiita-markdown"
 gem 'marked-rails'
 
 # I18n
