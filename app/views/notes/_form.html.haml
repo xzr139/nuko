@@ -19,3 +19,6 @@
       .submit-new
         .form-group
           = f.submit t('common.post'), id: "submit-note", class: "btn btn-primary", ng_click: 'mergeTags()'
+
+:coffee
+  new window.Editor($("#note_content"), $("#preview"))
