@@ -14,7 +14,7 @@
       %new-tags
       = f.hidden_field :tag_list
       .content-new
-        = f.text_area :content, class: 'left form-control', ng_change: "parseMarkdown()", ng_model: "content", placeholder: t("notes.index.content")
+        = f.text_area :content, class: 'left form-control', ng_model: "content", placeholder: t("notes.index.content")
         #preview.right
       .submit-new
         .form-group
