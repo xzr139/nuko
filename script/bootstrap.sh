@@ -49,7 +49,7 @@ fi
 #
 # Check for MySQL
 #
-if ps aux | grep -v 'grep' | grep 'mysql' &> /dev/null && type mysql &> /dev/null; then
+if ps aux | grep -v 'grep' | grep -q 'mysql' && type mysql &> /dev/null; then
   echo "  + MySQL found."
 else
   echo "  x Maybe you didn't install MySQL or set path for it."
