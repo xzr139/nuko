@@ -149,26 +149,29 @@
     }
   }
 
-  .tag-list-new{
-    float: none;
-    margin-right: 70px;
+  #new-tags{
+    margin-left: -40px;
+    .tag-list-new{
+      float: none;
+      margin-right: 70px;
 
-    .tag-text-field{
-      float: left;
-    }
-    .tag-mark{
-      float: left;
-      margin-top: 5px;
-      margin-left: 10px;
-      margin-right: 10px;
-    }
-    @for $i from 0 through 5 {
-      #note_tag_list_#{$i}::-webkit-input-placeholder{
-        color: #b1b1b1;
+      .tag-text-field{
+        float: left;
       }
+      .tag-mark{
+        float: left;
+        margin-top: 5px;
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+      @for $i from 0 through 5 {
+        #note_tag_list_#{$i}::-webkit-input-placeholder{
+          color: #b1b1b1;
+        }
 
-      #note_tag_list_#{$i}:-moz-placeholder{
-        color: #b1b1b1;
+        #note_tag_list_#{$i}:-moz-placeholder{
+          color: #b1b1b1;
+        }
       }
     }
 

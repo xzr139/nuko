@@ -1,5 +1,19 @@
+%div{ ng_cloak: 'true' }
+  %span{ ng_show: "note['note[title]'].$dirty && note['note[title]'].$invalid", class: "red"}
+    %span{ ng_show: "note['note[title]'].$error.required" }= t('validation.required_title')
+
+  %br/
+
+  %span{ ng_show: "note['note[tag_list_0]'].$dirty && note['note[tag_list_0]'].$invalid", class: "red"}
+    %span{ ng_show: "note['note[tag_list_0]'].$error.required" }= t('validation.required_tag_list')
+
+  %br
+
+  %span{ ng_show: "note['note[content]'].$dirty && note['note[content]'].$invalid", class: "red"}
+    %span{ ng_show: "note['note[content]'].$error.required" }= t('validation.required_content')
+
 .note-form
-  = form_for @note do |f|
+  = form_for @note, html: { name: 'note' } do |f|
     - if @note.errors.any?
       #error_explanation
         %h2= "#{pluralize(@note.errors.size, "error")} prohibited this note from being saved:"
@@ -10,15 +24,14 @@
       %br
       .title-new
         .form-group
-          = f.text_field :title, class: "form-control", placeholder: t("notes.index.title")
+          = f.text_field :title, class: "form-control", placeholder: t("notes.index.title"), required: true, ng_model: 'title'
       %new-tags
-      = f.hidden_field :tag_list
+      = f.hidden_field :tag_list, required: true, ng_model: 'tag_list'
       .content-new
-        = f.text_area :content, class: 'left form-control', ng_model: "content", placeholder: t("notes.index.content")
+        = f.text_area :content, class: 'left form-control', ng_change: "parseMarkdown()", required: true, ng_model: "content", placeholder: t("notes.index.content")
         #preview.right
       .submit-new
         .form-group
-          = f.submit t('common.post'), id: "submit-note", class: "btn btn-primary", ng_click: 'mergeTags()'
-
+          = f.submit t('common.post'), id: "submit-note", class: "btn btn-primary", ng_click: 'mergeTags()', ng_disabled: "isNotVaild()"
 :coffee
   new window.Editor($("#note_content"), $("#preview"))

@@ -24,7 +24,10 @@ app.directive 'newTags', ->
 
     scope.mergeTags = ->
       tagName = new String
-      $("[name='tag_list']").each ->
-        tagName += "," + $(this).val()
+      $("ul#new-tags li").each ->
+        tagName += "," + $(this).find("input[type='text']").val()
       $("#note_tag_list").attr("value", tagName.slice(1))
       return
+
+    scope.isNotVaild = ->
+      scope.title is undefined or scope.content is undefined or $("[name='note[tag_list_0]'").val() is ""
