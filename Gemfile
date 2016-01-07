@@ -53,7 +53,6 @@ gem "ransack"
 
 # Markdown
 gem "qiita-markdown", github: "sachin21/qiita-markdown"
-gem 'marked-rails'
 
 # I18n
 gem "kaminari-i18n"

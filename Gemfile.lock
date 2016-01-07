@@ -231,7 +231,6 @@ GEM
     lumberjack (1.0.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
-    marked-rails (0.3.2.0)
     mem (0.1.5)
     method_source (0.8.2)
     mime-types (2.6.1)
@@ -508,7 +507,6 @@ DEPENDENCIES
   launchy
   less-rails
   letter_opener
-  marked-rails
   mysql2
   omniauth
   omniauth-facebook

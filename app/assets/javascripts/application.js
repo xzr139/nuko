@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require simplex/loader
 //= require simplex/bootswatch
-//= require marked
 //= require_directory ./angular
 //= require_tree ./angular
 //= require_tree .
