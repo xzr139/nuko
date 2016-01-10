@@ -5,6 +5,9 @@ services:
 
 build:
     steps:
+        - install-packages:
+            packages: libicu-dev cmake
+
         - bundle-install
         - rails-database-yml
 
