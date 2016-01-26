@@ -36,6 +36,14 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :api, defaults: { format: :json } do
+    resource :notes, only: :none do
+      member do
+        post 'preview'
+      end
+    end
+  end
+
   patch "/switch" => 'users#switch'
   get '*not_found' => 'application#routing_error'
   post '*not_found' => 'application#routing_error'

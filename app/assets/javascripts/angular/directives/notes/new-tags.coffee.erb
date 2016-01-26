@@ -28,7 +28,3 @@ app.directive 'newTags', ->
         tagName += "," + $(this).val()
       $("#note_tag_list").attr("value", tagName.slice(1))
       return
-
-    scope.parseMarkdown = ->
-      $("#preview").html(marked(scope.content))
-      return
