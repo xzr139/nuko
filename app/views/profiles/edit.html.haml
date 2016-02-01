@@ -1,16 +1,25 @@
-%h2.edit-profile= t("users.edit.profile")
+%h2.text-center= t("users.edit.profile")
 .row
   .col-lg-10
     .well.bs-component#users
-      = form_for current_user, url: profile_path(current_user), class: "form-horizontal", html: { multipart: true } do |f|
+      = form_for current_user, url: profile_path(current_user), class: "form-horizontal", html: { multipart: true, name: 'user' } do |f|
         %fieldset
+          .error-on-edit-profile
+            %div{ ng_cloak: 'true' }
+              %span{ ng_show: "user['user[nick_name]'].$dirty && user['user[nick_name]'].$invalid", class: "red"}
+                %span{ ng_show: "user['user[nick_name]'].$error.required" }= t('validation.required_nick_name')
+            %br
+
+            %span{ ng_show: "user['user[bio]'].$dirty && user['user[bio]'].$invalid", class: "red"}
+              %span{ ng_show: "user['user[bio]'].$error.maxlength" }= t('validation.max_length', limit: User::BIO_MAX_LENGTH.to_s)
+
           %br
           .form-group
             = f.label t("users.nick_name"), class: 'col-lg-2 control-label user'
-            = f.text_field :nick_name, class: "form-control"
+            = f.text_field :nick_name, class: "form-control", required: true, ng_model: 'nick_name'
           .form-group
             = f.label t('users.edit.bio'), class: 'col-lg-2 control-label user'
-            = f.text_area :bio, placeholder: t("users.edit.placeholder"), class: 'form-control'
+            = f.text_area :bio, placeholder: t("users.edit.placeholder"), class: 'form-control', ng_model: 'bio', ng_maxlength: User::BIO_MAX_LENGTH
           .form-group
             = f.label t('users.edit.icon'), class: 'col-lg-2 control-label user'
             = f.file_field :avatar, class: "form-control", style: "display:none"
@@ -25,4 +34,9 @@
               = f.check_box :show_company, { checked: current_user.show_company }
               = f.label :show_company, t('users.edit.show_company')
           .form-group
-            = f.submit t("users.edit.submit"), class: "btn btn-primary", id: 'submit-user'
+            = f.submit t("users.edit.submit"), class: "btn btn-primary", id: 'submit-user', ng_disabled: "nick_name === undefined"
+
+:coffee
+  $("textarea").autosize()
+  $("input[id=user_avatar]").change ->
+    $("#avatar-input").val this.value.split('\\').pop()

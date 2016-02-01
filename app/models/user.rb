@@ -48,6 +48,8 @@ class User < ActiveRecord::Base
 
   SETTING_TYPE = %w(change_language_interface change_email_address change_password)
 
+  BIO_MAX_LENGTH = 300
+
   before_save { self.email = email.downcase }
 
   has_many :notes
