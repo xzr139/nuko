@@ -41,13 +41,12 @@ describe CommentsController, type: :controller do
   end
 
   describe "PUT #update" do
-    let!(:request) { put :update, params }
+    let(:note) { create(:note) }
+    let(:comment) { create(:comment) }
+    let(:ids_hash) { { user_id: note.user.id, note_id: note.id } }
 
     context 'when type valid value' do
-      let(:comment) { create(:comment) }
-      let(:params) { { id: comment.id, comment: attributes_for(:comment) } }
-
-      before { request }
+      before { put :update, id: comment.id, comment: attributes_for(:comment).merge(ids_hash) }
 
       it 'returns redirect to' do
         expect(response).to redirect_to(Note.last)
@@ -63,13 +62,7 @@ describe CommentsController, type: :controller do
     end
 
     context 'when type invalid value' do
-      let(:comment) { create(:comment) }
-      let(:params) { { id: comment.id, comment: attributes_for(:comment) } }
-
-      before do
-        allow_any_instance_of(Comment).to receive(:update).and_return(false)
-        request
-      end
+      before { put :update, id: comment.id, comment: attributes_for(:comment).merge(ids_hash) }
 
       it 'returns redirect to url' do
         expect(response).to redirect_to(Note.last)
@@ -77,6 +70,10 @@ describe CommentsController, type: :controller do
 
       it 'returns same comment as a value' do
         expect(assigns(:comment)).to eq(comment)
+      end
+
+      it 'has erorr' do
+        expect(assigns(:comment).errors).to be_empty
       end
     end
   end
