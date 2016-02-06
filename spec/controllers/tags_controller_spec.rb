@@ -11,7 +11,7 @@ describe TagsController, type: :controller do
   describe 'PATCH #follow' do
     let(:tag) { create(:tag) }
 
-    context 'when type valid value' do
+    context 'when valid value' do
       let!(:follow_activities) { create(:follow_activities) }
 
       before { patch :follow, id: tag.id, target_id: tag.id }
@@ -24,7 +24,7 @@ describe TagsController, type: :controller do
         expect(assigns(:follow)).to eq(FollowActivity.last)
       end
 
-      it 'has no erorr' do
+      it 'has no error' do
         expect(assigns(:follow).errors).to be_empty
       end
     end
@@ -37,7 +37,7 @@ describe TagsController, type: :controller do
       end
     end
 
-    context 'when exists follow' do
+    context 'when existed in' do
       before { patch :follow, id: tag.id, target_id: tag.id }
 
       it 'has no error' do
@@ -49,7 +49,7 @@ describe TagsController, type: :controller do
       end
     end
 
-    context 'when follow at test' do
+    context 'when not existed in' do
       let(:tag) { create(:tag) }
       let(:follow_activities) { create(:follow_activities, target_id: tag.id, followed: true) }
 
@@ -58,7 +58,7 @@ describe TagsController, type: :controller do
         patch :follow, id: tag.id, target_id: tag.id
       end
 
-      it 'has been followed' do
+      it 'follows a user' do
         expect(assigns[:follow].followed).to eq(false)
       end
     end

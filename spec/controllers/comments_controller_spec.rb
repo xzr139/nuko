@@ -6,14 +6,14 @@ describe CommentsController, type: :controller do
     let(:ids_hash) { { user_id: note.user.id, note_id: note.id } }
 
     context "when creation is succeeded" do
-      it "has been incremented Comment" do
+      it "increments Comment" do
         expect { post :create, comment: attributes_for(:comment).merge(ids_hash) }.to change {
           Comment.count
         }.from(0).to(1)
       end
     end
 
-    context "when creation is failed" do
+    context "when not succeeded in" do
       before do
         post :create, comment: attributes_for(:note)
           .update(content: 'content' * 300)
@@ -33,7 +33,7 @@ describe CommentsController, type: :controller do
   context "when delete comment" do
     let!(:comment) { create(:comment) }
 
-    it "has been created" do
+    it "deletes a comment" do
       expect { delete :destroy, id: comment.id }.to change{
         Comment.count
       }.from(1).to(0)
@@ -56,7 +56,7 @@ describe CommentsController, type: :controller do
         expect(assigns(:comment)).to eq(comment)
       end
 
-      it 'has no erorr' do
+      it 'has no error' do
         expect(assigns(:comment).errors).to be_empty
       end
     end
@@ -72,7 +72,7 @@ describe CommentsController, type: :controller do
         expect(assigns(:comment)).to eq(comment)
       end
 
-      it 'has erorr' do
+      it 'has error' do
         expect(assigns(:comment).errors).to be_empty
       end
     end
@@ -82,7 +82,7 @@ describe CommentsController, type: :controller do
     let(:user) { create(:user) }
     let(:comment) { create(:comment) }
 
-    it 'has been incremented Activity' do
+    it 'increments Activity' do
       expect { post :create, comment: comment.attributes }.to change {
         Activity.count
       }.from(0).to(1)

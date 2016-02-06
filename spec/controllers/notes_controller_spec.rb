@@ -95,7 +95,7 @@ describe NotesController, type: :controller do
         expect(response.status).to eq(200)
       end
 
-      it 'returns rendered template' do
+      it 'renders edit template' do
         expect(response).to render_template('edit')
       end
 
@@ -103,7 +103,7 @@ describe NotesController, type: :controller do
         expect(assigns(:note)).to eq(note)
       end
 
-      it 'returns error' do
+      it 'has error' do
         expect(assigns(:note).errors).not_to be_empty
       end
     end

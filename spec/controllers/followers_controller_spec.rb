@@ -4,12 +4,12 @@ describe FollowersController, type: :controller do
   describe 'PATCH #update' do
     let(:user) { create(:user) }
 
-    context 'when type valid value' do
+    context 'when invalid value' do
       let!(:follow_activities) { create(:follow_activities) }
 
       before { patch :update, user_id: user.id }
 
-      it 'has no erorr' do
+      it 'has no error' do
         expect(response.body).to be_blank
       end
 
@@ -34,7 +34,7 @@ describe FollowersController, type: :controller do
       let(:user) { create(:user) }
       before { patch :update, user_id: user.id }
 
-      it 'has no erorr' do
+      it 'has no error' do
         expect(response.body).to be_blank
       end
 
@@ -52,7 +52,7 @@ describe FollowersController, type: :controller do
         patch :update, user_id: User.last.id
       end
 
-      it 'has been updated @follow' do
+      it 'updates @follow' do
         expect(assigns[:follow].followed).to eq(false)
       end
     end
@@ -61,7 +61,7 @@ describe FollowersController, type: :controller do
   describe "#create_activity" do
     before { create_list(:user, 2) }
 
-    it 'should be increment number of activity count' do
+    it 'increments number of activity count' do
       expect { patch :update, user_id: User.last.id }.to change {
         Activity.count
       }.from(0).to(1)

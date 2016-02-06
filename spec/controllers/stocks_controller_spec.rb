@@ -20,7 +20,7 @@ describe StocksController, type: :controller do
       end
     end
 
-    context 'when update test' do
+    context 'when created in' do
       let(:note) { create(:note) }
 
       it 'returns incremented stocks table' do
@@ -30,7 +30,7 @@ describe StocksController, type: :controller do
       end
     end
 
-    context 'when stock' do
+    context 'when updated in' do
       let!(:stock) { create(:stock, stocked: true) }
 
       before do
