@@ -13,12 +13,7 @@ describe TagsController, type: :controller do
 
     context 'when valid value' do
       let!(:follow_activities) { create(:follow_activities) }
-
       before { patch :follow, id: tag.id, target_id: tag.id }
-
-      it 'has no error' do
-        expect(response.body).to be_blank
-      end
 
       it 'same @follow as a FollowActivity last value' do
         expect(assigns(:follow)).to eq(FollowActivity.last)
@@ -39,10 +34,6 @@ describe TagsController, type: :controller do
 
     context 'when existed in' do
       before { patch :follow, id: tag.id, target_id: tag.id }
-
-      it 'has no error' do
-        expect(response.body).to be_blank
-      end
 
       it 'has no error' do
         expect(assigns(:follow).errors).to be_empty

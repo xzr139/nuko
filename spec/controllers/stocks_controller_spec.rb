@@ -7,10 +7,6 @@ describe StocksController, type: :controller do
 
       before { patch :update, note_id: stock.note_id }
 
-      it 'returns not empty value' do
-        expect(response.body).to be_blank
-      end
-
       it 'return same Stock.last as stock instance' do
         expect(assigns(:stock)).to eq(Stock.last)
       end

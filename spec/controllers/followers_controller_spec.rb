@@ -10,15 +10,11 @@ describe FollowersController, type: :controller do
       before { patch :update, user_id: user.id }
 
       it 'has no error' do
-        expect(response.body).to be_blank
+        expect(assigns(:follow).errors).to be_empty
       end
 
       it 'same follow as a FollowActivity last value' do
         expect(assigns(:follow)).to eq(FollowActivity.last)
-      end
-
-      it 'has no error' do
-        expect(assigns(:follow).errors).to be_empty
       end
     end
 
@@ -33,10 +29,6 @@ describe FollowersController, type: :controller do
     context 'when exists the follower' do
       let(:user) { create(:user) }
       before { patch :update, user_id: user.id }
-
-      it 'has no error' do
-        expect(response.body).to be_blank
-      end
 
       it 'has no error' do
         expect(assigns(:follow).errors).to be_empty
