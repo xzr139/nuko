@@ -6,7 +6,7 @@ describe Api::NotesController, type: :controller do
     before { get :preview, markdown: "# hoge" }
 
     it 'returns status with 200' do
-      expect(response.status).to eq(200)
+      expect(response).to have_http_status 200
     end
 
     it 'returns parsed html from markdown' do

@@ -8,8 +8,8 @@ describe SearchesController, type: :controller do
       get :index, content: 'hoge'
     end
 
-    it 'returns 200' do
-      expect(response).to be_success
+    it 'returns status with 200' do
+      expect(response).to have_http_status 200
     end
 
     it 'returns selected query only note' do

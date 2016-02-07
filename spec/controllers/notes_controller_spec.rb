@@ -92,7 +92,7 @@ describe NotesController, type: :controller do
       before { request }
 
       it 'returns status with 200' do
-        expect(response.status).to eq(200)
+        expect(response).to have_http_status 200
       end
 
       it 'renders edit template' do

@@ -5,8 +5,8 @@ describe UsersController, type: :controller do
     let(:user) { create(:user) }
     before { get :edit, id: user.id }
 
-    it "should be success" do
-      expect(response.status).to eq(200)
+    it "returns status with 200" do
+      expect(response).to have_http_status 200
     end
   end
 end
