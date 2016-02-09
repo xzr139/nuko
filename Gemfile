@@ -19,6 +19,7 @@ gem "twitter-bootswatch-rails", "~> 3.2.0.0" # 3.3.2.0 ver has a problem
 gem "font-awesome-rails"
 gem "rails-timeago"
 gem "angular_rails_csrf"
+gem "bower-rails"
 
 # Views
 gem "kaminari"
