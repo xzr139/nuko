@@ -60,3 +60,7 @@ rails_best_practices_output.html
 .test_queue_stats
 
 .env
+
+/vendor/assets/bower_components
+*.bowerrc
+bower.json
