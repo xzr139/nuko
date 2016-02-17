@@ -1,11 +1,6 @@
-app = angular.module('kachime', ['ngResource'])
+app = angular.module('kachime', ['ngResource']);
 
-// --Usage--
-// app/assets/javascripts/sample.js
-// app.controller 'SampleCtrl', ['$scope', ($scope) ->
-//   $scope.hello = 'HelloWorld'
-// ]
-//
-// app/views/sample/sample.html.haml
-// .block{ ng_controller: "SampleCtrl" }
-//   {{hello}}
+app.config(['$httpProvider', function($httpProvider) {
+  var csrfToken = $('meta[name=csrf-token]').attr('content');
+  $httpProvider.defaults.headers.common["X-CSRF-Token"] = csrfToken;
+}]);

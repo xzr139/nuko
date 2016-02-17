@@ -10,10 +10,19 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+//= require jquery2
 //= require jquery_ujs
+//= require jquery-ui
+//= require jquery-timeago
+//= require jquery-autosize
+
+//= require angular
+//= require angular-resource
+
 //= require simplex/loader
 //= require simplex/bootswatch
+
 //= require_directory ./angular
+
 //= require_tree ./angular
 //= require_tree .

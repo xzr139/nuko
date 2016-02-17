@@ -61,8 +61,6 @@ GEM
     acts-as-taggable-on (3.5.0)
       activerecord (>= 3.2, < 5)
     addressable (2.3.8)
-    angular_rails_csrf (1.0.4)
-      rails (>= 3, < 5)
     annotate (2.6.10)
       activerecord (>= 3.2, <= 4.3)
       rake (~> 10.4)
@@ -483,7 +481,6 @@ PLATFORMS
 DEPENDENCIES
   active_decorator
   acts-as-taggable-on
-  angular_rails_csrf
   annotate
   awesome_print
   aws-sdk

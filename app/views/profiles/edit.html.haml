@@ -37,6 +37,5 @@
             = f.submit t("users.edit.submit"), class: "btn btn-primary", id: 'submit-user', ng_disabled: "nick_name === undefined"
 
 :coffee
-  $("textarea").autosize()
   $("input[id=user_avatar]").change ->
     $("#avatar-input").val this.value.split('\\').pop()

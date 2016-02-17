@@ -1,0 +1,6 @@
+asset 'jquery-ui'
+asset 'jquery-autosize'
+asset 'jquery-timeago'
+asset 'angular'
+asset 'angular-resource'
+asset 'fontawesome'
