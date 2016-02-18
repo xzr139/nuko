@@ -20,15 +20,17 @@
 require 'rails_helper'
 
 describe Note, type: :model do
-  let(:note) { create(:note) }
   let(:user) { User.last }
+  let(:note) { create(:note) }
+  subject { note.stocked_by?(user) }
 
-  it "returns false, because none stock" do
-    expect(note.stocked_by?(user)).to eq(false)
+  context 'when stocks is not exists' do
+    it { is_expected.to eq false }
   end
 
-  it "returns true, because exist stock" do
-    note.user.stocks.build(note_id: note.id, stocked: true).save
-    expect(note.stocked_by?(user)).to eq(true)
+  context 'when stocks is exists' do
+    before { create(:stock, note: note, user: note.user, stocked: true) }
+
+    it { is_expected.to eq true }
   end
 end
