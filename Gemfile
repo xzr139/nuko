@@ -81,6 +81,9 @@ group :development do
   gem 'pry-byebug', '1.3.3'
   gem "pry-stack_explorer"
   gem "pry-remote"
+
+  # Support all development environments you are using
+  gem 'dotenv'
 end
 
 group :test do
