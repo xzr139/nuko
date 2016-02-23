@@ -21,9 +21,15 @@ build:
         - script:
             name: Set up db
             code: |
-                RAILS_ENV='test' bundle exec rake db:create
-                RAILS_ENV='test' bundle exec rake db:schema:load
+                RAILS_ENV="test" bundle exec rake db:create
+                RAILS_ENV="test" bundle exec rake db:schema:load
 
+        - script:
+            name: Compile assets
+            code: |
+                RAILS_ENV="test" sudo npm -g install bower
+                RAILS_ENV="test" bundle exec rake bower:install
+                RAILS_ENV="test" bundle exec rake assets:precompile
         - script:
             name: Run RSpec
             code: bin/test-queue spec
