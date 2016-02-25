@@ -28,10 +28,6 @@ build:
             name: Run RSpec
             code: bin/test-queue spec
 
-        - script:
-            name: Run Rubocop
-            code: bundle exec rubocop
-
     after-steps:
         - wantedly/pretty-slack-notify:
             webhook_url: $SLACK_WEBHOOK_URL
